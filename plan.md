@@ -46,3 +46,27 @@
   - Regional language localization polish across Hindi, Bengali, and English.
 - Files added/refined: src/components/krishi/BriefView.tsx, src/components/krishi/CropStepper.tsx, src/components/medi/ExtractionReview.tsx, src/lib/voice/useVoiceInput.ts, src/app/[locale]/dashboard/page.tsx, src/components/shared/OfflineBanner.tsx, src/app/[locale]/layout.tsx, public/manifest.webmanifest.
 - Verification: 64/64 tests passing across 12 test suites, 0 lint errors, 0 type errors, Next.js production build verified.
+
+
+### Phase 6 - 2026-09-30 - Suraksha Check (Scam & Phishing Defense)
+- Completed: Full production-grade cyber fraud detection module for rural citizens.
+  - Pattern engine detecting rogue `.apk` downloads, non-`.gov.in` lookalike phishing domains, advance deposit demands, false urgency threats, and OTP theft.
+  - Decision engine synthesizing risk score (0-100%), plain-language verdicts (Danger, Caution, Safe), natural TTS speech summary, and verified redressal routes (Chakshu on Sanchar Saathi + 1930 Cybercrime Helpline).
+  - SerpApi integration using `google_play` (NIC developer check), `google` (scheme fee rules), `google_news` (police alerts), and `google` (Chakshu reporting).
+  - Safety scoping in `src/lib/llm/safety.ts` with `allowScamContext: true` allowing vetted advisory terminology ("matches patterns reported as fraud").
+  - IndexedDB persistence (`gramraksha-suraksha-cases`) and integration into Dashboard with filter pills and card layout.
+- Files added/refined: src/lib/suraksha/*, src/components/suraksha/*, src/app/[locale]/suraksha/page.tsx, fixtures/recorded/suraksha-pmkisan.json, tests/suraksha/suraksha.test.ts.
+- Verification: 108/108 tests passing, 0 lint errors, Next.js Turbopack build verified.
+
+
+### Phase 7 - 2026-09-30 - Fasal Bima 72-Hour Kit (PMFBY Statutory Intimation)
+- Completed: Real-time 72-hour crop loss intimation toolkit for PMFBY-enrolled farmers.
+  - Live ticking countdown timer with hours, minutes, and seconds calculating remaining window from incident timestamp.
+  - Color-coded urgency levels: Safe (>48h left, emerald), Warning (24-48h left, amber), Critical (<24h left, red pulsing badge), and Expired (>72h passed, SDRF appeal guidance).
+  - Local-only damage photo evidence log storing timestamped on-field photos in IndexedDB with 100% on-device privacy guarantee (no cloud uploads, no PII).
+  - Big tactile quick-dial buttons: Dial 14447 (National PMFBY Helpline), Dial 1800-180-1551 (KCC), Dial Empanelled Insurer, Open Crop Insurance App, WhatsApp emergency share.
+  - Formal statutory claim intimation letter generator under PMFBY Revised Operational Guidelines Clause 15.3 in English, Hindi, and Bengali with 1-click Print/PDF, Copy, and WhatsApp export.
+  - SerpApi integration querying official PMFBY insurer cluster allocation, statutory 72-hour intimation guidelines, and District Agriculture Office Google Maps contact.
+  - IndexedDB persistence (`gramraksha-fasal-cases`) and full Dashboard integration with 4-pillar card grid and Fasal filter pill.
+- Files added/refined: src/lib/fasal/*, src/components/fasal/*, src/app/[locale]/fasal/page.tsx, src/lib/storage/fasal-cases.ts, fixtures/recorded/fasal-pmfby.json, tests/fasal/fasal.test.ts, messages/*.json, src/app/[locale]/dashboard/page.tsx, src/app/[locale]/page.tsx.
+- Verification: 119/119 tests passing across 15 test suites, 0 lint errors, 0 type errors, Next.js Turbopack production build verified.
