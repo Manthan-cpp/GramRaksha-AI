@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { AyushmanCashlessDecisionSchema, type AyushmanCashlessDecision } from "@/lib/medi/cashless-types";
+export { AyushmanCashlessDecisionSchema, type AyushmanCashlessDecision };
 
 export const EvidenceMapsSchema = z.object({
   name: z.string(),
@@ -74,9 +76,15 @@ export const CropEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
 
 export const BillEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
   module: z.literal("medi"),
+  subModule: z.enum(["bill_audit", "cashless_shield"]).default("bill_audit").optional(),
   hospital: z.string().trim().min(1).max(120),
   city: z.string().trim().min(1).max(100),
-  procedure: z.string().trim().min(1).max(120)
+  state: z.string().trim().max(100).optional(),
+  procedure: z.string().trim().min(1).max(120),
+  depositDemanded: z.number().nonnegative().optional(),
+  patientName: z.string().trim().max(100).optional(),
+  pmjayId: z.string().trim().max(100).optional(),
+  demandedReason: z.string().trim().max(300).optional()
 }).strict();
 
 export const SurakshaEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
@@ -302,7 +310,8 @@ export const EvidenceEventSchema = z.discriminatedUnion("type", [
     warnings: z.array(z.string()),
     cropBrief: CropBriefSchema.optional(),
     mediDecision: z.lazy(() => MediDecisionSchema).optional(),
-    surakshaDecision: z.lazy(() => SurakshaDecisionSchema).optional()
+    surakshaDecision: z.lazy(() => SurakshaDecisionSchema).optional(),
+    cashlessDecision: z.lazy(() => AyushmanCashlessDecisionSchema).optional()
   }),
   EvidenceEventBaseSchema.extend({
     type: z.literal("error"),
@@ -465,7 +474,8 @@ export const EvidenceRunResultSchema = z.object({
   cropBrief: CropBriefSchema.optional(),
   mediDecision: MediDecisionSchema.optional(),
   surakshaDecision: SurakshaDecisionSchema.optional(),
-  fasalDecision: FasalDecisionSchema.optional()
+  fasalDecision: FasalDecisionSchema.optional(),
+  cashlessDecision: AyushmanCashlessDecisionSchema.optional()
 });
 export type EvidenceRunResult = z.infer<typeof EvidenceRunResultSchema>;
 

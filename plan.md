@@ -70,3 +70,16 @@
   - IndexedDB persistence (`gramraksha-fasal-cases`) and full Dashboard integration with 4-pillar card grid and Fasal filter pill.
 - Files added/refined: src/lib/fasal/*, src/components/fasal/*, src/app/[locale]/fasal/page.tsx, src/lib/storage/fasal-cases.ts, fixtures/recorded/fasal-pmfby.json, tests/fasal/fasal.test.ts, messages/*.json, src/app/[locale]/dashboard/page.tsx, src/app/[locale]/page.tsx.
 - Verification: 119/119 tests passing across 15 test suites, 0 lint errors, 0 type errors, Next.js Turbopack production build verified.
+
+
+### Phase 8 - 2026-10-01 - Ayushman Cashless Shield (Extends MediShield)
+- Completed: Point-of-admission deposit extortion protection for Ayushman Bharat PM-JAY & State Golden Card holders.
+  - Empanelled hospital verification via SerpApi against official PM-JAY / State Health Agency registries with strict legal guardrails (neutral, non-defamatory phrasing: "Hospital appears on empanelment records under PM-JAY. Under Clause 8.2, packages are strictly cashless with zero advance deposit.").
+  - 4-Tier statutory escalation ladder with actionable contact numbers and legal basis (1. Hospital Arogya Mitra Desk & Medical Superintendent -> 2. District Grievance Redressal Committee / CMO -> 3. State Health Agency Grievance Cell -> 4. National Health Authority 14555 & CGRMS portal).
+  - Rapid Action Helpline Bar: 1-tap call to National 14555, State SHA toll-free (SACHIS 1800-1800-4444, BSSS 104, MJPJAY 155388, etc.), and PMAM on-site desk guidance.
+  - Multilingual formal legal representation notice to Medical Superintendent with carbon copy (CC) to DGRC and SHA in English, Hindi, and Bengali, with live modal preview, copy, print-to-PDF, and WhatsApp dispatch.
+  - Natural Web Speech API audio readout (TTS) explaining patient rights in Hindi, Bengali, or English.
+  - Integrated into MediShield (`/medi`) with a top dual-mode switcher (`🛡️ Ayushman Cashless Shield` vs `📋 Hospital Bill Audit`) and URL parameter support (`?mode=cashless`).
+  - IndexedDB storage integration in `SavedMediCase` with `subModule: "cashless_shield"`, rendered in Dashboard with specialized badge, deposit amount, and notice viewer.
+- Files added/refined: src/lib/medi/cashless-*, src/components/medi/cashless/*, src/app/[locale]/medi/page.tsx, fixtures/recorded/medi-cashless.json, tests/medi/cashless.test.ts, messages/*.json, src/app/[locale]/dashboard/page.tsx, src/app/[locale]/page.tsx.
+- Verification: 129/129 tests passing across 16 test suites, 0 lint errors, 0 type errors, Next.js Turbopack production build verified.

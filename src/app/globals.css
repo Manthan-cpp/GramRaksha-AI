@@ -12,6 +12,10 @@
   
   --color-nil: var(--color-nil);
   --color-terracotta: var(--color-terracotta);
+  --color-earth: var(--color-earth);
+  --color-earth-dark: var(--color-earth-dark);
+  --color-crimson: var(--color-crimson);
+  --color-gold: var(--color-gold);
   
   --color-status-ok: var(--color-status-ok);
   --color-status-watch: var(--color-status-watch);
@@ -36,6 +40,10 @@
     
     --color-nil: #2C3E7B;
     --color-terracotta: #C4552D;
+    --color-earth: #2C3E7B;
+    --color-earth-dark: #1E2B58;
+    --color-crimson: #B3341F;
+    --color-gold: #E0A526;
     
     --color-status-ok: #3E7D4F;
     --color-status-watch: #B7791F;

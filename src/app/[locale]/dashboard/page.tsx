@@ -6,6 +6,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { BriefView } from "@/components/krishi/BriefView";
 import { BillResults } from "@/components/medi/BillResults";
 import { LetterEditor } from "@/components/medi/LetterEditor";
+import { CashlessResults } from "@/components/medi/cashless/CashlessResults";
+import { CashlessLetterModal } from "@/components/medi/cashless/CashlessLetterModal";
 import { listCropCases, deleteCropCase, deleteAllCropCases, type SavedCropCase } from "@/lib/storage/crop-cases";
 import { listMediCases, deleteMediCase, deleteAllMediCases, type SavedMediCase } from "@/lib/storage/medi-cases";
 import {
@@ -63,6 +65,7 @@ export default function DashboardPage() {
   const [openedSuraksha, setOpenedSuraksha] = useState<SavedSurakshaCase | null>(null);
   const [openedFasal, setOpenedFasal] = useState<SavedFasalCase | null>(null);
   const [openedMediLetter, setOpenedMediLetter] = useState(false);
+  const [openedCashlessLetter, setOpenedCashlessLetter] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -242,6 +245,36 @@ export default function DashboardPage() {
       );
     }
 
+    if (openedMedi.subModule === "cashless_shield" && openedMedi.cashlessDecision) {
+      return (
+        <div className="min-h-screen bg-paper pt-8 px-4">
+          <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
+            <Button variant="quiet" onClick={() => setOpenedMedi(null)} className="text-sm font-medium">
+              ← {locale === "hi" ? "डैशबोर्ड रिकॉर्ड पर वापस जाएं" : locale === "bn" ? "ড্যাশবোর্ডে ফিরে যান" : "Back to Household Cases"}
+            </Button>
+            <span className="text-xs text-ink-soft bg-paper-2 border border-ink-soft/20 px-3 py-1 rounded-full font-mono">
+              {formatRelativeTime(openedMedi.createdAt, now, locale)}
+            </span>
+          </div>
+          <CashlessResults
+            decision={openedMedi.cashlessDecision}
+            evidence={[]}
+            onOpenLetter={() => setOpenedCashlessLetter(true)}
+            onStartOver={() => setOpenedMedi(null)}
+            onSave={() => {}}
+            saved
+            locale={locale as "en" | "hi" | "bn"}
+          />
+          <CashlessLetterModal
+            isOpen={openedCashlessLetter}
+            onClose={() => setOpenedCashlessLetter(false)}
+            decision={openedMedi.cashlessDecision}
+            initialLocale={locale as "en" | "hi" | "bn"}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-paper pt-8 px-4">
         <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
@@ -263,7 +296,23 @@ export default function DashboardPage() {
             confidence: {},
             confirmed: true
           }}
-          decision={openedMedi.decision}
+          decision={openedMedi.decision || {
+            headline: "",
+            summary: "",
+            speechSummary: "",
+            flags: [],
+            actions: [],
+            labels: {
+              conclusion: "",
+              flags: "",
+              sources: "",
+              grievance: "",
+              letter: "",
+              speechButton: "",
+              speechStop: "",
+              serpApiNote: ""
+            }
+          }}
           evidence={[]}
           onOpenLetter={() => setOpenedMediLetter(true)}
           saved
@@ -535,7 +584,7 @@ export default function DashboardPage() {
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
                             <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-nil/15 text-nil uppercase">
-                              {item.procedure}
+                              {item.subModule === "cashless_shield" ? "🛡️ Ayushman Cashless" : item.procedure}
                             </span>
                             <span className="text-xs text-ink-soft font-mono">
                               {formatRelativeTime(item.createdAt, now, locale)}
@@ -548,12 +597,20 @@ export default function DashboardPage() {
                             {item.hospital}, {item.city}
                           </p>
                           <p className="text-xs text-ink-soft">
-                            Total Billed: <strong className="text-ink font-mono font-semibold">₹{item.total.toLocaleString("en-IN")}</strong> · {item.items.length} line items analyzed
+                            {item.subModule === "cashless_shield" ? (
+                              <>
+                                Advance Demanded: <strong className="text-terracotta font-mono font-semibold">₹{(item.depositDemanded || 0).toLocaleString("en-IN")}</strong> · Procedure: {item.procedure}
+                              </>
+                            ) : (
+                              <>
+                                Total Billed: <strong className="text-ink font-mono font-semibold">₹{item.total.toLocaleString("en-IN")}</strong> · {item.items.length} line items analyzed
+                              </>
+                            )}
                           </p>
                         </div>
                         <div className="flex gap-2">
                           <Button variant="secondary" size="sm" onClick={() => setOpenedMedi(item)} className="border-nil/40 text-nil hover:bg-nil/10">
-                            View Audit
+                            {item.subModule === "cashless_shield" ? "View Notice & Ladder" : "View Audit"}
                           </Button>
                           <Button variant="quiet" size="sm" disabled={busy} onClick={() => removeMedi(item.id)} className="text-xs text-ink-soft hover:text-terracotta">
                             <Trash2 className="w-3.5 h-3.5" />

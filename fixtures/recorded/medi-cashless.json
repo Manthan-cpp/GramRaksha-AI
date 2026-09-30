@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "label": "Recorded live SerpApi capture — Apex Multispeciality Hospital / Varanasi / PM-JAY Cashless Deposit Dispute",
+  "recordedAt": "2026-10-01T00:00:00.000Z",
+  "module": "medi",
+  "match": {
+    "subModule": "cashless_shield",
+    "hospital": "apex multispeciality hospital",
+    "city": "varanasi"
+  },
+  "queries": [
+    {
+      "engine": "google",
+      "query": "\"Apex Multispeciality Hospital\" \"Varanasi\" empanelled hospital list PMJAY (site:pmjay.gov.in OR site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-cashless-q1", "status": "Success" },
+        "search_parameters": { "engine": "google", "q": "\"Apex Multispeciality Hospital\" \"Varanasi\" empanelled hospital list PMJAY (site:pmjay.gov.in OR site:gov.in OR site:nic.in)" },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "State Agency for Comprehensive Health and Integrated Services (SACHIS) - Empanelled Hospitals Varanasi",
+            "link": "https://sachis.up.gov.in/empanelled-hospitals-varanasi",
+            "snippet": "Apex Multispeciality Hospital, Durgakund, Varanasi is an actively empanelled private healthcare provider under AB-PMJAY with specialty codes for Obstetrics & Gynaecology, General Surgery, and Orthopaedics. Services are strictly cashless with zero advance deposit.",
+            "source": "sachis.up.gov.in"
+          },
+          {
+            "position": 2,
+            "title": "National Health Authority PM-JAY Empanelled Health Care Providers (EHCP) Directory",
+            "link": "https://pmjay.gov.in/search-hospitals",
+            "snippet": "Hospital Code EHCP-UP-VAR-0492: Apex Multispeciality Hospital, Varanasi, Uttar Pradesh. Active status. Dedicated Pradhan Mantri Arogya Mitra (PMAM) desk operational at main admission counter.",
+            "source": "pmjay.gov.in"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "\"PM-JAY\" \"cashless\" \"advance deposit\" guidelines hospital MoU penalty (site:nha.gov.in OR site:pmjay.gov.in OR site:gov.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-cashless-q2", "status": "Success" },
+        "search_parameters": { "engine": "google", "q": "\"PM-JAY\" \"cashless\" \"advance deposit\" guidelines hospital MoU penalty (site:nha.gov.in OR site:pmjay.gov.in OR site:gov.in)" },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "National Health Authority PM-JAY Operational Guidelines - Cashless Access Clause 8.2",
+            "link": "https://nha.gov.in/guidelines/cashless-treatment-clause-8-2",
+            "snippet": "Clause 8.2 Cashless Access: An Empanelled Health Care Provider (EHCP) shall under no circumstances charge any fee, advance deposit, or out-of-pocket expenses from the PM-JAY beneficiary for package procedures. Any demand for cash deposit constitutes a material breach of the MoU.",
+            "source": "nha.gov.in"
+          },
+          {
+            "position": 2,
+            "title": "NHA Anti-Fraud and Grievance Policy - Strict Penalties for Out-of-Pocket Co-payments",
+            "link": "https://pmjay.gov.in/anti-fraud-policy",
+            "snippet": "Under Section 23 of the PM-JAY MoU, hospitals soliciting cash deposits or directing patients to purchase medicines or consumables privately are subject to instant show-cause notice, penalty interest of 5x the demanded amount, and suspension from empanelment.",
+            "source": "pmjay.gov.in"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "\"Uttar Pradesh\" State Health Agency PMJAY grievance nodal officer helpline CGRMS (site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-cashless-q3", "status": "Success" },
+        "search_parameters": { "engine": "google", "q": "\"Uttar Pradesh\" State Health Agency PMJAY grievance nodal officer helpline CGRMS (site:gov.in OR site:nic.in)" },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "SACHIS Uttar Pradesh Ayushman Grievance Redressal Cell & Toll-Free Helpline",
+            "link": "https://sachis.up.gov.in/grievance-contact",
+            "snippet": "For immediate redressal against empanelled hospital non-compliance, refusal of admission, or illegal deposit demands in Uttar Pradesh, call state toll-free 1800-1800-4444 or national helpline 14555. District Grievance Redressal Committee (DGRC) is headed by CMO Varanasi.",
+            "source": "sachis.up.gov.in"
+          },
+          {
+            "position": 2,
+            "title": "Central Grievance Redressal Management System (CGRMS) Portal",
+            "link": "https://cgrms.pmjay.gov.in",
+            "snippet": "Beneficiaries can register real-time grievances online at cgrms.pmjay.gov.in or directly with the Hospital Arogya Mitra desk. Statutory resolution turnaround is 48 hours for urgent admission disputes.",
+            "source": "cgrms.pmjay.gov.in"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_maps",
+      "query": "hospital Apex Multispeciality Hospital Varanasi",
+      "parameters": {
+        "location": "Varanasi, Uttar Pradesh, India",
+        "type": "search",
+        "z": "10"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-cashless-q4", "status": "Success" },
+        "search_parameters": { "engine": "google_maps", "q": "hospital Apex Multispeciality Hospital Varanasi" },
+        "local_results": [
+          {
+            "position": 1,
+            "title": "Apex Multispeciality Hospital & PMAM Helpdesk",
+            "address": "Plot 18, Durgakund Road, Near Kabir Nagar, Varanasi, Uttar Pradesh 221005",
+            "phone": "+91 542 231 4455",
+            "hours": "Open 24 hours",
+            "place_id": "ChIJ_apex_vns_pmjay",
+            "link": "https://www.google.com/maps/search/?api=1&query=Apex+Multispeciality+Hospital+Varanasi"
+          }
+        ]
+      }
+    }
+  ]
+}

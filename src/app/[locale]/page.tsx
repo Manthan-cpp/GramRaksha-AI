@@ -45,7 +45,7 @@ export default function Home() {
             <Link href="/medi" className="w-full">
               <Button variant="secondary" size="big" className="w-full group text-nil border-nil">
                 <FileText className="w-5 h-5 mr-2 text-nil/70 group-hover:text-nil transition-colors" />
-                Check a Hospital Bill
+                MediShield & Ayushman
               </Button>
             </Link>
 

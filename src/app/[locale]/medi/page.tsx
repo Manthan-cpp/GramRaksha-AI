@@ -1,21 +1,35 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useParams, useSearchParams } from "next/navigation";
 import { PrivacyNotice } from "@/components/medi/PrivacyNotice";
 import { BillUpload } from "@/components/medi/BillUpload";
 import { RedactTool } from "@/components/medi/RedactTool";
 import { ExtractionReview } from "@/components/medi/ExtractionReview";
 import { BillResults } from "@/components/medi/BillResults";
 import { LetterEditor } from "@/components/medi/LetterEditor";
-import { Bill, type Evidence, type EvidenceEvent, type EvidenceMetrics, type MediDecision } from "@/lib/schemas";
+import { CashlessForm } from "@/components/medi/cashless/CashlessForm";
+import { CashlessResults } from "@/components/medi/cashless/CashlessResults";
+import { CashlessLetterModal } from "@/components/medi/cashless/CashlessLetterModal";
+import {
+  Bill,
+  type Evidence,
+  type EvidenceEvent,
+  type EvidenceMetrics,
+  type MediDecision,
+  type AyushmanCashlessDecision
+} from "@/lib/schemas";
+import type { AyushmanCashlessRequest } from "@/lib/medi/cashless-types";
 import { EvidenceTrail, type TrailStatus } from "@/components/krishi/EvidenceTrail";
 import { streamEvidenceRun } from "@/lib/evidence/client";
 import { addClientEvidenceMetrics, getClientEvidenceMode } from "@/lib/evidence/client-state";
 import { buildMediDecision } from "@/lib/medi/decision";
+import { buildAyushmanCashlessDecision } from "@/lib/medi/cashless-decision";
 import { saveMediCase } from "@/lib/storage/medi-cases";
 
 type FlowStep = "privacy" | "upload" | "redact" | "review" | "analyzing" | "results" | "letter";
+type CashlessStep = "form" | "analyzing" | "results";
+type MediTab = "cashless" | "audit";
 
 const MEDI_SESSION_KEY = "gramraksha_medi_active_session";
 
@@ -78,12 +92,16 @@ function getSavedMediSession(locale: "en" | "hi" | "bn"): {
   return { step: "privacy", bill: null, evidence: [], decision: null, mode: "live", warnings: [] };
 }
 
-export default function MediShieldPage() {
+function MediShieldContent() {
   const params = useParams<{ locale?: string }>();
+  const searchParams = useSearchParams();
   const locale: "en" | "hi" | "bn" = params.locale === "hi" || params.locale === "bn" ? params.locale : "en";
 
-  const [initialSession] = useState(() => getSavedMediSession(locale));
+  const initialTab: MediTab = searchParams.get("tab") === "audit" || searchParams.get("mode") === "audit" ? "audit" : "cashless";
+  const [activeTab, setActiveTab] = useState<MediTab>(initialTab);
 
+  // --- Bill Audit State ---
+  const [initialSession] = useState(() => getSavedMediSession(locale));
   const [step, setStep] = useState<FlowStep>(initialSession.step);
   const [rawFile, setRawFile] = useState<File | null>(null);
   const [redactedUrl, setRedactedUrl] = useState<string | null>(null);
@@ -98,7 +116,18 @@ export default function MediShieldPage() {
   const [warnings, setWarnings] = useState<string[]>(initialSession.warnings);
   const [isSaved, setIsSaved] = useState(false);
 
-  // Dynamically derive active decision when bill, evidence, or locale changes
+  // --- Ayushman Cashless Shield State ---
+  const [cashlessStep, setCashlessStep] = useState<CashlessStep>("form");
+  const [cashlessRequest, setCashlessRequest] = useState<AyushmanCashlessRequest | null>(null);
+  const [cashlessDecision, setCashlessDecision] = useState<AyushmanCashlessDecision | null>(null);
+  const [cashlessEvidence, setCashlessEvidence] = useState<Evidence[]>([]);
+  const [cashlessEvents, setCashlessEvents] = useState<EvidenceEvent[]>([]);
+  const [cashlessTrailStatus, setCashlessTrailStatus] = useState<TrailStatus>("idle");
+  const [cashlessError, setCashlessError] = useState<string>();
+  const [cashlessSaved, setCashlessSaved] = useState(false);
+  const [isLetterModalOpen, setIsLetterModalOpen] = useState(false);
+
+  // Dynamically derive active bill decision when bill, evidence, or locale changes
   const activeDecision = useMemo(() => {
     if (bill && evidence.length > 0) {
       return buildMediDecision(
@@ -120,7 +149,7 @@ export default function MediShieldPage() {
     return decision;
   }, [bill, evidence, metrics, warnings, mode, locale, decision]);
 
-  // Save session whenever bill, evidence, or step changes
+  // Save bill session whenever bill, evidence, or step changes
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (bill && evidence.length > 0 && (step === "results" || step === "letter")) {
@@ -145,6 +174,9 @@ export default function MediShieldPage() {
     }
   }, [bill, evidence, step, metrics, warnings, mode]);
 
+  // ----------------------------------------------------------------------
+  // Bill Audit Handlers
+  // ----------------------------------------------------------------------
   const handlePrivacyAccept = () => setStep("upload");
   const handleTypeManually = () => setStep("review");
 
@@ -174,6 +206,7 @@ export default function MediShieldPage() {
     void streamEvidenceRun(
       {
         module: "medi",
+        subModule: "bill_audit",
         locale,
         mode: selectedMode,
         hospital: confirmedBill.hospital,
@@ -216,7 +249,7 @@ export default function MediShieldPage() {
     });
   };
 
-  const handleStartOver = () => {
+  const handleStartOverAudit = () => {
     if (typeof window !== "undefined") {
       sessionStorage.removeItem(MEDI_SESSION_KEY);
     }
@@ -232,12 +265,13 @@ export default function MediShieldPage() {
     setIsSaved(false);
   };
 
-  const handleSaveCase = async () => {
+  const handleSaveAuditCase = async () => {
     if (!bill || !activeDecision) return;
     try {
       await saveMediCase({
         id: crypto.randomUUID(),
         module: "medi",
+        subModule: "bill_audit",
         version: 1,
         createdAt: new Date().toISOString(),
         locale,
@@ -256,74 +290,299 @@ export default function MediShieldPage() {
     }
   };
 
+  // ----------------------------------------------------------------------
+  // Ayushman Cashless Shield Handlers
+  // ----------------------------------------------------------------------
+  const handleCashlessSubmit = (req: AyushmanCashlessRequest) => {
+    const selectedMode = getClientEvidenceMode();
+    setCashlessRequest(req);
+    setMode(selectedMode);
+    setCashlessEvents([]);
+    setCashlessError(undefined);
+    setCashlessTrailStatus("running");
+    setCashlessStep("analyzing");
+    setCashlessSaved(false);
+
+    let collectedEvidence: Evidence[] = [];
+    let collectedWarnings: string[] = [];
+
+    void streamEvidenceRun(
+      {
+        module: "medi",
+        subModule: "cashless_shield",
+        locale,
+        mode: selectedMode,
+        hospital: req.hospital,
+        city: req.city,
+        state: req.state,
+        procedure: req.procedure,
+        depositDemanded: req.depositDemanded,
+        patientName: req.patientName,
+        pmjayId: req.pmjayId,
+        demandedReason: req.demandedReason
+      },
+      (event) => {
+        setCashlessEvents((current) => [...current, event]);
+
+        if (event.type === "kept") {
+          collectedEvidence.push(event.evidence);
+        } else if (event.type === "done") {
+          setCashlessTrailStatus("done");
+          collectedWarnings = event.warnings || [];
+          setWarnings(collectedWarnings);
+          addClientEvidenceMetrics(event.metrics);
+
+          if (event.evidence && event.evidence.length > 0) {
+            collectedEvidence = event.evidence;
+          }
+          setCashlessEvidence(collectedEvidence);
+
+          const computed =
+            event.cashlessDecision ||
+            buildAyushmanCashlessDecision({
+              request: req,
+              evidence: collectedEvidence,
+              metrics: event.metrics,
+              warnings: collectedWarnings,
+              locale
+            });
+
+          setCashlessDecision(computed);
+        } else if (event.type === "error") {
+          setCashlessTrailStatus("error");
+          setCashlessError(event.message);
+        }
+      }
+    ).catch((error: unknown) => {
+      setCashlessTrailStatus("error");
+      setCashlessError(error instanceof Error ? error.message : "Evidence check could not be completed.");
+    });
+  };
+
+  const handleStartOverCashless = () => {
+    setCashlessStep("form");
+    setCashlessRequest(null);
+    setCashlessDecision(null);
+    setCashlessEvidence([]);
+    setCashlessEvents([]);
+    setCashlessTrailStatus("idle");
+    setCashlessError(undefined);
+    setCashlessSaved(false);
+  };
+
+  const handleSaveCashlessCase = async () => {
+    if (!cashlessRequest || !cashlessDecision) return;
+    try {
+      await saveMediCase({
+        id: crypto.randomUUID(),
+        module: "medi",
+        subModule: "cashless_shield",
+        version: 1,
+        createdAt: new Date().toISOString(),
+        locale,
+        hospital: cashlessRequest.hospital,
+        city: cashlessRequest.city,
+        state: cashlessRequest.state,
+        procedure: cashlessRequest.procedure,
+        total: 0,
+        depositDemanded: cashlessRequest.depositDemanded,
+        patientName: cashlessRequest.patientName,
+        pmjayId: cashlessRequest.pmjayId,
+        items: [],
+        cashlessDecision,
+        mode,
+        warnings
+      });
+      setCashlessSaved(true);
+    } catch {
+      // Storage error handled
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-paper pt-10 pb-24 px-4 md:px-8">
-      {step !== "letter" && step !== "results" && (
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nil/10 text-nil font-semibold text-xs tracking-wider uppercase mb-2">
-            MediShield
-          </div>
-          <h1 className="font-display text-3xl md:text-4xl text-ink mb-1">Hospital Bill Protection</h1>
-          <p className="text-ink-soft text-sm md:text-base max-w-lg mx-auto">
-            Audit hospital charges against official government package benchmarks, patient charter rights, and grievance helplines.
-          </p>
+    <div className="min-h-screen bg-paper pt-8 pb-24 px-4 md:px-8">
+      {/* Top Header & Dual Mode Switcher */}
+      <div className="text-center mb-8 max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nil/10 text-nil font-semibold text-xs tracking-wider uppercase mb-2">
+          MediShield Healthcare Defense
         </div>
-      )}
+        <h1 className="font-display text-3xl md:text-4xl text-ink font-bold mb-2">
+          Hospital & Ayushman Protection
+        </h1>
+        <p className="text-ink-soft text-sm md:text-base mb-6">
+          Defending patients from illegal advance cash deposits, unapproved consumables, and inflated billing.
+        </p>
 
-      {step === "privacy" && (
-        <PrivacyNotice onAccept={handlePrivacyAccept} onTypeManually={handleTypeManually} />
-      )}
-
-      {step === "upload" && (
-        <BillUpload onFileSelect={handleFileSelect} onTypeManually={handleTypeManually} />
-      )}
-
-      {step === "redact" && rawFile && (
-        <RedactTool file={rawFile} onComplete={handleRedactComplete} />
-      )}
-
-      {step === "review" && (
-        <ExtractionReview
-          imageUrl={redactedUrl}
-          initialBill={bill}
-          onConfirm={handleReviewConfirm}
-          onBack={() => setStep(rawFile ? "upload" : "privacy")}
-        />
-      )}
-
-      {step === "analyzing" && (
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center mb-8">
-            <h1 className="font-display text-3xl text-ink mb-2">Searching Official Evidence with Serp API</h1>
-            <p className="text-ink-soft text-sm">
-              We query only the confirmed hospital name ({bill?.hospital}), city ({bill?.city}), and procedure ({bill?.procedure}). Zero health data is shared.
-            </p>
-          </div>
-          <EvidenceTrail
-            status={trailStatus}
-            events={events}
-            errorMessage={errorMessage}
-            mode={mode}
-            onContinue={trailStatus === "done" ? () => setStep("results") : undefined}
-          />
+        {/* Dual Tab Switcher */}
+        <div className="inline-flex rounded-2xl border-[1.5px] border-ink/20 p-1.5 bg-paper-2 shadow-xs text-xs md:text-sm font-bold">
+          <button
+            type="button"
+            onClick={() => setActiveTab("cashless")}
+            className={`px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
+              activeTab === "cashless"
+                ? "bg-nil text-paper shadow-sm"
+                : "text-ink hover:text-nil hover:bg-paper"
+            }`}
+          >
+            <span>🛡️ Ayushman Cashless Shield</span>
+            <span
+              className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded-full ${
+                activeTab === "cashless" ? "bg-paper/20 text-paper" : "bg-nil/10 text-nil"
+              } hidden md:inline`}
+            >
+              Deposit Refusal
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("audit")}
+            className={`px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
+              activeTab === "audit"
+                ? "bg-nil text-paper shadow-sm"
+                : "text-ink hover:text-nil hover:bg-paper"
+            }`}
+          >
+            <span>📋 Hospital Bill Audit</span>
+            <span
+              className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded-full ${
+                activeTab === "audit" ? "bg-paper/20 text-paper" : "bg-nil/10 text-nil"
+              } hidden md:inline`}
+            >
+              Discharge Review
+            </span>
+          </button>
         </div>
+      </div>
+
+      {/* ==================================================================== */}
+      {/* TAB 1: AYUSHMAN CASHLESS SHIELD */}
+      {/* ==================================================================== */}
+      {activeTab === "cashless" && (
+        <>
+          {cashlessStep === "form" && (
+            <CashlessForm onSubmit={handleCashlessSubmit} loading={cashlessTrailStatus === "running"} />
+          )}
+
+          {cashlessStep === "analyzing" && (
+            <div className="container mx-auto px-4 py-8 max-w-3xl">
+              <div className="text-center mb-8">
+                <h2 className="font-display text-2xl text-ink mb-2">
+                  Verifying Hospital Empanelment & PM-JAY Clause 8.2 with SerpApi
+                </h2>
+                <p className="text-ink-soft text-sm">
+                  Checking official registries for {cashlessRequest?.hospital} in {cashlessRequest?.city}, {cashlessRequest?.state}.
+                </p>
+              </div>
+              <EvidenceTrail
+                status={cashlessTrailStatus}
+                events={cashlessEvents}
+                errorMessage={cashlessError}
+                mode={mode}
+                onContinue={cashlessTrailStatus === "done" ? () => setCashlessStep("results") : undefined}
+              />
+            </div>
+          )}
+
+          {cashlessStep === "results" && cashlessDecision && (
+            <>
+              <CashlessResults
+                decision={cashlessDecision}
+                evidence={cashlessEvidence}
+                onOpenLetter={() => setIsLetterModalOpen(true)}
+                onStartOver={handleStartOverCashless}
+                onSave={handleSaveCashlessCase}
+                saved={cashlessSaved}
+                locale={locale}
+              />
+              <CashlessLetterModal
+                isOpen={isLetterModalOpen}
+                onClose={() => setIsLetterModalOpen(false)}
+                decision={cashlessDecision}
+                initialLocale={locale}
+              />
+            </>
+          )}
+        </>
       )}
 
-      {step === "results" && (
-        <BillResults
-          bill={bill}
-          decision={activeDecision}
-          evidence={evidence}
-          onOpenLetter={() => setStep("letter")}
-          onStartOver={handleStartOver}
-          onSave={handleSaveCase}
-          saved={isSaved}
-        />
-      )}
+      {/* ==================================================================== */}
+      {/* TAB 2: HOSPITAL BILL AUDIT */}
+      {/* ==================================================================== */}
+      {activeTab === "audit" && (
+        <>
+          {step === "privacy" && (
+            <PrivacyNotice onAccept={handlePrivacyAccept} onTypeManually={handleTypeManually} />
+          )}
 
-      {step === "letter" && (
-        <LetterEditor bill={bill} decision={activeDecision} onBack={() => setStep("results")} />
+          {step === "upload" && (
+            <BillUpload onFileSelect={handleFileSelect} onTypeManually={handleTypeManually} />
+          )}
+
+          {step === "redact" && rawFile && (
+            <RedactTool file={rawFile} onComplete={handleRedactComplete} />
+          )}
+
+          {step === "review" && (
+            <ExtractionReview
+              imageUrl={redactedUrl}
+              initialBill={bill}
+              onConfirm={handleReviewConfirm}
+              onBack={() => setStep(rawFile ? "upload" : "privacy")}
+            />
+          )}
+
+          {step === "analyzing" && (
+            <div className="container mx-auto px-4 py-8">
+              <div className="text-center mb-8">
+                <h1 className="font-display text-3xl text-ink mb-2">Searching Official Evidence with SerpApi</h1>
+                <p className="text-ink-soft text-sm">
+                  We query only the confirmed hospital name ({bill?.hospital}), city ({bill?.city}), and procedure ({bill?.procedure}). Zero health data is shared.
+                </p>
+              </div>
+              <EvidenceTrail
+                status={trailStatus}
+                events={events}
+                errorMessage={errorMessage}
+                mode={mode}
+                onContinue={trailStatus === "done" ? () => setStep("results") : undefined}
+              />
+            </div>
+          )}
+
+          {step === "results" && (
+            <BillResults
+              bill={bill}
+              decision={activeDecision}
+              evidence={evidence}
+              onOpenLetter={() => setStep("letter")}
+              onStartOver={handleStartOverAudit}
+              onSave={handleSaveAuditCase}
+              saved={isSaved}
+            />
+          )}
+
+          {step === "letter" && (
+            <LetterEditor bill={bill} decision={activeDecision} onBack={() => setStep("results")} />
+          )}
+        </>
       )}
     </div>
+  );
+}
+
+export default function MediShieldPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-paper flex items-center justify-center">
+          <div className="text-center">
+            <span className="w-8 h-8 border-4 border-nil border-t-transparent rounded-full animate-spin inline-block mb-3" />
+            <div className="text-ink-soft text-sm font-semibold">Loading MediShield...</div>
+          </div>
+        </div>
+      }
+    >
+      <MediShieldContent />
+    </Suspense>
   );
 }

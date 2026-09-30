@@ -36,6 +36,7 @@ function matchingValue(input: EvidenceRunRequest, key: string): string | undefin
   if (input.module === "krishi") {
     if (key === "crop" || key === "state" || key === "district" || key === "stage") return input[key].toLocaleLowerCase();
   } else if (input.module === "medi") {
+    if (key === "subModule") return input.subModule?.toLocaleLowerCase() || "bill_audit";
     if (key === "hospital" || key === "city" || key === "procedure") return input[key].toLocaleLowerCase();
   } else if (input.module === "suraksha") {
     if (key === "sourceType") return input.sourceType?.toLocaleLowerCase() || "whatsapp";

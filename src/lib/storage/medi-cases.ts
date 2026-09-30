@@ -1,21 +1,27 @@
 import Dexie, { type Table } from "dexie";
 import { z } from "zod";
-import { BillItemSchema, MediDecisionSchema } from "@/lib/schemas";
+import { BillItemSchema, MediDecisionSchema, AyushmanCashlessDecisionSchema } from "@/lib/schemas";
 
 export const SavedMediCaseSchema = z.object({
   id: z.string().uuid(),
   module: z.literal("medi"),
+  subModule: z.enum(["bill_audit", "cashless_shield"]).default("bill_audit").optional(),
   version: z.literal(1),
   createdAt: z.string().datetime(),
   locale: z.enum(["en", "hi", "bn"]),
   hospital: z.string(),
   city: z.string(),
+  state: z.string().optional(),
   procedure: z.string(),
-  total: z.number(),
-  items: z.array(BillItemSchema),
-  decision: MediDecisionSchema,
+  total: z.number().default(0),
+  depositDemanded: z.number().optional(),
+  patientName: z.string().optional(),
+  pmjayId: z.string().optional(),
+  items: z.array(BillItemSchema).default([]),
+  decision: MediDecisionSchema.optional(),
+  cashlessDecision: AyushmanCashlessDecisionSchema.optional(),
   mode: z.enum(["live", "recorded"]),
-  warnings: z.array(z.string())
+  warnings: z.array(z.string()).default([])
 }).strict();
 
 export type SavedMediCase = z.infer<typeof SavedMediCaseSchema>;

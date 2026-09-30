@@ -22,6 +22,7 @@ import { BudgetExceededError } from "@/lib/evidence/usage";
 import { buildCropBrief } from "@/lib/krishi/brief";
 import { buildCropDecision } from "@/lib/krishi/decision";
 import { buildMediDecision } from "@/lib/medi/decision";
+import { buildAyushmanCashlessDecision } from "@/lib/medi/cashless-decision";
 import { buildSurakshaDecision } from "@/lib/suraksha/decision";
 import { buildFasalDecision } from "@/lib/fasal/decision";
 
@@ -209,7 +210,7 @@ export async function runEvidencePipeline(
     ? { ...baseCropBrief, decision: buildCropDecision(cropInput, baseCropBrief, metrics, warnings) }
     : undefined;
   const mediInput = input.module === "medi" ? input : undefined;
-  const mediDecision = mediInput
+  const mediDecision = mediInput && mediInput.subModule !== "cashless_shield"
     ? buildMediDecision(
         {
           hospital: mediInput.hospital,
@@ -226,6 +227,24 @@ export async function runEvidencePipeline(
         warnings,
         input.locale
       )
+    : undefined;
+  const cashlessDecision = mediInput && mediInput.subModule === "cashless_shield"
+    ? buildAyushmanCashlessDecision({
+        request: {
+          hospital: mediInput.hospital,
+          city: mediInput.city,
+          state: mediInput.state || "National",
+          procedure: mediInput.procedure,
+          depositDemanded: mediInput.depositDemanded || 0,
+          patientName: mediInput.patientName,
+          pmjayId: mediInput.pmjayId,
+          demandedReason: mediInput.demandedReason
+        },
+        evidence,
+        metrics,
+        warnings,
+        locale: input.locale
+      })
     : undefined;
   const surakshaInput = input.module === "suraksha" ? input : undefined;
   const surakshaDecision = surakshaInput
@@ -282,7 +301,8 @@ export async function runEvidencePipeline(
     cropBrief,
     mediDecision,
     surakshaDecision,
-    fasalDecision
+    fasalDecision,
+    cashlessDecision
   });
   await emit({
     type: "done",

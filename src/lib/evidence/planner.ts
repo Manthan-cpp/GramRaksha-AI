@@ -41,8 +41,8 @@ function queryId(module: EvidenceRunRequest["module"], index: number): string {
   return `${module}-${index + 1}`;
 }
 
-export function planEvidence(input: EvidenceRunRequest, maxQueries: number): PlannedQuery[] {
-  const hl = LANGUAGE_BY_LOCALE[input.locale];
+export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6): PlannedQuery[] {
+  const hl = (input.locale && LANGUAGE_BY_LOCALE[input.locale]) || "en";
   const common = { gl: "in", hl };
   const queries: PlannedQuery[] = [];
   const addQuery = (query: Omit<PlannedQuery, "id">) => {
@@ -136,47 +136,84 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number): Pla
     const city = cleanQueryPart(input.city);
     const procedure = cleanQueryPart(input.procedure);
 
-    addQuery(
-      {
+    if (input.subModule === "cashless_shield") {
+      const state = cleanQueryPart(input.state || "");
+      addQuery({
         engine: "google",
-        query: `${quoted(hospital)} ${quoted(procedure)} package rate empanelment (site:gov.in OR site:nic.in OR site:nhm.gov.in)`,
+        query: `${quoted(hospital)} ${quoted(city)} empanelled hospital list PMJAY (site:pmjay.gov.in OR site:gov.in OR site:nic.in)`,
         parameters: common,
-        purpose: "Officially published public references",
+        purpose: "Official PM-JAY and State Health Agency empanelment verification",
         requireOfficial: true
-      }
-    );
-    addQuery(
-      {
+      });
+      addQuery({
         engine: "google",
-        query: `${quoted(city)} patient grievance hospital billing (site:gov.in OR site:nic.in)`,
+        query: `"PM-JAY" "cashless" "advance deposit" guidelines hospital MoU penalty (site:nha.gov.in OR site:pmjay.gov.in OR site:gov.in)`,
         parameters: common,
-        purpose: "Official grievance routes",
+        purpose: "Statutory cashless guidelines and advance deposit prohibition",
         requireOfficial: true
-      }
-    );
-    addQuery(
-      {
-        engine: "google_news",
-        query: `${quoted(hospital)} ${quoted(city)} hospital billing complaint when:30d`,
+      });
+      addQuery({
+        engine: "google",
+        query: `${cleanQueryPart(state || city)} State Health Agency PMJAY grievance nodal officer helpline CGRMS (site:gov.in OR site:nic.in)`,
         parameters: common,
-        purpose: "Recent public hospital billing context",
-        requireOfficial: false
-      }
-    );
-    addQuery(
-      {
+        purpose: "Official State Health Agency helpline and grievance escalation channels",
+        requireOfficial: true
+      });
+      addQuery({
         engine: "google_maps",
-        query: "consumer commission district legal services authority",
+        query: `hospital ${hospital} ${city}`,
         parameters: {
           ...common,
-          location: `${city}, India`,
+          location: `${city}, ${state || "India"}`,
           type: "search",
           z: "10"
         },
-        purpose: "Nearby official support locations",
+        purpose: "Hospital administration and PMAM desk location",
         requireOfficial: false
-      }
-    );
+      });
+    } else {
+      addQuery(
+        {
+          engine: "google",
+          query: `${quoted(hospital)} ${quoted(procedure)} package rate empanelment (site:gov.in OR site:nic.in OR site:nhm.gov.in)`,
+          parameters: common,
+          purpose: "Officially published public references",
+          requireOfficial: true
+        }
+      );
+      addQuery(
+        {
+          engine: "google",
+          query: `${quoted(city)} patient grievance hospital billing (site:gov.in OR site:nic.in)`,
+          parameters: common,
+          purpose: "Official grievance routes",
+          requireOfficial: true
+        }
+      );
+      addQuery(
+        {
+          engine: "google_news",
+          query: `${quoted(hospital)} ${quoted(city)} hospital billing complaint when:30d`,
+          parameters: common,
+          purpose: "Recent public hospital billing context",
+          requireOfficial: false
+        }
+      );
+      addQuery(
+        {
+          engine: "google_maps",
+          query: "consumer commission district legal services authority",
+          parameters: {
+            ...common,
+            location: `${city}, India`,
+            type: "search",
+            z: "10"
+          },
+          purpose: "Nearby official support locations",
+          requireOfficial: false
+        }
+      );
+    }
   } else if (input.module === "fasal") {
     const state = cleanQueryPart(input.state);
     const district = cleanQueryPart(input.district);

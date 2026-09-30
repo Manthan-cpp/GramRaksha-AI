@@ -9,11 +9,14 @@
   },
   "Index": {
     "title": "GramRaksha AI",
-    "subtitle": "One product. Farm, health & cyber security: KrishiSahay + MediShield + Suraksha Check."
+    "subtitle": "One product. Farm, health & cyber security: KrishiSahay + MediShield + Suraksha Check + Fasal 72h."
   },
   "Medi": {
     "title": "MediShield",
-    "subtitle": "Hospital Bill Protection",
+    "subtitle": "Hospital Bill & Ayushman Protection",
+    "tabCashless": "Ayushman Cashless Shield",
+    "tabAudit": "Hospital Bill Audit",
+    "cashlessSubtitle": "Point-of-admission deposit extortion protection under PM-JAY Clause 8.2",
     "privacyTitle": "Privacy First",
     "uploadTitle": "Upload Hospital Bill",
     "reviewTitle": "Bill Verification & Breakdown",
