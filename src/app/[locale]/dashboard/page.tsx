@@ -14,7 +14,14 @@ import {
   deleteAllSurakshaCases,
   type SavedSurakshaCase
 } from "@/lib/storage/suraksha-cases";
+import {
+  listFasalCases,
+  deleteFasalCase,
+  deleteAllFasalCases,
+  type SavedFasalCase
+} from "@/lib/storage/fasal-cases";
 import { SurakshaResults } from "@/components/suraksha/SurakshaResults";
+import { FasalResults } from "@/components/fasal/FasalResults";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import {
@@ -49,10 +56,12 @@ export default function DashboardPage() {
   const [cropCases, setCropCases] = useState<SavedCropCase[]>([]);
   const [mediCases, setMediCases] = useState<SavedMediCase[]>([]);
   const [surakshaCases, setSurakshaCases] = useState<SavedSurakshaCase[]>([]);
-  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha">("all");
+  const [fasalCases, setFasalCases] = useState<SavedFasalCase[]>([]);
+  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha" | "fasal">("all");
   const [openedCrop, setOpenedCrop] = useState<SavedCropCase | null>(null);
   const [openedMedi, setOpenedMedi] = useState<SavedMediCase | null>(null);
   const [openedSuraksha, setOpenedSuraksha] = useState<SavedSurakshaCase | null>(null);
+  const [openedFasal, setOpenedFasal] = useState<SavedFasalCase | null>(null);
   const [openedMediLetter, setOpenedMediLetter] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -65,15 +74,16 @@ export default function DashboardPage() {
   useEffect(() => {
     alive.current = true;
     let cancelled = false;
-    Promise.all([listCropCases(), listMediCases(), listSurakshaCases()])
-      .then(([crops, medis, surakshas]) => {
+    Promise.all([listCropCases(), listMediCases(), listSurakshaCases(), listFasalCases()])
+      .then(([crops, medis, surakshas, fasals]) => {
         if (!cancelled) {
           setCropCases(crops);
           setMediCases(medis);
           setSurakshaCases(surakshas);
+          setFasalCases(fasals);
           const currentNow = Date.now();
           setNow(currentNow);
-          const old = [...crops, ...medis, ...surakshas].some(
+          const old = [...crops, ...medis, ...surakshas, ...fasals].some(
             (c) => currentNow - new Date(c.createdAt).getTime() > 7 * 24 * 60 * 60 * 1000
           );
           setHasOldCases(old);
@@ -142,24 +152,42 @@ export default function DashboardPage() {
     }
   };
 
+  const removeFasal = async (id?: string) => {
+    if (deleting.current || !window.confirm(locale === "hi" ? "क्या आप इस सहेजे गए फसल बीमा केस को हटाना चाहते हैं?" : locale === "bn" ? "আপনি কি এই সংরক্ষিত ফসল বিমা কেসটি মুছে ফেলতে চান?" : "Delete this saved Fasal 72-hour case?")) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      if (id) await deleteFasalCase(id);
+      else await deleteAllFasalCases();
+      if (alive.current) setFasalCases((rows) => (id ? rows.filter((row) => row.id !== id) : []));
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
   const clearAllHousehold = async () => {
     const msg =
       locale === "hi"
-        ? "क्या आप अपने डिवाइस से सभी सहेजे गए कृषि, अस्पताल बिल एवं सुरक्षा जांच रिकॉर्ड हमेशा के लिए हटाना चाहते हैं?"
+        ? "क्या आप अपने डिवाइस से सभी सहेजे गए कृषि, अस्पताल बिल, सुरक्षा जांच एवं फसल बीमा रिकॉर्ड हमेशा के लिए हटाना चाहते हैं?"
         : locale === "bn"
-        ? "আপনি কি ডিভাইস থেকে সমস্ত সংরক্ষিত কৃষি, বিল ও সাইবার নিরাপত্তা অডিট স্থায়ীভাবে মুছে ফেলতে চান?"
-        : "Permanently wipe all crop advisories, hospital bill audits, and scam check records from this device?";
+        ? "আপনি কি ডিভাইস থেকে সমস্ত সংরক্ষিত কৃষি, বিল, সাইবার নিরাপত্তা ও ফসল বিমা অডিট মুছে ফেলতে চান?"
+        : "Permanently wipe all crop advisories, hospital bill audits, scam checks, and crop insurance records from this device?";
 
     if (deleting.current || !window.confirm(msg)) return;
     deleting.current = true;
     setBusy(true);
     setError(false);
     try {
-      await Promise.all([deleteAllCropCases(), deleteAllMediCases(), deleteAllSurakshaCases()]);
+      await Promise.all([deleteAllCropCases(), deleteAllMediCases(), deleteAllSurakshaCases(), deleteAllFasalCases()]);
       if (alive.current) {
         setCropCases([]);
         setMediCases([]);
         setSurakshaCases([]);
+        setFasalCases([]);
       }
     } catch {
       if (alive.current) setError(true);
@@ -267,8 +295,30 @@ export default function DashboardPage() {
     );
   }
 
-  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0;
-  const totalCount = cropCases.length + mediCases.length + surakshaCases.length;
+  if (openedFasal) {
+    return (
+      <div className="min-h-screen bg-paper pt-8 px-4">
+        <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
+          <Button variant="quiet" onClick={() => setOpenedFasal(null)} className="text-sm font-medium">
+            ← {locale === "hi" ? "डैशबोर्ड रिकॉर्ड पर वापस जाएं" : locale === "bn" ? "ড্যাশবোর্ডে ফিরে যান" : "Back to Household Cases"}
+          </Button>
+          <span className="text-xs text-ink-soft bg-paper-2 border border-ink-soft/20 px-3 py-1 rounded-full font-mono">
+            {formatRelativeTime(openedFasal.createdAt, now, locale)}
+          </span>
+        </div>
+        <FasalResults
+          decision={openedFasal.decision}
+          evidence={openedFasal.evidence || []}
+          photos={openedFasal.photos || []}
+          onReset={() => setOpenedFasal(null)}
+          mode={openedFasal.mode}
+        />
+      </div>
+    );
+  }
+
+  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0 || fasalCases.length > 0;
+  const totalCount = cropCases.length + mediCases.length + surakshaCases.length + fasalCases.length;
 
   return (
     <div className="min-h-screen bg-paper pb-24">
@@ -306,7 +356,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Protection Module Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-moss/10 border-[1.5px] border-moss/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
             <div className="absolute -right-4 -bottom-4 opacity-10">
               <Leaf className="w-40 h-40" />
@@ -359,6 +409,25 @@ export default function DashboardPage() {
               </Button>
             </Link>
           </div>
+
+          <div className="bg-amber-500/10 border-[1.5px] border-amber-500/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
+            <div className="absolute -right-4 -bottom-4 opacity-10">
+              <Clock className="w-40 h-40" />
+            </div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
+              <span className="text-xs uppercase font-bold tracking-wider text-amber-800">PMFBY Calamity Kit</span>
+            </div>
+            <h2 className="font-display text-2xl text-amber-900 mb-2 font-semibold">Fasal 72h Kit</h2>
+            <p className="text-ink-soft text-sm mb-6 max-w-[90%] leading-relaxed">
+              Report hailstorm, flood or lightning damage within 72 hours with timestamped evidence.
+            </p>
+            <Link href={`/${locale}/fasal`}>
+              <Button variant="primary" className="bg-amber-600 hover:bg-amber-700 text-paper shadow-print text-xs">
+                {locale === "hi" ? "नई फसल सूचना" : locale === "bn" ? "নতুন শস্য নোটিশ" : "New 72h Report"}
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Case Timeline Section */}
@@ -375,7 +444,7 @@ export default function DashboardPage() {
 
             {/* Filter Pills */}
             {hasCases && (
-              <div className="flex gap-1.5 bg-paper-2 p-1 rounded-xl border border-ink-soft/20 text-xs">
+              <div className="flex flex-wrap gap-1.5 bg-paper-2 p-1 rounded-xl border border-ink-soft/20 text-xs">
                 <button
                   onClick={() => setFilter("all")}
                   className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
@@ -407,6 +476,14 @@ export default function DashboardPage() {
                   }`}
                 >
                   🛡️ Suraksha ({surakshaCases.length})
+                </button>
+                <button
+                  onClick={() => setFilter("fasal")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "fasal" ? "bg-amber-600 text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  ⏱️ Fasal 72h ({fasalCases.length})
                 </button>
               </div>
             )}
@@ -620,12 +697,90 @@ export default function DashboardPage() {
                   </div>
                 </div>
               )}
+
+              {/* Fasal 72-Hour Kit Cases */}
+              {(filter === "all" || filter === "fasal") && fasalCases.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-lg text-amber-800 font-semibold flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-amber-700" /> Fasal Bima 72h Cases ({fasalCases.length})
+                    </h3>
+                    <Button
+                      variant="quiet"
+                      disabled={loading || busy}
+                      onClick={() => removeFasal()}
+                      className="text-xs text-ink-soft hover:text-terracotta"
+                    >
+                      Clear Fasal Cases
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {fasalCases.map((item) => {
+                      const isExpired = item.decision.countdown.isExpired;
+                      const isCritical = item.decision.countdown.urgency === "critical";
+                      return (
+                        <div
+                          key={item.id}
+                          className="p-5 rounded-2xl border-[1.5px] border-amber-500/30 bg-amber-50/60 flex justify-between items-center gap-4 flex-wrap hover:border-amber-500 transition-all shadow-xs"
+                        >
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase ${
+                                  isExpired
+                                    ? "bg-ink/10 text-ink-soft"
+                                    : isCritical
+                                    ? "bg-rose-600 text-white animate-pulse"
+                                    : "bg-amber-500 text-white"
+                                }`}
+                              >
+                                {isExpired ? "Expired" : `${item.decision.countdown.hoursLeft}h Left`}
+                              </span>
+                              <span className="text-xs text-ink-soft font-mono">
+                                {formatRelativeTime(item.createdAt, now, locale)}
+                              </span>
+                              <span className="text-[11px] px-2 py-0.2 rounded bg-paper border border-ink-soft/20 text-ink-soft font-mono">
+                                {item.decision.calamityLabel}
+                              </span>
+                            </div>
+                            <p className="font-medium text-ink text-base">
+                              {item.incident.crop} · {item.incident.village}, {item.incident.district}
+                            </p>
+                            <p className="text-xs text-ink-soft">
+                              Estimated Loss: <strong className="text-rose-600">{item.incident.lossPercentage}%</strong> · {item.photos.length} photos logged · Insurer: {item.decision.insurer.name.split(" ")[0]}
+                            </p>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              onClick={() => setOpenedFasal(item)}
+                              className="border-amber-600/40 text-amber-800 hover:bg-amber-100"
+                            >
+                              Open Kit
+                            </Button>
+                            <Button
+                              variant="quiet"
+                              size="sm"
+                              disabled={busy}
+                              onClick={() => removeFasal(item.id)}
+                              className="text-xs text-ink-soft hover:text-terracotta"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </Button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             !error && (
               <EmptyState
                 title={t("noCases")}
-                description="Your saved crop briefs, hospital bill audits, and scam checks will appear here."
+                description="Your saved crop briefs, hospital bill audits, scam checks, and crop insurance kits will appear here."
                 icon={<ShieldCheck className="w-12 h-12 text-ink-soft/40" />}
               />
             )

@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Leaf, FileText, ArrowRight, ShieldCheck, ShieldAlert } from "lucide-react";
+import { Leaf, FileText, ArrowRight, ShieldCheck, ShieldAlert, Clock } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -34,7 +34,7 @@ export default function Home() {
             {t("subtitle")}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center w-full max-w-5xl mx-auto">
             <Link href="/krishi" className="w-full">
               <Button variant="primary" size="big" className="w-full group">
                 <Leaf className="w-5 h-5 mr-2 text-paper/70 group-hover:text-paper transition-colors" />
@@ -53,6 +53,13 @@ export default function Home() {
               <Button variant="secondary" size="big" className="w-full group text-terracotta border-terracotta hover:bg-terracotta/10">
                 <ShieldAlert className="w-5 h-5 mr-2 text-terracotta/70 group-hover:text-terracotta transition-colors" />
                 Suraksha Check
+              </Button>
+            </Link>
+
+            <Link href="/fasal" className="w-full">
+              <Button variant="secondary" size="big" className="w-full group text-amber-700 border-amber-600 hover:bg-amber-50">
+                <Clock className="w-5 h-5 mr-2 text-amber-600 group-hover:text-amber-700 transition-colors" />
+                Fasal 72h Kit
               </Button>
             </Link>
           </div>
