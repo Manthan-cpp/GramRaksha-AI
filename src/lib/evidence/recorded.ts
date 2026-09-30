@@ -40,6 +40,8 @@ function matchingValue(input: EvidenceRunRequest, key: string): string | undefin
   } else if (input.module === "suraksha") {
     if (key === "sourceType") return input.sourceType?.toLocaleLowerCase() || "whatsapp";
     if (key === "scheme") return "pmkisan";
+  } else if (input.module === "fasal") {
+    if (key === "state" || key === "district" || key === "calamityType") return input[key].toLocaleLowerCase();
   }
   return undefined;
 }

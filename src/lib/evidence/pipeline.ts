@@ -23,6 +23,7 @@ import { buildCropBrief } from "@/lib/krishi/brief";
 import { buildCropDecision } from "@/lib/krishi/decision";
 import { buildMediDecision } from "@/lib/medi/decision";
 import { buildSurakshaDecision } from "@/lib/suraksha/decision";
+import { buildFasalDecision } from "@/lib/fasal/decision";
 
 export type EvidenceEventSink = (event: EvidenceEvent) => void | Promise<void>;
 
@@ -236,6 +237,25 @@ export async function runEvidencePipeline(
         input.locale
       )
     : undefined;
+  const fasalInput = input.module === "fasal" ? input : undefined;
+  const fasalDecision = fasalInput
+    ? buildFasalDecision({
+        incident: {
+          calamityType: fasalInput.calamityType,
+          incidentTime: now(),
+          state: fasalInput.state,
+          district: fasalInput.district,
+          village: "Gram Panchayat",
+          crop: fasalInput.crop || "Standing Crop",
+          lossPercentage: 60,
+          farmerName: "Insured Farmer"
+        },
+        evidence,
+        metrics,
+        warnings,
+        locale: input.locale
+      })
+    : undefined;
   if (
     evidence.length === 0 &&
     warnings.length > 0 &&
@@ -261,7 +281,8 @@ export async function runEvidencePipeline(
     warnings: [...new Set(warnings)],
     cropBrief,
     mediDecision,
-    surakshaDecision
+    surakshaDecision,
+    fasalDecision
   });
   await emit({
     type: "done",
