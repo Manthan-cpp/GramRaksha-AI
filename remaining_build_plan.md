@@ -14,18 +14,13 @@ This roadmap defines the architectural blueprints, UX specifications, SerpApi en
 | **Phase 6** | **Suraksha Check** | Rogue APK analysis, non-.gov.in phishing alerts, fee/deposit linter, Chakshu/1930 reporting routes. | ✅ **Production Ready** |
 | **Phase 7** | **Fasal Bima 72h Kit** | PMFBY Clause 15.3 statutory countdown, local-only geotagged photo log, 14447 dial, DAO & Insurer letter. | ✅ **Production Ready** |
 | **Phase 8** | **Ayushman Cashless Shield** | Point-of-admission deposit extortion protection under PM-JAY Clause 8.2, empanelment check, 4-tier escalation ladder, formal notice, 14555 dialer. | ✅ **Production Ready** |
+| **Phase 9** | **Pocket Card & UI Redesign** | Offline CR80 wallet card, Google Maps PHC & Police extraction, vCard 3.0 export, WhatsApp broadcast generator, production civic UI redesign. | ✅ **Production Ready** |
 
 ---
 
 ## 🎯 Recommended Build Sequence for Remaining Features
 
 ```
-Phase 8: Ayushman Cashless Shield (MediShield Upgrade)
-   │
-   ▼
-Phase 9: Gram Raksha Emergency Pocket Card (Offline Wallet / DLSA / PHC)
-   │
-   ▼
 Phase 10: Existing Feature Upgrades (Escalation Ladder, KrishiSahay Referral Card, Refresh Old Cases)
    │
    ▼

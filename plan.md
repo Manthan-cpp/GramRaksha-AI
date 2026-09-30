@@ -83,3 +83,18 @@
   - IndexedDB storage integration in `SavedMediCase` with `subModule: "cashless_shield"`, rendered in Dashboard with specialized badge, deposit amount, and notice viewer.
 - Files added/refined: src/lib/medi/cashless-*, src/components/medi/cashless/*, src/app/[locale]/medi/page.tsx, fixtures/recorded/medi-cashless.json, tests/medi/cashless.test.ts, messages/*.json, src/app/[locale]/dashboard/page.tsx, src/app/[locale]/page.tsx.
 - Verification: 129/129 tests passing across 16 test suites, 0 lint errors, 0 type errors, Next.js Turbopack production build verified.
+
+
+### Phase 9 - 2026-10-01 - Gram Raksha Emergency Pocket Card & Civic UI Redesign
+- Completed: Printable offline emergency wallet card and complete civic production UI/UX overhaul.
+  - Dual-sided CR80 wallet card print layout (85.6mm × 54mm) with cut & fold dashed guidelines for physical laminate printing.
+  - Front Face: National verified tri-service lifelines (112 Emergency, 108 Ambulance, 14447 PMFBY, 14555 PM-JAY, 1930 Cybercrime, 1800-180-1551 KCC, 15100 NALSA).
+  - Back Face: Local emergency points (PHC/CHC, Police Thana, KVK, DAO, DLSA) extracted dynamically from SerpApi Google Maps and curated fallback directory.
+  - 1-Tap offline vCard 3.0 (`.vcf`) export for Android/iOS address book import.
+  - WhatsApp village group markdown broadcast generator.
+  - 100% offline auto-persistence in Dexie IndexedDB (`gramraksha-pocket-cards`).
+  - Production Civic UI/UX Redesign: High-contrast palette, sticky frosted navigation with live case count badge and 1-tap 112/108 emergency dialer modal, 4-column DPDP Act 2023 civic footer, live SerpApi engine diagnostics pill, and refined accessible typography.
+  - Integrated Dashboard timeline with 6-metric stats strip and Pocket Card filter pill.
+- Files added/refined: src/lib/pocket-card/*, src/components/card/*, src/app/[locale]/card/page.tsx, src/components/shared/*, src/lib/storage/pocket-cards.ts, fixtures/recorded/pocket-card.json, tests/pocket-card/card.test.ts.
+- Verification: 138/138 tests passing across 17 test suites, 0 type errors, Next.js Turbopack production build verified.
+
