@@ -4,8 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/request";
-import { JudgePanel } from "@/components/shared/JudgePanel";
-import { LanguageSelector } from "@/components/shared/LanguageSelector";
+import { Navbar } from "@/components/shared/Navbar";
+import { Footer } from "@/components/shared/Footer";
 import { OfflineBanner } from "@/components/shared/OfflineBanner";
 import "../globals.css";
 
@@ -41,8 +41,8 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 });
 
 export const metadata: Metadata = {
-  title: "GramRaksha AI",
-  description: "Evidence you can trust, for two decisions.",
+  title: "GramRaksha AI — Rural Civic, Agricultural & Health Defense",
+  description: "Evidence-backed protection for rural citizens: Krishi crop advisory, Ayushman cashless shield, scam detector & PMFBY calamity kit.",
   manifest: "/manifest.webmanifest"
 };
 
@@ -55,9 +55,8 @@ export default async function RootLayout({
 }) {
   const resolvedParams = await params;
   const { locale } = resolvedParams;
-  console.log("RootLayout rendered with locale:", locale);
+
   if (!locales.some((supportedLocale) => supportedLocale === locale)) {
-    console.log("Locale not in list:", locale);
     notFound();
   }
 
@@ -65,14 +64,14 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${fraunces.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable} ${hindSiliguri.variable} ${notoSansDevanagari.variable}`}>
-      <body className="antialiased font-body bg-paper text-ink selection:bg-moss/20 selection:text-ink">
+      <body className="antialiased font-body bg-paper text-ink selection:bg-moss/20 selection:text-ink min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <OfflineBanner />
-          <div className="fixed top-6 right-6 z-50">
-            <LanguageSelector />
-          </div>
-          {children}
-          <JudgePanel />
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

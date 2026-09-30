@@ -43,6 +43,8 @@ function matchingValue(input: EvidenceRunRequest, key: string): string | undefin
     if (key === "scheme") return "pmkisan";
   } else if (input.module === "fasal") {
     if (key === "state" || key === "district" || key === "calamityType") return input[key].toLocaleLowerCase();
+  } else if (input.module === "pocket_card") {
+    if (key === "state" || key === "district" || key === "block") return input[key].toLocaleLowerCase();
   }
   return undefined;
 }

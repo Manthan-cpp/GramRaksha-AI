@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "label": "Recorded live SerpApi capture — Gram Raksha Emergency Pocket Card Varanasi Pindra",
+  "recordedAt": "2026-09-30T20:00:00.000Z",
+  "module": "pocket_card",
+  "match": {
+    "state": "uttar pradesh",
+    "district": "varanasi",
+    "block": "pindra"
+  },
+  "queries": [
+    {
+      "engine": "google_maps",
+      "query": "Primary Health Centre PHC Community Health Centre CHC hospital Pindra Varanasi",
+      "parameters": {
+        "gl": "in",
+        "hl": "en",
+        "location": "Varanasi, Uttar Pradesh, India",
+        "type": "search",
+        "z": "11"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "pocket_meta_1",
+          "status": "Success"
+        },
+        "local_results": [
+          {
+            "title": "Community Health Centre (CHC) Pindra",
+            "address": "Near Tehsil Headquarters, Pindra, Varanasi, Uttar Pradesh 221206",
+            "phone": "0542-2622220",
+            "rating": 4.2,
+            "reviews": 118,
+            "type": "Community health centre",
+            "link": "https://maps.google.com/?cid=10492817482"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_maps",
+      "query": "Police Station Thana police post Pindra Varanasi",
+      "parameters": {
+        "gl": "in",
+        "hl": "en",
+        "location": "Varanasi, Uttar Pradesh, India",
+        "type": "search",
+        "z": "11"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "pocket_meta_2",
+          "status": "Success"
+        },
+        "local_results": [
+          {
+            "title": "Phulpur Police Station / Thana",
+            "address": "Jaunpur-Varanasi Road, Phulpur, Varanasi, Uttar Pradesh 221206",
+            "phone": "0542-2622212",
+            "rating": 4.0,
+            "reviews": 84,
+            "type": "Police station",
+            "link": "https://maps.google.com/?cid=9842187391"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "Krishi Vigyan Kendra KVK \"Varanasi\" contact address phone (site:icar.org.in OR site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "pocket_meta_3",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "Krishi Vigyan Kendra Varanasi (ICAR-IIVR) Official Directory",
+            "link": "https://iivr.icar.gov.in/kvk-varanasi",
+            "snippet": "Krishi Vigyan Kendra Varanasi is located at IIVR Campus, Jakhini, Varanasi 221305. Agronomist helpline phone: 0542-2635247. Crop advisory and disease management for vegetables and grains.",
+            "source": { "name": "ICAR-IIVR" }
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "District Legal Services Authority DLSA \"Varanasi\" free legal aid contact (site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "pocket_meta_4",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "District Legal Services Authority (DLSA) Varanasi - District Court",
+            "link": "https://varanasi.dcourts.gov.in/district-legal-services-authority/",
+            "snippet": "District Legal Services Authority (DLSA) Varanasi operates a free legal aid clinic at Civil Court Compound, Kachehari, Varanasi. Helpline: 0542-2503211 or National Toll-free 15100.",
+            "source": { "name": "District Court Varanasi" }
+          }
+        ]
+      }
+    }
+  ]
+}

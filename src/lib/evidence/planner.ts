@@ -253,8 +253,7 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       purpose: "Recent localized calamity reports and compensation announcements",
       requireOfficial: false
     });
-  } else {
-    // input.module === "suraksha"
+  } else if (input.module === "suraksha") {
     const analysis = analyzeSuspiciousText(input.content);
     const scheme = cleanQueryPart(analysis.extractedScheme || input.appName || "PM Kisan");
     const appOrEntity = cleanQueryPart(input.appName || analysis.extractedApk || scheme);
@@ -285,6 +284,56 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       query: `"Chakshu" "Sanchar Saathi" reporting fraud suspicious SMS WhatsApp (site:sancharsaathi.gov.in OR site:cybercrime.gov.in OR site:gov.in)`,
       parameters: common,
       purpose: "Official cyber fraud redressal channels",
+      requireOfficial: true
+    });
+  } else if (input.module === "pocket_card") {
+    const state = cleanQueryPart(input.state);
+    const district = cleanQueryPart(input.district);
+    const block = cleanQueryPart(input.block);
+
+    // 1. Google Maps: Nearest PHC / CHC / Hospital
+    addQuery({
+      engine: "google_maps",
+      query: `Primary Health Centre PHC Community Health Centre CHC hospital ${block} ${district}`,
+      parameters: {
+        ...common,
+        location: `${district}, ${state}, India`,
+        type: "search",
+        z: "11"
+      },
+      purpose: "Nearest Primary Health Centre and emergency care",
+      requireOfficial: false
+    });
+
+    // 2. Google Maps: Police Station / Thana
+    addQuery({
+      engine: "google_maps",
+      query: `Police Station Thana police post ${block} ${district}`,
+      parameters: {
+        ...common,
+        location: `${district}, ${state}, India`,
+        type: "search",
+        z: "11"
+      },
+      purpose: "Local police station and emergency beat number",
+      requireOfficial: false
+    });
+
+    // 3. Google Search: Krishi Vigyan Kendra (KVK) & DAO
+    addQuery({
+      engine: "google",
+      query: `Krishi Vigyan Kendra KVK ${quoted(district)} contact address phone (site:icar.org.in OR site:gov.in OR site:nic.in)`,
+      parameters: common,
+      purpose: "District Krishi Vigyan Kendra expert agronomy center",
+      requireOfficial: true
+    });
+
+    // 4. Google Search: District Legal Services Authority (DLSA)
+    addQuery({
+      engine: "google",
+      query: `District Legal Services Authority DLSA ${quoted(district)} free legal aid contact (site:gov.in OR site:nic.in)`,
+      parameters: common,
+      purpose: "District Legal Services Authority free legal aid desk",
       requireOfficial: true
     });
   }

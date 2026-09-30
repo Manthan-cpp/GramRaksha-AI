@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { AyushmanCashlessDecisionSchema, type AyushmanCashlessDecision } from "@/lib/medi/cashless-types";
-export { AyushmanCashlessDecisionSchema, type AyushmanCashlessDecision };
+import { VillagePocketCardSchema, type VillagePocketCard } from "@/lib/pocket-card/types";
+export { AyushmanCashlessDecisionSchema, type AyushmanCashlessDecision, VillagePocketCardSchema, type VillagePocketCard };
 
 export const EvidenceMapsSchema = z.object({
   name: z.string(),
@@ -117,11 +118,24 @@ export const FasalEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
 }).strict();
 export type FasalEvidenceRequest = z.infer<typeof FasalEvidenceRequestSchema>;
 
+export const PocketCardEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
+  module: z.literal("pocket_card"),
+  state: z.string().trim().min(1).max(100),
+  district: z.string().trim().min(1).max(100),
+  block: z.string().trim().min(1).max(100),
+  village: z.string().trim().min(1).max(100),
+  pinCode: z.string().trim().max(10).optional(),
+  panchayatPradhanName: z.string().trim().max(100).optional(),
+  pradhanPhone: z.string().trim().max(30).optional()
+}).strict();
+export type PocketCardEvidenceRequest = z.infer<typeof PocketCardEvidenceRequestSchema>;
+
 export const EvidenceRunRequestSchema = z.discriminatedUnion("module", [
   CropEvidenceRequestSchema,
   BillEvidenceRequestSchema,
   SurakshaEvidenceRequestSchema,
-  FasalEvidenceRequestSchema
+  FasalEvidenceRequestSchema,
+  PocketCardEvidenceRequestSchema
 ]);
 export type EvidenceRunRequest = z.infer<typeof EvidenceRunRequestSchema>;
 
@@ -311,7 +325,9 @@ export const EvidenceEventSchema = z.discriminatedUnion("type", [
     cropBrief: CropBriefSchema.optional(),
     mediDecision: z.lazy(() => MediDecisionSchema).optional(),
     surakshaDecision: z.lazy(() => SurakshaDecisionSchema).optional(),
-    cashlessDecision: z.lazy(() => AyushmanCashlessDecisionSchema).optional()
+    cashlessDecision: z.lazy(() => AyushmanCashlessDecisionSchema).optional(),
+    fasalDecision: z.lazy(() => FasalDecisionSchema).optional(),
+    pocketCard: z.lazy(() => VillagePocketCardSchema).optional()
   }),
   EvidenceEventBaseSchema.extend({
     type: z.literal("error"),
@@ -475,7 +491,8 @@ export const EvidenceRunResultSchema = z.object({
   mediDecision: MediDecisionSchema.optional(),
   surakshaDecision: SurakshaDecisionSchema.optional(),
   fasalDecision: FasalDecisionSchema.optional(),
-  cashlessDecision: AyushmanCashlessDecisionSchema.optional()
+  cashlessDecision: AyushmanCashlessDecisionSchema.optional(),
+  pocketCard: VillagePocketCardSchema.optional()
 });
 export type EvidenceRunResult = z.infer<typeof EvidenceRunResultSchema>;
 
@@ -502,7 +519,7 @@ export type Bill = z.infer<typeof BillSchema>;
 
 export const CaseSchema = z.object({
   id: z.string(),
-  module: z.enum(["krishi", "medi", "suraksha", "fasal"]),
+  module: z.enum(["krishi", "medi", "suraksha", "fasal", "pocket_card"]),
   createdAt: z.string(),
   payload: z.any(),
   locale: z.string()

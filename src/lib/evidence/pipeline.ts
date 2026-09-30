@@ -25,6 +25,7 @@ import { buildMediDecision } from "@/lib/medi/decision";
 import { buildAyushmanCashlessDecision } from "@/lib/medi/cashless-decision";
 import { buildSurakshaDecision } from "@/lib/suraksha/decision";
 import { buildFasalDecision } from "@/lib/fasal/decision";
+import { buildVillagePocketCard } from "@/lib/pocket-card/decision";
 
 export type EvidenceEventSink = (event: EvidenceEvent) => void | Promise<void>;
 
@@ -275,6 +276,23 @@ export async function runEvidencePipeline(
         locale: input.locale
       })
     : undefined;
+  const pocketCardInput = input.module === "pocket_card" ? input : undefined;
+  const pocketCard = pocketCardInput
+    ? buildVillagePocketCard(
+        {
+          state: pocketCardInput.state,
+          district: pocketCardInput.district,
+          block: pocketCardInput.block,
+          village: pocketCardInput.village,
+          pinCode: pocketCardInput.pinCode,
+          panchayatPradhanName: pocketCardInput.panchayatPradhanName,
+          pradhanPhone: pocketCardInput.pradhanPhone
+        },
+        evidence,
+        mode,
+        input.locale
+      )
+    : undefined;
   if (
     evidence.length === 0 &&
     warnings.length > 0 &&
@@ -302,7 +320,8 @@ export async function runEvidencePipeline(
     mediDecision,
     surakshaDecision,
     fasalDecision,
-    cashlessDecision
+    cashlessDecision,
+    pocketCard
   });
   await emit({
     type: "done",

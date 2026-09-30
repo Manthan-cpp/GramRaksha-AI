@@ -22,6 +22,13 @@ import {
   deleteAllFasalCases,
   type SavedFasalCase
 } from "@/lib/storage/fasal-cases";
+import {
+  listPocketCards,
+  deletePocketCard,
+  deleteAllPocketCards
+} from "@/lib/storage/pocket-cards";
+import type { VillagePocketCard } from "@/lib/pocket-card/types";
+import { CreditCard } from "lucide-react";
 import { SurakshaResults } from "@/components/suraksha/SurakshaResults";
 import { FasalResults } from "@/components/fasal/FasalResults";
 import { Button } from "@/components/ui/button";
@@ -59,7 +66,8 @@ export default function DashboardPage() {
   const [mediCases, setMediCases] = useState<SavedMediCase[]>([]);
   const [surakshaCases, setSurakshaCases] = useState<SavedSurakshaCase[]>([]);
   const [fasalCases, setFasalCases] = useState<SavedFasalCase[]>([]);
-  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha" | "fasal">("all");
+  const [pocketCards, setPocketCards] = useState<VillagePocketCard[]>([]);
+  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha" | "fasal" | "card">("all");
   const [openedCrop, setOpenedCrop] = useState<SavedCropCase | null>(null);
   const [openedMedi, setOpenedMedi] = useState<SavedMediCase | null>(null);
   const [openedSuraksha, setOpenedSuraksha] = useState<SavedSurakshaCase | null>(null);
@@ -77,13 +85,20 @@ export default function DashboardPage() {
   useEffect(() => {
     alive.current = true;
     let cancelled = false;
-    Promise.all([listCropCases(), listMediCases(), listSurakshaCases(), listFasalCases()])
-      .then(([crops, medis, surakshas, fasals]) => {
+    Promise.all([
+      listCropCases(),
+      listMediCases(),
+      listSurakshaCases(),
+      listFasalCases(),
+      listPocketCards()
+    ])
+      .then(([crops, medis, surakshas, fasals, cards]) => {
         if (!cancelled) {
           setCropCases(crops);
           setMediCases(medis);
           setSurakshaCases(surakshas);
           setFasalCases(fasals);
+          setPocketCards(cards);
           const currentNow = Date.now();
           setNow(currentNow);
           const old = [...crops, ...medis, ...surakshas, ...fasals].some(
@@ -172,6 +187,23 @@ export default function DashboardPage() {
     }
   };
 
+  const removeCard = async (id?: string) => {
+    if (deleting.current || !window.confirm(locale === "hi" ? "क्या आप इस सहेजे गए ग्राम पॉकेट कार्ड को हटाना चाहते हैं?" : locale === "bn" ? "আপনি কি এই সংরক্ষিত পকেট কার্ডটি মুছে ফেলতে চান?" : "Delete this saved Village Pocket Card?")) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      if (id) await deletePocketCard(id);
+      else await deleteAllPocketCards();
+      if (alive.current) setPocketCards((rows) => (id ? rows.filter((row) => row.id !== id) : []));
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
   const clearAllHousehold = async () => {
     const msg =
       locale === "hi"
@@ -185,12 +217,19 @@ export default function DashboardPage() {
     setBusy(true);
     setError(false);
     try {
-      await Promise.all([deleteAllCropCases(), deleteAllMediCases(), deleteAllSurakshaCases(), deleteAllFasalCases()]);
+      await Promise.all([
+        deleteAllCropCases(),
+        deleteAllMediCases(),
+        deleteAllSurakshaCases(),
+        deleteAllFasalCases(),
+        deleteAllPocketCards()
+      ]);
       if (alive.current) {
         setCropCases([]);
         setMediCases([]);
         setSurakshaCases([]);
         setFasalCases([]);
+        setPocketCards([]);
       }
     } catch {
       if (alive.current) setError(true);
@@ -366,33 +405,32 @@ export default function DashboardPage() {
     );
   }
 
-  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0 || fasalCases.length > 0;
-  const totalCount = cropCases.length + mediCases.length + surakshaCases.length + fasalCases.length;
+  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0 || fasalCases.length > 0 || pocketCards.length > 0;
+  const totalCount = cropCases.length + mediCases.length + surakshaCases.length + fasalCases.length + pocketCards.length;
 
   return (
     <div className="min-h-screen bg-paper pb-24">
-      {/* Safety Strip */}
-      <div className="bg-ink text-paper text-sm text-center py-2 px-4 flex justify-center items-center gap-2">
-        <AlertTriangle className="w-4 h-4 text-terracotta" />
-        <span>{t("emergency")}</span>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-12 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 space-y-10">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-paper-2 p-6 rounded-3xl border border-ink/15 shadow-xs">
           <div>
-            <h1 className="font-display text-3xl sm:text-4xl text-ink font-semibold">{t("household")}</h1>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink/10 text-ink text-xs font-bold uppercase tracking-wider mb-2">
+              <span>📁 On-Device Household Vault</span>
+            </div>
+            <h1 className="font-display text-3xl sm:text-4xl text-ink font-bold">{t("household")}</h1>
             <p className="text-ink-soft text-sm sm:text-base mt-1">{t("householdDetail")}</p>
           </div>
-          <div className="flex items-center gap-2.5">
+
+          <div className="flex items-center gap-2.5 flex-wrap">
             <Link href={`/${locale}/help`}>
-              <Button variant="quiet" className="text-sm">
+              <Button variant="secondary" size="sm" className="text-xs font-semibold">
                 <HelpCircle className="w-4 h-4 mr-1.5" /> {t("help")}
               </Button>
             </Link>
             {hasCases && (
               <Button
                 variant="quiet"
+                size="sm"
                 disabled={loading || busy}
                 onClick={clearAllHousehold}
                 className="text-xs text-terracotta hover:bg-terracotta/10 border border-terracotta/30"
@@ -404,8 +442,36 @@ export default function DashboardPage() {
           </div>
         </div>
 
+        {/* Real-time Case Statistics Strip */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="p-3.5 rounded-2xl bg-paper-2 border border-ink/15 text-center">
+            <div className="text-[11px] font-bold text-ink-soft uppercase tracking-wider">Total Vault Records</div>
+            <div className="font-display text-2xl font-bold text-ink mt-0.5">{totalCount}</div>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-moss/10 border border-moss/25 text-center">
+            <div className="text-[11px] font-bold text-moss-deep uppercase tracking-wider">🌾 Krishi Briefs</div>
+            <div className="font-display text-2xl font-bold text-moss-deep mt-0.5">{cropCases.length}</div>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-nil/10 border border-nil/25 text-center">
+            <div className="text-[11px] font-bold text-nil uppercase tracking-wider">🏥 MediShield Cases</div>
+            <div className="font-display text-2xl font-bold text-nil mt-0.5">{mediCases.length}</div>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-terracotta/10 border border-terracotta/25 text-center">
+            <div className="text-[11px] font-bold text-terracotta uppercase tracking-wider">🛡️ Cyber Audits</div>
+            <div className="font-display text-2xl font-bold text-terracotta mt-0.5">{surakshaCases.length}</div>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 text-center">
+            <div className="text-[11px] font-bold text-amber-900 uppercase tracking-wider">⏱️ Fasal 72h Reports</div>
+            <div className="font-display text-2xl font-bold text-amber-900 mt-0.5">{fasalCases.length}</div>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/25 text-center col-span-2 sm:col-span-1">
+            <div className="text-[11px] font-bold text-indigo-900 uppercase tracking-wider">📇 Pocket Cards</div>
+            <div className="font-display text-2xl font-bold text-indigo-900 mt-0.5">{pocketCards.length}</div>
+          </div>
+        </div>
+
         {/* Protection Module Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           <div className="bg-moss/10 border-[1.5px] border-moss/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
             <div className="absolute -right-4 -bottom-4 opacity-10">
               <Leaf className="w-40 h-40" />
@@ -477,6 +543,25 @@ export default function DashboardPage() {
               </Button>
             </Link>
           </div>
+
+          <div className="bg-indigo-500/10 border-[1.5px] border-indigo-500/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
+            <div className="absolute -right-4 -bottom-4 opacity-10">
+              <CreditCard className="w-40 h-40" />
+            </div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block" />
+              <span className="text-xs uppercase font-bold tracking-wider text-indigo-800">Offline Emergency Vault</span>
+            </div>
+            <h2 className="font-display text-2xl text-indigo-950 mb-2 font-semibold">Pocket Card</h2>
+            <p className="text-ink-soft text-sm mb-6 max-w-[90%] leading-relaxed">
+              Generate wallet-sized offline emergency cards with local Thana, PHC, KVK, and legal aid.
+            </p>
+            <Link href={`/${locale}/card`}>
+              <Button variant="primary" className="bg-indigo-600 hover:bg-indigo-700 text-paper shadow-print text-xs">
+                {locale === "hi" ? "नया पॉकेट कार्ड" : locale === "bn" ? "নতুন পকেট কার্ড" : "New Pocket Card"}
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Case Timeline Section */}
@@ -533,6 +618,14 @@ export default function DashboardPage() {
                   }`}
                 >
                   ⏱️ Fasal 72h ({fasalCases.length})
+                </button>
+                <button
+                  onClick={() => setFilter("card")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "card" ? "bg-indigo-600 text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  📇 Cards ({pocketCards.length})
                 </button>
               </div>
             )}
@@ -832,12 +925,79 @@ export default function DashboardPage() {
                   </div>
                 </div>
               )}
+
+              {/* Pocket Card Cases */}
+              {(filter === "all" || filter === "card") && pocketCards.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-lg text-indigo-950 font-semibold flex items-center gap-2">
+                      <CreditCard className="w-4 h-4 text-indigo-600" /> Emergency Pocket Cards ({pocketCards.length})
+                    </h3>
+                    <Button
+                      variant="quiet"
+                      disabled={loading || busy}
+                      onClick={() => removeCard()}
+                      className="text-xs text-ink-soft hover:text-terracotta"
+                    >
+                      Clear Pocket Cards
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {pocketCards.map((card) => (
+                      <div
+                        key={card.id}
+                        className="p-5 rounded-2xl border-[1.5px] border-indigo-500/30 bg-indigo-50/50 flex justify-between items-center gap-4 flex-wrap hover:border-indigo-500 transition-all shadow-xs"
+                      >
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-indigo-600 text-white">
+                              📇 CR80 Pocket Card
+                            </span>
+                            <span className="text-xs text-ink-soft font-mono">
+                              {formatRelativeTime(card.createdAt, now, locale)}
+                            </span>
+                            <span className="text-[11px] px-2 py-0.5 rounded bg-paper border border-ink-soft/20 text-ink-soft font-mono">
+                              {card.mode === "live" ? "SerpApi Live" : "Recorded"}
+                            </span>
+                          </div>
+                          <p className="font-medium text-ink text-base">
+                            {card.location.village}, {card.location.block ? `${card.location.block}, ` : ""}{card.location.district}, {card.location.state}
+                          </p>
+                          <p className="text-xs text-ink-soft">
+                            {card.places.length} Local Emergency Places · {card.lifelines.length} National Lifelines · 100% Offline Cached
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          <Link href={`/${locale}/card?id=${card.id}`}>
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              className="border-indigo-600/40 text-indigo-800 hover:bg-indigo-100"
+                            >
+                              View & Print Card
+                            </Button>
+                          </Link>
+                          <Button
+                            variant="quiet"
+                            size="sm"
+                            disabled={busy}
+                            onClick={() => removeCard(card.id)}
+                            className="text-xs text-ink-soft hover:text-terracotta"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             !error && (
               <EmptyState
                 title={t("noCases")}
-                description="Your saved crop briefs, hospital bill audits, scam checks, and crop insurance kits will appear here."
+                description="Your saved crop briefs, hospital bill audits, scam checks, crop insurance kits, and emergency pocket cards will appear here."
                 icon={<ShieldCheck className="w-12 h-12 text-ink-soft/40" />}
               />
             )
