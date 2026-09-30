@@ -177,6 +177,45 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number): Pla
         requireOfficial: false
       }
     );
+  } else if (input.module === "fasal") {
+    const state = cleanQueryPart(input.state);
+    const district = cleanQueryPart(input.district);
+    const calamity = cleanQueryPart(input.calamityType);
+    const crop = cleanQueryPart(input.crop || "crop");
+
+    addQuery({
+      engine: "google",
+      query: `PMFBY empanelled insurance company ${quoted(district)} ${quoted(state)} (site:pmfby.gov.in OR site:gov.in OR site:nic.in)`,
+      parameters: common,
+      purpose: "Official empanelled PMFBY crop insurer for district",
+      requireOfficial: true
+    });
+    addQuery({
+      engine: "google",
+      query: `PMFBY 72 hours localized calamity intimation guidelines claim process (site:pmfby.gov.in OR site:agricoop.nic.in OR site:gov.in)`,
+      parameters: common,
+      purpose: "Statutory 72-hour localized loss reporting guidelines",
+      requireOfficial: true
+    });
+    addQuery({
+      engine: "google_maps",
+      query: `District Agriculture Officer office Krishi Bhavan ${district}`,
+      parameters: {
+        ...common,
+        location: `${district}, ${state}, India`,
+        type: "search",
+        z: "10"
+      },
+      purpose: "District Agriculture Office location and contact",
+      requireOfficial: false
+    });
+    addQuery({
+      engine: "google_news",
+      query: `${quoted(district)} ${quoted(state)} ${cleanQueryPart(calamity)} ${cleanQueryPart(crop)} damage compensation relief when:30d`,
+      parameters: common,
+      purpose: "Recent localized calamity reports and compensation announcements",
+      requireOfficial: false
+    });
   } else {
     // input.module === "suraksha"
     const analysis = analyzeSuspiciousText(input.content);

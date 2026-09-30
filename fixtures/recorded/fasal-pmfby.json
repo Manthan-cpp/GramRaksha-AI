@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "label": "Recorded live SerpApi capture — Fasal Bima 72-Hour Kit Pune Hailstorm",
+  "recordedAt": "2026-09-30T16:30:00.000Z",
+  "module": "fasal",
+  "match": {
+    "state": "maharashtra",
+    "district": "pune",
+    "calamityType": "hailstorm"
+  },
+  "queries": [
+    {
+      "engine": "google",
+      "query": "PMFBY empanelled insurance company \"Pune\" \"Maharashtra\" (site:pmfby.gov.in OR site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "fasal_meta_1",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "PMFBY Empanelled Insurance Companies Cluster Allocation - Maharashtra",
+            "link": "https://pmfby.gov.in/pdf/Maharashtra_PMFBY_Cluster_Allocation.pdf",
+            "snippet": "Agriculture Insurance Company of India Ltd (AIC) is the empanelled insurance agency notified by Government of Maharashtra for Pune, Ahmednagar, and Solapur districts under Pradhan Mantri Fasal Bima Yojana.",
+            "source": { "name": "Department of Agriculture and Farmers Welfare" }
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "PMFBY 72 hours localized calamity intimation guidelines claim process (site:pmfby.gov.in OR site:agricoop.nic.in OR site:gov.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "fasal_meta_2",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "PMFBY Revised Operational Guidelines - Localized Calamities (Clause 15.3)",
+            "link": "https://pmfby.gov.in/guidelines/operational-guidelines",
+            "snippet": "In case of localized perils such as hailstorm, landslide, inundation, cloudburst and natural fire, the insured farmer must intimate the loss within 72 hours of the occurrence of calamity to the insurance company, concerned bank, local agriculture officer or via Crop Insurance App.",
+            "source": { "name": "PMFBY Portal" }
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_maps",
+      "query": "District Agriculture Officer office Krishi Bhavan Pune",
+      "parameters": {
+        "gl": "in",
+        "hl": "en",
+        "location": "Pune, Maharashtra, India",
+        "type": "search",
+        "z": "10"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "fasal_meta_3",
+          "status": "Success"
+        },
+        "local_results": [
+          {
+            "title": "District Superintendent Agriculture Office (DSAO) Pune",
+            "address": "Krishi Bhavan, Shivajinagar, Pune, Maharashtra 411005",
+            "phone": "020-25537033",
+            "link": "https://www.google.com/maps/place/District+Superintendent+Agriculture+Office+Pune"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_news",
+      "query": "\"Pune\" \"Maharashtra\" hailstorm onion damage compensation relief when:30d",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "fasal_meta_4",
+          "status": "Success"
+        },
+        "news_results": [
+          {
+            "title": "Unhappy with hailstorm damage, Maharashtra farmers urge expedited PMFBY panchnama",
+            "link": "https://timesofindia.indiatimes.com/city/pune/hailstorm-damages-onion-and-vegetable-crops-in-pune-district/articleshow/99882211.cms",
+            "snippet": "Heavy hailstorms and unseasonal rains hit talukas in Pune district affecting standing onion and vegetable crops. District administration directed joint teams to begin immediate spot assessment surveys.",
+            "source": { "name": "The Times of India" },
+            "date": "2026-09-20T00:00:00.000Z"
+          }
+        ]
+      }
+    }
+  ]
+}
