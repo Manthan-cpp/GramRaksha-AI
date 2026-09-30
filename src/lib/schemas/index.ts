@@ -90,10 +90,30 @@ export const SurakshaEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
 }).strict();
 export type SurakshaEvidenceRequest = z.infer<typeof SurakshaEvidenceRequestSchema>;
 
+export const FasalCalamityTypeSchema = z.enum([
+  "hailstorm",
+  "flood_inundation",
+  "lightning_cloudburst",
+  "unseasonal_rain",
+  "landslide",
+  "other"
+]);
+export type FasalCalamityType = z.infer<typeof FasalCalamityTypeSchema>;
+
+export const FasalEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
+  module: z.literal("fasal"),
+  state: z.string().trim().min(1).max(100),
+  district: z.string().trim().min(1).max(100),
+  calamityType: FasalCalamityTypeSchema,
+  crop: z.string().trim().min(1).max(80).optional()
+}).strict();
+export type FasalEvidenceRequest = z.infer<typeof FasalEvidenceRequestSchema>;
+
 export const EvidenceRunRequestSchema = z.discriminatedUnion("module", [
   CropEvidenceRequestSchema,
   BillEvidenceRequestSchema,
-  SurakshaEvidenceRequestSchema
+  SurakshaEvidenceRequestSchema,
+  FasalEvidenceRequestSchema
 ]);
 export type EvidenceRunRequest = z.infer<typeof EvidenceRunRequestSchema>;
 
@@ -367,6 +387,75 @@ export const SurakshaDecisionSchema = z.object({
 });
 export type SurakshaDecision = z.infer<typeof SurakshaDecisionSchema>;
 
+export const FasalPhotoEvidenceSchema = z.object({
+  id: z.string(),
+  dataUrl: z.string(),
+  timestamp: z.string(),
+  latitude: z.number().optional(),
+  longitude: z.number().optional(),
+  caption: z.string().optional(),
+  fileSize: z.number().optional()
+});
+export type FasalPhotoEvidence = z.infer<typeof FasalPhotoEvidenceSchema>;
+
+export const FasalCountdownStatusSchema = z.object({
+  hoursLeft: z.number(),
+  minutesLeft: z.number(),
+  secondsLeft: z.number(),
+  totalMsRemaining: z.number(),
+  percentElapsed: z.number().min(0).max(100),
+  urgency: z.enum(["safe", "warning", "critical", "expired"]),
+  formattedTimeLeft: z.string(),
+  deadlineIso: z.string(),
+  isExpired: z.boolean()
+});
+export type FasalCountdownStatus = z.infer<typeof FasalCountdownStatusSchema>;
+
+export const FasalDecisionSchema = z.object({
+  countdown: FasalCountdownStatusSchema,
+  calamityType: FasalCalamityTypeSchema,
+  calamityLabel: z.string(),
+  incidentTime: z.string(),
+  state: z.string(),
+  district: z.string(),
+  village: z.string(),
+  khasraNo: z.string().optional(),
+  crop: z.string(),
+  areaAcres: z.number().optional(),
+  lossPercentage: z.number().min(1).max(100),
+  farmerName: z.string(),
+  farmerPhone: z.string().optional(),
+  applicationNo: z.string().optional(),
+  bankAccountRef: z.string().optional(),
+  insurer: z.object({
+    name: z.string(),
+    tollFree: z.string(),
+    email: z.string().optional(),
+    portalUrl: z.string().optional(),
+    isEmpanelled: z.boolean()
+  }),
+  daoOffice: z.object({
+    officeName: z.string(),
+    address: z.string(),
+    phone: z.string().optional(),
+    mapsUrl: z.string().optional()
+  }),
+  actions: z.array(z.object({
+    id: z.string(),
+    priority: z.number(),
+    title: z.string(),
+    description: z.string(),
+    actionType: z.enum(["call", "app", "letter", "visit"]),
+    actionValue: z.string().optional(),
+    isUrgent: z.boolean()
+  })),
+  letterText: z.string(),
+  speechSummary: z.string(),
+  guidelineRule: z.string(),
+  labels: z.record(z.string(), z.string()).default({})
+});
+export type FasalDecision = z.infer<typeof FasalDecisionSchema>;
+
 export const EvidenceRunResultSchema = z.object({
   mode: EvidenceModeSchema,
   evidence: z.array(EvidenceSchema),
@@ -375,7 +464,8 @@ export const EvidenceRunResultSchema = z.object({
   warnings: z.array(z.string()),
   cropBrief: CropBriefSchema.optional(),
   mediDecision: MediDecisionSchema.optional(),
-  surakshaDecision: SurakshaDecisionSchema.optional()
+  surakshaDecision: SurakshaDecisionSchema.optional(),
+  fasalDecision: FasalDecisionSchema.optional()
 });
 export type EvidenceRunResult = z.infer<typeof EvidenceRunResultSchema>;
 
@@ -402,7 +492,7 @@ export type Bill = z.infer<typeof BillSchema>;
 
 export const CaseSchema = z.object({
   id: z.string(),
-  module: z.enum(["krishi", "medi", "suraksha"]),
+  module: z.enum(["krishi", "medi", "suraksha", "fasal"]),
   createdAt: z.string(),
   payload: z.any(),
   locale: z.string()
