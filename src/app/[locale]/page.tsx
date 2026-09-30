@@ -89,6 +89,25 @@ export default function HomePage() {
       href: `/${locale}/krishi`,
       accent: "border-moss/40 bg-moss/5 text-moss-deep",
       buttonColor: "bg-moss hover:bg-moss-deep text-paper"
+    },
+    {
+      id: "card",
+      badge: "📇 Pocket Card Scenario",
+      titleEn: "Remote Field Emergency With Zero Cellular Connectivity",
+      titleHi: "सुदूर खेत या रात्रि में मोबाइल नेटवर्क शून्य होने पर आपातकाल",
+      titleBn: "প্রত্যন্ত গ্রামে মোবাইল নেটওয়ার্ক ও ইন্টারনেট না থাকা অবস্থায় জরুরি পরিস্থিতি",
+      contextEn: "A villager in an interior hamlet experiences sudden acute medical illness at 2 AM with dead cellular data and zero mobile network connectivity.",
+      contextHi: "सुदूर गांव में रात 2 बजे अचानक गंभीर स्वास्थ्य संकट और फोन में इंटरनेट या मोबाइल नेटवर्क पूरी तरह ठप।",
+      contextBn: "প্রত্যন্ত অঞ্চলে রাত ২টায় হঠাৎ তীব্র শারীরিক অসুস্থতা, কিন্তু ফোনে ইন্টারনেট বা মোবাইল নেটওয়ার্ক সম্পূর্ণ বিচ্ছিন্ন।",
+      solutionEn: "Pre-printed CR80 Pocket Card provides verified local PHC, Thana beat officer numbers, and 1-tap offline vCard contacts without requiring a live web connection.",
+      solutionHi: "पहले से प्रिंट किया गया पॉकेट कार्ड बिना इंटरनेट के निकटतम पीएचसी, थाना प्रभारी और आपातकालीन नंबर तुरंत उपलब्ध कराता है।",
+      solutionBn: "আগে থেকেই প্রিন্ট করা পকেট কার্ড ইন্টারনেট সংযোগ ছাড়াই নিকটতম স্বাস্থ্য কেন্দ্র ও থানার জরুরি নম্বর তাৎক্ষণিক প্রদান করে।",
+      ctaEn: "Generate Pocket Card",
+      ctaHi: "पॉकेट कार्ड बनाएं",
+      ctaBn: "পকেট কার্ড তৈরি করুন",
+      href: `/${locale}/card`,
+      accent: "border-indigo-500/40 bg-indigo-500/5 text-indigo-900",
+      buttonColor: "bg-indigo-600 hover:bg-indigo-700 text-paper"
     }
   ];
 
@@ -200,8 +219,8 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* 4 Core Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+        {/* 5 Core Pillars Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-14">
           {/* Card 1: KrishiSahay */}
           <Link
             href={`/${locale}/krishi`}
@@ -333,6 +352,39 @@ export default function HomePage() {
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </div>
           </Link>
+
+          {/* Card 5: Emergency Pocket Card */}
+          <Link
+            href={`/${locale}/card`}
+            className="group p-6 rounded-3xl bg-paper-2 border-[1.5px] border-indigo-500/30 hover:border-indigo-600 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-paper flex items-center justify-center text-2xl shadow-xs group-hover:scale-105 transition-transform">
+                  📇
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-900 border border-indigo-500/20">
+                  Offline Card
+                </span>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-bold text-ink group-hover:text-indigo-900 transition-colors">
+                  Pocket Card
+                </h3>
+                <p className="text-xs text-ink-soft mt-1 leading-relaxed">
+                  {locale === "hi"
+                    ? "निकटतम प्राथमिक स्वास्थ्य केंद्र (PHC), थाना, केवीके एवं विधिक सेवा का वॉलेट-साइज ऑफलाइन पॉकेट कार्ड।"
+                    : locale === "bn"
+                    ? "নিকটবর্তী স্বাস্থ্য কেন্দ্র (PHC), থানা, কেভিকে ও আইনি সহায়তার অফলাইন ওয়ালেট পকেট কার্ড।"
+                    : "Printable CR80 wallet card with local PHC, Police Thana, KVK, and legal aid. 100% offline in IndexedDB."}
+                </p>
+              </div>
+            </div>
+            <div className="pt-6 border-t border-ink/10 flex items-center justify-between mt-6 text-xs font-bold text-indigo-900">
+              <span>{locale === "hi" ? "पॉकेट कार्ड बनाएं" : locale === "bn" ? "পকেট কার্ড তৈরি করুন" : "Generate Card"}</span>
+              <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -362,7 +414,7 @@ export default function HomePage() {
           </div>
 
           {/* Scenario Tabs */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
             {scenarios.map((s, idx) => (
               <button
                 key={s.id}
