@@ -1,0 +1,43 @@
+{
+  "Krishi": {
+    "title":"KrishiSahay", "intro":"Tell us about your crop to get an evidence-backed brief.", "protect":"Protect a Crop", "step":"Step {step}/4", "selectCrop":"Select your crop", "selectLocation":"Select your location", "state":"State", "district":"District", "chooseState":"Choose a state…", "chooseDistrict":"Choose a district…", "stage":"Growth stage", "concern":"What is your concern? (Optional)", "placeholder":"E.g., brown spots on leaves or heavy rain…", "voice":"Voice input unavailable", "back":"Back", "continue":"Continue", "find":"Find Evidence", "gather":"Gathering Evidence", "gatherDetail":"We search public sources and show what was kept or dropped.", "retry":"Start again", "failed":"The search could not be completed. Please try again.", "brief":"{crop} Protection Brief", "alerts":"Active Alerts", "actions":"Immediate Actions", "market":"Market Intel", "schemes":"Government Schemes", "support":"Support & KVKs", "empty":"No sourced results available", "incomplete":"Search coverage is incomplete. Missing results do not mean there are no risks or alerts.", "noAlerts":"No matching alerts found in the sources checked. This is not an all-clear.", "emptyDetail":"No sufficiently supported information was returned for this section.", "disclaimer":"Safety & limitations", "original":"Original source content — not translated", "source":"Source", "retrieved":"Retrieved", "published":"Published", "unknown":"Not provided", "official":"Official", "news":"News", "other":"Other", "map":"Open map", "call":"Call listed number", "copy":"Copy", "copied":"Copied", "share":"Share", "image":"Save image", "shareNote":"Only sourced alerts, actions and safety notes are shared. Your concern is not included.", "shareFailed":"Could not copy or export. Check browser permissions or try text sharing.", "save":"Save on this device", "saved":"Saved on this device", "saveFailed":"Could not save on this device. The brief is still available here.", "recorded":"Recorded", "live":"Live", "trail":"Evidence Trail", "idle":"Ready to search", "idleDetail":"Sources searched, read and kept will appear here.", "planning":"Planning searches", "searching":"Searching", "reading":"Reading result", "kept":"Source kept", "dropped":"Source dropped", "synthesizing":"Checking grounded claims", "done":"Evidence ready", "error":"Search stopped", "starting":"Preparing the first search…", "cache":"From cache", "request":"Live request", "counts":"{kept} sources kept · {dropped} dropped. Claims must remain tied to source snippets.", "trailError":"Return and try again, or select Recorded mode if a captured run is available.", "emergency":"Emergency? Call 108 (Ambulance) or 112 (National Emergency).", "household":"Your Household", "householdDetail":"Manage your crop and health cases locally.", "help":"Help & Safety", "cropIntro":"Get evidence-backed actions and alerts for your crop.", "newCrop":"New Crop Case", "billIntro":"Check your hospital bill against public reference rates.", "newBill":"Check a Bill", "recent":"Recent Cases", "deleteAll":"Delete All", "delete":"Delete", "confirmDelete":"Delete this saved crop case from this device?", "confirmAll":"Delete all saved crop cases from this device?", "noCases":"No cases yet", "casesDetail":"Saved crop briefs appear here, only on this device.", "storageError":"Local cases could not be read or changed. Nothing has been reported as saved or deleted.", "loading":"Loading saved cases…", "open":"Open brief", "close":"Back to cases", "namesOriginal":"Location names are shown as listed, without translation.",
+    "trend":"Early search signal", "trendProxy":"Search interest in {region} over {window}. This is a proxy, not a confirmed outbreak.", "trendEmpty":"No early signal available", "trendEmptyDetail":"Search-interest data was too thin to show safely.", "rising":"Rising", "stable":"Stable", "falling":"Falling", "videos":"Official agriculture videos", "videosEmpty":"No verified official video found", "videosEmptyDetail":"Only channels matching the official agriculture allowlist are shown.",
+    "refusal":"This request could not be safely answered", "sources":"Sources checked", "supportMapDisclaimer":"Map details come from the cited source; verify the address before travelling.", "officialReference":"Official reference", "whatsapp":"WhatsApp", "imageReady":"Image saved",
+    "crops":{"Rice":"Rice","Wheat":"Wheat","Maize":"Maize","Cotton":"Cotton","Sugarcane":"Sugarcane","Pulses":"Pulses","Potato":"Potato","Vegetables":"Vegetables"},
+    "stages":{"Sowing":"Sowing","Vegetative":"Vegetative","Flowering":"Flowering","Fruiting":"Fruiting","Harvesting":"Harvesting"},
+    "chips":{"spots":"Brown spots","yellow":"Yellowing","pests":"Pest attack","weather":"Weather alert"}
+  },
+  "Index": {
+    "title": "GramRaksha AI",
+    "subtitle": "One product. Farm, health & cyber security: KrishiSahay + MediShield + Suraksha Check."
+  },
+  "Medi": {
+    "title": "MediShield",
+    "subtitle": "Hospital Bill Protection",
+    "privacyTitle": "Privacy First",
+    "uploadTitle": "Upload Hospital Bill",
+    "reviewTitle": "Bill Verification & Breakdown",
+    "analyzingTitle": "Searching Official Evidence with Serp API",
+    "resultsTitle": "Hospital Bill Audit & Advice",
+    "letterTitle": "Formal Clarification Letter",
+    "tabConclusion": "Conclusion & Advice",
+    "tabFlags": "Questions to Ask",
+    "tabSources": "Verified Sources (Serp API)",
+    "tabGrievance": "Helplines & Legal Aid",
+    "listen": "Listen to Advice",
+    "stop": "Stop Audio",
+    "saveCase": "Save Case",
+    "saved": "Saved",
+    "startOver": "Start Over",
+    "openLetter": "Open Clarification Letter"
+  },
+  "Suraksha": {
+    "title": "Suraksha Check",
+    "subtitle": "WhatsApp, SMS, Link & APK Scam Detector",
+    "nav": "Suraksha Check",
+    "tabVerdict": "Verdict & Threats",
+    "tabSources": "Verified Sources",
+    "tabRedressal": "Report & Redressal",
+    "tabVillageCard": "Village Warning Card"
+  }
+}

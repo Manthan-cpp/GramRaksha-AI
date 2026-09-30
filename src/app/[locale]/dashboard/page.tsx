@@ -1,0 +1,637 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { BriefView } from "@/components/krishi/BriefView";
+import { BillResults } from "@/components/medi/BillResults";
+import { LetterEditor } from "@/components/medi/LetterEditor";
+import { listCropCases, deleteCropCase, deleteAllCropCases, type SavedCropCase } from "@/lib/storage/crop-cases";
+import { listMediCases, deleteMediCase, deleteAllMediCases, type SavedMediCase } from "@/lib/storage/medi-cases";
+import {
+  listSurakshaCases,
+  deleteSurakshaCase,
+  deleteAllSurakshaCases,
+  type SavedSurakshaCase
+} from "@/lib/storage/suraksha-cases";
+import { SurakshaResults } from "@/components/suraksha/SurakshaResults";
+import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
+import {
+  ShieldCheck,
+  ShieldAlert,
+  Leaf,
+  FileText,
+  Clock,
+  AlertTriangle,
+  HelpCircle,
+  Trash2
+} from "lucide-react";
+
+function formatRelativeTime(dateStr: string, now: number | null, locale: string): string {
+  if (now === null) return new Date(dateStr).toLocaleDateString(locale);
+  const date = new Date(dateStr);
+  const diffMs = Math.max(0, now - date.getTime());
+  const diffMins = Math.round(diffMs / 60000);
+  const diffHours = Math.round(diffMs / 3600000);
+  const diffDays = Math.round(diffMs / 86400000);
+
+  if (diffMins < 2) return locale === "hi" ? "अभी-अभी" : locale === "bn" ? "এইমাত্র" : "Just now";
+  if (diffMins < 60) return locale === "hi" ? `${diffMins} मिनट पहले` : locale === "bn" ? `${diffMins} মিনিট আগে` : `${diffMins} mins ago`;
+  if (diffHours < 24) return locale === "hi" ? `${diffHours} घंटे पहले` : locale === "bn" ? `${diffHours} ঘণ্টা আগে` : `${diffHours} hours ago`;
+  if (diffDays === 1) return locale === "hi" ? "कल" : locale === "bn" ? "গতকাল" : "Yesterday";
+  return locale === "hi" ? `${diffDays} दिन पहले` : locale === "bn" ? `${diffDays} দিন আগে` : `${diffDays} days ago`;
+}
+
+export default function DashboardPage() {
+  const t = useTranslations("Krishi");
+  const locale = useLocale();
+  const [cropCases, setCropCases] = useState<SavedCropCase[]>([]);
+  const [mediCases, setMediCases] = useState<SavedMediCase[]>([]);
+  const [surakshaCases, setSurakshaCases] = useState<SavedSurakshaCase[]>([]);
+  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha">("all");
+  const [openedCrop, setOpenedCrop] = useState<SavedCropCase | null>(null);
+  const [openedMedi, setOpenedMedi] = useState<SavedMediCase | null>(null);
+  const [openedSuraksha, setOpenedSuraksha] = useState<SavedSurakshaCase | null>(null);
+  const [openedMediLetter, setOpenedMediLetter] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [now, setNow] = useState<number | null>(null);
+  const [hasOldCases, setHasOldCases] = useState(false);
+  const alive = useRef(false);
+  const deleting = useRef(false);
+
+  useEffect(() => {
+    alive.current = true;
+    let cancelled = false;
+    Promise.all([listCropCases(), listMediCases(), listSurakshaCases()])
+      .then(([crops, medis, surakshas]) => {
+        if (!cancelled) {
+          setCropCases(crops);
+          setMediCases(medis);
+          setSurakshaCases(surakshas);
+          const currentNow = Date.now();
+          setNow(currentNow);
+          const old = [...crops, ...medis, ...surakshas].some(
+            (c) => currentNow - new Date(c.createdAt).getTime() > 7 * 24 * 60 * 60 * 1000
+          );
+          setHasOldCases(old);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setError(true);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+      alive.current = false;
+    };
+  }, []);
+
+  const removeCrop = async (id?: string) => {
+    if (deleting.current || !window.confirm(t(id ? "confirmDelete" : "confirmAll"))) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      if (id) await deleteCropCase(id);
+      else await deleteAllCropCases();
+      if (alive.current) setCropCases((rows) => (id ? rows.filter((row) => row.id !== id) : []));
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
+  const removeMedi = async (id?: string) => {
+    if (deleting.current || !window.confirm(locale === "hi" ? "क्या आप इस सहेजे गए अस्पताल बिल केस को हटाना चाहते हैं?" : locale === "bn" ? "আপনি কি এই সংরক্ষিত বিল অডিটটি মুছে ফেলতে চান?" : "Delete this saved hospital bill case?")) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      if (id) await deleteMediCase(id);
+      else await deleteAllMediCases();
+      if (alive.current) setMediCases((rows) => (id ? rows.filter((row) => row.id !== id) : []));
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
+  const removeSuraksha = async (id?: string) => {
+    if (deleting.current || !window.confirm(locale === "hi" ? "क्या आप इस सहेजे गए सुरक्षा जांच केस को हटाना चाहते हैं?" : locale === "bn" ? "আপনি কি এই সংরক্ষিত সাইবার অডিটটি মুছে ফেলতে চান?" : "Delete this saved Suraksha check case?")) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      if (id) await deleteSurakshaCase(id);
+      else await deleteAllSurakshaCases();
+      if (alive.current) setSurakshaCases((rows) => (id ? rows.filter((row) => row.id !== id) : []));
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
+  const clearAllHousehold = async () => {
+    const msg =
+      locale === "hi"
+        ? "क्या आप अपने डिवाइस से सभी सहेजे गए कृषि, अस्पताल बिल एवं सुरक्षा जांच रिकॉर्ड हमेशा के लिए हटाना चाहते हैं?"
+        : locale === "bn"
+        ? "আপনি কি ডিভাইস থেকে সমস্ত সংরক্ষিত কৃষি, বিল ও সাইবার নিরাপত্তা অডিট স্থায়ীভাবে মুছে ফেলতে চান?"
+        : "Permanently wipe all crop advisories, hospital bill audits, and scam check records from this device?";
+
+    if (deleting.current || !window.confirm(msg)) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      await Promise.all([deleteAllCropCases(), deleteAllMediCases(), deleteAllSurakshaCases()]);
+      if (alive.current) {
+        setCropCases([]);
+        setMediCases([]);
+        setSurakshaCases([]);
+      }
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
+  if (openedCrop) {
+    return (
+      <div className="min-h-screen bg-paper pt-8 px-4">
+        <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
+          <Button variant="quiet" onClick={() => setOpenedCrop(null)} className="text-sm font-medium">
+            ← {locale === "hi" ? "डैशबोर्ड रिकॉर्ड पर वापस जाएं" : locale === "bn" ? "ড্যাশবোর্ডে ফিরে যান" : "Back to Household Cases"}
+          </Button>
+          <span className="text-xs text-ink-soft bg-paper-2 border border-ink-soft/20 px-3 py-1 rounded-full">
+            {formatRelativeTime(openedCrop.createdAt, now, locale)}
+          </span>
+        </div>
+        <BriefView
+          key={openedCrop.id}
+          brief={openedCrop.brief}
+          cropContext={openedCrop.profile}
+          warnings={openedCrop.warnings}
+          mode={openedCrop.mode}
+          saved
+        />
+      </div>
+    );
+  }
+
+  if (openedMedi) {
+    if (openedMediLetter) {
+      return (
+        <div className="min-h-screen bg-paper pt-8 px-4">
+          <LetterEditor
+            bill={{
+              hospital: openedMedi.hospital,
+              city: openedMedi.city,
+              procedure: openedMedi.procedure,
+              total: openedMedi.total,
+              items: openedMedi.items,
+              date: openedMedi.createdAt.split("T")[0],
+              confidence: {},
+              confirmed: true
+            }}
+            decision={openedMedi.decision}
+            onBack={() => setOpenedMediLetter(false)}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <div className="min-h-screen bg-paper pt-8 px-4">
+        <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
+          <Button variant="quiet" onClick={() => setOpenedMedi(null)} className="text-sm font-medium">
+            ← {locale === "hi" ? "डैशबोर्ड रिकॉर्ड पर वापस जाएं" : locale === "bn" ? "ড্যাশবোর্ডে ফিরে যান" : "Back to Household Cases"}
+          </Button>
+          <span className="text-xs text-ink-soft bg-paper-2 border border-ink-soft/20 px-3 py-1 rounded-full">
+            {formatRelativeTime(openedMedi.createdAt, now, locale)}
+          </span>
+        </div>
+        <BillResults
+          bill={{
+            hospital: openedMedi.hospital,
+            city: openedMedi.city,
+            procedure: openedMedi.procedure,
+            total: openedMedi.total,
+            items: openedMedi.items,
+            date: openedMedi.createdAt.split("T")[0],
+            confidence: {},
+            confirmed: true
+          }}
+          decision={openedMedi.decision}
+          evidence={[]}
+          onOpenLetter={() => setOpenedMediLetter(true)}
+          saved
+        />
+      </div>
+    );
+  }
+
+  if (openedSuraksha) {
+    return (
+      <div className="min-h-screen bg-paper pt-8 px-4">
+        <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
+          <Button variant="quiet" onClick={() => setOpenedSuraksha(null)} className="text-sm font-medium">
+            ← {locale === "hi" ? "डैशबोर्ड रिकॉर्ड पर वापस जाएं" : locale === "bn" ? "ড্যাশবোর্ডে ফিরে যান" : "Back to Household Cases"}
+          </Button>
+          <span className="text-xs text-ink-soft bg-paper-2 border border-ink-soft/20 px-3 py-1 rounded-full">
+            {formatRelativeTime(openedSuraksha.createdAt, now, locale)}
+          </span>
+        </div>
+        <SurakshaResults
+          decision={openedSuraksha.decision}
+          evidence={openedSuraksha.evidence || []}
+          content={openedSuraksha.content}
+          sourceType={openedSuraksha.sourceType}
+          onStartOver={() => setOpenedSuraksha(null)}
+          saved
+        />
+      </div>
+    );
+  }
+
+  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0;
+  const totalCount = cropCases.length + mediCases.length + surakshaCases.length;
+
+  return (
+    <div className="min-h-screen bg-paper pb-24">
+      {/* Safety Strip */}
+      <div className="bg-ink text-paper text-sm text-center py-2 px-4 flex justify-center items-center gap-2">
+        <AlertTriangle className="w-4 h-4 text-terracotta" />
+        <span>{t("emergency")}</span>
+      </div>
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-12 space-y-12">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <h1 className="font-display text-3xl sm:text-4xl text-ink font-semibold">{t("household")}</h1>
+            <p className="text-ink-soft text-sm sm:text-base mt-1">{t("householdDetail")}</p>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <Link href={`/${locale}/help`}>
+              <Button variant="quiet" className="text-sm">
+                <HelpCircle className="w-4 h-4 mr-1.5" /> {t("help")}
+              </Button>
+            </Link>
+            {hasCases && (
+              <Button
+                variant="quiet"
+                disabled={loading || busy}
+                onClick={clearAllHousehold}
+                className="text-xs text-terracotta hover:bg-terracotta/10 border border-terracotta/30"
+              >
+                <Trash2 className="w-3.5 h-3.5 mr-1" />
+                {locale === "hi" ? "सभी डेटा साफ करें" : locale === "bn" ? "সব মুছুন" : "Wipe All Records"}
+              </Button>
+            )}
+          </div>
+        </div>
+
+        {/* Protection Module Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-moss/10 border-[1.5px] border-moss/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
+            <div className="absolute -right-4 -bottom-4 opacity-10">
+              <Leaf className="w-40 h-40" />
+            </div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-moss inline-block" />
+              <span className="text-xs uppercase font-bold tracking-wider text-moss-deep">Agricultural Safety</span>
+            </div>
+            <h2 className="font-display text-2xl text-moss-deep mb-2 font-semibold">{t("title")}</h2>
+            <p className="text-ink-soft text-sm mb-6 max-w-[90%] leading-relaxed">{t("cropIntro")}</p>
+            <Link href={`/${locale}/krishi`}>
+              <Button variant="primary" className="bg-moss hover:bg-moss-deep text-paper shadow-print text-xs">
+                {t("newCrop")}
+              </Button>
+            </Link>
+          </div>
+
+          <div className="bg-nil/10 border-[1.5px] border-nil/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
+            <div className="absolute -right-4 -bottom-4 opacity-10">
+              <FileText className="w-40 h-40" />
+            </div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-nil inline-block" />
+              <span className="text-xs uppercase font-bold tracking-wider text-nil">Hospital Bill Protection</span>
+            </div>
+            <h2 className="font-display text-2xl text-nil mb-2 font-semibold">MediShield</h2>
+            <p className="text-ink-soft text-sm mb-6 max-w-[90%] leading-relaxed">{t("billIntro")}</p>
+            <Link href={`/${locale}/medi`}>
+              <Button variant="primary" className="bg-nil hover:bg-nil/90 text-paper shadow-print text-xs">
+                {t("newBill")}
+              </Button>
+            </Link>
+          </div>
+
+          <div className="bg-terracotta/10 border-[1.5px] border-terracotta/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
+            <div className="absolute -right-4 -bottom-4 opacity-10">
+              <ShieldAlert className="w-40 h-40" />
+            </div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-terracotta inline-block" />
+              <span className="text-xs uppercase font-bold tracking-wider text-terracotta">Cyber & Scam Defense</span>
+            </div>
+            <h2 className="font-display text-2xl text-terracotta mb-2 font-semibold">Suraksha Check</h2>
+            <p className="text-ink-soft text-sm mb-6 max-w-[90%] leading-relaxed">
+              Verify WhatsApp forwards, fake APK files, scheme fees, and electricity bill cutoff threats.
+            </p>
+            <Link href={`/${locale}/suraksha`}>
+              <Button variant="primary" className="bg-terracotta hover:bg-terracotta/90 text-paper shadow-print text-xs">
+                {locale === "hi" ? "नई सुरक्षा जांच" : locale === "bn" ? "নতুন নিরাপত্তা চেক" : "New Suraksha Check"}
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Case Timeline Section */}
+        <section className="space-y-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b-[1.5px] border-ink-soft/20 pb-4">
+            <div>
+              <h2 className="font-display text-2xl text-ink font-semibold flex items-center gap-2">
+                <Clock className="w-6 h-6 text-ink-soft" /> {t("recent")}
+              </h2>
+              <p className="text-xs text-ink-soft mt-0.5">
+                Saved cases stay private on this device in browser IndexedDB storage.
+              </p>
+            </div>
+
+            {/* Filter Pills */}
+            {hasCases && (
+              <div className="flex gap-1.5 bg-paper-2 p-1 rounded-xl border border-ink-soft/20 text-xs">
+                <button
+                  onClick={() => setFilter("all")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "all" ? "bg-ink text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  All ({totalCount})
+                </button>
+                <button
+                  onClick={() => setFilter("crop")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "crop" ? "bg-moss text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  🌾 Krishi ({cropCases.length})
+                </button>
+                <button
+                  onClick={() => setFilter("medi")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "medi" ? "bg-nil text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  🏥 MediShield ({mediCases.length})
+                </button>
+                <button
+                  onClick={() => setFilter("suraksha")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "suraksha" ? "bg-terracotta text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  🛡️ Suraksha ({surakshaCases.length})
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Freshness Advisory Banner */}
+          {hasOldCases && (
+            <div className="p-4 rounded-xl border border-turmeric/40 bg-turmeric/10 flex items-start gap-3 text-xs text-ink-soft">
+              <AlertTriangle className="w-4 h-4 text-turmeric-deep shrink-0 mt-0.5" />
+              <div>
+                <span className="font-semibold text-ink">Advisory Freshness Reminder: </span>
+                <span>
+                  Agricultural pest alerts, Agromet weather advisories, and APMC Mandi rates change weekly. For records older than 7 days, consider re-running a fresh Serp API search.
+                </span>
+              </div>
+            </div>
+          )}
+
+          {error && <p role="alert" className="text-terracotta mb-4">{t("storageError")}</p>}
+
+          {loading ? (
+            <div className="p-12 text-center text-ink-soft">
+              <p role="status">{t("loading")}</p>
+            </div>
+          ) : hasCases ? (
+            <div className="space-y-6">
+              {/* MediShield Cases */}
+              {(filter === "all" || filter === "medi") && mediCases.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-lg text-nil font-semibold flex items-center gap-2">
+                      <FileText className="w-4 h-4" /> Hospital Bill Cases ({mediCases.length})
+                    </h3>
+                    <Button
+                      variant="quiet"
+                      disabled={loading || busy}
+                      onClick={() => removeMedi()}
+                      className="text-xs text-ink-soft hover:text-terracotta"
+                    >
+                      Clear Bill Cases
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {mediCases.map((item) => (
+                      <div
+                        key={item.id}
+                        className="p-5 rounded-2xl border-[1.5px] border-nil/30 bg-nil/5 flex justify-between items-center gap-4 flex-wrap hover:border-nil transition-all shadow-xs"
+                      >
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-nil/15 text-nil uppercase">
+                              {item.procedure}
+                            </span>
+                            <span className="text-xs text-ink-soft font-mono">
+                              {formatRelativeTime(item.createdAt, now, locale)}
+                            </span>
+                            <span className="text-[11px] px-2 py-0.2 rounded bg-paper border border-ink-soft/20 text-ink-soft font-mono">
+                              {item.mode === "live" ? "Serp API Live" : "Recorded"}
+                            </span>
+                          </div>
+                          <p className="font-medium text-ink text-base">
+                            {item.hospital}, {item.city}
+                          </p>
+                          <p className="text-xs text-ink-soft">
+                            Total Billed: <strong className="text-ink font-mono font-semibold">₹{item.total.toLocaleString("en-IN")}</strong> · {item.items.length} line items analyzed
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="secondary" size="sm" onClick={() => setOpenedMedi(item)} className="border-nil/40 text-nil hover:bg-nil/10">
+                            View Audit
+                          </Button>
+                          <Button variant="quiet" size="sm" disabled={busy} onClick={() => removeMedi(item.id)} className="text-xs text-ink-soft hover:text-terracotta">
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Krishi Cases */}
+              {(filter === "all" || filter === "crop") && cropCases.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-lg text-moss font-semibold flex items-center gap-2">
+                      <Leaf className="w-4 h-4" /> Crop Advisory Cases ({cropCases.length})
+                    </h3>
+                    <Button
+                      variant="quiet"
+                      disabled={loading || busy}
+                      onClick={() => removeCrop()}
+                      className="text-xs text-ink-soft hover:text-terracotta"
+                    >
+                      Clear Crop Cases
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {cropCases.map((item) => (
+                      <div
+                        key={item.id}
+                        className="p-5 rounded-2xl border-[1.5px] border-moss/30 bg-moss/5 flex justify-between items-center gap-4 flex-wrap hover:border-moss transition-all shadow-xs"
+                      >
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-moss/20 text-moss-deep uppercase">
+                              {t.has(`crops.${item.profile.crop}`) ? t(`crops.${item.profile.crop}`) : item.profile.crop}
+                            </span>
+                            <span className="text-xs text-ink-soft font-mono">
+                              {formatRelativeTime(item.createdAt, now, locale)}
+                            </span>
+                            <span className="text-[11px] px-2 py-0.2 rounded bg-paper border border-ink-soft/20 text-ink-soft font-mono">
+                              {item.mode === "live" ? "Serp API Live" : "Recorded"}
+                            </span>
+                          </div>
+                          <p className="font-medium text-ink text-base">
+                            {item.profile.district}{item.profile.state ? `, ${item.profile.state}` : ""}
+                          </p>
+                          <p className="text-xs text-ink-soft">
+                            Growth Stage: <strong className="text-ink">{t.has(`stages.${item.profile.stage}`) ? t(`stages.${item.profile.stage}`) : item.profile.stage}</strong> · {item.brief.sources.length} sources verified
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="secondary" size="sm" onClick={() => setOpenedCrop(item)} className="border-moss/40 text-moss hover:bg-moss/10">
+                            {t("open")}
+                          </Button>
+                          <Button variant="quiet" size="sm" disabled={busy} onClick={() => removeCrop(item.id)} className="text-xs text-ink-soft hover:text-terracotta">
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Suraksha Cases */}
+              {(filter === "all" || filter === "suraksha") && surakshaCases.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-lg text-terracotta font-semibold flex items-center gap-2">
+                      <ShieldAlert className="w-4 h-4" /> Suraksha Scam Check Cases ({surakshaCases.length})
+                    </h3>
+                    <Button
+                      variant="quiet"
+                      disabled={loading || busy}
+                      onClick={() => removeSuraksha()}
+                      className="text-xs text-ink-soft hover:text-terracotta"
+                    >
+                      Clear Suraksha Cases
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {surakshaCases.map((item) => {
+                      const isDanger = item.decision.verdict === "danger";
+                      const isSafe = item.decision.verdict === "safe";
+                      return (
+                        <div
+                          key={item.id}
+                          className="p-5 rounded-2xl border-[1.5px] border-terracotta/30 bg-terracotta/5 flex justify-between items-center gap-4 flex-wrap hover:border-terracotta transition-all shadow-xs"
+                        >
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase ${
+                                  isDanger
+                                    ? "bg-red-200 text-red-900"
+                                    : isSafe
+                                      ? "bg-emerald-200 text-emerald-900"
+                                      : "bg-amber-200 text-amber-900"
+                                }`}
+                              >
+                                {item.decision.verdict} ({item.decision.riskScore}%)
+                              </span>
+                              <span className="text-xs text-ink-soft font-mono">
+                                {formatRelativeTime(item.createdAt, now, locale)}
+                              </span>
+                              <span className="text-[11px] px-2 py-0.2 rounded bg-paper border border-ink-soft/20 text-ink-soft font-mono">
+                                {item.sourceType}
+                              </span>
+                            </div>
+                            <p className="font-medium text-ink text-base line-clamp-1">
+                              {item.decision.headline}
+                            </p>
+                            <p className="text-xs text-ink-soft line-clamp-1 max-w-xl font-mono">
+                              &ldquo;{item.content}&rdquo;
+                            </p>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              onClick={() => setOpenedSuraksha(item)}
+                              className="border-terracotta/40 text-terracotta hover:bg-terracotta/10"
+                            >
+                              View Audit
+                            </Button>
+                            <Button
+                              variant="quiet"
+                              size="sm"
+                              disabled={busy}
+                              onClick={() => removeSuraksha(item.id)}
+                              className="text-xs text-ink-soft hover:text-terracotta"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </Button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            !error && (
+              <EmptyState
+                title={t("noCases")}
+                description="Your saved crop briefs, hospital bill audits, and scam checks will appear here."
+                icon={<ShieldCheck className="w-12 h-12 text-ink-soft/40" />}
+              />
+            )
+          )}
+        </section>
+      </div>
+    </div>
+  );
+}

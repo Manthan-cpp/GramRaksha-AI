@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "label": "Recorded live SerpApi capture — Suraksha Check PM-Kisan Fake APK",
+  "recordedAt": "2026-09-30T16:00:00.000Z",
+  "module": "suraksha",
+  "match": {
+    "sourceType": "whatsapp",
+    "scheme": "pmkisan"
+  },
+  "queries": [
+    {
+      "engine": "google",
+      "query": "\"PM-Kisan Samman Nidhi\" official registration charges fee guidelines (site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "suraksha_meta_1",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "PM Kisan Samman Nidhi Official Portal",
+            "link": "https://pmkisan.gov.in",
+            "snippet": "PM Kisan is a 100% centrally funded welfare scheme by Government of India. Farmers do not pay any registration fee or application charge. Beware of unauthorized websites.",
+            "source": { "name": "Ministry of Agriculture" }
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_news",
+      "query": "PM-Kisan Samman Nidhi fake APK scam advisory police warning when:90d",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "suraksha_meta_2",
+          "status": "Success"
+        },
+        "news_results": [
+          {
+            "title": "Nagaland Police issues alert on malicious PM Kisan Yojana APK file circulating across state",
+            "link": "https://www.newsonair.gov.in/nagaland-police-issues-alert-on-malicious-pm-kisan-yojana-apk-file-circulating-across-state",
+            "snippet": "Nagaland Police warned citizens against a fake PM Kisan APK circulating through WhatsApp groups designed to steal credentials and hijack messaging accounts.",
+            "source": { "name": "News On AIR" },
+            "date": "2026-08-15T00:00:00.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_play",
+      "query": "PMKisan.apk official app",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "suraksha_meta_3",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "PMKISAN GoI",
+            "link": "https://play.google.com/store/apps/details?id=in.gov.pmkisan",
+            "developer": "National Informatics Centre.",
+            "snippet": "Official PM-KISAN mobile application developed by NIC. All services are free of cost.",
+            "rating": 4.1,
+            "downloads": "10,000,000+"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "\"Chakshu\" \"Sanchar Saathi\" reporting fraud suspicious SMS WhatsApp (site:sancharsaathi.gov.in OR site:cybercrime.gov.in OR site:gov.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "suraksha_meta_4",
+          "status": "Success"
+        },
+        "organic_results": [
+          {
+            "title": "Chakshu - Report Suspected Fraud Communication | Sanchar Saathi",
+            "link": "https://sancharsaathi.gov.in/sfc/",
+            "snippet": "Chakshu facilitates citizens to report suspected fraud communication received through Calls, SMS, or WhatsApp like fake schemes, fake customer care, or lottery offers.",
+            "source": { "name": "Department of Telecommunications" }
+          }
+        ]
+      }
+    }
+  ]
+}

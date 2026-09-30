@@ -1,0 +1,387 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { SurakshaForm } from "@/components/suraksha/SurakshaForm";
+import { SurakshaResults } from "@/components/suraksha/SurakshaResults";
+import { EvidenceTrail, type TrailStatus } from "@/components/krishi/EvidenceTrail";
+import { streamEvidenceRun } from "@/lib/evidence/client";
+import { addClientEvidenceMetrics } from "@/lib/evidence/client-state";
+import { buildSurakshaDecision } from "@/lib/suraksha/decision";
+import { saveSurakshaCase } from "@/lib/storage/suraksha-cases";
+import type {
+  Evidence,
+  EvidenceEvent,
+  EvidenceMetrics,
+  SurakshaDecision,
+  SurakshaEvidenceRequest
+} from "@/lib/schemas";
+import { ShieldAlert, ArrowLeft, HelpCircle } from "lucide-react";
+
+type FlowStep = "form" | "analyzing" | "results";
+
+const SURAKSHA_SESSION_KEY = "gramraksha_suraksha_active_session";
+
+interface SavedSurakshaSession {
+  content: string;
+  sourceType: "whatsapp" | "sms" | "link" | "apk" | "other";
+  appName?: string;
+  evidence: Evidence[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
+  mode: "live" | "recorded";
+}
+
+function getSavedSurakshaSession(locale: "en" | "hi" | "bn"): {
+  step: FlowStep;
+  content: string;
+  sourceType: "whatsapp" | "sms" | "link" | "apk" | "other";
+  appName?: string;
+  evidence: Evidence[];
+  decision: SurakshaDecision | null;
+  mode: "live" | "recorded";
+  metrics?: EvidenceMetrics;
+  warnings: string[];
+} {
+  if (typeof window === "undefined") {
+    return {
+      step: "form",
+      content: "",
+      sourceType: "whatsapp",
+      evidence: [],
+      decision: null,
+      mode: "live",
+      warnings: []
+    };
+  }
+  try {
+    const raw = sessionStorage.getItem(SURAKSHA_SESSION_KEY);
+    if (!raw) {
+      return {
+        step: "form",
+        content: "",
+        sourceType: "whatsapp",
+        evidence: [],
+        decision: null,
+        mode: "live",
+        warnings: []
+      };
+    }
+    const parsed = JSON.parse(raw) as SavedSurakshaSession;
+    if (parsed.content && parsed.evidence) {
+      const decision = buildSurakshaDecision(
+        {
+          module: "suraksha",
+          locale,
+          content: parsed.content,
+          sourceType: parsed.sourceType,
+          appName: parsed.appName,
+          mode: parsed.mode
+        },
+        parsed.evidence,
+        parsed.metrics || {
+          queriesPlanned: 4,
+          queriesRun: 4,
+          liveSearches: 0,
+          cacheHits: 0,
+          sourcesKept: parsed.evidence.length,
+          sourcesDropped: 0,
+          mode: parsed.mode
+        },
+        parsed.warnings || [],
+        locale
+      );
+      return {
+        step: "results",
+        content: parsed.content,
+        sourceType: parsed.sourceType,
+        appName: parsed.appName,
+        evidence: parsed.evidence,
+        decision,
+        mode: parsed.mode,
+        metrics: parsed.metrics,
+        warnings: parsed.warnings || []
+      };
+    }
+  } catch {
+    // Session corrupted
+  }
+  return {
+    step: "form",
+    content: "",
+    sourceType: "whatsapp",
+    evidence: [],
+    decision: null,
+    mode: "live",
+    warnings: []
+  };
+}
+
+export default function SurakshaPage() {
+  const params = useParams<{ locale?: string }>();
+  const locale: "en" | "hi" | "bn" =
+    params.locale === "hi" || params.locale === "bn" ? params.locale : "en";
+
+  const [initialSession] = useState(() => getSavedSurakshaSession(locale));
+
+  const [step, setStep] = useState<FlowStep>(initialSession.step);
+  const [content, setContent] = useState<string>(initialSession.content);
+  const [sourceType, setSourceType] = useState<"whatsapp" | "sms" | "link" | "apk" | "other">(
+    initialSession.sourceType
+  );
+  const [appName, setAppName] = useState<string | undefined>(initialSession.appName);
+  const [evidence, setEvidence] = useState<Evidence[]>(initialSession.evidence);
+  const [decision, setDecision] = useState<SurakshaDecision | null>(initialSession.decision);
+  const [events, setEvents] = useState<EvidenceEvent[]>([]);
+  const [trailStatus, setTrailStatus] = useState<TrailStatus>(initialSession.decision ? "done" : "idle");
+  const [errorMessage, setErrorMessage] = useState<string>();
+  const [mode, setMode] = useState<"live" | "recorded">(initialSession.mode);
+  const [metrics, setMetrics] = useState<EvidenceMetrics | undefined>(initialSession.metrics);
+  const [warnings, setWarnings] = useState<string[]>(initialSession.warnings);
+  const [isSaved, setIsSaved] = useState(false);
+
+  // Derive localized decision without triggering cascading state updates
+  const activeDecision = useMemo(() => {
+    if (decision && content && evidence.length > 0) {
+      return buildSurakshaDecision(
+        {
+          module: "suraksha",
+          locale,
+          content,
+          sourceType,
+          appName,
+          mode
+        },
+        evidence,
+        metrics || {
+          queriesPlanned: 4,
+          queriesRun: 4,
+          liveSearches: 0,
+          cacheHits: 0,
+          sourcesKept: evidence.length,
+          sourcesDropped: 0,
+          mode
+        },
+        warnings,
+        locale
+      );
+    }
+    return decision;
+  }, [decision, locale, content, evidence, sourceType, appName, mode, metrics, warnings]);
+
+  const handleRunAudit = async (data: {
+    content: string;
+    sourceType: "whatsapp" | "sms" | "link" | "apk" | "other";
+    appName?: string;
+    mode: "live" | "recorded";
+  }) => {
+    setContent(data.content);
+    setSourceType(data.sourceType);
+    setAppName(data.appName);
+    setMode(data.mode);
+    setStep("analyzing");
+    setTrailStatus("running");
+    setEvents([]);
+    setErrorMessage(undefined);
+    setIsSaved(false);
+
+    const request: SurakshaEvidenceRequest = {
+      module: "suraksha",
+      locale,
+      content: data.content,
+      sourceType: data.sourceType,
+      appName: data.appName,
+      mode: data.mode
+    };
+
+    let latestEvidence: Evidence[] = [];
+    let latestMetrics: EvidenceMetrics | undefined;
+    let latestWarnings: string[] = [];
+    let latestDecision: SurakshaDecision | undefined;
+
+    try {
+      await streamEvidenceRun(request, (event) => {
+        setEvents((prev) => [...prev, event]);
+        if (event.type === "done") {
+          latestEvidence = event.evidence;
+          latestMetrics = event.metrics;
+          latestWarnings = event.warnings;
+          if (event.surakshaDecision) {
+            latestDecision = event.surakshaDecision;
+          }
+          if (event.metrics) {
+            addClientEvidenceMetrics(event.metrics);
+          }
+        } else if (event.type === "error") {
+          setErrorMessage(event.message);
+          setTrailStatus("error");
+        }
+      });
+
+      if (!latestDecision) {
+        latestDecision = buildSurakshaDecision(
+          request,
+          latestEvidence,
+          latestMetrics || {
+            queriesPlanned: 4,
+            queriesRun: 4,
+            liveSearches: 0,
+            cacheHits: 0,
+            sourcesKept: latestEvidence.length,
+            sourcesDropped: 0,
+            mode: data.mode
+          },
+          latestWarnings,
+          locale
+        );
+      }
+
+      setEvidence(latestEvidence);
+      setMetrics(latestMetrics);
+      setWarnings(latestWarnings);
+      setDecision(latestDecision);
+      setTrailStatus("done");
+      setStep("results");
+
+      // Save to active session storage
+      try {
+        sessionStorage.setItem(
+          SURAKSHA_SESSION_KEY,
+          JSON.stringify({
+            content: data.content,
+            sourceType: data.sourceType,
+            appName: data.appName,
+            evidence: latestEvidence,
+            metrics: latestMetrics,
+            warnings: latestWarnings,
+            mode: data.mode
+          })
+        );
+      } catch {
+        // Session storage failure
+      }
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Evidence search failed.");
+      setTrailStatus("error");
+    }
+  };
+
+  const handleSaveCase = async () => {
+    if (!activeDecision) return;
+    try {
+      await saveSurakshaCase({
+        id: crypto.randomUUID(),
+        module: "suraksha",
+        version: 1,
+        createdAt: new Date().toISOString(),
+        locale,
+        content,
+        sourceType,
+        appName,
+        decision: activeDecision,
+        evidence,
+        mode,
+        warnings
+      });
+      setIsSaved(true);
+    } catch {
+      // Save error
+    }
+  };
+
+  const handleStartOver = () => {
+    try {
+      sessionStorage.removeItem(SURAKSHA_SESSION_KEY);
+    } catch {
+      // Ignore
+    }
+    setStep("form");
+    setContent("");
+    setDecision(null);
+    setEvidence([]);
+    setEvents([]);
+    setTrailStatus("idle");
+    setIsSaved(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-paper-2 py-8 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto space-y-6">
+        {/* Navigation Breadcrumb Bar */}
+        <div className="flex items-center justify-between">
+          <Link
+            href={`/${locale}`}
+            className="inline-flex items-center gap-2 text-xs md:text-sm font-bold text-ink/70 hover:text-ink transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>
+              {locale === "hi" ? "मुखपृष्ठ पर लौटें" : locale === "bn" ? "হোমপেজে ফিরুন" : "Back to Home"}
+            </span>
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href={`/${locale}/dashboard`}
+              className="text-xs font-bold text-ink/70 hover:text-forest transition-colors"
+            >
+              {locale === "hi" ? "केस डैशबोर्ड" : locale === "bn" ? "ড্যাশবোর্ড" : "Dashboard"}
+            </Link>
+            <Link
+              href={`/${locale}/help`}
+              className="p-1.5 rounded-full hover:bg-paper-1 text-ink/70 hover:text-ink transition-colors"
+              title="Help"
+            >
+              <HelpCircle className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* View Steps */}
+        {step === "form" && (
+          <SurakshaForm onSubmit={handleRunAudit} isLoading={false} />
+        )}
+
+        {step === "analyzing" && (
+          <div className="space-y-4">
+            <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 text-center shadow-[4px_4px_0_0_#1b382b]">
+              <div className="w-12 h-12 rounded-full bg-forest/10 border border-forest/30 flex items-center justify-center mx-auto mb-3">
+                <ShieldAlert className="w-6 h-6 text-forest animate-pulse" />
+              </div>
+              <h3 className="text-xl font-serif font-black text-ink mb-1">
+                {locale === "hi"
+                  ? "संदेश एवं साइबर स्रोतों का विश्लेषण जारी है..."
+                  : locale === "bn"
+                    ? "বার্তা ও সাইবার উৎস বিশ্লেষণ করা হচ্ছে..."
+                    : "Auditing Threat Indicators via Serp API..."}
+              </h3>
+              <p className="text-xs text-ink/60">
+                Checking official portals (.gov.in), police advisories, and Google Play developer verification.
+              </p>
+            </div>
+
+            <EvidenceTrail
+              status={trailStatus}
+              events={events}
+              errorMessage={errorMessage}
+              mode={mode}
+              onContinue={() => setStep("results")}
+            />
+          </div>
+        )}
+
+        {step === "results" && activeDecision && (
+          <SurakshaResults
+            decision={activeDecision}
+            evidence={evidence}
+            content={content}
+            sourceType={sourceType}
+            onStartOver={handleStartOver}
+            onSave={handleSaveCase}
+            saved={isSaved}
+          />
+        )}
+      </div>
+    </div>
+  );
+}

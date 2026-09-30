@@ -1,0 +1,1554 @@
+{
+  "version": 1,
+  "label": "Recorded live SerpApi capture — Rice / Nadia / Flowering",
+  "recordedAt": "2026-09-30T11:41:55.508Z",
+  "module": "krishi",
+  "match": {
+    "crop": "rice",
+    "state": "west bengal",
+    "district": "nadia",
+    "stage": "flowering"
+  },
+  "queries": [
+    {
+      "engine": "google",
+      "query": "\"Rice\" \"Nadia\" \"Flowering\" advisory (site:gov.in OR site:nic.in OR site:icar.gov.in OR site:imd.gov.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "6abcddcd919dfa54ddbe09a4",
+          "status": "Success",
+          "json_endpoint": "https://serpapi.com/searches/iFbdaqvEbiqO_BNsbG3kNjIYDiZHUJOZR3JFfG1RvAM/6abcddcd919dfa54ddbe09a4.json",
+          "markdown_endpoint": "https://serpapi.com/searches/iFbdaqvEbiqO_BNsbG3kNjIYDiZHUJOZR3JFfG1RvAM/6abcddcd919dfa54ddbe09a4.md",
+          "pixel_position_endpoint": "https://serpapi.com/searches/iFbdaqvEbiqO_BNsbG3kNjIYDiZHUJOZR3JFfG1RvAM/6abcddcd919dfa54ddbe09a4.json_with_pixel_position",
+          "created_at": "2026-09-30 10:00:45 UTC",
+          "processed_at": "2026-09-30 10:00:45 UTC",
+          "google_url": "https://www.google.com/search?q=%22Rice%22+%22Nadia%22+%22Flowering%22+advisory+%28site%3Agov.in+OR+site%3Anic.in+OR+site%3Aicar.gov.in+OR+site%3Aimd.gov.in%29&oq=%22Rice%22+%22Nadia%22+%22Flowering%22+advisory+%28site%3Agov.in+OR+site%3Anic.in+OR+site%3Aicar.gov.in+OR+site%3Aimd.gov.in%29&hl=en&gl=in&sourceid=chrome&ie=UTF-8",
+          "raw_html_file": "https://serpapi.com/searches/iFbdaqvEbiqO_BNsbG3kNjIYDiZHUJOZR3JFfG1RvAM/6abcddcd919dfa54ddbe09a4.html",
+          "total_time_taken": 0.54
+        },
+        "search_parameters": {
+          "engine": "google",
+          "q": "\"Rice\" \"Nadia\" \"Flowering\" advisory (site:gov.in OR site:nic.in OR site:icar.gov.in OR site:imd.gov.in)",
+          "google_domain": "google.com",
+          "hl": "en",
+          "gl": "in",
+          "device": "desktop"
+        },
+        "search_information": {
+          "query_displayed": "\"Rice\" \"Nadia\" \"Flowering\" advisory (site:gov.in OR site:nic.in OR site:icar.gov.in OR site:imd.gov.in)",
+          "total_results": 10,
+          "time_taken_displayed": 0.43,
+          "organic_results_state": "Results for exact spelling"
+        },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "Chief Electoral Officer, Manipur - Official Website",
+            "link": "https://ceomanipur.nic.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVQHrOzAVUpLUUljhkLmp8qqv6mTnVZrVhWZeuSHRuQ-enxsgm5vGNGRBihhx69BqHKhdx6ZfmWf2-W7LWVo6FyMbzF5tt_Rx3VezNKtIRj4FZNUdqEs&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBEQAQ&uoh=1",
+            "displayed_link": "https://ceomanipur.nic.in",
+            "favicon": "https://serpapi.com/images/i/UklGRqIBAABXRUJQVlA4IJYBAAAQCQCdASocABwAPtE-tFooIigoFAEAGglsALY0yboC7AN44K9PMR8S_0b_zPcA8kn1wfrN7DX7HJbR8elLRNjRpXcbs2X99z-Wno_-tyo7JgAA_v0sV1KWbtDWNv1R8weQZokR6wYS0dz69xSHi6NR3nY56AIOkxCsRjdo-7a2yCUJB_KxKccFrrrrClpdJgA6yQMNuQIzpvfgSIk0uOYUqBA43IaUV85gTrQXIr6qn-noJ6u46_yQrBKBBBHX9YkBmfSmdvNno4Fj6AoyAPrlNzP4rVU16lZuxkj6LZfI_wJkBYfnFcooUZ8oABy09BDeW0T8rtkJdd0gp1zI_Xqo9rp_4AtnAU5G9UpA9ZpgeB_8RLrb6UC6HIfucMSmGNAD5ANaI_vvZ4-HPmG8rc2hCjhY2V6roQx5EQmHDTOlO94mCi-bApWgM2k-i0QpjyqCSgQjlWfbWZ3zCmAFxfERNQjGXXCgk817KgCZjBdV-XCane_Bpsv422-1vkcM2kdwcuXkdOt0MJ3vwOXu89hCR3VuoIAA.webp",
+            "snippet": "Official website of the Chief Electoral Officer, Manipur, providing voter services, election information, and contact details.",
+            "about_this_result": {
+              "source": {
+                "description": "Official website of the Chief Electoral Officer, Manipur, providing voter services, election information, and contact details.",
+                "source_info_link": "https://ceomanipur.nic.in/",
+                "icon": "https://serpapi.com/images/i/UklGRqIBAABXRUJQVlA4IJYBAAAQCQCdASocABwAPtE-tFooIigoFAEAGglsALY0yboC7AN44K9PMR8S_0b_zPcA8kn1wfrN7DX7HJbR8elLRNjRpXcbs2X99z-Wno_-tyo7JgAA_v0sV1KWbtDWNv1R8weQZokR6wYS0dz69xSHi6NR3nY56AIOkxCsRjdo-7a2yCUJB_KxKccFrrrrClpdJgA6yQMNuQIzpvfgSIk0uOYUqBA43IaUV85gTrQXIr6qn-noJ6u46_yQrBKBBBHX9YkBmfSmdvNno4Fj6AoyAPrlNzP4rVU16lZuxkj6LZfI_wJkBYfnFcooUZ8oABy09BDeW0T8rtkJdd0gp1zI_Xqo9rp_4AtnAU5G9UpA9ZpgeB_8RLrb6UC6HIfucMSmGNAD5ANaI_vvZ4-HPmG8rc2hCjhY2V6roQx5EQmHDTOlO94mCi-bApWgM2k-i0QpjyqCSgQjlWfbWZ3zCmAFxfERNQjGXXCgk817KgCZjBdV-XCane_Bpsv422-1vkcM2kdwcuXkdOt0MJ3vwOXu89hCR3VuoIAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoEBL2dvdG8_dXJsPUNBRVNWUUhyT3pBVlVwTFVVbGpoa0xtcDhxcXY2bVRuVlpyVmhXWmV1U0hSdVEtZW54c2dtNXZHTkdSQmloaHg2OUJxSEtoZHg2WmZtV2YyLVc3TFdWbzZGeU1iekY1dHRfUngzVmV6Tkt0SVJqNEZaTlVkcUVzEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoEBL2dvdG8_dXJsPUNBRVNWUUhyT3pBVlVwTFVVbGpoa0xtcDhxcXY2bVRuVlpyVmhXWmV1U0hSdVEtZW54c2dtNXZHTkdSQmloaHg2OUJxSEtoZHg2WmZtV2YyLVc3TFdWbzZGeU1iekY1dHRfUngzVmV6Tkt0SVJqNEZaTlVkcUVzEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "Chief Electoral Officer, Manipur"
+          },
+          {
+            "position": 2,
+            "title": "District Website North 24 Parganas | Office of the District ...",
+            "link": "https://north24parganas.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESWgHrOzAVYMunccoDh-yGnSlY47x3_kFV1V-CppKwGylddKIg4_ppb3ERcmnFi1KVuLsWjmzOSj3Trt1BZTEbualsUrBFFioSU3hOTQUFSAYoRqI98rWzAtEspA&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBYQAQ&uoh=1",
+            "displayed_link": "https://north24parganas.gov.in",
+            "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png",
+            "snippet": "The district is bounded by Nadia district to the north, South 24 Parganas to the south, Bangladesh to the east, and Hooghly district and Kolkata to the west.",
+            "snippet_highlighted_words": [
+              "Nadia"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "The district is bounded by Nadia district to the north, South 24 Parganas to the south, Bangladesh to the east, and Hooghly district and Kolkata to the west.",
+                "source_info_link": "https://north24parganas.gov.in/",
+                "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CogBL2dvdG8_dXJsPUNBRVNXZ0hyT3pBVllNdW5jY29EaC15R25TbFk0N3gzX2tGVjFWLUNwcEt3R3lsZGRLSWc0X3BwYjNFUmNtbkZpMUtWdUxzV2ptek9TajNUcnQxQlpURWJ1YWxzVXJCRkZpb1NVM2hPVFFVRlNBWW9ScUk5OHJXekF0RXNwQRIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CogBL2dvdG8_dXJsPUNBRVNXZ0hyT3pBVllNdW5jY29EaC15R25TbFk0N3gzX2tGVjFWLUNwcEt3R3lsZGRLSWc0X3BwYjNFUmNtbkZpMUtWdUxzV2ptek9TajNUcnQxQlpURWJ1YWxzVXJCRkZpb1NVM2hPVFFVRlNBWW9ScUk5OHJXekF0RXNwQRIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "source": "North 24 Parganas",
+            "read_more_link": "https://north24parganas.gov.in/#:~:text=The%20district%20is%20bounded%20by,and%20Kolkata%20to%20the%20west."
+          },
+          {
+            "position": 3,
+            "title": "Official Website of Kerala Police | Home Page",
+            "link": "https://keralapolice.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVwHrOzAVBh8Rg95fpG8bDmxjr87st4VsOBfY1F7QeVozOckqE6WOLCCPNUUGHM9vVgplKE7s9Kio4LNtJ8EowdOlnLPokqoAweCkUc5RKc8pFhpJ46-Yjg&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBkQAQ&uoh=1",
+            "displayed_link": "https://keralapolice.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRpoBAABXRUJQVlA4II4BAADQBwCdASogACAAPrUurVanIacnG_DgFolsAKwop-N48AYwGLOUBXASoHtp7WBOZjtPWmWjlObNGFu_Dx3ieRO1FsXujIHqQAD-_sLLpAsrp_PeqpIlWgsu_fgHpiDF6U7lKI_F3b9H8rBuGS2w6-cOiwAmK-1CtzCCIz901_OaVErnOeXF92Dfe9qZ3Uo7d0BX42g8hTJ_-wm6y2he6ZVzWTrgd13Ek_-S7_H07Ng2oKVS9iCK3yElfhT0p9S3Wo_tikDBncdXBbTaMrUEqG1hpc_e2H0EMgSY8rkG57YrryqZ--mQ8VatC1Tj5_rehg1t3hLjmPG2Ybw44yKA4W0JtIGOv2yw_5gVE_ENsetXM6cohzLYMnMRKObHyaHy1wwjKATWXSIpygh4YEIAYAI7vyTzNINgnel4VCEcslbJtpLzuPXb5Yo2wZZMRkR4ihO0jpmdVG9zPXWPIAt_FsoioCJOPFviq1TXscvBlUV-ugduUGLd7fnWUY813SIFfprRLU0wsJaT8M3_nbSwAA.webp",
+            "snippet": "E-Services · Know Your Police Station · Crime Statistics · ഇനിഷിയേറ്റീവ്സ് · Chief's Message · News & Events · ഫോട്ടോസ് & വീഡിയോസ്.",
+            "about_this_result": {
+              "source": {
+                "description": "E-Services · Know Your Police Station · Crime Statistics · ഇനിഷിയേറ്റീവ്സ് · Chief's Message · News & Events · ഫോട്ടോസ് & വീഡിയോസ്.",
+                "source_info_link": "https://keralapolice.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRpoBAABXRUJQVlA4II4BAADQBwCdASogACAAPrUurVanIacnG_DgFolsAKwop-N48AYwGLOUBXASoHtp7WBOZjtPWmWjlObNGFu_Dx3ieRO1FsXujIHqQAD-_sLLpAsrp_PeqpIlWgsu_fgHpiDF6U7lKI_F3b9H8rBuGS2w6-cOiwAmK-1CtzCCIz901_OaVErnOeXF92Dfe9qZ3Uo7d0BX42g8hTJ_-wm6y2he6ZVzWTrgd13Ek_-S7_H07Ng2oKVS9iCK3yElfhT0p9S3Wo_tikDBncdXBbTaMrUEqG1hpc_e2H0EMgSY8rkG57YrryqZ--mQ8VatC1Tj5_rehg1t3hLjmPG2Ybw44yKA4W0JtIGOv2yw_5gVE_ENsetXM6cohzLYMnMRKObHyaHy1wwjKATWXSIpygh4YEIAYAI7vyTzNINgnel4VCEcslbJtpLzuPXb5Yo2wZZMRkR4ihO0jpmdVG9zPXWPIAt_FsoioCJOPFviq1TXscvBlUV-ugduUGLd7fnWUY813SIFfprRLU0wsJaT8M3_nbSwAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoQBL2dvdG8_dXJsPUNBRVNWd0hyT3pBVkJoOFJnOTVmcEc4YkRteGpyODdzdDRWc09CZlkxRjdRZVZvek9ja3FFNldPTENDUE5VVUdITTl2VmdwbEtFN3M5S2lvNExOdEo4RW93ZE9sbkxQb2txb0F3ZUNrVWM1UktjOHBGaHBKNDYtWWpnEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoQBL2dvdG8_dXJsPUNBRVNWd0hyT3pBVkJoOFJnOTVmcEc4YkRteGpyODdzdDRWc09CZlkxRjdRZVZvek9ja3FFNldPTENDUE5VVUdITTl2VmdwbEtFN3M5S2lvNExOdEo4RW93ZE9sbkxQb2txb0F3ZUNrVWM1UktjOHBGaHBKNDYtWWpnEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "Kerala Police",
+            "read_more_link": "https://keralapolice.gov.in/#:~:text=E%2DServices&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC"
+          },
+          {
+            "position": 4,
+            "title": "Homepage | (DBT) Direct Benefit Transfer",
+            "link": "https://dbtbharat.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVAHrOzAV5h1vDJt4IpspO8Hk39KsHXuafRNgZG7wnFbKuZJVxSn6RVRDIT1EyWT2hO9sOKb_lvYo7JzpZhGg_6vM9KP8EfdO5a9K0onDx519-VnKQw&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBUQAQ&uoh=1",
+            "displayed_link": "https://dbtbharat.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRrwBAABXRUJQVlA4ILABAADwBwCdASocABwAPtEutFooIagoGAEAGglsALsZpS2_75TK8EM28bn0HqLo2CdcVbtSGx_O9w6LRRJHS0NV_9V0ThScL7qwyQAA_vYTnTmUrPsLHBI75K7xM6FyD9Ko_7YGe-fw9ZyxdlVx6S-M1jzvTdja3L0ugbkMLZevBvF7Vlc9y_LXk7-7XeVVF9lr2w8RdEQkJge0YG19-aTqgzpAjAVOLT56GWnjw9v_uMo3VDPn5YP6_0OayEWHaS55eURzocKN1Tet_IoOOf834I_-z925vCD4jMwUe248H0dpAul0-XVxVty-Aa5KZ11kYc04_yOWiHmEEZ487jy07Irb6PiAlqFvGt3FCuH50igfW7bl60TpCuv2TMijPqu2VIO_RtPocU_YtPP2SIk-tbmcJZ-2pFu8hDUV633UuGcbqNS45vP_lDc-BLjnzD_hr7F7ZQPmvo1Pdn3aHpdK_7sdLVV4im3J_Ex95zNz_z7NAwRnVGmbDwFWLk_fzi0qbsBKK2LvzpEDLhdB-JfAQmA52twuuIIWQLP19a6SVAqE2yQ0INz2KYp64rRUmV54AAA.webp",
+            "snippet": "Home · About Us · DBT Schemes; STATE / UT. ANDAMAN AND NICOBAR ISLANDS · ANDHRA PRADESH · ARUNACHAL PRADESH · ASSAM · BIHAR · CHANDIGARH · CHHATTISGARH ...",
+            "about_this_result": {
+              "source": {
+                "description": "Home · About Us · DBT Schemes; STATE / UT. ANDAMAN AND NICOBAR ISLANDS · ANDHRA PRADESH · ARUNACHAL PRADESH · ASSAM · BIHAR · CHANDIGARH · CHHATTISGARH ...",
+                "source_info_link": "https://dbtbharat.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRrwBAABXRUJQVlA4ILABAADwBwCdASocABwAPtEutFooIagoGAEAGglsALsZpS2_75TK8EM28bn0HqLo2CdcVbtSGx_O9w6LRRJHS0NV_9V0ThScL7qwyQAA_vYTnTmUrPsLHBI75K7xM6FyD9Ko_7YGe-fw9ZyxdlVx6S-M1jzvTdja3L0ugbkMLZevBvF7Vlc9y_LXk7-7XeVVF9lr2w8RdEQkJge0YG19-aTqgzpAjAVOLT56GWnjw9v_uMo3VDPn5YP6_0OayEWHaS55eURzocKN1Tet_IoOOf834I_-z925vCD4jMwUe248H0dpAul0-XVxVty-Aa5KZ11kYc04_yOWiHmEEZ487jy07Irb6PiAlqFvGt3FCuH50igfW7bl60TpCuv2TMijPqu2VIO_RtPocU_YtPP2SIk-tbmcJZ-2pFu8hDUV633UuGcbqNS45vP_lDc-BLjnzD_hr7F7ZQPmvo1Pdn3aHpdK_7sdLVV4im3J_Ex95zNz_z7NAwRnVGmbDwFWLk_fzi0qbsBKK2LvzpEDLhdB-JfAQmA52twuuIIWQLP19a6SVAqE2yQ0INz2KYp64rRUmV54AAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVjVoMXZESnQ0SXBzcE84SGszOUtzSFh1YWZSTmdaRzd3bkZiS3VaSlZ4U242UlZSRElUMUV5V1QyaE85c09LYl9sdllvN0p6cFpoR2dfNnZNOUtQOEVmZE81YTlLMG9uRHg1MTktVm5LUXcSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVjVoMXZESnQ0SXBzcE84SGszOUtzSFh1YWZSTmdaRzd3bkZiS3VaSlZ4U242UlZSRElUMUV5V1QyaE85c09LYl9sdllvN0p6cFpoR2dfNnZNOUtQOEVmZE81YTlLMG9uRHg1MTktVm5LUXcSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "DBT | Direct Benefit Transfer",
+            "read_more_link": "https://dbtbharat.gov.in/#:~:text=Total%20Direct%20Benefit%20Transfer%20("
+          },
+          {
+            "position": 5,
+            "title": "Home | Staff Selection Commission | GoI",
+            "link": "https://ssc.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTgHrOzAVe4s8uKvsh26gD2gvlU2B4sSOF2vwXIQLjEyqFzUJNPttAJ0U_Ui-crt_l3gczkg0YEwN4j1PM6lA9Ih6HH79RDyRRiHPyIkV3A&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECA8QAQ&uoh=1",
+            "displayed_link": "https://ssc.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRowAAABXRUJQVlA4IIAAAACQAgCdASoQAA0AAsBMJYgCdB2gDYTxfTyuaivoAAD-9iOlYHZnOLuANGvA_vbJujdkZPuq4PWyG6EpQWBWlH5sT23vQ7ev2-fEHN3XZwh14UpawUoqyZ3GzR0vLauZ9jFhiYNB8f7ITrypmqE9Cul5Nd9VHdWhx8wrqfGyluAAAA.webp",
+            "snippet": "This is Official Website of Staff Selection Commission.",
+            "about_this_result": {
+              "source": {
+                "description": "This is Official Website of Staff Selection Commission.",
+                "source_info_link": "https://ssc.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRowAAABXRUJQVlA4IIAAAACQAgCdASoQAA0AAsBMJYgCdB2gDYTxfTyuaivoAAD-9iOlYHZnOLuANGvA_vbJujdkZPuq4PWyG6EpQWBWlH5sT23vQ7ev2-fEHN3XZwh14UpawUoqyZ3GzR0vLauZ9jFhiYNB8f7ITrypmqE9Cul5Nd9VHdWhx8wrqfGyluAAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWZTRzOHVLdnNoMjZnRDJndmxVMkI0c1NPRjJ2d1hJUUxqRXlxRnpVSk5QdHRBSjBVX1VpLWNydF9sM2djemtnMFlFd040ajFQTTZsQTlJaDZISDc5UkR5UlJpSFB5SWtWM0ESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWZTRzOHVLdnNoMjZnRDJndmxVMkI0c1NPRjJ2d1hJUUxqRXlxRnpVSk5QdHRBSjBVX1VpLWNydF9sM2djemtnMFlFd040ajFQTTZsQTlJaDZISDc5UkR5UlJpSFB5SWtWM0ESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "SSC"
+          },
+          {
+            "position": 6,
+            "title": "Rajasthan High Court",
+            "link": "https://hcraj.nic.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESUAHrOzAV4NYdRf_MFIws6XwzkMw7PMEw_NgXGovRYcNN9fghVYoq4iDzyeRYnlWg9g9hgDDFPDKH_6Z8Ew2SzRt85_OzzD1EwcxjMukwv7Rs&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBgQAQ&uoh=1",
+            "displayed_link": "https://hcraj.nic.in",
+            "favicon": "https://serpapi.com/images/i/UklGRkIBAABXRUJQVlA4IDYBAACwBgCdASogACAAPtEutFooIagoGAEAGglpAAWFawN8X2oH-pm-qrT2Nze0FUr4PvDz-R0fHvXVnXWv3H1eQAD-_sLA4JZ8vTmwa-Ias9rNhQEphOEKq_AlZmNwdEnUU25sK7pZlxWfD8MSGVPMVxlz3cxv_G1nFqRqzYMcfkFCCth-sVvKLcBza5PWYgBrGiuZze83HjLdrgCJY4EJv7MQIvY1lop4-cV9bAAuxDdF5Acr2M-UepZ7r2W3HyLlszhr_6_z52JonP531wz9iuqAk99jd699p9iIA-3GSa7-GfX5Nm_D7auBOSE3OZfE-Wh92v5UzIx3EyDUgRbgs2gp6KVQRZSv6rEwFj2tEqW61NeN_SK9Jh-FTz-1hPa_8S_Z1le-YAclGK2-SR2W6GbpSCTyAAAA.webp",
+            "snippet": "1, CW / 5128 / 2026 (APOORVA AGRAWAT VS STATE OF RAJASTHAN) Date of Order/Judgment: 05/09/2026. The petitioner sought protection of Jawai leopard habitat ...",
+            "about_this_result": {
+              "source": {
+                "description": "1, CW / 5128 / 2026 (APOORVA AGRAWAT VS STATE OF RAJASTHAN) Date of Order/Judgment: 05/09/2026. The petitioner sought protection of Jawai leopard habitat ...",
+                "source_info_link": "https://hcraj.nic.in/",
+                "icon": "https://serpapi.com/images/i/UklGRkIBAABXRUJQVlA4IDYBAACwBgCdASogACAAPtEutFooIagoGAEAGglpAAWFawN8X2oH-pm-qrT2Nze0FUr4PvDz-R0fHvXVnXWv3H1eQAD-_sLA4JZ8vTmwa-Ias9rNhQEphOEKq_AlZmNwdEnUU25sK7pZlxWfD8MSGVPMVxlz3cxv_G1nFqRqzYMcfkFCCth-sVvKLcBza5PWYgBrGiuZze83HjLdrgCJY4EJv7MQIvY1lop4-cV9bAAuxDdF5Acr2M-UepZ7r2W3HyLlszhr_6_z52JonP531wz9iuqAk99jd699p9iIA-3GSa7-GfX5Nm_D7auBOSE3OZfE-Wh92v5UzIx3EyDUgRbgs2gp6KVQRZSv6rEwFj2tEqW61NeN_SK9Jh-FTz-1hPa_8S_Z1le-YAclGK2-SR2W6GbpSCTyAAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CnovZ290bz91cmw9Q0FFU1VBSHJPekFWNE5ZZFJmX01GSXdzNlh3emtNdzdQTUV3X05nWEdvdlJZY05OOWZnaFZZb3E0aUR6eWVSWW5sV2c5ZzloZ0RERlBES0hfNlo4RXcyU3pSdDg1X096ekQxRXdjeGpNdWt3djdScxIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CnovZ290bz91cmw9Q0FFU1VBSHJPekFWNE5ZZFJmX01GSXdzNlh3emtNdzdQTUV3X05nWEdvdlJZY05OOWZnaFZZb3E0aUR6eWVSWW5sV2c5ZzloZ0RERlBES0hfNlo4RXcyU3pSdDg1X096ekQxRXdjeGpNdWt3djdScxIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "source": "Rajasthan High Court",
+            "read_more_link": "https://hcraj.nic.in/#:~:text=Important%20Links"
+          },
+          {
+            "position": 7,
+            "title": "Haryana Labour :: E-Governance Portal",
+            "link": "https://hrylabour.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVAHrOzAV9i8j6h8EittrNE97dZEaqxzSgifTDVloezUCh5HYjv5aV3f7_QHvKwzICSCUexg3pYmUnFzNHYiJDS5d6mTiNsG2RdQJlqKq_2OH3yN9VA&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBQQAQ&uoh=1",
+            "displayed_link": "https://hrylabour.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRsoAAABXRUJQVlA4IL4AAACwBACdASoQABQAPtEutFooIagoGAEAGglsAJ0ygCjVePVB4e0p7CMqugv0t-dAAP72E4d1k0yeMFNIEBjlbg2N1m5Lw2Mvt_fSZLI9MaeaBM8_ZdH5ctEO-e9ZT6JGoKKVuZiY4bAu0czIY2HAu-Vt3222nTuYxWacywtUp1_mgU2g7vkrJHP6QWH0GFYG_iB-rAQcSEFpO881Wp_P5_-vWS3z8LewKHQWohU-qTiWwC9rU0yP5Fl54V-QAAAA.webp",
+            "snippet": "The Labour Department Haryana e-Governance portal provide efficient, effective and excellent e-services for Factory, Shop, Contact Labour, BOCWW and BOCW ...",
+            "about_this_result": {
+              "source": {
+                "description": "The Labour Department Haryana e-Governance portal provide efficient, effective and excellent e-services for Factory, Shop, Contact Labour, BOCWW and BOCW ...",
+                "source_info_link": "https://hrylabour.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRsoAAABXRUJQVlA4IL4AAACwBACdASoQABQAPtEutFooIagoGAEAGglsAJ0ygCjVePVB4e0p7CMqugv0t-dAAP72E4d1k0yeMFNIEBjlbg2N1m5Lw2Mvt_fSZLI9MaeaBM8_ZdH5ctEO-e9ZT6JGoKKVuZiY4bAu0czIY2HAu-Vt3222nTuYxWacywtUp1_mgU2g7vkrJHP6QWH0GFYG_iB-rAQcSEFpO881Wp_P5_-vWS3z8LewKHQWohU-qTiWwC9rU0yP5Fl54V-QAAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVjlpOGo2aDhFaXR0ck5FOTdkWkVhcXh6U2dpZlREVmxvZXpVQ2g1SFlqdjVhVjNmN19RSHZLd3pJQ1NDVWV4ZzNwWW1VbkZ6TkhZaUpEUzVkNm1UaU5zRzJSZFFKbHFLcV8yT0gzeU45VkESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVjlpOGo2aDhFaXR0ck5FOTdkWkVhcXh6U2dpZlREVmxvZXpVQ2g1SFlqdjVhVjNmN19RSHZLd3pJQ1NDVWV4ZzNwWW1VbkZ6TkhZaUpEUzVkNm1UaU5zRzJSZFFKbHFLcV8yT0gzeU45VkESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "lABOUR DEPARTMENT HARYANA"
+          },
+          {
+            "position": 8,
+            "title": "Home | Department of Personnel & Training | MoPP&P | GoI",
+            "link": "https://dopt.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTwHrOzAVn8dVK4nJci5mDurQJhXvtMJ7qWsAMA6ufNCfAniaj5swWYLTC40eH1jW0rpbeLzMKJOdWFHx61w2KCNHtoeARvZeEjGeINqBFPE&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBcQAQ&uoh=1",
+            "displayed_link": "https://dopt.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRvQAAABXRUJQVlA4IOgAAADwBgCdASogACAAPtEutFooIagoGAEAGglsAJ0vsJQJ_j2uv9LiD___6f93VEGGk2mjCdx6N3t6ea6uUg2lQHGkAP7-raPgshUNt8gvU0LfXH89LrDVzd4GTz-o0lG_sZghrPz__skFfyEgH92qX6wz_U0neDf-mGaHRAccKg1T_VFvVwI1DSMcbvxg8wz43jCENNrYe71jv7_7gWqL9V1xwc_6tnIizt1UYl1y-EFc0ffzsveNNnVWxUSfVnKoBvcoJE1SegQ8HYbeWGHUhBYPgvX6Av0ZqiHIoVE-Mq8A9Z4RMRrZ5UAA.webp",
+            "snippet": "The Department of Personnel and Training is the coordinating agency of the Central Government in personnel matters specially issues concerning recruitment, ...",
+            "about_this_result": {
+              "source": {
+                "description": "The Department of Personnel and Training is the coordinating agency of the Central Government in personnel matters specially issues concerning recruitment, ...",
+                "source_info_link": "https://dopt.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRvQAAABXRUJQVlA4IOgAAADwBgCdASogACAAPtEutFooIagoGAEAGglsAJ0vsJQJ_j2uv9LiD___6f93VEGGk2mjCdx6N3t6ea6uUg2lQHGkAP7-raPgshUNt8gvU0LfXH89LrDVzd4GTz-o0lG_sZghrPz__skFfyEgH92qX6wz_U0neDf-mGaHRAccKg1T_VFvVwI1DSMcbvxg8wz43jCENNrYe71jv7_7gWqL9V1xwc_6tnIizt1UYl1y-EFc0ffzsveNNnVWxUSfVnKoBvcoJE1SegQ8HYbeWGHUhBYPgvX6Av0ZqiHIoVE-Mq8A9Z4RMRrZ5UAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWbjhkVks0bkpjaTVtRHVyUUpoWHZ0TUo3cVdzQU1BNnVmTkNmQW5pYWo1c3dXWUxUQzQwZUgxalcwcnBiZUx6TUtKT2RXRkh4NjF3MktDTkh0b2VBUnZaZUVqR2VJTnFCRlBFEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWbjhkVks0bkpjaTVtRHVyUUpoWHZ0TUo3cVdzQU1BNnVmTkNmQW5pYWo1c3dXWUxUQzQwZUgxalcwcnBiZUx6TUtKT2RXRkh4NjF3MktDTkh0b2VBUnZaZUVqR2VJTnFCRlBFEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "DoPT"
+          },
+          {
+            "position": 9,
+            "title": "Government e Marketplace | National Public Procurement Portal",
+            "link": "https://gem.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTgHrOzAVkIwLep2mf5yimqn4iPZ3ZZiUc9eywIqh7lxtaUcD0f_b_tKqXCGqMIV_2sO10u8aNO9HoZKVRqoeG_GjzItxnAJo6x25uROTfw&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBIQAQ&uoh=1",
+            "displayed_link": "https://gem.gov.in",
+            "snippet": "Government e Marketplace (GeM) is a digital platform for procurement of goods & services by Central / State Ministries / Departments, PSUs, ...",
+            "about_this_result": {
+              "source": {
+                "description": "Government e Marketplace (GeM) is a digital platform for procurement of goods & services by Central / State Ministries / Departments, PSUs, ...",
+                "source_info_link": "https://gem.gov.in/"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWa0l3TGVwMm1mNXlpbXFuNGlQWjNaWmlVYzlleXdJcWg3bHh0YVVjRDBmX2JfdEtxWENHcU1JVl8yc08xMHU4YU5POUhvWktWUnFvZUdfR2p6SXR4bkFKbzZ4MjV1Uk9UZncSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWa0l3TGVwMm1mNXlpbXFuNGlQWjNaWmlVYzlleXdJcWg3bHh0YVVjRDBmX2JfdEtxWENHcU1JVl8yc08xMHU4YU5POUhvWktWUnFvZUdfR2p6SXR4bkFKbzZ4MjV1Uk9UZncSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "Government e-Marketplace"
+          },
+          {
+            "position": 10,
+            "title": "CENTRAL SEAT ALLOCATION BOARD (CSAB) | India",
+            "link": "https://csab.nic.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTwHrOzAV4D0rTfeeyG4dSrpzTOQV8I5wvVfPSt9NrXLgCwje87B_gLeVUEtZmJK73eOx2U2Po7d-Je0qlcD7c8SNFc2lJdy15UuFj4pUSnQ&ved=2ahUKEwi50-L7hZaXAxURLFkFHe8QKuAQFnoECBMQAQ&uoh=1",
+            "displayed_link": "https://csab.nic.in",
+            "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png",
+            "snippet": "LATEST NEWS · DASA and CSAB-Special 2026 · CSAB SUPERNUMERARY 2026 · NEUT Seat Allocation 2026 · DASA PG 2026 · Important Links · USEFUL LINKS · Rate this translation.",
+            "about_this_result": {
+              "source": {
+                "description": "LATEST NEWS · DASA and CSAB-Special 2026 · CSAB SUPERNUMERARY 2026 · NEUT Seat Allocation 2026 · DASA PG 2026 · Important Links · USEFUL LINKS · Rate this translation.",
+                "source_info_link": "https://csab.nic.in/",
+                "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWNEQwclRmZWV5RzRkU3JwelRPUVY4STV3dlZmUFN0OU5yWExnQ3dqZTg3Ql9nTGVWVUV0Wm1KSzczZU94MlUyUG83ZC1KZTBxbGNEN2M4U05GYzJsSmR5MTVVdUZqNHBVU25REgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWNEQwclRmZWV5RzRkU3JwelRPUVY4STV3dlZmUFN0OU5yWExnQ3dqZTg3Ql9nTGVWVUV0Wm1KSzczZU94MlUyUG83ZC1KZTBxbGNEN2M4U05GYzJsSmR5MTVVdUZqNHBVU25REgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "CENTRAL SEAT ALLOCATION BOARD (CSAB)",
+            "read_more_link": "https://csab.nic.in/#:~:text=LATEST%20NEWS&text=DASA%20and%20CSAB%2DSpecial%202026&text=CSAB%20SUPERNUMERARY%202026&text=NEUT%20Seat%20Allocation%202026&text=DASA%20PG%202026&text=Important%20Links&text=USEFUL%20LINKS"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "\"Rice\" \"West Bengal\" farmer scheme (site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "6abcddd248c791656a5ca650",
+          "status": "Success",
+          "json_endpoint": "https://serpapi.com/searches/cnea1iv7QbHOFQObb1BPOi_uB0vuYPZmjIZYsplkW7k/6abcddd248c791656a5ca650.json",
+          "markdown_endpoint": "https://serpapi.com/searches/cnea1iv7QbHOFQObb1BPOi_uB0vuYPZmjIZYsplkW7k/6abcddd248c791656a5ca650.md",
+          "pixel_position_endpoint": "https://serpapi.com/searches/cnea1iv7QbHOFQObb1BPOi_uB0vuYPZmjIZYsplkW7k/6abcddd248c791656a5ca650.json_with_pixel_position",
+          "created_at": "2026-09-30 10:00:50 UTC",
+          "processed_at": "2026-09-30 10:00:50 UTC",
+          "google_url": "https://www.google.com/search?q=%22Rice%22+%22West+Bengal%22+farmer+scheme+%28site%3Agov.in+OR+site%3Anic.in%29&oq=%22Rice%22+%22West+Bengal%22+farmer+scheme+%28site%3Agov.in+OR+site%3Anic.in%29&hl=en&gl=in&sourceid=chrome&ie=UTF-8",
+          "raw_html_file": "https://serpapi.com/searches/cnea1iv7QbHOFQObb1BPOi_uB0vuYPZmjIZYsplkW7k/6abcddd248c791656a5ca650.html",
+          "total_time_taken": 0.4
+        },
+        "search_parameters": {
+          "engine": "google",
+          "q": "\"Rice\" \"West Bengal\" farmer scheme (site:gov.in OR site:nic.in)",
+          "google_domain": "google.com",
+          "hl": "en",
+          "gl": "in",
+          "device": "desktop"
+        },
+        "search_information": {
+          "query_displayed": "\"Rice\" \"West Bengal\" farmer scheme (site:gov.in OR site:nic.in)",
+          "total_results": 10,
+          "time_taken_displayed": 0.23,
+          "organic_results_state": "Results for exact spelling"
+        },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "Chief Electoral Officer, Manipur - Official Website",
+            "link": "https://ceomanipur.nic.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVQHrOzAVt-Vt-bBB8kd0Ctgrt3OQ4M544BIIB1g6M6FjKM3L8l9wAtLW7bjHvahgma6qGsN_a__DaAUDpfYto8MqClTsXzHhRZXZqKJOi-EVRRN-yhM&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBAQAQ&uoh=1",
+            "displayed_link": "https://ceomanipur.nic.in",
+            "favicon": "https://serpapi.com/images/i/UklGRqIBAABXRUJQVlA4IJYBAAAQCQCdASocABwAPtE-tFooIigoFAEAGglsALY0yboC7AN44K9PMR8S_0b_zPcA8kn1wfrN7DX7HJbR8elLRNjRpXcbs2X99z-Wno_-tyo7JgAA_v0sV1KWbtDWNv1R8weQZokR6wYS0dz69xSHi6NR3nY56AIOkxCsRjdo-7a2yCUJB_KxKccFrrrrClpdJgA6yQMNuQIzpvfgSIk0uOYUqBA43IaUV85gTrQXIr6qn-noJ6u46_yQrBKBBBHX9YkBmfSmdvNno4Fj6AoyAPrlNzP4rVU16lZuxkj6LZfI_wJkBYfnFcooUZ8oABy09BDeW0T8rtkJdd0gp1zI_Xqo9rp_4AtnAU5G9UpA9ZpgeB_8RLrb6UC6HIfucMSmGNAD5ANaI_vvZ4-HPmG8rc2hCjhY2V6roQx5EQmHDTOlO94mCi-bApWgM2k-i0QpjyqCSgQjlWfbWZ3zCmAFxfERNQjGXXCgk817KgCZjBdV-XCane_Bpsv422-1vkcM2kdwcuXkdOt0MJ3vwOXu89hCR3VuoIAA.webp",
+            "snippet": "Official website of the Chief Electoral Officer, Manipur, providing voter services, election information, and contact details.",
+            "about_this_result": {
+              "source": {
+                "description": "Official website of the Chief Electoral Officer, Manipur, providing voter services, election information, and contact details.",
+                "source_info_link": "https://ceomanipur.nic.in/",
+                "icon": "https://serpapi.com/images/i/UklGRqIBAABXRUJQVlA4IJYBAAAQCQCdASocABwAPtE-tFooIigoFAEAGglsALY0yboC7AN44K9PMR8S_0b_zPcA8kn1wfrN7DX7HJbR8elLRNjRpXcbs2X99z-Wno_-tyo7JgAA_v0sV1KWbtDWNv1R8weQZokR6wYS0dz69xSHi6NR3nY56AIOkxCsRjdo-7a2yCUJB_KxKccFrrrrClpdJgA6yQMNuQIzpvfgSIk0uOYUqBA43IaUV85gTrQXIr6qn-noJ6u46_yQrBKBBBHX9YkBmfSmdvNno4Fj6AoyAPrlNzP4rVU16lZuxkj6LZfI_wJkBYfnFcooUZ8oABy09BDeW0T8rtkJdd0gp1zI_Xqo9rp_4AtnAU5G9UpA9ZpgeB_8RLrb6UC6HIfucMSmGNAD5ANaI_vvZ4-HPmG8rc2hCjhY2V6roQx5EQmHDTOlO94mCi-bApWgM2k-i0QpjyqCSgQjlWfbWZ3zCmAFxfERNQjGXXCgk817KgCZjBdV-XCane_Bpsv422-1vkcM2kdwcuXkdOt0MJ3vwOXu89hCR3VuoIAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoEBL2dvdG8_dXJsPUNBRVNWUUhyT3pBVnQtVnQtYkJCOGtkMEN0Z3J0M09RNE01NDRCSUlCMWc2TTZGaktNM0w4bDl3QXRMVzdiakh2YWhnbWE2cUdzTl9hX19EYUFVRHBmWXRvOE1xQ2xUc1h6SGhSWlhacUtKT2ktRVZSUk4teWhNEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoEBL2dvdG8_dXJsPUNBRVNWUUhyT3pBVnQtVnQtYkJCOGtkMEN0Z3J0M09RNE01NDRCSUlCMWc2TTZGaktNM0w4bDl3QXRMVzdiakh2YWhnbWE2cUdzTl9hX19EYUFVRHBmWXRvOE1xQ2xUc1h6SGhSWlhacUtKT2ktRVZSUk4teWhNEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "Chief Electoral Officer, Manipur"
+          },
+          {
+            "position": 2,
+            "title": "District Website North 24 Parganas | Office of the District ...",
+            "link": "https://north24parganas.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESWgHrOzAV4fR9s0AR9bYGzKBjnY__k49uNARQQ8QBhxoN7pimj46AC0j5Jz5dfu7MupuZXHVWRJfAR69kyDJ2jHvCpfXevjrIT4fmDjyOO9qMSwJymlJiHT0JnQ&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBIQAQ&uoh=1",
+            "displayed_link": "https://north24parganas.gov.in",
+            "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png",
+            "snippet": "North 24 Parganas is the most populous district of West Bengal. According to the census report, it is considered the tenth largest district in the country ...",
+            "snippet_highlighted_words": [
+              "West Bengal"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "North 24 Parganas is the most populous district of West Bengal. According to the census report, it is considered the tenth largest district in the country ...",
+                "source_info_link": "https://north24parganas.gov.in/",
+                "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CogBL2dvdG8_dXJsPUNBRVNXZ0hyT3pBVjRmUjlzMEFSOWJZR3pLQmpuWV9fazQ5dU5BUlFROFFCaHhvTjdwaW1qNDZBQzBqNUp6NWRmdTdNdXB1WlhIVldSSmZBUjY5a3lESjJqSHZDcGZYZXZqcklUNGZtRGp5T085cU1Td0p5bWxKaUhUMEpuURIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CogBL2dvdG8_dXJsPUNBRVNXZ0hyT3pBVjRmUjlzMEFSOWJZR3pLQmpuWV9fazQ5dU5BUlFROFFCaHhvTjdwaW1qNDZBQzBqNUp6NWRmdTdNdXB1WlhIVldSSmZBUjY5a3lESjJqSHZDcGZYZXZqcklUNGZtRGp5T085cU1Td0p5bWxKaUhUMEpuURIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "source": "North 24 Parganas",
+            "read_more_link": "https://north24parganas.gov.in/#:~:text=North%2024%20Parganas%20is%20the,largest%20district%20in%20the%20country."
+          },
+          {
+            "position": 3,
+            "title": "Official Website of Kerala Police | Home Page",
+            "link": "https://keralapolice.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVwHrOzAV9PeA00pYyssoDG6J7QjGJB_ArtVNLzhqE9ikMWnwFE44gcUgL8TnyFo5IT5TXK2mn4qb56gLQ_nEbqtLd51vuyqS83SOw4Z6ClW0kZ-dR3dfeQ&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECA8QAQ&uoh=1",
+            "displayed_link": "https://keralapolice.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRpoBAABXRUJQVlA4II4BAADQBwCdASogACAAPrUurVanIacnG_DgFolsAKwop-N48AYwGLOUBXASoHtp7WBOZjtPWmWjlObNGFu_Dx3ieRO1FsXujIHqQAD-_sLLpAsrp_PeqpIlWgsu_fgHpiDF6U7lKI_F3b9H8rBuGS2w6-cOiwAmK-1CtzCCIz901_OaVErnOeXF92Dfe9qZ3Uo7d0BX42g8hTJ_-wm6y2he6ZVzWTrgd13Ek_-S7_H07Ng2oKVS9iCK3yElfhT0p9S3Wo_tikDBncdXBbTaMrUEqG1hpc_e2H0EMgSY8rkG57YrryqZ--mQ8VatC1Tj5_rehg1t3hLjmPG2Ybw44yKA4W0JtIGOv2yw_5gVE_ENsetXM6cohzLYMnMRKObHyaHy1wwjKATWXSIpygh4YEIAYAI7vyTzNINgnel4VCEcslbJtpLzuPXb5Yo2wZZMRkR4ihO0jpmdVG9zPXWPIAt_FsoioCJOPFviq1TXscvBlUV-ugduUGLd7fnWUY813SIFfprRLU0wsJaT8M3_nbSwAA.webp",
+            "snippet": "E-Services · Know Your Police Station · Crime Statistics · ഇനിഷിയേറ്റീവ്സ് · Chief's Message · News & Events · ഫോട്ടോസ് & വീഡിയോസ്.",
+            "about_this_result": {
+              "source": {
+                "description": "E-Services · Know Your Police Station · Crime Statistics · ഇനിഷിയേറ്റീവ്സ് · Chief's Message · News & Events · ഫോട്ടോസ് & വീഡിയോസ്.",
+                "source_info_link": "https://keralapolice.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRpoBAABXRUJQVlA4II4BAADQBwCdASogACAAPrUurVanIacnG_DgFolsAKwop-N48AYwGLOUBXASoHtp7WBOZjtPWmWjlObNGFu_Dx3ieRO1FsXujIHqQAD-_sLLpAsrp_PeqpIlWgsu_fgHpiDF6U7lKI_F3b9H8rBuGS2w6-cOiwAmK-1CtzCCIz901_OaVErnOeXF92Dfe9qZ3Uo7d0BX42g8hTJ_-wm6y2he6ZVzWTrgd13Ek_-S7_H07Ng2oKVS9iCK3yElfhT0p9S3Wo_tikDBncdXBbTaMrUEqG1hpc_e2H0EMgSY8rkG57YrryqZ--mQ8VatC1Tj5_rehg1t3hLjmPG2Ybw44yKA4W0JtIGOv2yw_5gVE_ENsetXM6cohzLYMnMRKObHyaHy1wwjKATWXSIpygh4YEIAYAI7vyTzNINgnel4VCEcslbJtpLzuPXb5Yo2wZZMRkR4ihO0jpmdVG9zPXWPIAt_FsoioCJOPFviq1TXscvBlUV-ugduUGLd7fnWUY813SIFfprRLU0wsJaT8M3_nbSwAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoQBL2dvdG8_dXJsPUNBRVNWd0hyT3pBVjlQZUEwMHBZeXNzb0RHNko3UWpHSkJfQXJ0Vk5MemhxRTlpa01XbndGRTQ0Z2NVZ0w4VG55Rm81SVQ1VFhLMm1uNHFiNTZnTFFfbkVicXRMZDUxdnV5cVM4M1NPdzRaNkNsVzBrWi1kUjNkZmVREgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoQBL2dvdG8_dXJsPUNBRVNWd0hyT3pBVjlQZUEwMHBZeXNzb0RHNko3UWpHSkJfQXJ0Vk5MemhxRTlpa01XbndGRTQ0Z2NVZ0w4VG55Rm81SVQ1VFhLMm1uNHFiNTZnTFFfbkVicXRMZDUxdnV5cVM4M1NPdzRaNkNsVzBrWi1kUjNkZmVREgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "Kerala Police",
+            "read_more_link": "https://keralapolice.gov.in/#:~:text=E%2DServices&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC&text=%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%B6%E0%B4%95%E0%B5%BC"
+          },
+          {
+            "position": 4,
+            "title": "Homepage | (DBT) Direct Benefit Transfer",
+            "link": "https://dbtbharat.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVAHrOzAVyYd1l19EeABIE7zwAdUjMfMdRqfQRFjVlHNl4NjtjbeiIjDpkTeHX2mb0-XHtDhg3Axq6EME76usMNJp76R1qXgJv5GaIReuceKSdzAOuA&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBsQAQ&uoh=1",
+            "displayed_link": "https://dbtbharat.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRrwBAABXRUJQVlA4ILABAADwBwCdASocABwAPtEutFooIagoGAEAGglsALsZpS2_75TK8EM28bn0HqLo2CdcVbtSGx_O9w6LRRJHS0NV_9V0ThScL7qwyQAA_vYTnTmUrPsLHBI75K7xM6FyD9Ko_7YGe-fw9ZyxdlVx6S-M1jzvTdja3L0ugbkMLZevBvF7Vlc9y_LXk7-7XeVVF9lr2w8RdEQkJge0YG19-aTqgzpAjAVOLT56GWnjw9v_uMo3VDPn5YP6_0OayEWHaS55eURzocKN1Tet_IoOOf834I_-z925vCD4jMwUe248H0dpAul0-XVxVty-Aa5KZ11kYc04_yOWiHmEEZ487jy07Irb6PiAlqFvGt3FCuH50igfW7bl60TpCuv2TMijPqu2VIO_RtPocU_YtPP2SIk-tbmcJZ-2pFu8hDUV633UuGcbqNS45vP_lDc-BLjnzD_hr7F7ZQPmvo1Pdn3aHpdK_7sdLVV4im3J_Ex95zNz_z7NAwRnVGmbDwFWLk_fzi0qbsBKK2LvzpEDLhdB-JfAQmA52twuuIIWQLP19a6SVAqE2yQ0INz2KYp64rRUmV54AAA.webp",
+            "snippet": "WEST BENGAL. Rankings. State/UT Rankings · Ministry Rankings. DBT Cells. Centre ... of Schemes. More details. MINISTRIES. 56. No. of Ministries. More details.",
+            "snippet_highlighted_words": [
+              "WEST BENGAL",
+              "Schemes"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "WEST BENGAL. Rankings. State/UT Rankings · Ministry Rankings. DBT Cells. Centre ... of Schemes. More details. MINISTRIES. 56. No. of Ministries. More details.",
+                "source_info_link": "https://dbtbharat.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRrwBAABXRUJQVlA4ILABAADwBwCdASocABwAPtEutFooIagoGAEAGglsALsZpS2_75TK8EM28bn0HqLo2CdcVbtSGx_O9w6LRRJHS0NV_9V0ThScL7qwyQAA_vYTnTmUrPsLHBI75K7xM6FyD9Ko_7YGe-fw9ZyxdlVx6S-M1jzvTdja3L0ugbkMLZevBvF7Vlc9y_LXk7-7XeVVF9lr2w8RdEQkJge0YG19-aTqgzpAjAVOLT56GWnjw9v_uMo3VDPn5YP6_0OayEWHaS55eURzocKN1Tet_IoOOf834I_-z925vCD4jMwUe248H0dpAul0-XVxVty-Aa5KZ11kYc04_yOWiHmEEZ487jy07Irb6PiAlqFvGt3FCuH50igfW7bl60TpCuv2TMijPqu2VIO_RtPocU_YtPP2SIk-tbmcJZ-2pFu8hDUV633UuGcbqNS45vP_lDc-BLjnzD_hr7F7ZQPmvo1Pdn3aHpdK_7sdLVV4im3J_Ex95zNz_z7NAwRnVGmbDwFWLk_fzi0qbsBKK2LvzpEDLhdB-JfAQmA52twuuIIWQLP19a6SVAqE2yQ0INz2KYp64rRUmV54AAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVnlZZDFsMTlFZUFCSUU3endBZFVqTWZNZFJxZlFSRmpWbEhObDROanRqYmVpSWpEcGtUZUhYMm1iMC1YSHREaGczQXhxNkVNRTc2dXNNTkpwNzZSMXFYZ0p2NUdhSVJldWNlS1NkekFPdUESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVnlZZDFsMTlFZUFCSUU3endBZFVqTWZNZFJxZlFSRmpWbEhObDROanRqYmVpSWpEcGtUZUhYMm1iMC1YSHREaGczQXhxNkVNRTc2dXNNTkpwNzZSMXFYZ0p2NUdhSVJldWNlS1NkekFPdUESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "DBT | Direct Benefit Transfer",
+            "read_more_link": "https://dbtbharat.gov.in/#:~:text=Total%20Direct%20Benefit%20Transfer%20(&text=More%20details,More%20details"
+          },
+          {
+            "position": 5,
+            "title": "Home | Staff Selection Commission | GoI",
+            "link": "https://ssc.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTgHrOzAVsJvKmwX7LLKcD7QwqxAi8leRxTquJap7rMF5UHhlt0EjtSnN7BdGajM1XA5U3cSXDiylf7JCGjRdqMATcc_vqWvtNZvuzoN3VQ&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBUQAQ&uoh=1",
+            "displayed_link": "https://ssc.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRowAAABXRUJQVlA4IIAAAACQAgCdASoQAA0AAsBMJYgCdB2gDYTxfTyuaivoAAD-9iOlYHZnOLuANGvA_vbJujdkZPuq4PWyG6EpQWBWlH5sT23vQ7ev2-fEHN3XZwh14UpawUoqyZ3GzR0vLauZ9jFhiYNB8f7ITrypmqE9Cul5Nd9VHdWhx8wrqfGyluAAAA.webp",
+            "snippet": "Scheme of Examination Syllabus Special Instruction Previous Year Question Paper Format of Certificates Tentative Vacancy Normalization Method Mock Test.",
+            "snippet_highlighted_words": [
+              "Scheme"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "Scheme of Examination Syllabus Special Instruction Previous Year Question Paper Format of Certificates Tentative Vacancy Normalization Method Mock Test.",
+                "source_info_link": "https://ssc.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRowAAABXRUJQVlA4IIAAAACQAgCdASoQAA0AAsBMJYgCdB2gDYTxfTyuaivoAAD-9iOlYHZnOLuANGvA_vbJujdkZPuq4PWyG6EpQWBWlH5sT23vQ7ev2-fEHN3XZwh14UpawUoqyZ3GzR0vLauZ9jFhiYNB8f7ITrypmqE9Cul5Nd9VHdWhx8wrqfGyluAAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWc0p2S213WDdMTEtjRDdRd3F4QWk4bGVSeFRxdUphcDdyTUY1VUhobHQwRWp0U25ON0JkR2FqTTFYQTVVM2NTWERpeWxmN0pDR2pSZHFNQVRjY192cVd2dE5adnV6b04zVlESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWc0p2S213WDdMTEtjRDdRd3F4QWk4bGVSeFRxdUphcDdyTUY1VUhobHQwRWp0U25ON0JkR2FqTTFYQTVVM2NTWERpeWxmN0pDR2pSZHFNQVRjY192cVd2dE5adnV6b04zVlESBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "SSC",
+            "read_more_link": "https://ssc.gov.in/#:~:text=Follow%20the%20Staff%20Selection%20Commission"
+          },
+          {
+            "position": 6,
+            "title": "Rajasthan High Court",
+            "link": "https://hcraj.nic.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESUAHrOzAVrYN7GYzDFcwPbnzzuvKK4OizpRcFvY_dvCT2-DqYVoySAUTinK2MRVMGnBjqlcJOMl3cMF1ZuKAhbBC-NaaeywTzPkOcVYLvQm21&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBQQAQ&uoh=1",
+            "displayed_link": "https://hcraj.nic.in",
+            "favicon": "https://serpapi.com/images/i/UklGRkIBAABXRUJQVlA4IDYBAACwBgCdASogACAAPtEutFooIagoGAEAGglpAAWFawN8X2oH-pm-qrT2Nze0FUr4PvDz-R0fHvXVnXWv3H1eQAD-_sLA4JZ8vTmwa-Ias9rNhQEphOEKq_AlZmNwdEnUU25sK7pZlxWfD8MSGVPMVxlz3cxv_G1nFqRqzYMcfkFCCth-sVvKLcBza5PWYgBrGiuZze83HjLdrgCJY4EJv7MQIvY1lop4-cV9bAAuxDdF5Acr2M-UepZ7r2W3HyLlszhr_6_z52JonP531wz9iuqAk99jd699p9iIA-3GSa7-GfX5Nm_D7auBOSE3OZfE-Wh92v5UzIx3EyDUgRbgs2gp6KVQRZSv6rEwFj2tEqW61NeN_SK9Jh-FTz-1hPa_8S_Z1le-YAclGK2-SR2W6GbpSCTyAAAA.webp",
+            "snippet": "1, CW / 5128 / 2026 (APOORVA AGRAWAT VS STATE OF RAJASTHAN) Date of Order/Judgment: 05/09/2026. The petitioner sought protection of Jawai leopard habitat ...",
+            "about_this_result": {
+              "source": {
+                "description": "1, CW / 5128 / 2026 (APOORVA AGRAWAT VS STATE OF RAJASTHAN) Date of Order/Judgment: 05/09/2026. The petitioner sought protection of Jawai leopard habitat ...",
+                "source_info_link": "https://hcraj.nic.in/",
+                "icon": "https://serpapi.com/images/i/UklGRkIBAABXRUJQVlA4IDYBAACwBgCdASogACAAPtEutFooIagoGAEAGglpAAWFawN8X2oH-pm-qrT2Nze0FUr4PvDz-R0fHvXVnXWv3H1eQAD-_sLA4JZ8vTmwa-Ias9rNhQEphOEKq_AlZmNwdEnUU25sK7pZlxWfD8MSGVPMVxlz3cxv_G1nFqRqzYMcfkFCCth-sVvKLcBza5PWYgBrGiuZze83HjLdrgCJY4EJv7MQIvY1lop4-cV9bAAuxDdF5Acr2M-UepZ7r2W3HyLlszhr_6_z52JonP531wz9iuqAk99jd699p9iIA-3GSa7-GfX5Nm_D7auBOSE3OZfE-Wh92v5UzIx3EyDUgRbgs2gp6KVQRZSv6rEwFj2tEqW61NeN_SK9Jh-FTz-1hPa_8S_Z1le-YAclGK2-SR2W6GbpSCTyAAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CnovZ290bz91cmw9Q0FFU1VBSHJPekFWcllON0dZekRGY3dQYm56enV2S0s0T2l6cFJjRnZZX2R2Q1QyLURxWVZveVNBVVRpbksyTVJWTUduQmpxbGNKT01sM2NNRjFadUtBaGJCQy1OYWFleXdUelBrT2NWWUx2UW0yMRIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CnovZ290bz91cmw9Q0FFU1VBSHJPekFWcllON0dZekRGY3dQYm56enV2S0s0T2l6cFJjRnZZX2R2Q1QyLURxWVZveVNBVVRpbksyTVJWTUduQmpxbGNKT01sM2NNRjFadUtBaGJCQy1OYWFleXdUelBrT2NWWUx2UW0yMRIEGgIIABogEgAaACIAKgAyBggDEgJpbjoAQgQIARAASgBaAHIAegAiAhABSABYAGgA",
+            "source": "Rajasthan High Court",
+            "read_more_link": "https://hcraj.nic.in/#:~:text=Important%20Links"
+          },
+          {
+            "position": 7,
+            "title": "Haryana Labour :: E-Governance Portal",
+            "link": "https://hrylabour.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESVAHrOzAVwxAbVPI8K4egJzu1dKOZRmC6HfswPT7f45af0LwOqR5cs_R-r46dBH9hT32EIR0WXHIMU3VR8EHCQ8CCUL85LGaRwbMp17tgZ6fnTasqlg&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBgQAQ&uoh=1",
+            "displayed_link": "https://hrylabour.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRsoAAABXRUJQVlA4IL4AAACwBACdASoQABQAPtEutFooIagoGAEAGglsAJ0ygCjVePVB4e0p7CMqugv0t-dAAP72E4d1k0yeMFNIEBjlbg2N1m5Lw2Mvt_fSZLI9MaeaBM8_ZdH5ctEO-e9ZT6JGoKKVuZiY4bAu0czIY2HAu-Vt3222nTuYxWacywtUp1_mgU2g7vkrJHP6QWH0GFYG_iB-rAQcSEFpO881Wp_P5_-vWS3z8LewKHQWohU-qTiWwC9rU0yP5Fl54V-QAAAA.webp",
+            "snippet": "To avail any scheme or service, Please visit. www.saralharyana.gov.in. For any queries related to schemes/services , please call 0172-3968400 (8am to 8pm ...",
+            "snippet_highlighted_words": [
+              "scheme",
+              "schemes"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "To avail any scheme or service, Please visit. www.saralharyana.gov.in. For any queries related to schemes/services , please call 0172-3968400 (8am to 8pm ...",
+                "source_info_link": "https://hrylabour.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRsoAAABXRUJQVlA4IL4AAACwBACdASoQABQAPtEutFooIagoGAEAGglsAJ0ygCjVePVB4e0p7CMqugv0t-dAAP72E4d1k0yeMFNIEBjlbg2N1m5Lw2Mvt_fSZLI9MaeaBM8_ZdH5ctEO-e9ZT6JGoKKVuZiY4bAu0czIY2HAu-Vt3222nTuYxWacywtUp1_mgU2g7vkrJHP6QWH0GFYG_iB-rAQcSEFpO881Wp_P5_-vWS3z8LewKHQWohU-qTiWwC9rU0yP5Fl54V-QAAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVnd4QWJWUEk4SzRlZ0p6dTFkS09aUm1DNkhmc3dQVDdmNDVhZjBMd09xUjVjc19SLXI0NmRCSDloVDMyRUlSMFdYSElNVTNWUjhFSENROENDVUw4NUxHYVJ3Yk1wMTd0Z1o2Zm5UYXNxbGcSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CoABL2dvdG8_dXJsPUNBRVNWQUhyT3pBVnd4QWJWUEk4SzRlZ0p6dTFkS09aUm1DNkhmc3dQVDdmNDVhZjBMd09xUjVjc19SLXI0NmRCSDloVDMyRUlSMFdYSElNVTNWUjhFSENROENDVUw4NUxHYVJ3Yk1wMTd0Z1o2Zm5UYXNxbGcSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "lABOUR DEPARTMENT HARYANA",
+            "read_more_link": "https://hrylabour.gov.in/#:~:text=To%20avail%20any%20scheme%20or,to%208pm%2D%20Monday%20to%20Saturday)"
+          },
+          {
+            "position": 8,
+            "title": "Home | Department of Personnel & Training | MoPP&P | GoI",
+            "link": "https://dopt.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTwHrOzAVjfI3vp-e_0NB14DCDOCOwMShPR9gls37yQqCM2hl7L0pOf28o_9DOe9a2NtoBKnU9WJc_rEZblFKFEwcv4WR_35K47ds7zygSkg&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBYQAQ&uoh=1",
+            "displayed_link": "https://dopt.gov.in",
+            "favicon": "https://serpapi.com/images/i/UklGRvQAAABXRUJQVlA4IOgAAADwBgCdASogACAAPtEutFooIagoGAEAGglsAJ0vsJQJ_j2uv9LiD___6f93VEGGk2mjCdx6N3t6ea6uUg2lQHGkAP7-raPgshUNt8gvU0LfXH89LrDVzd4GTz-o0lG_sZghrPz__skFfyEgH92qX6wz_U0neDf-mGaHRAccKg1T_VFvVwI1DSMcbvxg8wz43jCENNrYe71jv7_7gWqL9V1xwc_6tnIizt1UYl1y-EFc0ffzsveNNnVWxUSfVnKoBvcoJE1SegQ8HYbeWGHUhBYPgvX6Av0ZqiHIoVE-Mq8A9Z4RMRrZ5UAA.webp",
+            "snippet": "... Scheme - Corrigendum-1 Corrigendum-2 > Appointment of Nodal Officer in respect of 'PM Street Vendor's Atma Nirbhar Nidhi (PM SVANidhi)' Scheme. DOPT Training ...",
+            "snippet_highlighted_words": [
+              "Scheme",
+              "Scheme"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "... Scheme - Corrigendum-1 Corrigendum-2 > Appointment of Nodal Officer in respect of 'PM Street Vendor's Atma Nirbhar Nidhi (PM SVANidhi)' Scheme. DOPT Training ...",
+                "source_info_link": "https://dopt.gov.in/",
+                "icon": "https://serpapi.com/images/i/UklGRvQAAABXRUJQVlA4IOgAAADwBgCdASogACAAPtEutFooIagoGAEAGglsAJ0vsJQJ_j2uv9LiD___6f93VEGGk2mjCdx6N3t6ea6uUg2lQHGkAP7-raPgshUNt8gvU0LfXH89LrDVzd4GTz-o0lG_sZghrPz__skFfyEgH92qX6wz_U0neDf-mGaHRAccKg1T_VFvVwI1DSMcbvxg8wz43jCENNrYe71jv7_7gWqL9V1xwc_6tnIizt1UYl1y-EFc0ffzsveNNnVWxUSfVnKoBvcoJE1SegQ8HYbeWGHUhBYPgvX6Av0ZqiHIoVE-Mq8A9Z4RMRrZ5UAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWamZJM3ZwLWVfME5CMTREQ0RPQ093TVNoUFI5Z2xzMzd5UXFDTTJobDdMMHBPZjI4b185RE9lOWEyTnRvQktuVTlXSmNfckVaYmxGS0ZFd2N2NFdSXzM1SzQ3ZHM3enlnU2tnEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWamZJM3ZwLWVfME5CMTREQ0RPQ093TVNoUFI5Z2xzMzd5UXFDTTJobDdMMHBPZjI4b185RE9lOWEyTnRvQktuVTlXSmNfckVaYmxGS0ZFd2N2NFdSXzM1SzQ3ZHM3enlnU2tnEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "DoPT",
+            "read_more_link": "https://dopt.gov.in/#:~:text=Scheme,DOPT%20Training%20Programs"
+          },
+          {
+            "position": 9,
+            "title": "Government e Marketplace | National Public Procurement Portal",
+            "link": "https://gem.gov.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTgHrOzAVRHkE_0Tf3R2QOwWhvqKKkEHZ7I-_nvT6IAP-mSEQaeboT7H-6PoFDpmw5qVjUrpuN2smiJrPqqIi5b4kDa6nbM7k4iNBe22CNw&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBMQAQ&uoh=1",
+            "displayed_link": "https://gem.gov.in",
+            "snippet": "Government e Marketplace (GeM) is a digital platform for procurement of goods & services by Central / State Ministries / Departments, PSUs, ...",
+            "about_this_result": {
+              "source": {
+                "description": "Government e Marketplace (GeM) is a digital platform for procurement of goods & services by Central / State Ministries / Departments, PSUs, ...",
+                "source_info_link": "https://gem.gov.in/"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWUkhrRV8wVGYzUjJRT3dXaHZxS0trRUhaN0ktX252VDZJQVAtbVNFUWFlYm9UN0gtNlBvRkRwbXc1cVZqVXJwdU4yc21pSnJQcXFJaTViNGtEYTZuYk03azRpTkJlMjJDTncSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CngvZ290bz91cmw9Q0FFU1RnSHJPekFWUkhrRV8wVGYzUjJRT3dXaHZxS0trRUhaN0ktX252VDZJQVAtbVNFUWFlYm9UN0gtNlBvRkRwbXc1cVZqVXJwdU4yc21pSnJQcXFJaTViNGtEYTZuYk03azRpTkJlMjJDTncSBBoCCAAaIBIAGgAiACoAMgYIAxICaW46AEIECAEQAEoAWgByAHoAIgIQAUgAWABoAA",
+            "source": "Government e-Marketplace"
+          },
+          {
+            "position": 10,
+            "title": "CENTRAL SEAT ALLOCATION BOARD (CSAB) | India",
+            "link": "https://csab.nic.in/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESTwHrOzAV8eERSVTijL4WDScdjB9yKbIMYC8zhwBAFnYSnM9HBn3XehQmhfj_FaG5rX8-W6z0s_mBEYt0ZcBJNHD3B5YQ14kV7RVJ23ASb-k&ved=2ahUKEwjVr47-hZaXAxW3jbAFHYzLMSMQFnoECBEQAQ&uoh=1",
+            "displayed_link": "https://csab.nic.in",
+            "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png",
+            "snippet": "The candidates whose seats were cancelled in CSAB Special Rounds 2026 due to nonfulfilment of the minimum eligibility criteria, as per Annexure 2 of CSAB ...",
+            "about_this_result": {
+              "source": {
+                "description": "The candidates whose seats were cancelled in CSAB Special Rounds 2026 due to nonfulfilment of the minimum eligibility criteria, as per Annexure 2 of CSAB ...",
+                "source_info_link": "https://csab.nic.in/",
+                "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEX_mTP_u3f____S0uqEhMaMjMq1tdzOzui0tNyTk82Vlc1UVK9hsFoSiAfVW9AIAAAAQUlEQVR4AWMYOkAQDTAoQYCyEZQBE3ANQRVQS69IQhHQNHGehCKglb1tEYYAfi1q7RVJOKzFdNgZNMBwFw0MWgEAC2Kz-S0-y7YAAAAASUVORK5CYII.png"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWOGVFUlNWVGlqTDRXRFNjZGpCOXlLYklNWUM4emh3QkFGbllTbk05SEJuM1hlaFFtaGZqX0ZhRzVyWDgtVzZ6MHNfbUJFWXQwWmNCSk5IRDNCNVlRMTRrVjdSVkoyM0FTYi1rEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CnkvZ290bz91cmw9Q0FFU1R3SHJPekFWOGVFUlNWVGlqTDRXRFNjZGpCOXlLYklNWUM4emh3QkFGbllTbk05SEJuM1hlaFFtaGZqX0ZhRzVyWDgtVzZ6MHNfbUJFWXQwWmNCSk5IRDNCNVlRMTRrVjdSVkoyM0FTYi1rEgQaAggAGiASABoAIgAqADIGCAMSAmluOgBCBAgBEABKAFoAcgB6ACICEAFIAFgAaAA",
+            "source": "CENTRAL SEAT ALLOCATION BOARD (CSAB)",
+            "read_more_link": "https://csab.nic.in/#:~:text=The%20candidates%20whose%20seats%20were,(if%20any)%20through%20CSAB%20portal."
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_maps",
+      "query": "Krishi Vigyan Kendra agriculture office Nadia",
+      "parameters": {
+        "gl": "in",
+        "hl": "en",
+        "location": "West Bengal, India",
+        "type": "search",
+        "z": "10"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "6abcde7a41ffc8fa542b8db4",
+          "status": "Success",
+          "json_endpoint": "https://serpapi.com/searches/NLGMstcoh8URjbOMaZ_qYctRgEp9mO51vqtRXUUNVew/6abcde7a41ffc8fa542b8db4.json",
+          "markdown_endpoint": "https://serpapi.com/searches/NLGMstcoh8URjbOMaZ_qYctRgEp9mO51vqtRXUUNVew/6abcde7a41ffc8fa542b8db4.md",
+          "created_at": "2026-09-30 10:03:38 UTC",
+          "processed_at": "2026-09-30 10:03:38 UTC",
+          "google_maps_url": "https://www.google.com/maps/search/Krishi+Vigyan+Kendra+agriculture+office+Nadia/@22.9867569,87.8549755,10.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=en&gl=in",
+          "raw_html_file": "https://serpapi.com/searches/NLGMstcoh8URjbOMaZ_qYctRgEp9mO51vqtRXUUNVew/6abcde7a41ffc8fa542b8db4.html",
+          "prettify_html_file": "https://serpapi.com/searches/NLGMstcoh8URjbOMaZ_qYctRgEp9mO51vqtRXUUNVew/6abcde7a41ffc8fa542b8db4.prettify",
+          "total_time_taken": 0.74
+        },
+        "search_parameters": {
+          "engine": "google_maps",
+          "type": "search",
+          "q": "Krishi Vigyan Kendra agriculture office Nadia",
+          "location_requested": "West Bengal, India",
+          "location_used": "West Bengal,India",
+          "z": "10",
+          "google_domain": "google.com",
+          "hl": "en",
+          "gl": "in"
+        },
+        "search_information": {
+          "local_results_state": "Showing results for type: \"place\" instead of type: \"search\"",
+          "query_displayed": "Krishi Vigyan Kendra agriculture office Nadia"
+        },
+        "place_results": {
+          "title": "Nadia Krishi Vigyan Kendra",
+          "place_id": "ChIJP2LfSOq_-DkR4tCV_Ez48ZQ",
+          "data_id": "0x39f8bfea48df623f:0x94f1f84cfc95d0e2",
+          "data_cid": "10732632396539482338",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x39f8bfea48df623f%3A0x94f1f84cfc95d0e2&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x39f8bfea48df623f%3A0x94f1f84cfc95d0e2&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 22.9726867,
+            "longitude": 88.4951091
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJP2LfSOq_-DkR4tCV_Ez48ZQ",
+          "provider_id": "/g/11by_zbl83",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RhRuqtAcfNHvH-b6j-QJ3ld24bgeht2Zp8NsTO57rqfQCnRHYHfPjnz-9S4BqOUZ6LopeYF-BamKB28J93DcuJw2stzIfG3KK_iLjcN-pizKGK5VY2bk6UOQ3lumWn5isZRi89=w1000-h1000-c-n",
+          "serpapi_thumbnail": "https://serpapi.com/images/url/V1BTNXicHcRRboIwGADgE_3CWmFg4oNsmUgNDJwz8LKMWmgZtMUWjVxwZ9htTPY9fH-_3FptVo7Tc7xolWp7Nhl2oUpaJu2CqsFptQFqwDib9CTuYcGLabQb2qTxNYba7yBPcH9Gy7pl3KJKB6n5yLzny9jkL7KIy7h57-QM4WEZjdmx8vdKs_INou-BRChIQvxKp-SGjJ13zRYT8iX2HU1Bi5lsifdZovrHP2Y57qfhJD1hqkIE4fr25Lou8P8pyAcy_UPa",
+          "rating_summary": [
+            {
+              "stars": 1,
+              "amount": 0
+            },
+            {
+              "stars": 2,
+              "amount": 0
+            },
+            {
+              "stars": 3,
+              "amount": 2
+            },
+            {
+              "stars": 4,
+              "amount": 11
+            },
+            {
+              "stars": 5,
+              "amount": 38
+            }
+          ],
+          "rating": 4.7,
+          "reviews": 51,
+          "unclaimed_listing": true,
+          "type": [
+            "Research institute"
+          ],
+          "extensions": [
+            {
+              "accessibility": [
+                "Wheelchair-accessible car park",
+                "Wheelchair-accessible entrance"
+              ]
+            }
+          ],
+          "address": "XFFW+32H, Gayeshpur, Raghunathpur P, West Bengal 741234",
+          "country": "India",
+          "website": "https://www.nadiakvk.in/",
+          "phone": "098363 05630",
+          "open_state": "Open · Closes 5 pm",
+          "hours": [
+            {
+              "wednesday": "7 am–5 pm"
+            },
+            {
+              "thursday": "7 am–5 pm"
+            },
+            {
+              "friday": "7 am–5 pm"
+            },
+            {
+              "saturday": "Closed"
+            },
+            {
+              "sunday": "Closed"
+            },
+            {
+              "monday": "7 am–5 pm"
+            },
+            {
+              "tuesday": "7 am–5 pm"
+            }
+          ],
+          "user_reviews": {
+            "summary": [
+              {
+                "snippet": "\"I visited this place during for the course: watershed management.\"",
+                "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUt5D8qhvnV6q1ahOojzJY7O2KuMSHt7RFueoPgKZgriu8qj3zWfA=s40-k-cc-rp-mo"
+              },
+              {
+                "snippet": "\"This place was so good , their teacher was so good and so friendly .\"",
+                "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUvyv_dyQ_GOxjk-jbrX93wdRYRESyRKOEMGZhcQIIlAg1TgC8=s40-k-cc-rp-mo"
+              },
+              {
+                "snippet": "\"This organisation is for only who loves agriculture\"",
+                "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjV1O3pTO6ymfkxWwl2hbmvNbTRfnFw9qgJeiNU4DoWpMKKEawI=s40-k-cc-rp-mo"
+              }
+            ],
+            "most_relevant": [
+              {
+                "username": "CHANDAN DE",
+                "rating": 5,
+                "contributor_id": "111112976717189121161",
+                "user_review_count": 28,
+                "user_photo_count": 118,
+                "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjWfL1zdH2VgIEkQU4OBmdqI6KYRfaJeGklUJq4nXym7vClFRd9Dvw=s120-c-rp-mo-ba12-br100",
+                "description": "Beautiful and well-organized KVK under BCKV. The flower garden, especially the lily and orchid collections, is outstanding. The campus provides an excellent environment for farmers, students, and researchers interested in agriculture and horticulture.",
+                "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNnMDZ5OGFREAE!2m1!1s0x0:0x94f1f84cfc95d0e2!3m1!1s2@1:CIHM0ogKEICAgMCg06y8aQ%7C%7C?hl=en-GB",
+                "images": [
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNKGoKjZ2tdZkJeyqHSDLuYT57GwAzIwtoCFsFOOFfNg4GVG3ZvH4DjFxQVJ8KE6SzUx3PqYqV3kmaFuP4eH93HrqurjOy0FoKJSEQjcVF01To4VINwmwiIvjk2iPEnBCpni8Fdpjzgmi_7=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMgMmmozuWxKiIpixdggZVqgNFMDudspBLoJF3usJuXHKwFRpl9t74Hh7-3QmSHwgMrobcfXZda4x7kRlhkbTtRAtTi3ak0uVMRjXQwz2LvoFOhjL89-izmmZfzmUXN93ezaYD5TfnEhANA=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPmFHHh-wzhl-mmKZarZicjaaPRI8KZKGYd5bZygmdXmOPoqi_oq27qYw4bdOtR8EuEu2UtninX4v9muPcKqBf6THmWJf8dmjUbsJ-OBYnZvczLF6KlL7rzAqjSvTDtw9905ukVTVg3Y2us=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNyyKlTMQTT7n5tfEzQJDFPmIlVUKAcj4ARHS0sq4ecyi0PzihKQbKUUjpNYn-79lGhhh5lhwJATs8lE3mBoZ1yxxoeVBdznIDshfkNcpqyYSwdbz9bgT06WyYeUIzyRKGGHl89yIwU3sw=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNZbmBV0WsmeLk8o9D7MLgltW_x9L_qILfq_14WZ5Sy9BHiubJQBPEPJbhM8wTKlrNhY1us5aoENvu6MMWzgPQAc3k-1zBRZhFEW4e00cBEemoqh8-HsmeCYmjmgPXx38esjCrYrjhOnS2A=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMuEaVlJYKTqx-0TEjH3d9gBrN-KzQsKYGLQAvLpBdBGYYQxOBA37l6pOpfJ95XKy8HtWX_akUMxomFF21ES5dd-IUV0MqQYGRab9jvyaPxBUedOWwQT-tOqzgS-LVAUNy93UiubGWzfqw5=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPJ9who6iE8do5AJvU2xX174pfjeYVqaW_CJrOKM6mdvuuZnmu5rtAm25Q0XV8kmKWuz1bU66VG48VKdnx3O_8uPBR2MYn4QyyfGFvZJogWxcTzfyv2Awii_17PNf6xmKLEgr-Vn3EKZmb8=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmM3S63W4sVorOSwgfPyQdwYZAet3TEGMmQmnwt-wOoVOg2WWHzvD1yCt17GDcB_ndNM_XBfy8QvRfCHpChZPv4eGqlqTYXMC-PakiU_5y2OBf-W-YffhXeokJ9lPkqXabNXp4BG3HFRNBiy=k-no"
+                  }
+                ],
+                "date": "Edited 3 months ago",
+                "date_iso8601": "2026-06-05T11:44:10+00:00"
+              },
+              {
+                "username": "Indranil Biswas",
+                "rating": 5,
+                "contributor_id": "112930581183746898936",
+                "user_review_count": 31,
+                "user_photo_count": 102,
+                "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjXjYb-VXT-IQo1O4C2bZjf8fA8co0FoCG0Y67i_hwm8oRNEslmJ=s120-c-rp-mo-ba12-br100",
+                "description": "Dr Milan sir\nNice person\nHe give us more detailed knowledge about agriculture",
+                "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pOdlVVUlVNR3g2VldwMmRFVnpPVnBaYldOVlFYYxAB!2m1!1s0x0:0x94f1f84cfc95d0e2!3m1!1s2@1:CAIQACodChtycF9oOjNvUURUMGx6VWp2dEVzOVpZbWNVQXc%7C%7C?hl=en-GB",
+                "images": [
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMrbwnTC0TKE4_MlOcxvFbMypl7VlS5bvE2d-GYercLEBk4lvZNOF4pCuOSbbqlyfN79ZSjQlqi1ysptvC5BPFsoUzxn7WYliSI3SY8Eqwtd3EpXPZrzN8bJ-By61i3Rkxpjaus7IxpRG4=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMxX1q2lB9TCIzLM28IjW2f42kM5RsXV-z117ARD4aJrUt4Yl2ajYjMU2OZPIxD2FwcXivio1-fPXj17DE79_opEZwdIy2JhPoLS8VmvNAx534j90jOIdlQZyEUgp2ONyS_-CeErw4-1SoZ=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmOhoymNQH9bVnb-rR0BnDGYkJJisNMi9mIiIle1Jmp-RRsDlXW1_R-TRn2EnXX5n7jAKktpznOsa0v3mA6YSIzgiIlwLxjBHFYzBHwqG0sO4ccKuviAES-b5tzNdpaLoN1Y4RWwyy-2HmhI=k-no"
+                  }
+                ],
+                "date": "9 months ago",
+                "date_iso8601": "2025-12-12T14:15:03+00:00"
+              },
+              {
+                "username": "Sudipta Banerjee",
+                "rating": 5,
+                "contributor_id": "117478251891560089983",
+                "user_review_count": 198,
+                "user_photo_count": 2341,
+                "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjX1VmROHxYnSZBuLiotDMR6BCXWvaeSN6BO343hZ32k5BDX5H6F=s120-c-rp-mo-ba12-br100",
+                "description": "This is one of the best Krishi Vigyan Kendra of West Bengal under administrative control of Bidhan Chandra Krishi Viswavidyalaya. The KVK was established in 2004 and since then it's working for the farming community of Nadia district. The instructional farm of the KVK is very rich in terms of crops and varieties. The Scientists and staffs of the KVK are very rich in knowledge and helpful.",
+                "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURvbjc2T2tRRRAB!2m1!1s0x0:0x94f1f84cfc95d0e2!3m1!1s2@1:CIHM0ogKEICAgIDon76OkQE%7C%7C?hl=en-GB",
+                "images": [
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPgPjtl9og7-wL2w6t_sn2fb2enIRzaPzu_5aJ0K_FKxya6np5H2C5nYqyoLhQvL3knpxGalAPZFhoYBXU8Dd8VchGGhDhjwHtv2sRcN6lpPL2eTkMpwW9CxXrq09iVilJSZmUuKA=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNM2qRoa5JcYHI84p0g9yr_avd-HHX_KKuYPYV0At88EeWLaLePPVOKM58d7OiraDxYhD0lRkNUuierKZvlb2W-K_vEiJpnVHQBuNzhoxbGnhcEX5hQZiaAB8nzXwMv7lYpQc5l=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmOkg1MTKUqUVCwko5pGW2fdEotSALrcdIwKHSrSypTHM7T8Rj05NqDxM7iz3kJF22-JRS_pu6xm_R3ptVK3LqJUNhhuWfGf9x15HgKtGkUEcvHlRQArDURHE3r39f_kreHCB9PC=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPtf3nomDMmD173xrIYU5bTpr83T8enmDmXM8Z785IzV7dGa8e3tHzgbXPYO3xSsPrRK16PiFJOInP9pioDQtGYEU5SHtu-nUDuwb0FUZgrwO5MVLwiOrQ7ufD-PmRBJ_afH2uR=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmOLuj8KtVLKcC4TWPBa2dJWKo-K0PEB8U_xY2ybNST5RpwzsPkiMum0LGXq_3_DWkn9ncXq6vTi3SuwE-_UPuzsDdUYddIcgNouEyMI-6rfLRmo1OqNnk4G2UEzXccEWJ_tjG1n=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmP2R6BSoynxxIYoRKaKZCCrMsfZStZBSQ1nT6vROHV2bEE8RBFNZYjB6UlS12i9Xc2xeiQpnq9oCRS8REJpTQzJObn5BfaQSLTiFoV0tvlBKzZit-biuF2ekqyrAXoXESGWxVGibA=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPcC5Q5V7Wz9sBgPUN2e-kR6fsG-hnJGySxe6wNmI9WPnFGZprAPtlleeK5NPbuJDBZaADR3IbX64A5yTHMVt1rdZMquelUgBKr34fPt-xmzoqlgN9yuNEeRF3hflXa4nJ_yhcM=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmOhkf2PVJF1zTD6-XMS2hG9mp9u-7BRZ2VFqLwUMALDk5Y4Qqm_B3ntoA9g-v6maMryaBENSuMNjgEQ-aXw93_2u79D-DGFvcD6qxGQHawzfG1nnMYQXqPzgBMfTopXwnuQoJ8=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPJKwvh-w4dCcpOBsN4AXn-I4m__uwnSiarD0Pdt-xwy7Yhr0AWCDXwz8G6Ip6qoIrbyMPIs39rRf3mTQazfbG-xdQcubna-350IAVWB2kiAijpLz8TIuDhnZxU4DwacHaOsm7U=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPfITDOjM97EArgTkVyOWlnEo_uHJz_oghA9DgUswqam_ypX0xIAbo-sazmKunvRCAEzRkcBbxL8LhHOH5LqqAP5xQI4tHHwgajCmye8Cn9lqFrHev0ZERlPSXxFwq3Zg3tHND0_w=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNZRR1bKMC1c3aAE_Ca6Q2Px9lIOVgCPs7koy6z3WMbcoQXY4bwUetALS1Lp_fK-t9romuKPO1Tnvez5XserabYeoDgK6EbWPRBdc9EZk-QR_dZdVy1hon8yPeO4ofyFADvR8gL=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNZ4BSrDXYR9iCea2j9G1jCMpOOVJhDz8gNM48aeuVBvbNGhPOrVSXnQOJlQ_q92ahVl1db7kjBrigWt3HBPCZCI7rgqI--ndwIXmn0SW7VAi-EGcJ_T5Pga2T0FQ6ocPvBHLZO=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPTFPsb7eexlswEXnPTOvDLMtfzqZxQMUlPr9AamD24E84mb0LNzAanmUmpFJ3xbTvfqOM3qp8sxuSnauuJhNklcNHkTQYs1PpNUyqLvk4xmZWVBiRr_Cs63MsD7Iabn5iFgjI=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNiDSHdW_UuL6_IjiqTH2grq7_t798KckTLXiSWbA3c6dqHHDqCdfwOedcrV2Rc3bnrD_yL_dHwIV14sQy7FSandtedWlch_Fjru1HAfD4joE5zk0tiSXmaD1XqlFHDbCLabJM7=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMl6JxEXe0WCx6acyQ8Ph9M7_23gvxAD_42n-F9iFZFGIi7yXf1fYJ4QkgQnsvZIoohcdjV3u92cI6uDukBItV1dw89PyclBnknJRkYAb8o-I9hIAwxIRQaI4810wWIZKHJ5gc2=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmO2hlZkozo4LyT9wtGTAm4nRjrziYUCq6UMyAJ2itUibm9q-I9KqfEKmOaAXuFfsFzUTiF19uOaRBgyfC-AqNmGzfthqZsNpksB-hzfFchlGzAc4s5_RbSCaQzPXxDF64XxwpTk=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPR0zTWtCqQNFg-cNRnCjZ5_sl1FOKPEB6I36wDiXwqTgZz60uhtsasFocH5NUp6dEaETtvh98f41ZZy_MlSQlApk6pOnQuqkcp0Bf4yqdHXXJF3slD-WTr5wamN9rqSD1kk3UhEQ=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNj39PvkTrSU8bPc0MaiWtOy__CQmk0GX2DUqp1YJy8noBir5j1gr75noHotz7lhiJxyv6GMU2Rn8I531cOJlVx2ZC9lo9C6l9G6TebohqVL6tcnLFR9PnOrhB77vBwB-uzng3Zbw=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmNBl2hqJn6wsLRVRnRhngVV2ksmBqGO5WP-H7rp9NAWBtdlEu4QnfhsndQ7J5TmOib8sNpac9Gp4som_pgeQOanDzkq4WKBUplxbE_luw76jn93u3AZb7r_Rg0KNBr9vOU01jbOuQ=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPH6lRRIxjadGWFZvorHOyFnwm9VXUjhwvZYmpxl1g4Focw8K5fyNfb_e-0RhyRk6UyHwhaxKJiPQ-7xM-WMTH8nRS_F7mIG5tTfMS7BiOj8T--tE8zwBmNMbwuL--63Gs3O_aV=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmM6sP8vgrYDUdY-jTMz0uLrkg4TlxdTiMiXJpIbzUEscaYAMxiQVNxuoBGbVyz_WAUCWYonUKZL6QiKZQ8dh88BFiB4QeyVUICAD84M5O3Uw9nZv5bOxLXIgbGnIaT3b7GbgNjLNQ=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPxE9J6Njut4n27UrDLV7G8qh-7AdGbDfXiDIgJ0eeaAvAjUtkXt7MazgflMqAHhZAKMwymvChReV0j987lbFC9YztD19R1lytwbEE-rIFv1dD_Hvmn_19vCR0yqip5EOcywJdQzg=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMM2PKzkcN-cuuIT4ZkblBJh1kOLgLSeu8MKaragfWLsX5bSCTKuVJcThPrSRbMGJo4LHW6wIRuYLfkra3A2G4_QmJTUOq6YJl_bMGI7Q0K0h-zHpcQJLfmLH302vBubEVhbaaU=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmOW056QZEjHwHWWAODuQQCyZZcGzEHA5JVTkJR4QXfXtxijHj-VwsaMUFtaDKBh50LSDKbA0E1QwjPj9K1KXzVSjhUyICav-CfO6XG5OoTHFOE2ASV9k2eMJgDDBmwuIGo_FtMB=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmO1GrQUnHY71Xdt-mb-1fflNs0ki7ZMXf04u60nyJheWe9tf0v4Ak5PGsawpY8e8gK80q0jF159HGVJryZmC_hVuzCd7FApuO67zBiwWevoQK3Mkkd_HvZfIaffcxpvveTADkc=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPnabgnaHJeV020_Ky3ludoYT5JZ7yacuhFVSW2ztnmQ74_F4NDFYMOk74BwsdWxMvQi-vXOHoKYR5lMsge41pkesl8ADmamYI9bPNR3sTF4mDitrHJw9wNzcdXOeCUrhpSCX7NYA=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPOdOLfpJfzXy6xHhXi_Du06_mlihTq6WVu6jh9ooqqQmQhHkeARCz0sh3tkaTxgFDrogFex8BIiocmiw_nZgz-ZtgJIuv_71SO_FrhN2xa-FiBYfLKBjJofRFb1PwzB2iFTlo=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmOkRyf0rffHTY1DcgP1gHo51oIjQaVMz8C1yODcvPBGAlnjPi93dxXZLZeoZb6huqkWMfNpf5-BH4UgVzNwBltzuOJM3aj6EamBV5z0RxpVdp_JqaZY_ZI6wF04xVLyh4bLVAgJ=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPORrAXWjoLUzLFiLlPjBkuDLbdDB431Loa0dTKAo0CpaokOVtGlg8vTN_sL9D_lFsK_WO4kfGfFpHvViUngCQUyfA-9R4dyV3YAlBmMAfN30NSFwk25_eXGQDwrceegEeWW6MU-g=k-no"
+                  }
+                ],
+                "date": "Edited 7 years ago",
+                "date_iso8601": "2019-07-12T07:45:33+00:00"
+              },
+              {
+                "username": "CHAYAN DAS",
+                "rating": 5,
+                "contributor_id": "113319709307964956040",
+                "user_review_count": 10,
+                "user_photo_count": 6,
+                "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUvyv_dyQ_GOxjk-jbrX93wdRYRESyRKOEMGZhcQIIlAg1TgC8=s120-c-rp-mo-ba12-br100",
+                "description": "This place was so good , their  teacher was so good and so friendly . At last I say like this place",
+                "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQ5XzlfNGV3EAE!2m1!1s0x0:0x94f1f84cfc95d0e2!3m1!1s2@1:CIHM0ogKEICAgID9_9_4ew%7C%7C?hl=en-GB",
+                "images": [
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmPtIBjAUpV9Bt5t5wErvzMVYhQPs_aARngNOofi6RnDn1G6jpuQbKiLMPAPLCavT4PbLzioPrpGGsRyo0QIamHj_Cb3irW31OgJq5ZSGk_WSvbHcv9qfHipvV_4uiUyW-j7v4SE=k-no"
+                  },
+                  {
+                    "thumbnail": "https://lh3.googleusercontent.com/grass-cs/ACvplmMFLKxcbv4oiBJGDUMCkJeWdMes1yB1Ws-4se4V4Eq5dVeL0f_ZEMn1Iy2VcIHcPlmyZ04RJCnifv49iJ-7V0WfpzhtKZ0BO_07qI2jmJ53fqvrCFQKYRjG6Flh0QZimrBthB4=k-no"
+                  }
+                ],
+                "date": "2 years ago",
+                "date_iso8601": "2024-03-23T01:10:47+00:00"
+              },
+              {
+                "username": "Partha Pratim Roy",
+                "rating": 5,
+                "contributor_id": "116234849675024131449",
+                "user_review_count": 144,
+                "user_photo_count": 825,
+                "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjVt0o1zVBHaVcU3ClDBwYYuKMwA5KWKSO8xCwEeA8Azanc1kPNi=s120-c-rp-mo-ba12-br100",
+                "description": "Better than other kvk in west bengal",
+                "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xoQlZqRjZXV3RmVjJwT1lYWlZjSE4xZVdRd1ZVRRAB!2m1!1s0x0:0x94f1f84cfc95d0e2!3m1!1s2@1:CAIQACodChtycF9oOlhBVjF6WWtfV2pOYXZVcHN1eWQwVUE%7C%7C?hl=en-GB",
+                "date": "8 months ago",
+                "date_iso8601": "2026-01-28T11:12:32+00:00"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "engine": "google",
+      "query": "\"Rice\" \"Nadia\" \"West Bengal\" mandi market price (site:agmarknet.gov.in OR site:data.gov.in OR site:gov.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "6abcf557bd1c202a12837782",
+          "status": "Success",
+          "json_endpoint": "https://serpapi.com/searches/3Sn9xoGtH1vzgsJortb1YZ4TXRc-7rLR_xYug0ko7I8/6abcf557bd1c202a12837782.json",
+          "markdown_endpoint": "https://serpapi.com/searches/3Sn9xoGtH1vzgsJortb1YZ4TXRc-7rLR_xYug0ko7I8/6abcf557bd1c202a12837782.md",
+          "pixel_position_endpoint": "https://serpapi.com/searches/3Sn9xoGtH1vzgsJortb1YZ4TXRc-7rLR_xYug0ko7I8/6abcf557bd1c202a12837782.json_with_pixel_position",
+          "created_at": "2026-09-30 11:41:11 UTC",
+          "processed_at": "2026-09-30 11:41:11 UTC",
+          "google_url": "https://www.google.com/search?q=%22Rice%22+%22Nadia%22+%22West+Bengal%22+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&oq=%22Rice%22+%22Nadia%22+%22West+Bengal%22+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&hl=en&gl=in&sourceid=chrome&ie=UTF-8",
+          "raw_html_file": "https://serpapi.com/searches/3Sn9xoGtH1vzgsJortb1YZ4TXRc-7rLR_xYug0ko7I8/6abcf557bd1c202a12837782.html",
+          "total_time_taken": 3.01
+        },
+        "search_parameters": {
+          "engine": "google",
+          "q": "\"Rice\" \"Nadia\" \"West Bengal\" mandi market price (site:agmarknet.gov.in OR site:data.gov.in OR site:gov.in)",
+          "google_domain": "google.com",
+          "hl": "en",
+          "gl": "in",
+          "device": "desktop"
+        },
+        "search_information": {
+          "query_displayed": "\"Rice\" \"Nadia\" \"West Bengal\" mandi market price (site:agmarknet.gov.in OR site:data.gov.in OR site:gov.in)",
+          "total_results": 1200,
+          "time_taken_displayed": 0.41,
+          "organic_results_state": "Empty showing fixed spelling results",
+          "showing_results_for": "Ric_e Nadia West Bengal mandi market price (site:agmarknet.gov.in OR site:data.gov.in OR site:gov.in)",
+          "spelling_fix": "Ric_e Nadia West Bengal mandi market price (site:agmarknet.gov.in OR site:data.gov.in OR site:gov.in)"
+        },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "Government of India National Sample Survey Forty ninth- ...",
+            "link": "https://microdata.gov.in/NADA/index.php/catalog/75/download/5549",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESewHrOzAV7AiWFHeyxy4-r5mnRGLu0ZzPOqjDmCtaVHorTmwvLKwfu5m4dbbLiqo9XT7_yJ1H4-5J1LTcqLf8U2F4WyWSGPe8F4txwCxVaKPK8z26R6HQveqXk33_qfHN-vIBZyPJt7P09b_j8PonOW_B8xfzwBkOJVcbdQ&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBIQAQ&uoh=1",
+            "displayed_link": "https://microdata.gov.in › catalog › download",
+            "snippet": "NSS 49th round will be devoted mainly to the survey on housing condition and migration with special emphasis on slum dwellers. The.",
+            "about_this_result": {
+              "source": {
+                "description": "NSS 49th round will be devoted mainly to the survey on housing condition and migration with special emphasis on slum dwellers. The.",
+                "source_info_link": "https://microdata.gov.in/NADA/index.php/catalog/75/download/5549"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CrQBL2dvdG8_dXJsPUNBRVNld0hyT3pBVjdBaVdGSGV5eHk0LXI1bW5SR0x1MFp6UE9xakRtQ3RhVkhvclRtd3ZMS3dmdTVtNGRiYkxpcW85WFQ3X3lKMUg0LTVKMUxUY3FMZjhVMkY0V3lXU0dQZThGNHR4d0N4VmFLUEs4ejI2UjZIUXZlcVhrMzNfcWZITi12SUJaeVBKdDdQMDliX2o4UG9uT1dfQjh4Znp3QmtPSlZjYmRREgQaAggAGoEGEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQN0FCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEVPcd7PBoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBXlmEY-GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFVDqgj0aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRV7Cqs7GgppdjtwO21hbmRpKjUKBm1hcmtldBV7Cqs7GgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUYRFM8GgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2UytAEvZ290bz91cmw9Q0FFU2V3SHJPekFWN0FpV0ZIZXl4eTQtcjVtblJHTHUwWnpQT3FqRG1DdGFWSG9yVG13dkxLd2Z1NW00ZGJiTGlxbzlYVDdfeUoxSDQtNUoxTFRjcUxmOFUyRjRXeVdTR1BlOEY0dHh3Q3hWYUtQSzh6MjZSNkhRdmVxWGszM19xZkhOLXZJQlp5UEp0N1AwOWJfajhQb25PV19COHhmendCa09KVmNiZFE6PEdvdmVybm1lbnQgb2YgSW5kaWEgTmF0aW9uYWwgU2FtcGxlIFN1cnZleSBGb3J0eSBuaW50aC1Sb3VuZEKDAU5TUyA0OXRoIHJvdW5kIHdpbGwgYmUgZGV2b3RlZCBtYWlubHkgdG8gdGhlIHN1cnZleSBvbiBob3VzaW5nIGNvbmRpdGlvbiBhbmQgbWlncmF0aW9uIHdpdGggc3BlY2lhbCBlbXBoYXNpcyBvbiBzbHVtIGR3ZWxsZXJzLiBUaGUuUgVzaGFyZSICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CrQBL2dvdG8_dXJsPUNBRVNld0hyT3pBVjdBaVdGSGV5eHk0LXI1bW5SR0x1MFp6UE9xakRtQ3RhVkhvclRtd3ZMS3dmdTVtNGRiYkxpcW85WFQ3X3lKMUg0LTVKMUxUY3FMZjhVMkY0V3lXU0dQZThGNHR4d0N4VmFLUEs4ejI2UjZIUXZlcVhrMzNfcWZITi12SUJaeVBKdDdQMDliX2o4UG9uT1dfQjh4Znp3QmtPSlZjYmRREgQaAggAGoEGEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQN0FCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEVPcd7PBoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBXlmEY-GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFVDqgj0aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRV7Cqs7GgppdjtwO21hbmRpKjUKBm1hcmtldBV7Cqs7GgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUYRFM8GgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2UytAEvZ290bz91cmw9Q0FFU2V3SHJPekFWN0FpV0ZIZXl4eTQtcjVtblJHTHUwWnpQT3FqRG1DdGFWSG9yVG13dkxLd2Z1NW00ZGJiTGlxbzlYVDdfeUoxSDQtNUoxTFRjcUxmOFUyRjRXeVdTR1BlOEY0dHh3Q3hWYUtQSzh6MjZSNkhRdmVxWGszM19xZkhOLXZJQlp5UEp0N1AwOWJfajhQb25PV19COHhmendCa09KVmNiZFE6PEdvdmVybm1lbnQgb2YgSW5kaWEgTmF0aW9uYWwgU2FtcGxlIFN1cnZleSBGb3J0eSBuaW50aC1Sb3VuZEKDAU5TUyA0OXRoIHJvdW5kIHdpbGwgYmUgZGV2b3RlZCBtYWlubHkgdG8gdGhlIHN1cnZleSBvbiBob3VzaW5nIGNvbmRpdGlvbiBhbmQgbWlncmF0aW9uIHdpdGggc3BlY2lhbCBlbXBoYXNpcyBvbiBzbHVtIGR3ZWxsZXJzLiBUaGUuUgVzaGFyZSICEAFIAFgAaAA",
+            "source": "Microdata.gov.in",
+            "read_more_link": "https://microdata.gov.in/NADA/index.php/catalog/75/download/5549#:~:text=NSS%2049th%20round%20will%20be,emphasis%20on%20slum%20dwellers.%20The"
+          },
+          {
+            "position": 2,
+            "title": "Appendix-I (Reference : Paragraph 1.7.2(a) Statement ...",
+            "link": "https://saiindia.gov.in/uploads/download_audit_report/2009/West_Bengal_TL_PRI_2009_Appendices.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESnAEB6zswFS4H8LLSFQSURhQS__rfMOPzOb8fhJMhPAva8HSjed6YZ8p86ghBEMTMWXpgt6eSYqEw1dEL7UbMzBglbStgCM6x5hU9pRXkwzpeoF3kDkqqKXuFkmdUQxDdP9_g5i-qZN9sQScqr4zkLgSh0sPzN588oV4s_MfVtzqDUqsJCrwiC524ObBT7L1-IIo2xlXQGW5kpfzZ1P4&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBYQAQ&uoh=1",
+            "displayed_link": "https://saiindia.gov.in › download_audit_report",
+            "favicon": "https://serpapi.com/images/i/UklGRooAAABXRUJQVlA4IH4AAAAQAgCdASoQABAAAsBMJaQAD4ePqipmbSkAAP76re0UGtOwg_Cbj3l4e7qAHlrH_1F8Qu1hVP3WEFnl2rA5l96g752An2f1_iqd4Lhmv9T53hxTM7mPf3T-Xk23rceGQ1jVVG0o0OvWSJ4-OlV5ST__H3GbOizVAH3Yk7HkEAA.webp",
+            "snippet": "The West Bengal Panchayat (ZP & PS) Accounts and Financial Rules, 2003. Total 69 in lakh) Rent of market stall/ferry. Nadia Stall rent 4.57 (10)",
+            "snippet_highlighted_words": [
+              "West Bengal",
+              "market",
+              "Nadia"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "The West Bengal Panchayat (ZP & PS) Accounts and Financial Rules, 2003. Total 69 in lakh) Rent of market stall/ferry. Nadia Stall rent 4.57 (10)",
+                "source_info_link": "https://saiindia.gov.in/uploads/download_audit_report/2009/West_Bengal_TL_PRI_2009_Appendices.pdf",
+                "icon": "https://serpapi.com/images/i/UklGRooAAABXRUJQVlA4IH4AAAAQAgCdASoQABAAAsBMJaQAD4ePqipmbSkAAP76re0UGtOwg_Cbj3l4e7qAHlrH_1F8Qu1hVP3WEFnl2rA5l96g752An2f1_iqd4Lhmv9T53hxTM7mPf3T-Xk23rceGQ1jVVG0o0OvWSJ4-OlV5ST__H3GbOizVAH3Yk7HkEAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CuEBL2dvdG8_dXJsPUNBRVNuQUVCNnpzd0ZTNEg4TExTRlFTVVJoUVNfX3JmTU9Qek9iOGZoSk1oUEF2YThIU2plZDZZWjhwODZnaEJFTVRNV1hwZ3Q2ZVNZcUV3MWRFTDdVYk16QmdsYlN0Z0NNNng1aFU5cFJYa3d6cGVvRjNrRGtxcUtYdUZrbWRVUXhEZFA5X2c1aS1xWk45c1FTY3FyNHprTGdTaDBzUHpONTg4b1Y0c19NZlZ0enFEVXFzSkNyd2lDNTI0T2JCVDdMMS1JSW8yeGxYUUdXNWtwZnpaMVA0EgQaAggAGtAGEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQKwGCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEVyfaPPhoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBWjde09GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFaN17T0aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRUAAAAAGgppdjtwO21hbmRpKjUKBm1hcmtldBVeZzQ-GgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUAAAAAGgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2Uy4QEvZ290bz91cmw9Q0FFU25BRUI2enN3RlM0SDhMTFNGUVNVUmhRU19fcmZNT1B6T2I4ZmhKTWhQQXZhOEhTamVkNllaOHA4NmdoQkVNVE1XWHBndDZlU1lxRXcxZEVMN1ViTXpCZ2xiU3RnQ002eDVoVTlwUlhrd3pwZW9GM2tEa3FxS1h1RmttZFVReERkUDlfZzVpLXFaTjlzUVNjcXI0emtMZ1NoMHNQek41ODhvVjRzX01mVnR6cURVcXNKQ3J3aUM1MjRPYkJUN0wxLUlJbzJ4bFhRR1c1a3BmeloxUDQ6OEFwcGVuZGl4LUkgKFJlZmVyZW5jZSA6IFBhcmFncmFwaCAxLjcuMihhKSBTdGF0ZW1lbnQgLi4uQqkBVGhlIDxiPldlc3QgQmVuZ2FsPC9iPiBQYW5jaGF5YXQgKFpQICZhbXA7IFBTKSBBY2NvdW50cyBhbmQgRmluYW5jaWFsIFJ1bGVzLCAyMDAzLiBUb3RhbCA2OSBpbiBsYWtoKSBSZW50IG9mIDxiPm1hcmtldDwvYj4gc3RhbGwvZmVycnkuIDxiPk5hZGlhPC9iPiBTdGFsbCByZW50IDQuNTcgKDEwKVIFc2hhcmUiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CuEBL2dvdG8_dXJsPUNBRVNuQUVCNnpzd0ZTNEg4TExTRlFTVVJoUVNfX3JmTU9Qek9iOGZoSk1oUEF2YThIU2plZDZZWjhwODZnaEJFTVRNV1hwZ3Q2ZVNZcUV3MWRFTDdVYk16QmdsYlN0Z0NNNng1aFU5cFJYa3d6cGVvRjNrRGtxcUtYdUZrbWRVUXhEZFA5X2c1aS1xWk45c1FTY3FyNHprTGdTaDBzUHpONTg4b1Y0c19NZlZ0enFEVXFzSkNyd2lDNTI0T2JCVDdMMS1JSW8yeGxYUUdXNWtwZnpaMVA0EgQaAggAGtAGEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQKwGCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEVyfaPPhoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBWjde09GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFaN17T0aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRUAAAAAGgppdjtwO21hbmRpKjUKBm1hcmtldBVeZzQ-GgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUAAAAAGgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2Uy4QEvZ290bz91cmw9Q0FFU25BRUI2enN3RlM0SDhMTFNGUVNVUmhRU19fcmZNT1B6T2I4ZmhKTWhQQXZhOEhTamVkNllaOHA4NmdoQkVNVE1XWHBndDZlU1lxRXcxZEVMN1ViTXpCZ2xiU3RnQ002eDVoVTlwUlhrd3pwZW9GM2tEa3FxS1h1RmttZFVReERkUDlfZzVpLXFaTjlzUVNjcXI0emtMZ1NoMHNQek41ODhvVjRzX01mVnR6cURVcXNKQ3J3aUM1MjRPYkJUN0wxLUlJbzJ4bFhRR1c1a3BmeloxUDQ6OEFwcGVuZGl4LUkgKFJlZmVyZW5jZSA6IFBhcmFncmFwaCAxLjcuMihhKSBTdGF0ZW1lbnQgLi4uQqkBVGhlIDxiPldlc3QgQmVuZ2FsPC9iPiBQYW5jaGF5YXQgKFpQICZhbXA7IFBTKSBBY2NvdW50cyBhbmQgRmluYW5jaWFsIFJ1bGVzLCAyMDAzLiBUb3RhbCA2OSBpbiBsYWtoKSBSZW50IG9mIDxiPm1hcmtldDwvYj4gc3RhbGwvZmVycnkuIDxiPk5hZGlhPC9iPiBTdGFsbCByZW50IDQuNTcgKDEwKVIFc2hhcmUiAhABSABYAGgA",
+            "source": "CAG"
+          },
+          {
+            "position": 3,
+            "title": "Transforming Traditional Saffron Farming through Indoor & ...",
+            "link": "https://nitiforstates.gov.in/best-practice-detail?id=110226",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESdgHrOzAVxozvVh-OZKeDk-o5dg3p710ebJySlmxWD9HyO1kCb5IZzvgb32yiUDwAi3xHajF66Y0toak5fCBasI1E9hNTGGCTF-heLquQ6flSUkLGZSO0HexpOPkPXIa8cnjeFFWqb9j5uodyoSa12Q59rhP2YMg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBQQAQ&uoh=1",
+            "displayed_link": "https://nitiforstates.gov.in › best-practice-detail",
+            "snippet": "Pampore, transformed conventional saffron farming on 3 hectares into a modern, high-value enterprise by addressing gaps in marketing, irrigation, crop ...",
+            "snippet_highlighted_words": [
+              "value",
+              "marketing"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "Pampore, transformed conventional saffron farming on 3 hectares into a modern, high-value enterprise by addressing gaps in marketing, irrigation, crop ...",
+                "source_info_link": "https://nitiforstates.gov.in/best-practice-detail?id=110226"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cq0BL2dvdG8_dXJsPUNBRVNkZ0hyT3pBVnhvenZWaC1PWktlRGstbzVkZzNwNzEwZWJKeVNsbXhXRDlIeU8xa0NiNUlaenZnYjMyeWlVRHdBaTN4SGFqRjY2WTB0b2FrNWZDQmFzSTFFOWhOVEdHQ1RGLWhlTHF1UTZmbFNVa0xHWlNPMEhleHBPUGtQWElhOGNuamVGRldxYjlqNXVvZHlvU2ExMlE1OXJoUDJZTWcSBBoCCAAaowYSABoAIgAqADIGCAESAmluOgBCBAgBEABKAFoAcgB6AIJA_wUIABAAGAAgACo0CgVyaWNfZRUAAAAAGgVwYWRkeRoFcmljIGUaBnJpY19lcxoEcmljZRoKaXY7cDtyaWNfZSooCgVuYWRpYRWB3W07GgduYWRpYSdzGgVuYWR5YRoKaXY7cDtuYWRpYSorCgR3ZXN0Ff8kVj4aAndiGgd3ZXN0ZXJuGgV3ZXN0cxoKd2VzdGJlbmdhbCozCgZiZW5nYWwV9K_gPRoHYmVuZ2FsaRoCd2IaCndlc3RiZW5nYWwaC2l2O3A7YmVuZ2FsKhgKBW1hbmRpFU2MVjwaCml2O3A7bWFuZGkqNQoGbWFya2V0FcVkcz0aCW1hcmtldGluZxoHbWFya2V0cxoFc2hhcmUaC21hcmtldHByaWNlKj4KBXByaWNlFQAAAAAaBGNvc3QaBnByaWNlcxoHcHJpY2luZxoFcmF0ZXMaBXZhbHVlGgttYXJrZXRwcmljZTKtAS9nb3RvP3VybD1DQUVTZGdIck96QVZ4b3p2VmgtT1pLZURrLW81ZGczcDcxMGViSnlTbG14V0Q5SHlPMWtDYjVJWnp2Z2IzMnlpVUR3QWkzeEhhakY2NlkwdG9hazVmQ0Jhc0kxRTloTlRHR0NURi1oZUxxdVE2ZmxTVWtMR1pTTzBIZXhwT1BrUFhJYThjbmplRkZXcWI5ajV1b2R5b1NhMTJRNTlyaFAyWU1nOjtUcmFuc2Zvcm1pbmcgVHJhZGl0aW9uYWwgU2FmZnJvbiBGYXJtaW5nIHRocm91Z2ggSW5kb29yIC4uLkKtAVBhbXBvcmUsIHRyYW5zZm9ybWVkIGNvbnZlbnRpb25hbCBzYWZmcm9uIGZhcm1pbmcgb24gMyBoZWN0YXJlcyBpbnRvIGEgbW9kZXJuLCBoaWdoLTxiPnZhbHVlPC9iPiBlbnRlcnByaXNlIGJ5IGFkZHJlc3NpbmcgZ2FwcyBpbiA8Yj5tYXJrZXRpbmc8L2I-LCBpcnJpZ2F0aW9uLCBjcm9wJm5ic3A7Li4uUgVzaGFyZSICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cq0BL2dvdG8_dXJsPUNBRVNkZ0hyT3pBVnhvenZWaC1PWktlRGstbzVkZzNwNzEwZWJKeVNsbXhXRDlIeU8xa0NiNUlaenZnYjMyeWlVRHdBaTN4SGFqRjY2WTB0b2FrNWZDQmFzSTFFOWhOVEdHQ1RGLWhlTHF1UTZmbFNVa0xHWlNPMEhleHBPUGtQWElhOGNuamVGRldxYjlqNXVvZHlvU2ExMlE1OXJoUDJZTWcSBBoCCAAaowYSABoAIgAqADIGCAESAmluOgBCBAgBEABKAFoAcgB6AIJA_wUIABAAGAAgACo0CgVyaWNfZRUAAAAAGgVwYWRkeRoFcmljIGUaBnJpY19lcxoEcmljZRoKaXY7cDtyaWNfZSooCgVuYWRpYRWB3W07GgduYWRpYSdzGgVuYWR5YRoKaXY7cDtuYWRpYSorCgR3ZXN0Ff8kVj4aAndiGgd3ZXN0ZXJuGgV3ZXN0cxoKd2VzdGJlbmdhbCozCgZiZW5nYWwV9K_gPRoHYmVuZ2FsaRoCd2IaCndlc3RiZW5nYWwaC2l2O3A7YmVuZ2FsKhgKBW1hbmRpFU2MVjwaCml2O3A7bWFuZGkqNQoGbWFya2V0FcVkcz0aCW1hcmtldGluZxoHbWFya2V0cxoFc2hhcmUaC21hcmtldHByaWNlKj4KBXByaWNlFQAAAAAaBGNvc3QaBnByaWNlcxoHcHJpY2luZxoFcmF0ZXMaBXZhbHVlGgttYXJrZXRwcmljZTKtAS9nb3RvP3VybD1DQUVTZGdIck96QVZ4b3p2VmgtT1pLZURrLW81ZGczcDcxMGViSnlTbG14V0Q5SHlPMWtDYjVJWnp2Z2IzMnlpVUR3QWkzeEhhakY2NlkwdG9hazVmQ0Jhc0kxRTloTlRHR0NURi1oZUxxdVE2ZmxTVWtMR1pTTzBIZXhwT1BrUFhJYThjbmplRkZXcWI5ajV1b2R5b1NhMTJRNTlyaFAyWU1nOjtUcmFuc2Zvcm1pbmcgVHJhZGl0aW9uYWwgU2FmZnJvbiBGYXJtaW5nIHRocm91Z2ggSW5kb29yIC4uLkKtAVBhbXBvcmUsIHRyYW5zZm9ybWVkIGNvbnZlbnRpb25hbCBzYWZmcm9uIGZhcm1pbmcgb24gMyBoZWN0YXJlcyBpbnRvIGEgbW9kZXJuLCBoaWdoLTxiPnZhbHVlPC9iPiBlbnRlcnByaXNlIGJ5IGFkZHJlc3NpbmcgZ2FwcyBpbiA8Yj5tYXJrZXRpbmc8L2I-LCBpcnJpZ2F0aW9uLCBjcm9wJm5ic3A7Li4uUgVzaGFyZSICEAFIAFgAaAA",
+            "source": "NITI for States"
+          },
+          {
+            "position": 4,
+            "title": "2024-25",
+            "link": "https://zsi.gov.in/public/uploads/documents/importantLinks/hindi/Annual_Report_2024-25_compressed.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESoAEB6zswFf580lBhIHQGvKAniB-dA8rW0BS07fqv1dekYF2KI12Np0nfUzYfrrdcFJPPiNiT3P50p1knvslR7cAtUNHoNC5W_rsWrG88fSNeTnkK0n6vFm4INDFIl7QetPiJFUhiDGN5XiRGF9NKGFlUcWSNWRXJIZwdnDro53JT5FSvSjDqG0VjSo_73pkLDMTKc0JoEtFdQKtvsW7JR0ol&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBoQAQ&uoh=1",
+            "displayed_link": "https://zsi.gov.in › uploads › importantLinks › hindi",
+            "snippet": "Two seasonal surveys were conducted in six districts of West Bengal Nadia, assess helminth infections in food fishes. Overall infection rate increased from 9% ...",
+            "snippet_highlighted_words": [
+              "West Bengal Nadia"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "Two seasonal surveys were conducted in six districts of West Bengal Nadia, assess helminth infections in food fishes. Overall infection rate increased from 9% ...",
+                "source_info_link": "https://zsi.gov.in/public/uploads/documents/importantLinks/hindi/Annual_Report_2024-25_compressed.pdf"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CuYBL2dvdG8_dXJsPUNBRVNvQUVCNnpzd0ZmNTgwbEJoSUhRR3ZLQW5pQi1kQThyVzBCUzA3ZnF2MWRla1lGMktJMTJOcDBuZlV6WWZycmRjRkpQUGlOaVQzUDUwcDFrbnZzbFI3Y0F0VU5Ib05DNVdfcnNXckc4OGZTTmVUbmtLMG42dkZtNElOREZJbDdRZXRQaUpGVWhpREdONVhpUkdGOU5LR0ZsVWNXU05XUlhKSVp3ZG5Ecm81M0pUNUZTdlNqRHFHMFZqU29fNzNwa0xETVRLYzBKb0V0RmRRS3R2c1c3SlIwb2wSBBoCCAAaxgYSABoAIgAqADIGCAESAmluOgBCBAgBEABKAFoAcgB6AIJAogYIABAAGAAgACo0CgVyaWNfZRUAAAAAGgVwYWRkeRoFcmljIGUaBnJpY19lcxoEcmljZRoKaXY7cDtyaWNfZSooCgVuYWRpYRVoDt09GgduYWRpYSdzGgVuYWR5YRoKaXY7cDtuYWRpYSorCgR3ZXN0FSwKmz4aAndiGgd3ZXN0ZXJuGgV3ZXN0cxoKd2VzdGJlbmdhbCozCgZiZW5nYWwVd9mZPhoHYmVuZ2FsaRoCd2IaCndlc3RiZW5nYWwaC2l2O3A7YmVuZ2FsKhgKBW1hbmRpFYHksjsaCml2O3A7bWFuZGkqNQoGbWFya2V0FYq69joaCW1hcmtldGluZxoHbWFya2V0cxoFc2hhcmUaC21hcmtldHByaWNlKj4KBXByaWNlFQAAAAAaBGNvc3QaBnByaWNlcxoHcHJpY2luZxoFcmF0ZXMaBXZhbHVlGgttYXJrZXRwcmljZTLmAS9nb3RvP3VybD1DQUVTb0FFQjZ6c3dGZjU4MGxCaElIUUd2S0FuaUItZEE4clcwQlMwN2ZxdjFkZWtZRjJLSTEyTnAwbmZVellmcnJkY0ZKUFBpTmlUM1A1MHAxa252c2xSN2NBdFVOSG9OQzVXX3JzV3JHODhmU05lVG5rSzBuNnZGbTRJTkRGSWw3UWV0UGlKRlVoaURHTjVYaVJHRjlOS0dGbFVjV1NOV1JYSklad2RuRHJvNTNKVDVGU3ZTakRxRzBWalNvXzczcGtMRE1US2MwSm9FdEZkUUt0dnNXN0pSMG9sOiQyMDI0LTI1IC0gWm9vbG9naWNhbCBTdXJ2ZXkgb2YgSW5kaWFCrgFUd28gc2Vhc29uYWwgc3VydmV5cyB3ZXJlIGNvbmR1Y3RlZCBpbiBzaXggZGlzdHJpY3RzIG9mIDxiPldlc3QgQmVuZ2FsIE5hZGlhPC9iPiwgYXNzZXNzIGhlbG1pbnRoIGluZmVjdGlvbnMgaW4gZm9vZCBmaXNoZXMuIE92ZXJhbGwgaW5mZWN0aW9uIHJhdGUgaW5jcmVhc2VkIGZyb20gOSUmbmJzcDsuLi5SBXNoYXJlIgIQAUgAWABoAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CuYBL2dvdG8_dXJsPUNBRVNvQUVCNnpzd0ZmNTgwbEJoSUhRR3ZLQW5pQi1kQThyVzBCUzA3ZnF2MWRla1lGMktJMTJOcDBuZlV6WWZycmRjRkpQUGlOaVQzUDUwcDFrbnZzbFI3Y0F0VU5Ib05DNVdfcnNXckc4OGZTTmVUbmtLMG42dkZtNElOREZJbDdRZXRQaUpGVWhpREdONVhpUkdGOU5LR0ZsVWNXU05XUlhKSVp3ZG5Ecm81M0pUNUZTdlNqRHFHMFZqU29fNzNwa0xETVRLYzBKb0V0RmRRS3R2c1c3SlIwb2wSBBoCCAAaxgYSABoAIgAqADIGCAESAmluOgBCBAgBEABKAFoAcgB6AIJAogYIABAAGAAgACo0CgVyaWNfZRUAAAAAGgVwYWRkeRoFcmljIGUaBnJpY19lcxoEcmljZRoKaXY7cDtyaWNfZSooCgVuYWRpYRVoDt09GgduYWRpYSdzGgVuYWR5YRoKaXY7cDtuYWRpYSorCgR3ZXN0FSwKmz4aAndiGgd3ZXN0ZXJuGgV3ZXN0cxoKd2VzdGJlbmdhbCozCgZiZW5nYWwVd9mZPhoHYmVuZ2FsaRoCd2IaCndlc3RiZW5nYWwaC2l2O3A7YmVuZ2FsKhgKBW1hbmRpFYHksjsaCml2O3A7bWFuZGkqNQoGbWFya2V0FYq69joaCW1hcmtldGluZxoHbWFya2V0cxoFc2hhcmUaC21hcmtldHByaWNlKj4KBXByaWNlFQAAAAAaBGNvc3QaBnByaWNlcxoHcHJpY2luZxoFcmF0ZXMaBXZhbHVlGgttYXJrZXRwcmljZTLmAS9nb3RvP3VybD1DQUVTb0FFQjZ6c3dGZjU4MGxCaElIUUd2S0FuaUItZEE4clcwQlMwN2ZxdjFkZWtZRjJLSTEyTnAwbmZVellmcnJkY0ZKUFBpTmlUM1A1MHAxa252c2xSN2NBdFVOSG9OQzVXX3JzV3JHODhmU05lVG5rSzBuNnZGbTRJTkRGSWw3UWV0UGlKRlVoaURHTjVYaVJHRjlOS0dGbFVjV1NOV1JYSklad2RuRHJvNTNKVDVGU3ZTakRxRzBWalNvXzczcGtMRE1US2MwSm9FdEZkUUt0dnNXN0pSMG9sOiQyMDI0LTI1IC0gWm9vbG9naWNhbCBTdXJ2ZXkgb2YgSW5kaWFCrgFUd28gc2Vhc29uYWwgc3VydmV5cyB3ZXJlIGNvbmR1Y3RlZCBpbiBzaXggZGlzdHJpY3RzIG9mIDxiPldlc3QgQmVuZ2FsIE5hZGlhPC9iPiwgYXNzZXNzIGhlbG1pbnRoIGluZmVjdGlvbnMgaW4gZm9vZCBmaXNoZXMuIE92ZXJhbGwgaW5mZWN0aW9uIHJhdGUgaW5jcmVhc2VkIGZyb20gOSUmbmJzcDsuLi5SBXNoYXJlIgIQAUgAWABoAA",
+            "source": "Zoological Survey of India"
+          },
+          {
+            "position": 5,
+            "title": "high altitude entomology and wildlife ecology",
+            "link": "https://zsi.gov.in/public/PDFVolumes/spb/010/index.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEScQHrOzAV59BY_nVS4TL2mudr9Lt1bZOM8bJP9SyLTmTU7oKa_G_3K0yC0XQUdHh1g6DB8DFLxQDicVczEhP2JZy1QvHCqcCl2-fIsrGpms8fSQ-g1pSXAlgY8RbyHy36OMak0C75BfDHyR-rWK0fNVfZ&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBMQAQ&uoh=1",
+            "displayed_link": "https://zsi.gov.in › public › PDFVolumes › spb",
+            "snippet": "High altitude ecosystem provides an exciting avenue of research, specially in India, where a good deal remains to be done. This has.",
+            "about_this_result": {
+              "source": {
+                "description": "High altitude ecosystem provides an exciting avenue of research, specially in India, where a good deal remains to be done. This has.",
+                "source_info_link": "https://zsi.gov.in/public/PDFVolumes/spb/010/index.pdf"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqYBL2dvdG8_dXJsPUNBRVNjUUhyT3pBVjU5QllfblZTNFRMMm11ZHI5THQxYlpPTThiSlA5U3lMVG1UVTdvS2FfR18zSzB5QzBYUVVkSGgxZzZEQjhERkx4UURpY1ZjekVoUDJKWnkxUXZIQ3FjQ2wyLWZJc3JHcG1zOGZTUS1nMXBTWEFsZ1k4UmJ5SHkzNk9NYWswQzc1QmZESHlSLXJXSzBmTlZmWhIEGgIIABrlBRIAGgAiACoAMgYIARICaW46AEIECAEQAEoAWgByAHoAgkDBBQgAEAAYACAAKjQKBXJpY19lFQAAAAAaBXBhZGR5GgVyaWMgZRoGcmljX2VzGgRyaWNlGgppdjtwO3JpY19lKigKBW5hZGlhFWmysTsaB25hZGlhJ3MaBW5hZHlhGgppdjtwO25hZGlhKisKBHdlc3QVsyANPxoCd2IaB3dlc3Rlcm4aBXdlc3RzGgp3ZXN0YmVuZ2FsKjMKBmJlbmdhbBWDJNg9GgdiZW5nYWxpGgJ3YhoKd2VzdGJlbmdhbBoLaXY7cDtiZW5nYWwqGAoFbWFuZGkVCo_2OxoKaXY7cDttYW5kaSo1CgZtYXJrZXQVn8q4OxoJbWFya2V0aW5nGgdtYXJrZXRzGgVzaGFyZRoLbWFya2V0cHJpY2UqPgoFcHJpY2UVAAAAABoEY29zdBoGcHJpY2VzGgdwcmljaW5nGgVyYXRlcxoFdmFsdWUaC21hcmtldHByaWNlMqYBL2dvdG8_dXJsPUNBRVNjUUhyT3pBVjU5QllfblZTNFRMMm11ZHI5THQxYlpPTThiSlA5U3lMVG1UVTdvS2FfR18zSzB5QzBYUVVkSGgxZzZEQjhERkx4UURpY1ZjekVoUDJKWnkxUXZIQ3FjQ2wyLWZJc3JHcG1zOGZTUS1nMXBTWEFsZ1k4UmJ5SHkzNk9NYWswQzc1QmZESHlSLXJXSzBmTlZmWjotaGlnaCBhbHRpdHVkZSBlbnRvbW9sb2d5IGFuZCB3aWxkbGlmZSBlY29sb2d5QoQBSGlnaCBhbHRpdHVkZSBlY29zeXN0ZW0gcHJvdmlkZXMgYW4gZXhjaXRpbmcgYXZlbnVlIG9mIHJlc2VhcmNoLCBzcGVjaWFsbHkgaW4gSW5kaWEsIHdoZXJlIGEgZ29vZCBkZWFsIHJlbWFpbnMgdG8gYmUgZG9uZS4gVGhpcyBoYXMuUgVzaGFyZSICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqYBL2dvdG8_dXJsPUNBRVNjUUhyT3pBVjU5QllfblZTNFRMMm11ZHI5THQxYlpPTThiSlA5U3lMVG1UVTdvS2FfR18zSzB5QzBYUVVkSGgxZzZEQjhERkx4UURpY1ZjekVoUDJKWnkxUXZIQ3FjQ2wyLWZJc3JHcG1zOGZTUS1nMXBTWEFsZ1k4UmJ5SHkzNk9NYWswQzc1QmZESHlSLXJXSzBmTlZmWhIEGgIIABrlBRIAGgAiACoAMgYIARICaW46AEIECAEQAEoAWgByAHoAgkDBBQgAEAAYACAAKjQKBXJpY19lFQAAAAAaBXBhZGR5GgVyaWMgZRoGcmljX2VzGgRyaWNlGgppdjtwO3JpY19lKigKBW5hZGlhFWmysTsaB25hZGlhJ3MaBW5hZHlhGgppdjtwO25hZGlhKisKBHdlc3QVsyANPxoCd2IaB3dlc3Rlcm4aBXdlc3RzGgp3ZXN0YmVuZ2FsKjMKBmJlbmdhbBWDJNg9GgdiZW5nYWxpGgJ3YhoKd2VzdGJlbmdhbBoLaXY7cDtiZW5nYWwqGAoFbWFuZGkVCo_2OxoKaXY7cDttYW5kaSo1CgZtYXJrZXQVn8q4OxoJbWFya2V0aW5nGgdtYXJrZXRzGgVzaGFyZRoLbWFya2V0cHJpY2UqPgoFcHJpY2UVAAAAABoEY29zdBoGcHJpY2VzGgdwcmljaW5nGgVyYXRlcxoFdmFsdWUaC21hcmtldHByaWNlMqYBL2dvdG8_dXJsPUNBRVNjUUhyT3pBVjU5QllfblZTNFRMMm11ZHI5THQxYlpPTThiSlA5U3lMVG1UVTdvS2FfR18zSzB5QzBYUVVkSGgxZzZEQjhERkx4UURpY1ZjekVoUDJKWnkxUXZIQ3FjQ2wyLWZJc3JHcG1zOGZTUS1nMXBTWEFsZ1k4UmJ5SHkzNk9NYWswQzc1QmZESHlSLXJXSzBmTlZmWjotaGlnaCBhbHRpdHVkZSBlbnRvbW9sb2d5IGFuZCB3aWxkbGlmZSBlY29sb2d5QoQBSGlnaCBhbHRpdHVkZSBlY29zeXN0ZW0gcHJvdmlkZXMgYW4gZXhjaXRpbmcgYXZlbnVlIG9mIHJlc2VhcmNoLCBzcGVjaWFsbHkgaW4gSW5kaWEsIHdoZXJlIGEgZ29vZCBkZWFsIHJlbWFpbnMgdG8gYmUgZG9uZS4gVGhpcyBoYXMuUgVzaGFyZSICEAFIAFgAaAA",
+            "source": "Zoological Survey of India",
+            "read_more_link": "https://zsi.gov.in/public/PDFVolumes/spb/010/index.pdf#:~:text=High%20altitude%20ecosystem%20provides%20an,to%20be%20done.%20This%20has"
+          },
+          {
+            "position": 6,
+            "title": "11151115:",
+            "link": "https://www.dcmsme.gov.in/schemes/Minutes_40_16.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbgHrOzAV2xyJOevAbEmb2xfXpBJhT9jmGAcbA8brrg4-S2i0MdebosbEZf8VzHviMkMX9bmmwF4sac-6_XNWW1Fj9I2t_2iHQvYofcQhIysefL9Ub5CJMXkVMXjO3cGGEQJuhLClfLP58qF4moul&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBkQAQ&uoh=1",
+            "displayed_link": "https://www.dcmsme.gov.in › Minutes_40_16",
+            "favicon": "https://serpapi.com/images/i/UklGRi4BAABXRUJQVlA4ICIBAABwBwCdASogACAAPtEutFooIagoGAEAGglsALsulf4AX29oIM1tgLtmHKNy2HC-TlLjSKn6O5jbfoKn17l9l7IHWIx6yAD-_sLL3FC6iVDkLyDx0WpojWqdAzN3Dzf-ikYK99D4nmi9JdEUfR__196-3_j_iUbiCLJf452Ry34-1NUE00RY237W1ve_guG2Pawq0oX6Gf78AVXna5KKQ99D5vkhvaRnv8aEeJuiWE1CfmnSItdrKN9RJQSv4xT0x7u0eza493Zw6cgVPz6UmLTCb7q--aA-YB_A8uNJEfwXY2flyF7Nu_YCeUrB5gINDZLjBzVRBmHCQsgVTCoofTPzwJmojwZjqrsJ0E7OiMJW_gkLqhf_iavbxzDgKTCHlnEAAA.webp",
+            "date": "2 Jul 2016",
+            "snippet": "project cost of Rs. 432.00 lakh … total project cost of Rs. 805.00 lakh with GoTassistance ofRs. Diagnostic Study in Masland Madur (Mat) ...",
+            "snippet_highlighted_words": [
+              "cost",
+              "cost"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "project cost of Rs. 432.00 lakh … total project cost of Rs. 805.00 lakh with GoTassistance ofRs. Diagnostic Study in Masland Madur (Mat) ...",
+                "source_info_link": "https://www.dcmsme.gov.in/schemes/Minutes_40_16.pdf",
+                "icon": "https://serpapi.com/images/i/UklGRi4BAABXRUJQVlA4ICIBAABwBwCdASogACAAPtEutFooIagoGAEAGglsALsulf4AX29oIM1tgLtmHKNy2HC-TlLjSKn6O5jbfoKn17l9l7IHWIx6yAD-_sLL3FC6iVDkLyDx0WpojWqdAzN3Dzf-ikYK99D4nmi9JdEUfR__196-3_j_iUbiCLJf452Ry34-1NUE00RY237W1ve_guG2Pawq0oX6Gf78AVXna5KKQ99D5vkhvaRnv8aEeJuiWE1CfmnSItdrKN9RJQSv4xT0x7u0eza493Zw6cgVPz6UmLTCb7q--aA-YB_A8uNJEfwXY2flyF7Nu_YCeUrB5gINDZLjBzVRBmHCQsgVTCoofTPzwJmojwZjqrsJ0E7OiMJW_gkLqhf_iavbxzDgKTCHlnEAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVjJ4eUpPZXZBYkVtYjJ4ZlhwQkpoVDlqbUdBY2JBOGJycmc0LVMyaTBNZGVib3NiRVpmOFZ6SHZpTWtNWDlibW13RjRzYWMtNl9YTldXMUZqOUkydF8yaUhRdllvZmNRaEl5c2VmTDlVYjVDSk1Ya1ZNWGpPM2NHR0VRSnVoTENsZkxQNThxRjRtb3VsEgQaAggAGuMFEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQL8FCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEV_7utOxoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBXpTv4-GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFX-5yT4aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRX_uy08GgppdjtwO21hbmRpKjUKBm1hcmtldBUAAAAAGgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUAAAAAGgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2UyogEvZ290bz91cmw9Q0FFU2JnSHJPekFWMnh5Sk9ldkFiRW1iMnhmWHBCSmhUOWptR0FjYkE4YnJyZzQtUzJpME1kZWJvc2JFWmY4VnpIdmlNa01YOWJtbXdGNHNhYy02X1hOV1cxRmo5STJ0XzJpSFF2WW9mY1FoSXlzZWZMOVViNUNKTVhrVk1Yak8zY0dHRVFKdWhMQ2xmTFA1OHFGNG1vdWw6EjExMTUxMTE1OiAtIERDTVNNRUKhAXByb2plY3QgPGI-Y29zdDwvYj4gb2YgUnMuIDQzMi4wMCBsYWtoIOKApiB0b3RhbCBwcm9qZWN0IDxiPmNvc3Q8L2I-IG9mIFJzLiA4MDUuMDAgbGFraCB3aXRoIEdvVGFzc2lzdGFuY2Ugb2ZScy4gRGlhZ25vc3RpYyBTdHVkeSBpbiBNYXNsYW5kIE1hZHVyIChNYXQpJm5ic3A7Li4uUgVzaGFyZSICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVjJ4eUpPZXZBYkVtYjJ4ZlhwQkpoVDlqbUdBY2JBOGJycmc0LVMyaTBNZGVib3NiRVpmOFZ6SHZpTWtNWDlibW13RjRzYWMtNl9YTldXMUZqOUkydF8yaUhRdllvZmNRaEl5c2VmTDlVYjVDSk1Ya1ZNWGpPM2NHR0VRSnVoTENsZkxQNThxRjRtb3VsEgQaAggAGuMFEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQL8FCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEV_7utOxoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBXpTv4-GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFX-5yT4aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRX_uy08GgppdjtwO21hbmRpKjUKBm1hcmtldBUAAAAAGgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUAAAAAGgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2UyogEvZ290bz91cmw9Q0FFU2JnSHJPekFWMnh5Sk9ldkFiRW1iMnhmWHBCSmhUOWptR0FjYkE4YnJyZzQtUzJpME1kZWJvc2JFWmY4VnpIdmlNa01YOWJtbXdGNHNhYy02X1hOV1cxRmo5STJ0XzJpSFF2WW9mY1FoSXlzZWZMOVViNUNKTVhrVk1Yak8zY0dHRVFKdWhMQ2xmTFA1OHFGNG1vdWw6EjExMTUxMTE1OiAtIERDTVNNRUKhAXByb2plY3QgPGI-Y29zdDwvYj4gb2YgUnMuIDQzMi4wMCBsYWtoIOKApiB0b3RhbCBwcm9qZWN0IDxiPmNvc3Q8L2I-IG9mIFJzLiA4MDUuMDAgbGFraCB3aXRoIEdvVGFzc2lzdGFuY2Ugb2ZScy4gRGlhZ25vc3RpYyBTdHVkeSBpbiBNYXNsYW5kIE1hZHVyIChNYXQpJm5ic3A7Li4uUgVzaGFyZSICEAFIAFgAaAA",
+            "source": "DCMSME"
+          },
+          {
+            "position": 7,
+            "title": "Regional Divisions of India A Cartographic Analysis, ...",
+            "link": "https://censusindia.gov.in/nada/index.php/catalog/31635/download/34816/29301_1981_CAR.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESlAEB6zswFSDrWk76AecQrcIuAFAamhDrWZvtFvKa6zmWSVS2s5j7pQaa0oQsMjOBC4PZVSLg4CczCHwvX_hmwmBJCBY5pfsQ7-BBNvrh5lVZoImtuM0GciMGTeE1PqpniqystJjtRa-PQQ8qKWE6xW7nSkHARghS_kyXF4CkpnvD1ChP5u20fUicum_xgnHzKMp2J4Fi&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBgQAQ&uoh=1",
+            "displayed_link": "https://censusindia.gov.in › 29301_1981_CAR",
+            "snippet": "West Bengal. Three high peaks, namely, Siwalik Phu. (3630 m), Sabargam (3546 m) and Phalut (3596 m) are located in this section of Himalayan zone. Simi ...",
+            "snippet_highlighted_words": [
+              "West Bengal"
+            ],
+            "about_this_result": {
+              "source": {
+                "description": "West Bengal. Three high peaks, namely, Siwalik Phu. (3630 m), Sabargam (3546 m) and Phalut (3596 m) are located in this section of Himalayan zone. Simi ...",
+                "source_info_link": "https://censusindia.gov.in/nada/index.php/catalog/31635/download/34816/29301_1981_CAR.pdf"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CtYBL2dvdG8_dXJsPUNBRVNsQUVCNnpzd0ZTRHJXazc2QWVjUXJjSXVBRkFhbWhEcldadnRGdkthNnptV1NWUzJzNWo3cFFhYTBvUXNNak9CQzRQWlZTTGc0Q2N6Q0h3dlhfaG13bUJKQ0JZNXBmc1E3LUJCTnZyaDVsVlpvSW10dU0wR2NpTUdUZUUxUHFwbmlxeXN0Smp0UmEtUFFROHFLV0U2eFc3blNrSEFSZ2hTX2t5WEY0Q2twbnZEMUNoUDV1MjBmVWljdW1feGduSHpLTXAySjRGaRIEGgIIABrMBhIAGgAiACoAMgYIARICaW46AEIECAEQAEoAWgByAHoAgkCoBggAEAAYACAAKjQKBXJpY19lFQAAAAAaBXBhZGR5GgVyaWMgZRoGcmljX2VzGgRyaWNlGgppdjtwO3JpY19lKigKBW5hZGlhFb04Az0aB25hZGlhJ3MaBW5hZHlhGgppdjtwO25hZGlhKisKBHdlc3QVz58tPxoCd2IaB3dlc3Rlcm4aBXdlc3RzGgp3ZXN0YmVuZ2FsKjMKBmJlbmdhbBUmGus-GgdiZW5nYWxpGgJ3YhoKd2VzdGJlbmdhbBoLaXY7cDtiZW5nYWwqGAoFbWFuZGkVWD6BOxoKaXY7cDttYW5kaSo1CgZtYXJrZXQVAAAAABoJbWFya2V0aW5nGgdtYXJrZXRzGgVzaGFyZRoLbWFya2V0cHJpY2UqPgoFcHJpY2UVAAAAABoEY29zdBoGcHJpY2VzGgdwcmljaW5nGgVyYXRlcxoFdmFsdWUaC21hcmtldHByaWNlMtYBL2dvdG8_dXJsPUNBRVNsQUVCNnpzd0ZTRHJXazc2QWVjUXJjSXVBRkFhbWhEcldadnRGdkthNnptV1NWUzJzNWo3cFFhYTBvUXNNak9CQzRQWlZTTGc0Q2N6Q0h3dlhfaG13bUJKQ0JZNXBmc1E3LUJCTnZyaDVsVlpvSW10dU0wR2NpTUdUZUUxUHFwbmlxeXN0Smp0UmEtUFFROHFLV0U2eFc3blNrSEFSZ2hTX2t5WEY0Q2twbnZEMUNoUDV1MjBmVWljdW1feGduSHpLTXAySjRGaTpBUmVnaW9uYWwgRGl2aXNpb25zIG9mIEluZGlhIEEgQ2FydG9ncmFwaGljIEFuYWx5c2lzLCBWb2wtWFhJViAuLi5CpwE8Yj5XZXN0IEJlbmdhbDwvYj4uIFRocmVlIGhpZ2ggcGVha3MsIG5hbWVseSwgU2l3YWxpayBQaHUuICgzNjMwIG0pLCBTYWJhcmdhbSAoMzU0NiBtKSBhbmQgUGhhbHV0ICgzNTk2IG0pIGFyZSBsb2NhdGVkIGluIHRoaXMgc2VjdGlvbiBvZiBIaW1hbGF5YW4gem9uZS4gU2ltaSZuYnNwOy4uLlIFc2hhcmUiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CtYBL2dvdG8_dXJsPUNBRVNsQUVCNnpzd0ZTRHJXazc2QWVjUXJjSXVBRkFhbWhEcldadnRGdkthNnptV1NWUzJzNWo3cFFhYTBvUXNNak9CQzRQWlZTTGc0Q2N6Q0h3dlhfaG13bUJKQ0JZNXBmc1E3LUJCTnZyaDVsVlpvSW10dU0wR2NpTUdUZUUxUHFwbmlxeXN0Smp0UmEtUFFROHFLV0U2eFc3blNrSEFSZ2hTX2t5WEY0Q2twbnZEMUNoUDV1MjBmVWljdW1feGduSHpLTXAySjRGaRIEGgIIABrMBhIAGgAiACoAMgYIARICaW46AEIECAEQAEoAWgByAHoAgkCoBggAEAAYACAAKjQKBXJpY19lFQAAAAAaBXBhZGR5GgVyaWMgZRoGcmljX2VzGgRyaWNlGgppdjtwO3JpY19lKigKBW5hZGlhFb04Az0aB25hZGlhJ3MaBW5hZHlhGgppdjtwO25hZGlhKisKBHdlc3QVz58tPxoCd2IaB3dlc3Rlcm4aBXdlc3RzGgp3ZXN0YmVuZ2FsKjMKBmJlbmdhbBUmGus-GgdiZW5nYWxpGgJ3YhoKd2VzdGJlbmdhbBoLaXY7cDtiZW5nYWwqGAoFbWFuZGkVWD6BOxoKaXY7cDttYW5kaSo1CgZtYXJrZXQVAAAAABoJbWFya2V0aW5nGgdtYXJrZXRzGgVzaGFyZRoLbWFya2V0cHJpY2UqPgoFcHJpY2UVAAAAABoEY29zdBoGcHJpY2VzGgdwcmljaW5nGgVyYXRlcxoFdmFsdWUaC21hcmtldHByaWNlMtYBL2dvdG8_dXJsPUNBRVNsQUVCNnpzd0ZTRHJXazc2QWVjUXJjSXVBRkFhbWhEcldadnRGdkthNnptV1NWUzJzNWo3cFFhYTBvUXNNak9CQzRQWlZTTGc0Q2N6Q0h3dlhfaG13bUJKQ0JZNXBmc1E3LUJCTnZyaDVsVlpvSW10dU0wR2NpTUdUZUUxUHFwbmlxeXN0Smp0UmEtUFFROHFLV0U2eFc3blNrSEFSZ2hTX2t5WEY0Q2twbnZEMUNoUDV1MjBmVWljdW1feGduSHpLTXAySjRGaTpBUmVnaW9uYWwgRGl2aXNpb25zIG9mIEluZGlhIEEgQ2FydG9ncmFwaGljIEFuYWx5c2lzLCBWb2wtWFhJViAuLi5CpwE8Yj5XZXN0IEJlbmdhbDwvYj4uIFRocmVlIGhpZ2ggcGVha3MsIG5hbWVseSwgU2l3YWxpayBQaHUuICgzNjMwIG0pLCBTYWJhcmdhbSAoMzU0NiBtKSBhbmQgUGhhbHV0ICgzNTk2IG0pIGFyZSBsb2NhdGVkIGluIHRoaXMgc2VjdGlvbiBvZiBIaW1hbGF5YW4gem9uZS4gU2ltaSZuYnNwOy4uLlIFc2hhcmUiAhABSABYAGgA",
+            "source": "Census of India",
+            "read_more_link": "https://censusindia.gov.in/nada/index.php/catalog/31635/download/34816/29301_1981_CAR.pdf#:~:text=West%20Bengal.%20Three%20high%20peaks%2C,section%20of%20Himalayan%20zone.%20Simi%2D"
+          },
+          {
+            "position": 8,
+            "title": "Annual Report 2013-14",
+            "link": "https://wcd.gov.in/documents/uploaded/1710233129.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbwHrOzAV7igJxdrzECPsulbRhaEG5Sx8CAv3xhbnQNsWc4Vmcu7UzYkw-ynNyHt52W0IzJxDYy3n9Ie5_0t4uP9eB2VMAhOakCbc4Q4IJ1nLY3vwqzubodlBKAVLUiDNqnKssq7CmEBXOjBVatMCHw&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBcQAQ&uoh=1",
+            "displayed_link": "https://wcd.gov.in › documents › uploaded",
+            "favicon": "https://serpapi.com/images/i/UklGRq4AAABXRUJQVlA4IKIAAACQBACdASocABwAPtEutFooIagoGAEAGglsAMTZi67fa6D7TmtmWdnBtOi_rQAA_vYCQhpOquIh3AR_7bLObF0swbl33hzG8_mXEdj07djcmZMnbILDCbOfo_StKcWl7zEj8jc5kfKwCxEu6Owut_Z5K34_wKIlt-x649pul0k7bCdK0Ef16Eq2zTzvEI5IXQC9WhqRfzXwvoOkezMYhqvwAAA.webp",
+            "date": "17 Apr 2013",
+            "snippet": "110 The Ministry has four (4) autonomous organizations viz. National Institute of Public. Cooperation and Child Development.",
+            "about_this_result": {
+              "source": {
+                "description": "110 The Ministry has four (4) autonomous organizations viz. National Institute of Public. Cooperation and Child Development.",
+                "source_info_link": "https://wcd.gov.in/documents/uploaded/1710233129.pdf",
+                "icon": "https://serpapi.com/images/i/UklGRq4AAABXRUJQVlA4IKIAAACQBACdASocABwAPtEutFooIagoGAEAGglsAMTZi67fa6D7TmtmWdnBtOi_rQAA_vYCQhpOquIh3AR_7bLObF0swbl33hzG8_mXEdj07djcmZMnbILDCbOfo_StKcWl7zEj8jc5kfKwCxEu6Owut_Z5K34_wKIlt-x649pul0k7bCdK0Ef16Eq2zTzvEI5IXQC9WhqRfzXwvoOkezMYhqvwAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjdpZ0p4ZHJ6RUNQc3VsYlJoYUVHNVN4OENBdjN4aGJuUU5zV2M0Vm1jdTdVellrdy15bk55SHQ1MlcwSXpKeERZeTNuOUllNV8wdDR1UDllQjJWTUFoT2FrQ2JjNFE0SUoxbkxZM3Z3cXp1Ym9kbEJLQVZMVWlETnFuS3NzcTdDbUVCWE9qQlZhdE1DSHcSBBoCCAAa5AUSABoAIgAqADIGCAESAmluOgBCBAgBEABKAFoAcgB6AIJAwAUIABAAGAAgACo0CgVyaWNfZRUAAAAAGgVwYWRkeRoFcmljIGUaBnJpY19lcxoEcmljZRoKaXY7cDtyaWNfZSooCgVuYWRpYRUHjRU9GgduYWRpYSdzGgVuYWR5YRoKaXY7cDtuYWRpYSorCgR3ZXN0FVgxnj4aAndiGgd3ZXN0ZXJuGgV3ZXN0cxoKd2VzdGJlbmdhbCozCgZiZW5nYWwVkymSPhoHYmVuZ2FsaRoCd2IaCndlc3RiZW5nYWwaC2l2O3A7YmVuZ2FsKhgKBW1hbmRpFTS0TzsaCml2O3A7bWFuZGkqNQoGbWFya2V0FU7lPDwaCW1hcmtldGluZxoHbWFya2V0cxoFc2hhcmUaC21hcmtldHByaWNlKj4KBXByaWNlFQAAAAAaBGNvc3QaBnByaWNlcxoHcHJpY2luZxoFcmF0ZXMaBXZhbHVlGgttYXJrZXRwcmljZTKkAS9nb3RvP3VybD1DQUVTYndIck96QVY3aWdKeGRyekVDUHN1bGJSaGFFRzVTeDhDQXYzeGhiblFOc1djNFZtY3U3VXpZa3cteW5OeUh0NTJXMEl6SnhEWXkzbjlJZTVfMHQ0dVA5ZUIyVk1BaE9ha0NiYzRRNElKMW5MWTN2d3F6dWJvZGxCS0FWTFVpRE5xbktzc3E3Q21FQlhPakJWYXRNQ0h3OjdBbm51YWwgUmVwb3J0IC0gTWluaXN0cnkgb2YgV29tZW4gYW5kIENoaWxkIERldmVsb3BtZW50QnwxMTAgVGhlIE1pbmlzdHJ5IGhhcyBmb3VyICg0KSBhdXRvbm9tb3VzIG9yZ2FuaXphdGlvbnMgdml6LiBOYXRpb25hbCBJbnN0aXR1dGUgb2YgUHVibGljLiBDb29wZXJhdGlvbiBhbmQgQ2hpbGQgRGV2ZWxvcG1lbnQuUgVzaGFyZSICEAFIAFgAaAA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjdpZ0p4ZHJ6RUNQc3VsYlJoYUVHNVN4OENBdjN4aGJuUU5zV2M0Vm1jdTdVellrdy15bk55SHQ1MlcwSXpKeERZeTNuOUllNV8wdDR1UDllQjJWTUFoT2FrQ2JjNFE0SUoxbkxZM3Z3cXp1Ym9kbEJLQVZMVWlETnFuS3NzcTdDbUVCWE9qQlZhdE1DSHcSBBoCCAAa5AUSABoAIgAqADIGCAESAmluOgBCBAgBEABKAFoAcgB6AIJAwAUIABAAGAAgACo0CgVyaWNfZRUAAAAAGgVwYWRkeRoFcmljIGUaBnJpY19lcxoEcmljZRoKaXY7cDtyaWNfZSooCgVuYWRpYRUHjRU9GgduYWRpYSdzGgVuYWR5YRoKaXY7cDtuYWRpYSorCgR3ZXN0FVgxnj4aAndiGgd3ZXN0ZXJuGgV3ZXN0cxoKd2VzdGJlbmdhbCozCgZiZW5nYWwVkymSPhoHYmVuZ2FsaRoCd2IaCndlc3RiZW5nYWwaC2l2O3A7YmVuZ2FsKhgKBW1hbmRpFTS0TzsaCml2O3A7bWFuZGkqNQoGbWFya2V0FU7lPDwaCW1hcmtldGluZxoHbWFya2V0cxoFc2hhcmUaC21hcmtldHByaWNlKj4KBXByaWNlFQAAAAAaBGNvc3QaBnByaWNlcxoHcHJpY2luZxoFcmF0ZXMaBXZhbHVlGgttYXJrZXRwcmljZTKkAS9nb3RvP3VybD1DQUVTYndIck96QVY3aWdKeGRyekVDUHN1bGJSaGFFRzVTeDhDQXYzeGhiblFOc1djNFZtY3U3VXpZa3cteW5OeUh0NTJXMEl6SnhEWXkzbjlJZTVfMHQ0dVA5ZUIyVk1BaE9ha0NiYzRRNElKMW5MWTN2d3F6dWJvZGxCS0FWTFVpRE5xbktzc3E3Q21FQlhPakJWYXRNQ0h3OjdBbm51YWwgUmVwb3J0IC0gTWluaXN0cnkgb2YgV29tZW4gYW5kIENoaWxkIERldmVsb3BtZW50QnwxMTAgVGhlIE1pbmlzdHJ5IGhhcyBmb3VyICg0KSBhdXRvbm9tb3VzIG9yZ2FuaXphdGlvbnMgdml6LiBOYXRpb25hbCBJbnN0aXR1dGUgb2YgUHVibGljLiBDb29wZXJhdGlvbiBhbmQgQ2hpbGQgRGV2ZWxvcG1lbnQuUgVzaGFyZSICEAFIAFgAaAA",
+            "source": "Ministry of Women and Child Development",
+            "read_more_link": "https://wcd.gov.in/documents/uploaded/1710233129.pdf#:~:text=110%20The%20Ministry%20has%20four,Cooperation%20and%20Child%20Development"
+          },
+          {
+            "position": 9,
+            "title": "disaster management plan - 2025 - South Eastern Railway",
+            "link": "https://ser.indianrailways.gov.in/cris//uploads/files/1759496408029-13%20-%20DMP%20-%202025.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESmgEB6zswFbRfYSFD9fS8MmPit4u4QtPGQ1okjGghN8CJlhPVtaR0YTExcnOg6JOHBwsShuloIJWgBXqaHAcPjTpT7RFCJN54CR9yANCsYZN8L4AyzghrIZlnungKnQ8OWnISGYoqLhFYkqz9LiAHfglE8MI96cgFM_3nqfSGOA6Snk7JncOhgtCb45NhK4J-Qw1f5UM_hA3dLTuT&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBUQAQ&uoh=1",
+            "displayed_link": "https://ser.indianrailways.gov.in › uploads › files",
+            "favicon": "https://serpapi.com/images/i/UklGRiIBAABXRUJQVlA4IBYBAADQBgCdASocABgAPtEutFooIagoGAEAGgliAJ0vbahCo7QAe59Dbz5TdUUVBv7kVrRA-csWBXfMlB2VfvpiVoAA_vYK4VLRndmcL3V0wb4lfj98YZIYWiSwJ9jd7rZQdGBd9FfsIYzRZD1rZJDrmXoG1BQFTrllxSktdljW5Eo8mY0whjzQAzIZBU4F_G7HDYIrZ1ZPEIIKoyzLoAkjvjfmZFeo-hTLtm-xyPmegFd4kJQfIpYfuyjVCC8O6ccvVQGl2R0-yXf8ZAnqKPDF88FZUxhahYBOHaI43XgxDM47U8MVKU2c8RIm3rbf4LIcw_T8uj3TwMdZnZyH_5NPK6sNduK0qaAD8EtiR2-gEJOVYqJLDhYAAA.webp",
+            "snippet": "High Level Committee on Disaster Management on Indian Railways has recommended that all Divisions must devise their own Disaster Management Plans.",
+            "about_this_result": {
+              "source": {
+                "description": "High Level Committee on Disaster Management on Indian Railways has recommended that all Divisions must devise their own Disaster Management Plans.",
+                "source_info_link": "https://ser.indianrailways.gov.in/cris//uploads/files/1759496408029-13%20-%20DMP%20-%202025.pdf",
+                "icon": "https://serpapi.com/images/i/UklGRiIBAABXRUJQVlA4IBYBAADQBgCdASocABgAPtEutFooIagoGAEAGgliAJ0vbahCo7QAe59Dbz5TdUUVBv7kVrRA-csWBXfMlB2VfvpiVoAA_vYK4VLRndmcL3V0wb4lfj98YZIYWiSwJ9jd7rZQdGBd9FfsIYzRZD1rZJDrmXoG1BQFTrllxSktdljW5Eo8mY0whjzQAzIZBU4F_G7HDYIrZ1ZPEIIKoyzLoAkjvjfmZFeo-hTLtm-xyPmegFd4kJQfIpYfuyjVCC8O6ccvVQGl2R0-yXf8ZAnqKPDF88FZUxhahYBOHaI43XgxDM47U8MVKU2c8RIm3rbf4LIcw_T8uj3TwMdZnZyH_5NPK6sNduK0qaAD8EtiR2-gEJOVYqJLDhYAAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Ct4BL2dvdG8_dXJsPUNBRVNtZ0VCNnpzd0ZiUmZZU0ZEOWZTOE1tUGl0NHU0UXRQR1Exb2tqR2doTjhDSmxoUFZ0YVIwWVRFeGNuT2c2Sk9IQndzU2h1bG9JSldnQlhxYUhBY1BqVHBUN1JGQ0pONTRDUjl5QU5Dc1laTjhMNEF5emdocklabG51bmdLblE4T1duSVNHWW9xTGhGWWtxejlMaUFIZmdsRThNSTk2Y2dGTV8zbnFmU0dPQTZTbms3Sm5jT2hndENiNDVOaEs0Si1RdzFmNVVNX2hBM2RMVHVUEgQaAggAGrUGEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQJEGCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEVJqiVOhoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBUuIvs9GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFY0bJj0aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRUmqJU6GgppdjtwO21hbmRpKjUKBm1hcmtldBUrB2M8GgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUAAAAAGgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2Uy3gEvZ290bz91cmw9Q0FFU21nRUI2enN3RmJSZllTRkQ5ZlM4TW1QaXQ0dTRRdFBHUTFva2pHZ2hOOENKbGhQVnRhUjBZVEV4Y25PZzZKT0hCd3NTaHVsb0lKV2dCWHFhSEFjUGpUcFQ3UkZDSk41NENSOXlBTkNzWVpOOEw0QXl6Z2hySVpsbnVuZ0tuUThPV25JU0dZb3FMaEZZa3F6OUxpQUhmZ2xFOE1JOTZjZ0ZNXzNucWZTR09BNlNuazdKbmNPaGd0Q2I0NU5oSzRKLVF3MWY1VU1faEEzZExUdVQ6N2Rpc2FzdGVyIG1hbmFnZW1lbnQgcGxhbiAtIDIwMjUgLSBTb3V0aCBFYXN0ZXJuIFJhaWx3YXlCkgFIaWdoIExldmVsIENvbW1pdHRlZSBvbiBEaXNhc3RlciBNYW5hZ2VtZW50IG9uIEluZGlhbiBSYWlsd2F5cyBoYXMgcmVjb21tZW5kZWQgdGhhdCBhbGwgRGl2aXNpb25zIG11c3QgZGV2aXNlIHRoZWlyIG93biBEaXNhc3RlciBNYW5hZ2VtZW50IFBsYW5zLlIFc2hhcmUiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Ct4BL2dvdG8_dXJsPUNBRVNtZ0VCNnpzd0ZiUmZZU0ZEOWZTOE1tUGl0NHU0UXRQR1Exb2tqR2doTjhDSmxoUFZ0YVIwWVRFeGNuT2c2Sk9IQndzU2h1bG9JSldnQlhxYUhBY1BqVHBUN1JGQ0pONTRDUjl5QU5Dc1laTjhMNEF5emdocklabG51bmdLblE4T1duSVNHWW9xTGhGWWtxejlMaUFIZmdsRThNSTk2Y2dGTV8zbnFmU0dPQTZTbms3Sm5jT2hndENiNDVOaEs0Si1RdzFmNVVNX2hBM2RMVHVUEgQaAggAGrUGEgAaACIAKgAyBggBEgJpbjoAQgQIARAASgBaAHIAegCCQJEGCAAQABgAIAAqNAoFcmljX2UVAAAAABoFcGFkZHkaBXJpYyBlGgZyaWNfZXMaBHJpY2UaCml2O3A7cmljX2UqKAoFbmFkaWEVJqiVOhoHbmFkaWEncxoFbmFkeWEaCml2O3A7bmFkaWEqKwoEd2VzdBUuIvs9GgJ3YhoHd2VzdGVybhoFd2VzdHMaCndlc3RiZW5nYWwqMwoGYmVuZ2FsFY0bJj0aB2JlbmdhbGkaAndiGgp3ZXN0YmVuZ2FsGgtpdjtwO2JlbmdhbCoYCgVtYW5kaRUmqJU6GgppdjtwO21hbmRpKjUKBm1hcmtldBUrB2M8GgltYXJrZXRpbmcaB21hcmtldHMaBXNoYXJlGgttYXJrZXRwcmljZSo-CgVwcmljZRUAAAAAGgRjb3N0GgZwcmljZXMaB3ByaWNpbmcaBXJhdGVzGgV2YWx1ZRoLbWFya2V0cHJpY2Uy3gEvZ290bz91cmw9Q0FFU21nRUI2enN3RmJSZllTRkQ5ZlM4TW1QaXQ0dTRRdFBHUTFva2pHZ2hOOENKbGhQVnRhUjBZVEV4Y25PZzZKT0hCd3NTaHVsb0lKV2dCWHFhSEFjUGpUcFQ3UkZDSk41NENSOXlBTkNzWVpOOEw0QXl6Z2hySVpsbnVuZ0tuUThPV25JU0dZb3FMaEZZa3F6OUxpQUhmZ2xFOE1JOTZjZ0ZNXzNucWZTR09BNlNuazdKbmNPaGd0Q2I0NU5oSzRKLVF3MWY1VU1faEEzZExUdVQ6N2Rpc2FzdGVyIG1hbmFnZW1lbnQgcGxhbiAtIDIwMjUgLSBTb3V0aCBFYXN0ZXJuIFJhaWx3YXlCkgFIaWdoIExldmVsIENvbW1pdHRlZSBvbiBEaXNhc3RlciBNYW5hZ2VtZW50IG9uIEluZGlhbiBSYWlsd2F5cyBoYXMgcmVjb21tZW5kZWQgdGhhdCBhbGwgRGl2aXNpb25zIG11c3QgZGV2aXNlIHRoZWlyIG93biBEaXNhc3RlciBNYW5hZ2VtZW50IFBsYW5zLlIFc2hhcmUiAhABSABYAGgA",
+            "source": "South Eastern Railway",
+            "read_more_link": "https://ser.indianrailways.gov.in/cris//uploads/files/1759496408029-13%20-%20DMP%20-%202025.pdf#:~:text=High%20Level%20Committee%20on%20Disaster,their%20own%20Disaster%20Management%20Plans"
+          },
+          {
+            "position": 10,
+            "title": "National Health Profile 2023 - | CBHI",
+            "link": "https://cbhidghs.mohfw.gov.in/sites/default/files/2024-09/Final-Central-Bureau-of-Health-Intelligene-July-2024.pdf",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESrQEB6zswFcC584HuD0rrlvcuqIN7q502zfRW5wLkRsYpaMKXioEBQDmtZ1g5aGvP2vLoVVe9VAO-zFscafwRJJBpJ20A7YtRDDHTjHyO1Hcdvk-qqwBjRcayL6lZQ9nESlydesCjQPyjmFWWDzPgIU3M8qw8RRWKJaoGvjbRmzhG3fkgmmblnjxblLnfY44-IgUlAdkLC4O_cTv1ReyDxK816ntpvv_ZVW1Wp7hTGg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQFnoECBEQAQ&uoh=1",
+            "displayed_link": "https://cbhidghs.mohfw.gov.in › default › files › F...",
+            "favicon": "https://serpapi.com/images/i/UklGRtAAAABXRUJQVlA4IMQAAAAwAwCdASoQABAAAsBMJbACdH8G6AmhQiFPMHNf7o4zgknAAP76JS4aRCvUqN6Toqj409mT8T-4SomNkm6VDdf-A0dHioImMfH_DZXzdgAnJWWu-PV_YZeU0wVWfJ9wgXBmGmpbjh1TSp-2uxF_rNu6HYjA1jwPG7Idmn3ik3AURRHJFas9u_QadlfzOjS7UoNpHn7twYsKhNZ-GMdn5-vdJrr5Lf6URGY3QTulZKm89Cw9v8-_n5j25qkRV9pbihvrMBAA.webp",
+            "snippet": "The latest data depicted in this publication have been collected from various source agencies. CBHI relies on these source agencies to compile the data for ...",
+            "about_this_result": {
+              "source": {
+                "description": "The latest data depicted in this publication have been collected from various source agencies. CBHI relies on these source agencies to compile the data for ...",
+                "source_info_link": "https://cbhidghs.mohfw.gov.in/sites/default/files/2024-09/Final-Central-Bureau-of-Health-Intelligene-July-2024.pdf",
+                "icon": "https://serpapi.com/images/i/UklGRtAAAABXRUJQVlA4IMQAAAAwAwCdASoQABAAAsBMJbACdH8G6AmhQiFPMHNf7o4zgknAAP76JS4aRCvUqN6Toqj409mT8T-4SomNkm6VDdf-A0dHioImMfH_DZXzdgAnJWWu-PV_YZeU0wVWfJ9wgXBmGmpbjh1TSp-2uxF_rNu6HYjA1jwPG7Idmn3ik3AURRHJFas9u_QadlfzOjS7UoNpHn7twYsKhNZ-GMdn5-vdJrr5Lf6URGY3QTulZKm89Cw9v8-_n5j25qkRV9pbihvrMBAA.webp"
+              },
+              "languages": [
+                "en"
+              ],
+              "regions": [
+                "IN"
+              ]
+            },
+            "about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CvgBL2dvdG8_dXJsPUNBRVNyUUVCNnpzd0ZjQzU4NEh1RDBycmx2Y3VxSU43cTUwMnpmUlc1d0xrUnNZcGFNS1hpb0VCUURtdFoxZzVhR3ZQMnZMb1ZWZTlWQU8tekZzY2Fmd1JKSkJwSjIwQTdZdFJEREhUakh5TzFIY2R2ay1xcXdCalJjYXlMNmxaUTluRVNseWRlc0NqUVB5am1GV1dEelBnSVUzTThxdzhSUldLSmFvR3ZqYlJtemhHM2ZrZ21tYmxuanhibExuZlk0NC1JZ1VsQWRrTEM0T19jVHYxUmV5RHhLODE2bnRwdnZfWlZXMVdwN2hUR2cSBBoCCAAa0QYSAggAGgAiACoAMgYIARICaW46AEIECAEQAEoAWgByAHoAgkCrBggAEAAYACAAKjQKBXJpY19lFQAAAAAaBXBhZGR5GgVyaWMgZRoGcmljX2VzGgRyaWNlGgppdjtwO3JpY19lKigKBW5hZGlhFYZyozoaB25hZGlhJ3MaBW5hZHlhGgppdjtwO25hZGlhKisKBHdlc3QVdo6DPhoCd2IaB3dlc3Rlcm4aBXdlc3RzGgp3ZXN0YmVuZ2FsKjMKBmJlbmdhbBV40YM-GgdiZW5nYWxpGgJ3YhoKd2VzdGJlbmdhbBoLaXY7cDtiZW5nYWwqGAoFbWFuZGkVhnKjOhoKaXY7cDttYW5kaSo1CgZtYXJrZXQVAAAAABoJbWFya2V0aW5nGgdtYXJrZXRzGgVzaGFyZRoLbWFya2V0cHJpY2UqPgoFcHJpY2UVAAAAABoEY29zdBoGcHJpY2VzGgdwcmljaW5nGgVyYXRlcxoFdmFsdWUaC21hcmtldHByaWNlMvgBL2dvdG8_dXJsPUNBRVNyUUVCNnpzd0ZjQzU4NEh1RDBycmx2Y3VxSU43cTUwMnpmUlc1d0xrUnNZcGFNS1hpb0VCUURtdFoxZzVhR3ZQMnZMb1ZWZTlWQU8tekZzY2Fmd1JKSkJwSjIwQTdZdFJEREhUakh5TzFIY2R2ay1xcXdCalJjYXlMNmxaUTluRVNseWRlc0NqUVB5am1GV1dEelBnSVUzTThxdzhSUldLSmFvR3ZqYlJtemhHM2ZrZ21tYmxuanhibExuZlk0NC1JZ1VsQWRrTEM0T19jVHYxUmV5RHhLODE2bnRwdnZfWlZXMVdwN2hUR2c6JU5hdGlvbmFsIEhlYWx0aCBQcm9maWxlIDIwMjMgLSB8IENCSElCpAFUaGUgbGF0ZXN0IGRhdGEgZGVwaWN0ZWQgaW4gdGhpcyBwdWJsaWNhdGlvbiBoYXZlIGJlZW4gY29sbGVjdGVkIGZyb20gdmFyaW91cyBzb3VyY2UgYWdlbmNpZXMuIENCSEkgcmVsaWVzIG9uIHRoZXNlIHNvdXJjZSBhZ2VuY2llcyB0byBjb21waWxlIHRoZSBkYXRhIGZvciZuYnNwOy4uLlIFc2hhcmUiAhABSABYAGgA",
+            "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CvgBL2dvdG8_dXJsPUNBRVNyUUVCNnpzd0ZjQzU4NEh1RDBycmx2Y3VxSU43cTUwMnpmUlc1d0xrUnNZcGFNS1hpb0VCUURtdFoxZzVhR3ZQMnZMb1ZWZTlWQU8tekZzY2Fmd1JKSkJwSjIwQTdZdFJEREhUakh5TzFIY2R2ay1xcXdCalJjYXlMNmxaUTluRVNseWRlc0NqUVB5am1GV1dEelBnSVUzTThxdzhSUldLSmFvR3ZqYlJtemhHM2ZrZ21tYmxuanhibExuZlk0NC1JZ1VsQWRrTEM0T19jVHYxUmV5RHhLODE2bnRwdnZfWlZXMVdwN2hUR2cSBBoCCAAa0QYSAggAGgAiACoAMgYIARICaW46AEIECAEQAEoAWgByAHoAgkCrBggAEAAYACAAKjQKBXJpY19lFQAAAAAaBXBhZGR5GgVyaWMgZRoGcmljX2VzGgRyaWNlGgppdjtwO3JpY19lKigKBW5hZGlhFYZyozoaB25hZGlhJ3MaBW5hZHlhGgppdjtwO25hZGlhKisKBHdlc3QVdo6DPhoCd2IaB3dlc3Rlcm4aBXdlc3RzGgp3ZXN0YmVuZ2FsKjMKBmJlbmdhbBV40YM-GgdiZW5nYWxpGgJ3YhoKd2VzdGJlbmdhbBoLaXY7cDtiZW5nYWwqGAoFbWFuZGkVhnKjOhoKaXY7cDttYW5kaSo1CgZtYXJrZXQVAAAAABoJbWFya2V0aW5nGgdtYXJrZXRzGgVzaGFyZRoLbWFya2V0cHJpY2UqPgoFcHJpY2UVAAAAABoEY29zdBoGcHJpY2VzGgdwcmljaW5nGgVyYXRlcxoFdmFsdWUaC21hcmtldHByaWNlMvgBL2dvdG8_dXJsPUNBRVNyUUVCNnpzd0ZjQzU4NEh1RDBycmx2Y3VxSU43cTUwMnpmUlc1d0xrUnNZcGFNS1hpb0VCUURtdFoxZzVhR3ZQMnZMb1ZWZTlWQU8tekZzY2Fmd1JKSkJwSjIwQTdZdFJEREhUakh5TzFIY2R2ay1xcXdCalJjYXlMNmxaUTluRVNseWRlc0NqUVB5am1GV1dEelBnSVUzTThxdzhSUldLSmFvR3ZqYlJtemhHM2ZrZ21tYmxuanhibExuZlk0NC1JZ1VsQWRrTEM0T19jVHYxUmV5RHhLODE2bnRwdnZfWlZXMVdwN2hUR2c6JU5hdGlvbmFsIEhlYWx0aCBQcm9maWxlIDIwMjMgLSB8IENCSElCpAFUaGUgbGF0ZXN0IGRhdGEgZGVwaWN0ZWQgaW4gdGhpcyBwdWJsaWNhdGlvbiBoYXZlIGJlZW4gY29sbGVjdGVkIGZyb20gdmFyaW91cyBzb3VyY2UgYWdlbmNpZXMuIENCSEkgcmVsaWVzIG9uIHRoZXNlIHNvdXJjZSBhZ2VuY2llcyB0byBjb21waWxlIHRoZSBkYXRhIGZvciZuYnNwOy4uLlIFc2hhcmUiAhABSABYAGgA",
+            "source": "| CBHI",
+            "read_more_link": "https://cbhidghs.mohfw.gov.in/sites/default/files/2024-09/Final-Central-Bureau-of-Health-Intelligene-July-2024.pdf#:~:text=The%20latest%20data%20depicted%20in,Profile%20namely%20(a)%20Central%20Ministries%2F"
+          }
+        ],
+        "pagination": {
+          "current": 1,
+          "next": "https://www.google.com/search?q=Ric_e+Nadia+West+Bengal+mandi+market+price+(site:agmarknet.gov.in+OR+site:data.gov.in+OR+site:gov.in)&sca_esv=ce5ff1088580e4ec&gl=in&hl=en&sxsrf=APpeQnsDgjYmH2tUgIUXXTfIiXN0CV4nsw:1790768473906&ei=WfW8aurWNoPY1e8P6OiC0Ak&start=10&sa=N&sstk=AS6-VmJbPigTVBi2KsxYdFL-IAsruUtPNw8YPW6f0rIpKAzwYgMLkbdL8y8VEFjgS7NpTc2ZizomRX1f_bvG43F2YBYsEyZTOpQ4lg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQ8NMDegQIQBAM",
+          "other_pages": {
+            "2": "https://www.google.com/search?q=Ric_e+Nadia+West+Bengal+mandi+market+price+(site:agmarknet.gov.in+OR+site:data.gov.in+OR+site:gov.in)&sca_esv=ce5ff1088580e4ec&gl=in&hl=en&sxsrf=APpeQnsDgjYmH2tUgIUXXTfIiXN0CV4nsw:1790768473906&ei=WfW8aurWNoPY1e8P6OiC0Ak&start=10&sa=N&sstk=AS6-VmJbPigTVBi2KsxYdFL-IAsruUtPNw8YPW6f0rIpKAzwYgMLkbdL8y8VEFjgS7NpTc2ZizomRX1f_bvG43F2YBYsEyZTOpQ4lg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQ8tMDegQIQBAE",
+            "3": "https://www.google.com/search?q=Ric_e+Nadia+West+Bengal+mandi+market+price+(site:agmarknet.gov.in+OR+site:data.gov.in+OR+site:gov.in)&sca_esv=ce5ff1088580e4ec&gl=in&hl=en&sxsrf=APpeQnsDgjYmH2tUgIUXXTfIiXN0CV4nsw:1790768473906&ei=WfW8aurWNoPY1e8P6OiC0Ak&start=20&sa=N&sstk=AS6-VmJbPigTVBi2KsxYdFL-IAsruUtPNw8YPW6f0rIpKAzwYgMLkbdL8y8VEFjgS7NpTc2ZizomRX1f_bvG43F2YBYsEyZTOpQ4lg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQ8tMDegQIQBAG",
+            "4": "https://www.google.com/search?q=Ric_e+Nadia+West+Bengal+mandi+market+price+(site:agmarknet.gov.in+OR+site:data.gov.in+OR+site:gov.in)&sca_esv=ce5ff1088580e4ec&gl=in&hl=en&sxsrf=APpeQnsDgjYmH2tUgIUXXTfIiXN0CV4nsw:1790768473906&ei=WfW8aurWNoPY1e8P6OiC0Ak&start=30&sa=N&sstk=AS6-VmJbPigTVBi2KsxYdFL-IAsruUtPNw8YPW6f0rIpKAzwYgMLkbdL8y8VEFjgS7NpTc2ZizomRX1f_bvG43F2YBYsEyZTOpQ4lg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQ8tMDegQIQBAI",
+            "5": "https://www.google.com/search?q=Ric_e+Nadia+West+Bengal+mandi+market+price+(site:agmarknet.gov.in+OR+site:data.gov.in+OR+site:gov.in)&sca_esv=ce5ff1088580e4ec&gl=in&hl=en&sxsrf=APpeQnsDgjYmH2tUgIUXXTfIiXN0CV4nsw:1790768473906&ei=WfW8aurWNoPY1e8P6OiC0Ak&start=40&sa=N&sstk=AS6-VmJbPigTVBi2KsxYdFL-IAsruUtPNw8YPW6f0rIpKAzwYgMLkbdL8y8VEFjgS7NpTc2ZizomRX1f_bvG43F2YBYsEyZTOpQ4lg&ved=2ahUKEwiq54u2nJaXAxUDbPUHHWi0AJoQ8tMDegQIQBAK"
+          }
+        },
+        "serpapi_pagination": {
+          "current": 1,
+          "next_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=in&google_domain=google.com&hl=en&q=Ric_e+Nadia+West+Bengal+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&start=10",
+          "next": "https://serpapi.com/search.json?device=desktop&engine=google&gl=in&google_domain=google.com&hl=en&q=Ric_e+Nadia+West+Bengal+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&start=10",
+          "other_pages": {
+            "2": "https://serpapi.com/search.json?device=desktop&engine=google&gl=in&google_domain=google.com&hl=en&q=Ric_e+Nadia+West+Bengal+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&start=10",
+            "3": "https://serpapi.com/search.json?device=desktop&engine=google&gl=in&google_domain=google.com&hl=en&q=Ric_e+Nadia+West+Bengal+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&start=20",
+            "4": "https://serpapi.com/search.json?device=desktop&engine=google&gl=in&google_domain=google.com&hl=en&q=Ric_e+Nadia+West+Bengal+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&start=30",
+            "5": "https://serpapi.com/search.json?device=desktop&engine=google&gl=in&google_domain=google.com&hl=en&q=Ric_e+Nadia+West+Bengal+mandi+market+price+%28site%3Aagmarknet.gov.in+OR+site%3Adata.gov.in+OR+site%3Agov.in%29&start=40"
+          }
+        }
+      }
+    },
+    {
+      "engine": "youtube",
+      "query": "Rice Nadia official agriculture advisory West Bengal",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": {
+          "id": "6abcf55ba6885572d69f4008",
+          "status": "Success",
+          "json_endpoint": "https://serpapi.com/searches/PYhcoaWhLJoyZogmUlIrhaKW9ngS4hx1ATwQZK_wkXM/6abcf55ba6885572d69f4008.json",
+          "markdown_endpoint": "https://serpapi.com/searches/PYhcoaWhLJoyZogmUlIrhaKW9ngS4hx1ATwQZK_wkXM/6abcf55ba6885572d69f4008.md",
+          "created_at": "2026-09-30 11:41:15 UTC",
+          "processed_at": "2026-09-30 11:41:15 UTC",
+          "youtube_url": "https://www.youtube.com/results?search_query=Rice+Nadia+official+agriculture+advisory+West+Bengal&gl=in&hl=en",
+          "raw_html_file": "https://serpapi.com/searches/PYhcoaWhLJoyZogmUlIrhaKW9ngS4hx1ATwQZK_wkXM/6abcf55ba6885572d69f4008.html",
+          "total_time_taken": 4.42
+        },
+        "search_parameters": {
+          "engine": "youtube",
+          "search_query": "Rice Nadia official agriculture advisory West Bengal",
+          "gl": "in",
+          "hl": "en"
+        },
+        "search_information": {
+          "total_results": 2570,
+          "video_results_state": "Results for exact spelling"
+        },
+        "shorts_results": [
+          {
+            "position_on_page": 1,
+            "shorts": [
+              {
+                "title": "West Bengal Rice tree 🌴 new trending viral video song status 🙏 Indian food mini kids dhaan",
+                "link": "https://www.youtube.com/shorts/viCv6gULMgM",
+                "thumbnail": "https://i.ytimg.com/vi/viCv6gULMgM/frame0.jpg",
+                "views_original": "646 views",
+                "views": 646,
+                "video_id": "viCv6gULMgM"
+              },
+              {
+                "title": "West Bengal Paddy Farming 2026 | Field Preparation in Full Swing 🌾🚜",
+                "link": "https://www.youtube.com/shorts/XMVPx-zMK_8",
+                "thumbnail": "https://i.ytimg.com/vi/XMVPx-zMK_8/frame0.jpg",
+                "views_original": "77 views",
+                "views": 77,
+                "video_id": "XMVPx-zMK_8"
+              },
+              {
+                "title": "India’s 🌾 Paddy Power! 🌾🇮🇳 Rice Revolution: India’s Paddy Story",
+                "link": "https://www.youtube.com/shorts/B-a7RDKMaGI",
+                "thumbnail": "https://i.ytimg.com/vi/B-a7RDKMaGI/frame0.jpg",
+                "views_original": "242 views",
+                "views": 242,
+                "video_id": "B-a7RDKMaGI"
+              },
+              {
+                "title": "Top 10 Rice Producing States in India 2026 🌾 | | India Agriculture #Shorts #agriculture #trending",
+                "link": "https://www.youtube.com/shorts/OijUywS0GWM",
+                "thumbnail": "https://i.ytimg.com/vi/OijUywS0GWM/frame0.jpg",
+                "views_original": "36 views",
+                "views": 36,
+                "video_id": "OijUywS0GWM"
+              },
+              {
+                "title": "Can you believe this??☀️☀️😭 #riceharvesting  #chinalife",
+                "link": "https://www.youtube.com/shorts/FgEoBRutYZA",
+                "thumbnail": "https://i.ytimg.com/vi/FgEoBRutYZA/frame0.jpg",
+                "views_original": "1.4K views",
+                "views": 1400,
+                "video_id": "FgEoBRutYZA"
+              }
+            ]
+          },
+          {
+            "position_on_page": 3,
+            "shorts": [
+              {
+                "title": "Nadia jila#rice# grown#2024#short music# video#😎👍",
+                "link": "https://www.youtube.com/shorts/9OvwEUFDff0",
+                "thumbnail": "https://i.ytimg.com/vi/9OvwEUFDff0/frame0.jpg",
+                "views_original": "765 views",
+                "views": 765,
+                "video_id": "9OvwEUFDff0"
+              },
+              {
+                "title": "From Bengal’s Fields to Your Plate – Farmside Gobindobhog, Sacred Aromatic Rice",
+                "link": "https://www.youtube.com/shorts/NGyW53up7A4",
+                "thumbnail": "https://i.ytimg.com/vi/NGyW53up7A4/frame0.jpg",
+                "views_original": "355 views",
+                "views": 355,
+                "video_id": "NGyW53up7A4"
+              },
+              {
+                "title": "Rice farming.Complete guide A-Z.Dooars,West Bengal.Jai Jawan Jai Kisaan.Jai Hind.",
+                "link": "https://www.youtube.com/shorts/Nvg7NrNedK0",
+                "thumbnail": "https://i.ytimg.com/vi/Nvg7NrNedK0/frame0.jpg",
+                "views_original": "66 views",
+                "views": 66,
+                "video_id": "Nvg7NrNedK0"
+              },
+              {
+                "title": "Indian rice farming vlog /rice cultivation in india/west bengal village life",
+                "link": "https://www.youtube.com/shorts/PWgr4ReY4CI",
+                "thumbnail": "https://i.ytimg.com/vi/PWgr4ReY4CI/frame0.jpg",
+                "views_original": "582 views",
+                "views": 582,
+                "video_id": "PWgr4ReY4CI"
+              },
+              {
+                "title": "Paddy Field Press Conference: The Secret News for Better Farming! #shorts2026",
+                "link": "https://www.youtube.com/shorts/9A8gkp65aGo",
+                "thumbnail": "https://i.ytimg.com/vi/9A8gkp65aGo/frame0.jpg",
+                "views_original": "18 views",
+                "views": 18,
+                "video_id": "9A8gkp65aGo"
+              },
+              {
+                "title": "West Bengal Rice field, Beautiful video must watch @wasimacademy @qurantutorialacademy5721",
+                "link": "https://www.youtube.com/shorts/2aJDtSMVFUE",
+                "thumbnail": "https://i.ytimg.com/vi/2aJDtSMVFUE/frame0.jpg",
+                "views_original": "9 views",
+                "views": 9,
+                "video_id": "2aJDtSMVFUE"
+              },
+              {
+                "title": "#nature #india #asia #travel #nadia #westbengal #paddy #farming",
+                "link": "https://www.youtube.com/shorts/i7K9d9cSy1Y",
+                "thumbnail": "https://i.ytimg.com/vi/i7K9d9cSy1Y/frame0.jpg",
+                "views_original": "912 views",
+                "views": 912,
+                "video_id": "i7K9d9cSy1Y"
+              },
+              {
+                "title": "Rice Bowl of Bengal, Bardwan, Winter cop is ready #tice #bengal #travel #onedaytrip #bardwan #letsgo",
+                "link": "https://www.youtube.com/shorts/DmEkN4kEUn4",
+                "thumbnail": "https://i.ytimg.com/vi/DmEkN4kEUn4/frame0.jpg",
+                "views_original": "639 views",
+                "views": 639,
+                "video_id": "DmEkN4kEUn4"
+              },
+              {
+                "title": "Indian Best Quality Paddy/Rice 🌾 Farming in West Bengal 💪💪♥♥🇮🇳🇮🇳🚀🚀💯💯🔥🌾 #armyrecruitment #peddykishan",
+                "link": "https://www.youtube.com/shorts/tQFCJaZyV9s",
+                "thumbnail": "https://i.ytimg.com/vi/tQFCJaZyV9s/frame0.jpg",
+                "views_original": "106 views",
+                "views": 106,
+                "video_id": "tQFCJaZyV9s"
+              },
+              {
+                "title": "rice cultivation# West Bengal #farming#music",
+                "link": "https://www.youtube.com/shorts/GL08qPpXV6M",
+                "thumbnail": "https://i.ytimg.com/vi/GL08qPpXV6M/frame0.jpg",
+                "views_original": "136 views",
+                "views": 136,
+                "video_id": "GL08qPpXV6M"
+              },
+              {
+                "title": "Rice Farming@WestBengal",
+                "link": "https://www.youtube.com/shorts/_RBmcdgUFvc",
+                "thumbnail": "https://i.ytimg.com/vi/_RBmcdgUFvc/frame0.jpg",
+                "views_original": "372 views",
+                "views": 372,
+                "video_id": "_RBmcdgUFvc"
+              },
+              {
+                "title": "Rice Bowl of India 🌾#RiceBowlOfIndia #IndianAgriculture #Punjab #WestBengal #UttarPradesh #Shorts",
+                "link": "https://www.youtube.com/shorts/acN26tAFYxQ",
+                "thumbnail": "https://i.ytimg.com/vi/acN26tAFYxQ/frame0.jpg",
+                "views_original": "117 views",
+                "views": 117,
+                "video_id": "acN26tAFYxQ"
+              },
+              {
+                "title": "West Bengal, the leading rice producing state of India",
+                "link": "https://www.youtube.com/shorts/MCKncqEw9Uc",
+                "thumbnail": "https://i.ytimg.com/vi/MCKncqEw9Uc/frame0.jpg",
+                "views_original": "173 views",
+                "views": 173,
+                "video_id": "MCKncqEw9Uc"
+              },
+              {
+                "title": "#agriculture #westbengal #rice #paddy ##rurallife #holiday #photography",
+                "link": "https://www.youtube.com/shorts/2cEytlhF1rA",
+                "thumbnail": "https://i.ytimg.com/vi/2cEytlhF1rA/frame0.jpg",
+                "views_original": "554 views",
+                "views": 554,
+                "video_id": "2cEytlhF1rA"
+              },
+              {
+                "title": "WestBengalAgriculture #FarmersOfIndia #AgriculturalSuccess #RiceBowlOfIndia #JuteRevival #FarmToTabe",
+                "link": "https://www.youtube.com/shorts/imfI8a2OHgY",
+                "thumbnail": "https://i.ytimg.com/vi/imfI8a2OHgY/frame0.jpg",
+                "views_original": "67 views",
+                "views": 67,
+                "video_id": "imfI8a2OHgY"
+              },
+              {
+                "title": "#rice #india #westbengal #riceproduction #1st #rank #chaul #cultivation #GI #tag",
+                "link": "https://www.youtube.com/shorts/rF7c_NNH7GA",
+                "thumbnail": "https://i.ytimg.com/vi/rF7c_NNH7GA/frame0.jpg",
+                "views_original": "198 views",
+                "views": 198,
+                "video_id": "rF7c_NNH7GA"
+              },
+              {
+                "title": "Power Tiller Preparing the rice field in Bankura West Bengal #powertiller #farming #paddycultivation",
+                "link": "https://www.youtube.com/shorts/GjjvBtRT0Pw",
+                "thumbnail": "https://i.ytimg.com/vi/GjjvBtRT0Pw/frame0.jpg",
+                "views_original": "5.1K views",
+                "views": 5100,
+                "video_id": "GjjvBtRT0Pw"
+              },
+              {
+                "title": "Paddy Field, West Bengal❤ #paddy #nature #agriculture #minivlogshorts #natural",
+                "link": "https://www.youtube.com/shorts/-g8ufpF0zy0",
+                "thumbnail": "https://i.ytimg.com/vi/-g8ufpF0zy0/frame0.jpg",
+                "views_original": "265 views",
+                "views": 265,
+                "video_id": "-g8ufpF0zy0"
+              },
+              {
+                "title": "“Amar Shonar Bangla” walking among the rice fields with pride of Bengal 💚✨ #nature#bengal#bangla",
+                "link": "https://www.youtube.com/shorts/2rSTAkwGe0g",
+                "thumbnail": "https://i.ytimg.com/vi/2rSTAkwGe0g/frame0.jpg",
+                "views_original": "17 views",
+                "views": 17,
+                "video_id": "2rSTAkwGe0g"
+              },
+              {
+                "title": "beautiful #Rice#farming#🍚#🌾@west Bengal",
+                "link": "https://www.youtube.com/shorts/5muMLBlsWw8",
+                "thumbnail": "https://i.ytimg.com/vi/5muMLBlsWw8/frame0.jpg",
+                "views_original": "58 views",
+                "views": 58,
+                "video_id": "5muMLBlsWw8"
+              }
+            ]
+          }
+        ],
+        "video_results": [
+          {
+            "position_on_page": 2,
+            "title": "Success Story of RKVY Folk Rice of ATC  Fulia, Nadia, West Bengal, India",
+            "link": "https://www.youtube.com/watch?v=Y0eYlAum-gc",
+            "serpapi_link": "https://serpapi.com/search.json?engine=youtube_video&gl=in&hl=en&v=Y0eYlAum-gc",
+            "video_id": "Y0eYlAum-gc",
+            "channel": {
+              "name": "Nature  Anupam ",
+              "link": "https://www.youtube.com/@Crop682",
+              "thumbnail": "https://yt3.ggpht.com/FNjzmjhnsLsRukPCx-T5Qy_lbAEdTtgSvPbIBsMlsXAZmXPiE2M3UgoQJR9WPGRBDUE3Olcx=s68-c-k-c0x00ffffff-no-rj"
+            },
+            "published_date": "4y ago",
+            "views": 869,
+            "length": "3:40",
+            "description": "Agriculture Department , Govt of West Bengal supported a RKVY project on folk rice conservation and its expansion in West ...",
+            "thumbnail": {
+              "static": "https://i.ytimg.com/vi/Y0eYlAum-gc/hq720.jpg?sqp=-oaymwE9COgCEMoBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4Af4JgALQBYoCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLCrGKE6_ONZ00RSx2tLHOsNPFYqKQ"
+            }
+          }
+        ],
+        "pagination": {
+          "current": "https://www.youtube.com/results?search_query=Rice+Nadia+official+agriculture+advisory+West+Bengal&gl=in&hl=en",
+          "next": "https://www.youtube.com/results?gl=in&hl=en&search_query=Rice%20Nadia%20official%20agriculture%20advisory%20West%20Bengal&sp=4Rice%20Nadia%20official%20agriculture%20advisory%20West%20Bengal",
+          "next_page_token": "4Rice Nadia official agriculture advisory West Bengal"
+        },
+        "serpapi_pagination": {
+          "current": "https://serpapi.com/search.json?engine=youtube&gl=in&hl=en&search_query=Rice+Nadia+official+agriculture+advisory+West+Bengal",
+          "next": "https://serpapi.com/search.json?engine=youtube&gl=in&hl=en&search_query=Rice+Nadia+official+agriculture+advisory+West+Bengal&sp=4Rice+Nadia+official+agriculture+advisory+West+Bengal",
+          "next_page_token": "4Rice Nadia official agriculture advisory West Bengal"
+        }
+      }
+    }
+  ]
+}

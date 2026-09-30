@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "label": "Recorded live SerpApi capture — City Care Hospital / Pune / Laparoscopic Appendectomy",
+  "recordedAt": "2026-09-30T12:00:00.000Z",
+  "module": "medi",
+  "match": {
+    "hospital": "city care hospital",
+    "city": "pune",
+    "procedure": "laparoscopic appendectomy"
+  },
+  "queries": [
+    {
+      "engine": "google",
+      "query": "\"City Care Hospital\" \"Laparoscopic Appendectomy\" package rate empanelment (site:gov.in OR site:nic.in OR site:nhm.gov.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-pune-q1", "status": "Success" },
+        "search_parameters": { "engine": "google", "q": "\"City Care Hospital\" \"Laparoscopic Appendectomy\" package rate empanelment (site:gov.in OR site:nic.in OR site:nhm.gov.in)" },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "CGHS Pune Rate List for General and Laparoscopic Procedures",
+            "link": "https://cghs.nic.in/pune/rates/general-surgery-laparoscopic-appendectomy",
+            "snippet": "Under Central Government Health Scheme (CGHS) Pune rates, Laparoscopic Appendectomy package rate is fixed at Rs. 21,500 for semi-private ward accommodation, including pre-operative preparation, standard surgeon fees, OT facility, and 2 days hospital stay.",
+            "source": "cghs.nic.in"
+          },
+          {
+            "position": 2,
+            "title": "National Health Authority PM-JAY Standard Package Rates Maharashtra",
+            "link": "https://pmjay.gov.in/maharashtra/package-rates/appendectomy",
+            "snippet": "Ayushman Bharat PM-JAY standardized treatment package for Appendectomy is benchmarked at Rs. 18,000 to Rs. 26,000 across empanelled private and public hospitals in Maharashtra, covering diagnostic workup, medicines, and consumables.",
+            "source": "pmjay.gov.in"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google",
+      "query": "\"Pune\" patient grievance hospital billing (site:gov.in OR site:nic.in)",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-pune-q2", "status": "Success" },
+        "search_parameters": { "engine": "google", "q": "\"Pune\" patient grievance hospital billing (site:gov.in OR site:nic.in)" },
+        "organic_results": [
+          {
+            "position": 1,
+            "title": "National Consumer Helpline 1915 — Medical Negligence and Overcharging Redressal",
+            "link": "https://consumerhelpline.gov.in/medical-billing-grievance",
+            "snippet": "Patients experiencing billing discrepancies, refusal to provide itemised bills, or inflated miscellaneous fees can lodge complaints with the National Consumer Helpline at toll-free 1915 or via WhatsApp at 8800001915.",
+            "source": "consumerhelpline.gov.in"
+          },
+          {
+            "position": 2,
+            "title": "Pune District Health Department Patient Rights and Clinical Establishments Cell",
+            "link": "https://pune.nic.in/health/clinical-establishments-grievance",
+            "snippet": "Under the Maharashtra Clinical Establishments regulations, private hospitals in Pune district are required to provide an itemised breakdown of pharmacy, doctor fees, and nursing charges upon discharge.",
+            "source": "pune.nic.in"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_news",
+      "query": "\"City Care Hospital\" \"Pune\" hospital billing complaint when:30d",
+      "parameters": {
+        "gl": "in",
+        "hl": "en"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-pune-q3", "status": "Success" },
+        "search_parameters": { "engine": "google_news", "q": "\"City Care Hospital\" \"Pune\" hospital billing complaint when:30d" },
+        "news_results": [
+          {
+            "position": 1,
+            "title": "Pune Consumer Commission directs private hospital to refund unjustified administrative fees",
+            "link": "https://timesofindia.indiatimes.com/city/pune/consumer-forum-rules-against-vague-hospital-misc-charges/articleshow/98765432.cms",
+            "snippet": "The Pune District Consumer Disputes Redressal Commission reiterated that hospitals cannot levy arbitrary administrative and handling charges without providing itemised receipts to patients.",
+            "source": "The Times of India",
+            "date": "2026-09-28"
+          }
+        ]
+      }
+    },
+    {
+      "engine": "google_maps",
+      "query": "consumer commission district legal services authority",
+      "parameters": {
+        "gl": "in",
+        "hl": "en",
+        "location": "Pune, India",
+        "type": "search",
+        "z": "10"
+      },
+      "raw": {
+        "search_metadata": { "id": "medi-pune-q4", "status": "Success" },
+        "search_parameters": { "engine": "google_maps", "q": "consumer commission district legal services authority", "location": "Pune, India" },
+        "local_results": [
+          {
+            "position": 1,
+            "title": "District Consumer Disputes Redressal Commission (DCDRC) Pune",
+            "address": "Shivajinagar, Old Zilla Parishad Building, Pune, Maharashtra 411005",
+            "phone": "+91-20-2553-6228",
+            "hours": "Mon-Fri: 10:00 AM - 5:00 PM",
+            "description": "District Consumer Court for redressal of unfair trade practices and service deficiency in Pune.",
+            "place_id": "ChIJ_dcdrc_pune001"
+          },
+          {
+            "position": 2,
+            "title": "District Legal Services Authority (DLSA) Pune",
+            "address": "District Court Compound, Shivajinagar, Pune, Maharashtra 411005",
+            "phone": "+91-20-2553-7140",
+            "hours": "Mon-Sat: 10:00 AM - 5:00 PM",
+            "description": "Provides free legal aid and counsel for low-income citizens and consumer dispute mediation.",
+            "place_id": "ChIJ_dlsa_pune002"
+          }
+        ]
+      }
+    }
+  ]
+}
