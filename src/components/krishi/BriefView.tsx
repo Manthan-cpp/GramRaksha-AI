@@ -30,6 +30,7 @@ import type { Claim, CropBrief, CropDecision, CropDecisionStep, Evidence } from 
 import { safeWebUrl, safePhone, sourcedSummary, exportSummaryImage, whatsappShareUrl } from "@/lib/krishi-share";
 import { saveCropCase } from "@/lib/storage/crop-cases";
 import { engineLabel } from "@/lib/evidence/trust";
+import { KvkReferralModal } from "@/components/krishi/KvkReferralModal";
 
 interface BriefViewProps {
   brief: CropBrief | null;
@@ -162,6 +163,7 @@ export function BriefView({
   const [saving, setSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(saved);
   const [speaking, setSpeaking] = useState(false);
+  const [kvkReferralOpen, setKvkReferralOpen] = useState(false);
 
   const alive = useRef(false);
   const busy = useRef(false);
@@ -373,6 +375,18 @@ export function BriefView({
               >
                 <Bookmark className="w-3.5 h-3.5 mr-1.5" />
                 {isSaved ? t("saved") : saving ? t("loading") : t("save")}
+              </Button>
+            )}
+
+            {brief && (
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setKvkReferralOpen(true)}
+                className="text-xs border-moss/50 text-moss-deep hover:bg-moss/10 font-semibold"
+              >
+                <Stethoscope className="w-3.5 h-3.5 mr-1.5 text-moss" />
+                {locale === "hi" ? "केवीके रेफरल पर्ची" : locale === "bn" ? "কেভিকে স্লিপ" : "KVK Referral Slip"}
               </Button>
             )}
 
@@ -1040,6 +1054,20 @@ export function BriefView({
           Suggestions and conclusions are based on public web searches conducted using Serp API.
         </p>
       </div>
+
+      {/* Official KVK Expert Referral Modal */}
+      <KvkReferralModal
+        isOpen={kvkReferralOpen}
+        onClose={() => setKvkReferralOpen(false)}
+        cropContext={cropContext}
+        observedConcern={decision?.summary || ""}
+        mandiPriceSummary={
+          visibleMarket.length > 0
+            ? `${visibleMarket[0].marketName}: ₹${visibleMarket[0].price}/${visibleMarket[0].unit}`
+            : undefined
+        }
+        weatherSummary={visibleAlerts.length > 0 ? visibleAlerts[0].claim.text : undefined}
+      />
     </div>
   );
 }

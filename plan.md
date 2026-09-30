@@ -98,3 +98,15 @@
 - Files added/refined: src/lib/pocket-card/*, src/components/card/*, src/app/[locale]/card/page.tsx, src/components/shared/*, src/lib/storage/pocket-cards.ts, fixtures/recorded/pocket-card.json, tests/pocket-card/card.test.ts.
 - Verification: 138/138 tests passing across 17 test suites, 0 type errors, Next.js Turbopack production build verified.
 
+
+### Phase 10 - 2026-10-01 - Case Follow-Through Escalation Ladder, Statutory RTI Generator & KVK Referral
+- Completed: Full production-grade legal escalation system and agronomic expert referral docket.
+  - Interactive 30-Day Follow-Through Escalation Ladder: Tracks case progress across milestones (Day 0 Notice -> Day 7 Follow-Up -> Day 15 Regulatory Grievance -> Day 30 Statutory RTI). Includes interactive demo simulator to preview any stage.
+  - Statutory Right to Information (RTI) Application Generator: Drafts formal applications under Section 6(1) of the RTI Act 2005 in English, Hindi, and Bengali with Section 20(1) penalty warnings (₹250/day up to ₹25,000 for PIO deemed refusal), certified ATR demand, ₹10 fee particulars, copy, print-to-PDF, and WhatsApp broadcast.
+  - Certified KVK Agricultural Expert Referral Docket: Safely adheres to zero-diagnosis safety mandate by packaging crop parameters, symptoms, and APMC modal prices for certified agronomists at District Krishi Vigyan Kendra (KVK) and Kisan Call Centre (1800-180-1551).
+  - "Refresh Instead of Warn": Upgraded 7-day stale case banner in Dashboard with 1-click re-run action to re-verify live prices, weather, and advisories.
+  - Integrated into Dashboard for all MediShield, Ayushman Cashless, and Fasal 72h cases with dedicated "⚖️ Escalation & RTI" triggers.
+- Files added/refined: src/lib/escalation/*, src/components/shared/EscalationModal.tsx, src/lib/krishi/kvk-referral.ts, src/components/krishi/KvkReferralModal.tsx, src/components/krishi/BriefView.tsx, src/app/[locale]/dashboard/page.tsx, tests/escalation/escalation.test.ts.
+- Verification: 148/148 tests passing across 18 test suites, 0 type errors, Next.js Turbopack production build verified.
+
+

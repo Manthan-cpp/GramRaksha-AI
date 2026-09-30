@@ -43,6 +43,7 @@ import {
   HelpCircle,
   Trash2
 } from "lucide-react";
+import { EscalationModal } from "@/components/shared/EscalationModal";
 
 function formatRelativeTime(dateStr: string, now: number | null, locale: string): string {
   if (now === null) return new Date(dateStr).toLocaleDateString(locale);
@@ -74,6 +75,17 @@ export default function DashboardPage() {
   const [openedFasal, setOpenedFasal] = useState<SavedFasalCase | null>(null);
   const [openedMediLetter, setOpenedMediLetter] = useState(false);
   const [openedCashlessLetter, setOpenedCashlessLetter] = useState(false);
+  const [escalationCase, setEscalationCase] = useState<{
+    caseType: "medi" | "cashless" | "fasal";
+    createdAt: string;
+    applicantName: string;
+    applicantAddress?: string;
+    applicantPhone?: string;
+    targetDepartment: string;
+    targetCity: string;
+    targetState: string;
+    referenceNumber?: string;
+  } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -631,15 +643,28 @@ export default function DashboardPage() {
             )}
           </div>
 
-          {/* Freshness Advisory Banner */}
+          {/* Freshness Advisory & 1-Click Refresh Banner */}
           {hasOldCases && (
-            <div className="p-4 rounded-xl border border-turmeric/40 bg-turmeric/10 flex items-start gap-3 text-xs text-ink-soft">
-              <AlertTriangle className="w-4 h-4 text-turmeric-deep shrink-0 mt-0.5" />
-              <div>
-                <span className="font-semibold text-ink">Advisory Freshness Reminder: </span>
-                <span>
-                  Agricultural pest alerts, Agromet weather advisories, and APMC Mandi rates change weekly. For records older than 7 days, consider re-running a fresh Serp API search.
-                </span>
+            <div className="p-5 rounded-2xl border-[1.5px] border-turmeric/50 bg-turmeric/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs shadow-xs">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-turmeric-deep shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold text-ink block sm:inline">Advisory Freshness & Re-run Action: </span>
+                  <span className="text-ink-soft">
+                    Some records in your household vault are older than 7 days. APMC mandi prices, weather advisories, and scam warnings shift weekly.
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <Link href={`/${locale}/krishi`}>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="text-xs bg-paper border-turmeric/60 text-ink hover:bg-turmeric/20 font-semibold shadow-xs"
+                  >
+                    ⚡ Re-run Live Search & Compare
+                  </Button>
+                </Link>
               </div>
             </div>
           )}
@@ -701,7 +726,23 @@ export default function DashboardPage() {
                             )}
                           </p>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 flex-wrap">
+                          <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={() => setEscalationCase({
+                              caseType: item.subModule === "cashless_shield" ? "cashless" : "medi",
+                              createdAt: item.createdAt,
+                              applicantName: item.patientName || "Beneficiary / Patient",
+                              targetDepartment: item.hospital,
+                              targetCity: item.city,
+                              targetState: "State Health Agency Jurisdiction",
+                              referenceNumber: item.id
+                            })}
+                            className="border-terracotta/40 text-terracotta hover:bg-terracotta/10 text-xs font-semibold"
+                          >
+                            ⚖️ Escalation & RTI
+                          </Button>
                           <Button variant="secondary" size="sm" onClick={() => setOpenedMedi(item)} className="border-nil/40 text-nil hover:bg-nil/10">
                             {item.subModule === "cashless_shield" ? "View Notice & Ladder" : "View Audit"}
                           </Button>
@@ -900,7 +941,25 @@ export default function DashboardPage() {
                               Estimated Loss: <strong className="text-rose-600">{item.incident.lossPercentage}%</strong> · {item.photos.length} photos logged · Insurer: {item.decision.insurer.name.split(" ")[0]}
                             </p>
                           </div>
-                          <div className="flex gap-2">
+                          <div className="flex gap-2 flex-wrap">
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              onClick={() => setEscalationCase({
+                                caseType: "fasal",
+                                createdAt: item.createdAt,
+                                applicantName: item.incident.farmerName,
+                                applicantPhone: item.incident.farmerPhone,
+                                applicantAddress: `${item.incident.village}, ${item.incident.district}`,
+                                targetDepartment: `Office of District Agriculture Officer, ${item.incident.district} & ${item.decision.insurer.name}`,
+                                targetCity: item.incident.district,
+                                targetState: item.incident.state,
+                                referenceNumber: item.incident.applicationNo || item.id
+                              })}
+                              className="border-terracotta/40 text-terracotta hover:bg-terracotta/10 text-xs font-semibold"
+                            >
+                              ⚖️ Escalation & RTI
+                            </Button>
                             <Button
                               variant="secondary"
                               size="sm"
@@ -1004,6 +1063,23 @@ export default function DashboardPage() {
           )}
         </section>
       </div>
+
+      {/* Statutory Escalation & Section 6(1) RTI Modal */}
+      {escalationCase && (
+        <EscalationModal
+          isOpen={Boolean(escalationCase)}
+          onClose={() => setEscalationCase(null)}
+          caseType={escalationCase.caseType}
+          createdAt={escalationCase.createdAt}
+          applicantName={escalationCase.applicantName}
+          applicantAddress={escalationCase.applicantAddress}
+          applicantPhone={escalationCase.applicantPhone}
+          targetDepartment={escalationCase.targetDepartment}
+          targetCity={escalationCase.targetCity}
+          targetState={escalationCase.targetState}
+          referenceNumber={escalationCase.referenceNumber}
+        />
+      )}
     </div>
   );
 }

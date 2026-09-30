@@ -15,6 +15,7 @@ This roadmap defines the architectural blueprints, UX specifications, SerpApi en
 | **Phase 7** | **Fasal Bima 72h Kit** | PMFBY Clause 15.3 statutory countdown, local-only geotagged photo log, 14447 dial, DAO & Insurer letter. | ✅ **Production Ready** |
 | **Phase 8** | **Ayushman Cashless Shield** | Point-of-admission deposit extortion protection under PM-JAY Clause 8.2, empanelment check, 4-tier escalation ladder, formal notice, 14555 dialer. | ✅ **Production Ready** |
 | **Phase 9** | **Pocket Card & UI Redesign** | Offline CR80 wallet card, Google Maps PHC & Police extraction, vCard 3.0 export, WhatsApp broadcast generator, production civic UI redesign. | ✅ **Production Ready** |
+| **Phase 10** | **Escalation & RTI / KVK Referral** | Interactive 30-day escalation ladder, statutory Section 6(1) RTI application generator, certified KVK agronomic referral docket, 1-click refresh for 7-day stale cases. | ✅ **Production Ready** |
 
 ---
 
