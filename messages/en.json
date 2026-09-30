@@ -39,5 +39,10 @@
     "tabSources": "Verified Sources",
     "tabRedressal": "Report & Redressal",
     "tabVillageCard": "Village Warning Card"
+  },
+  "Fasal": {
+    "title": "Fasal Bima 72h Kit",
+    "subtitle": "Statutory 72-Hour Localized Calamity Intimation Kit",
+    "nav": "Fasal 72h Kit"
   }
 }
