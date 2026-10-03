@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { PashuForm } from "@/components/pashu/PashuForm";
@@ -21,6 +21,16 @@ import { HeartPulse, ArrowLeft, PhoneCall, AlertTriangle, ShieldCheck } from "lu
 
 type FlowStep = "form" | "analyzing" | "results";
 
+interface ActivePashuSession {
+  request: PashuEvidenceRequest;
+  evidence: Evidence[];
+  metrics: EvidenceMetrics;
+  warnings: string[];
+  isSaved?: boolean;
+}
+
+const SESSION_KEY = "gramraksha:active_pashu_session";
+
 export default function PashuPage() {
   const params = useParams<{ locale?: string }>();
   const locale = (params?.locale === "hi" || params?.locale === "bn" ? params.locale : "en") as "en" | "hi" | "bn";
@@ -34,6 +44,71 @@ export default function PashuPage() {
   const [trailStatus, setTrailStatus] = useState<TrailStatus>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isSaved, setIsSaved] = useState<boolean>(false);
+
+  // Restore active report and re-translate whenever locale changes
+  useEffect(() => {
+    // Stop ongoing speech on language switch
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    try {
+      const raw = sessionStorage.getItem(SESSION_KEY);
+      if (raw) {
+        const session: ActivePashuSession = JSON.parse(raw);
+        if (session && session.request && Array.isArray(session.evidence)) {
+          setActiveRequest(session.request);
+          setEvidence(session.evidence);
+          setMode(session.request.mode || "live");
+          const translatedDecision = buildPashuDecision({
+            request: session.request,
+            evidence: session.evidence,
+            metrics: session.metrics || {
+              queriesPlanned: 4,
+              queriesRun: session.evidence.length,
+              liveSearches: 1,
+              cacheHits: 0,
+              sourcesKept: session.evidence.length,
+              sourcesDropped: 0,
+              mode: session.request.mode || "live"
+            },
+            warnings: session.warnings || [],
+            locale
+          });
+          setDecision(translatedDecision);
+          setStep("results");
+          if (session.isSaved) setIsSaved(true);
+          return;
+        }
+      }
+    } catch {
+      // ignore
+    }
+
+    // If state is already in memory when switching locale
+    if (step === "results" && activeRequest && evidence.length > 0) {
+      const translatedDecision = buildPashuDecision({
+        request: activeRequest,
+        evidence,
+        locale
+      });
+      setDecision(translatedDecision);
+    }
+  }, [locale]);
+
+  const handleReset = () => {
+    try {
+      sessionStorage.removeItem(SESSION_KEY);
+    } catch {}
+    setStep("form");
+    setActiveRequest(null);
+    setEvidence([]);
+    setDecision(null);
+    setStreamEvents([]);
+    setTrailStatus("idle");
+    setErrorMsg(null);
+    setIsSaved(false);
+  };
 
   const handleStartAnalysis = async (request: PashuEvidenceRequest) => {
     setActiveRequest(request);
@@ -83,6 +158,18 @@ export default function PashuPage() {
       setDecision(finalDecision);
       setStep("results");
 
+      // Save active session for instant language translation without reset
+      try {
+        const sessionData: ActivePashuSession = {
+          request,
+          evidence: collectedEvidence,
+          metrics: latestMetrics,
+          warnings,
+          isSaved: false
+        };
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
+      } catch {}
+
       // Automatically persist to Dexie IndexedDB
       try {
         await savePashuCase({
@@ -101,6 +188,14 @@ export default function PashuPage() {
           warnings
         });
         setIsSaved(true);
+        try {
+          const raw = sessionStorage.getItem(SESSION_KEY);
+          if (raw) {
+            const session = JSON.parse(raw);
+            session.isSaved = true;
+            sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+          }
+        } catch {}
       } catch {
         // storage disabled
       }
@@ -129,6 +224,14 @@ export default function PashuPage() {
         warnings: []
       });
       setIsSaved(true);
+      try {
+        const raw = sessionStorage.getItem(SESSION_KEY);
+        if (raw) {
+          const session = JSON.parse(raw);
+          session.isSaved = true;
+          sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        }
+      } catch {}
     } catch {
       alert("Unable to save case to local storage.");
     }
@@ -206,7 +309,7 @@ export default function PashuPage() {
                 </div>
                 <button
                   type="button"
-                  onClick={() => setStep("form")}
+                  onClick={handleReset}
                   className="px-3 py-1.5 rounded-xl bg-white text-ink text-xs font-bold border border-ink hover:bg-neutral-100"
                 >
                   Go Back
@@ -221,7 +324,7 @@ export default function PashuPage() {
             <div className="flex items-center justify-between">
               <button
                 type="button"
-                onClick={() => setStep("form")}
+                onClick={handleReset}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-white/80 hover:bg-white text-ink text-xs font-bold border-[2px] border-ink shadow-[2px_2px_0_rgba(62,39,35,1)] hover:shadow-[1px_1px_0_rgba(62,39,35,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
               >
                 <ArrowLeft className="w-4 h-4" />

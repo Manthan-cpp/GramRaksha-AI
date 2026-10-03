@@ -11,8 +11,8 @@ import { findMatchingGuideline } from "./knowledge";
 interface DecisionOptions {
   request: PashuEvidenceRequest;
   evidence: Evidence[];
-  metrics: EvidenceMetrics;
-  warnings: string[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
   locale?: "en" | "hi" | "bn";
 }
 

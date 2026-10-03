@@ -39,7 +39,12 @@ export function LanguageSelector() {
   }, [isOpen]);
 
   const changeLanguage = (langCode: (typeof LANGUAGES)[number]["code"]) => {
-    const nextPath = pathname.replace(/^\/(en|hi|bn)(?=\/|$)/, `/${langCode}`);
+    let nextPath = pathname;
+    if (/^\/(en|hi|bn)(?=\/|$)/.test(pathname)) {
+      nextPath = pathname.replace(/^\/(en|hi|bn)(?=\/|$)/, `/${langCode}`);
+    } else {
+      nextPath = `/${langCode}${pathname.startsWith("/") ? pathname : `/${pathname}`}`;
+    }
     setIsOpen(false);
     router.push(nextPath);
   };
