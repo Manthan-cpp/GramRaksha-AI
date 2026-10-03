@@ -97,10 +97,10 @@ function buildCandidate(
     devName ? `Developer: ${devName}` : ""
   ].filter(Boolean).join(" · ");
 
-  const baseSnippet = maps && address
-    ? [description, `Address: ${address}`, text(item.phone) ? `Phone: ${text(item.phone)}` : "", hoursText ? `Hours: ${hoursText}` : ""]
-      .filter(Boolean)
-      .join(" · ")
+  const baseSnippet = maps
+    ? [description || title, address ? `Address: ${address}` : "", text(item.phone) ? `Phone: ${text(item.phone)}` : "", hoursText ? `Hours: ${hoursText}` : ""]
+        .filter(Boolean)
+        .join(" · ")
     : query.engine === "google_play" && playInfo
       ? playInfo
       : description;

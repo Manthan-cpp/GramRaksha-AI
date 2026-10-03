@@ -45,7 +45,9 @@ export function EvidenceTrail({ status, events = [], errorMessage, mode = "live"
 
   const latest = events[events.length - 1];
   const keptEvents = events.filter((event): event is Extract<EvidenceEvent, { type: "kept" }> => event.type === "kept");
-  const droppedCount = events.filter((event) => event.type === "dropped").length;
+  const droppedEvents = events.filter((event): event is Extract<EvidenceEvent, { type: "dropped" }> => event.type === "dropped");
+  const droppedCount = droppedEvents.length;
+  const flowEvents = events.filter((event) => event.type !== "dropped");
 
   return (
     <Card className="max-w-3xl mx-auto border-ink-soft/30">
@@ -90,10 +92,10 @@ export function EvidenceTrail({ status, events = [], errorMessage, mode = "live"
               <span>{t("starting")}</span>
             </div>
           )}
-          {events.map((event, index) => {
+          {flowEvents.map((event, index) => {
             if (event.type === "kept") {
               return (
-                <div key={`${event.type}-${event.evidence.id}`} className="rounded-xl border border-moss/30 bg-moss/5 p-4">
+                <div key={`${event.type}-${event.evidence.id}`} className="rounded-xl border border-moss/30 bg-moss/5 p-4 animate-fade-in">
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 text-moss">{iconFor(event.type)}</span>
                     <div className="min-w-0 flex-1">
@@ -110,20 +112,11 @@ export function EvidenceTrail({ status, events = [], errorMessage, mode = "live"
               );
             }
 
-            if (event.type === "dropped") {
-              return (
-                <div key={`${event.type}-${event.timestamp}-${index}`} className="flex items-start gap-3 rounded-lg bg-terracotta/5 px-3 py-2 text-sm text-ink-soft">
-                  <span className="mt-0.5 text-terracotta">{iconFor(event.type)}</span>
-                  <span><strong className="text-ink">{t("dropped")}:</strong> {event.title} — {event.reason}</span>
-                </div>
-              );
-            }
-
             if (event.type === "searching" || event.type === "reading" || event.type === "planning" || event.type === "synthesizing") {
               return (
-                <div key={`${event.type}-${event.timestamp}-${index}`} className="flex items-start gap-3 text-sm text-ink-soft">
-                  <span className="mt-0.5 text-ink-soft">{iconFor(event.type)}</span>
-                  <span>
+                <div key={`${event.type}-${event.timestamp}-${index}`} className="flex items-center gap-3 text-sm text-ink-soft">
+                  <span className="text-ink-soft/70 shrink-0">{iconFor(event.type)}</span>
+                  <span className="truncate">
                     <strong className="text-ink">{t(event.type)}:</strong>{" "}
                     {event.type === "searching" ? `${engineLabel(event.engine)} · ${event.cacheHit ? t("cache") : t("request")}` : event.type === "reading" ? event.title : t(event.type)}
                   </span>
@@ -142,6 +135,28 @@ export function EvidenceTrail({ status, events = [], errorMessage, mode = "live"
 
             return null;
           })}
+
+          {droppedCount > 0 && (
+            <details className="mt-4 rounded-xl border border-ink/10 bg-black/[0.02] p-3 text-xs text-ink-soft transition-all">
+              <summary className="cursor-pointer font-medium text-ink-soft hover:text-ink flex items-center justify-between select-none">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-moss-deep shrink-0" />
+                  <span>Safety Gate: {droppedCount} non-official or unverified web results filtered</span>
+                </span>
+                <span className="text-[10px] text-ink-soft/70 underline">View details</span>
+              </summary>
+              <div className="mt-2.5 space-y-1.5 border-t border-ink/10 pt-2 max-h-40 overflow-y-auto">
+                {droppedEvents.map((event, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-[11px] text-ink-soft">
+                    <span className="w-1.5 h-1.5 rounded-full bg-ink/30 mt-1 shrink-0" />
+                    <span className="truncate">
+                      <strong className="text-ink">{event.title}</strong>: {event.reason}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </details>
+          )}
         </div>
 
         {(status === "done" || status === "error") && (

@@ -45,6 +45,8 @@ function matchingValue(input: EvidenceRunRequest, key: string): string | undefin
     if (key === "state" || key === "district" || key === "calamityType") return input[key].toLocaleLowerCase();
   } else if (input.module === "pocket_card") {
     if (key === "state" || key === "district" || key === "block") return input[key].toLocaleLowerCase();
+  } else if (input.module === "pashu") {
+    if (key === "animal" || key === "state" || key === "district") return input[key]?.toLocaleLowerCase();
   }
   return undefined;
 }

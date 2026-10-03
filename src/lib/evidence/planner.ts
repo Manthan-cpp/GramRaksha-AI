@@ -345,7 +345,7 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
     // 1. Official IVRI / ICAR / NDDB / DAHD Clinical Advisory
     addQuery({
       engine: "google",
-      query: `${quoted(animal)} ${quoted(concern)} treatment advisory first aid (site:ivri.nic.in OR site:nddb.coop OR site:icar.gov.in OR site:dahd.nic.in OR site:gov.in)`,
+      query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} treatment advisory first aid (site:ivri.nic.in OR site:nddb.coop OR site:icar.gov.in OR site:dahd.nic.in OR site:gov.in OR site:icar.org.in)`,
       parameters: common,
       purpose: "Official ICAR/IVRI veterinary clinical advisory and first-aid",
       requireOfficial: true
@@ -354,7 +354,7 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
     // 2. Animal Husbandry Precautions and Symptoms
     addQuery({
       engine: "google",
-      query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} animal symptoms precautions remedies care (site:gov.in OR site:nic.in OR site:icar.org.in)`,
+      query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} animal symptoms precautions remedies care (site:gov.in OR site:nic.in OR site:icar.org.in OR site:ivri.nic.in OR site:nddb.coop)`,
       parameters: common,
       purpose: "Veterinary health precautions and husbandry guidelines",
       requireOfficial: true
@@ -377,7 +377,7 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
     // 4. Google Search: 1962 Mobile Veterinary Unit Ambulance
     addQuery({
       engine: "google",
-      query: `1962 "Mobile Veterinary Unit" ambulance ${quoted(district)} ${quoted(state)} (site:gov.in OR site:nic.in)`,
+      query: `1962 "Mobile Veterinary Unit" ambulance ${cleanQueryPart(district)} ${cleanQueryPart(state)} (site:gov.in OR site:nic.in)`,
       parameters: common,
       purpose: "District Mobile Veterinary Unit (1962) dispatch and animal helpline",
       requireOfficial: true

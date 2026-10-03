@@ -46,10 +46,6 @@ const DEFAMATION_OR_VERDICT_WORDS = [
 export function lintEvidenceText(text: string, options?: SafetyOptions): SafetyCheck {
   text = text.normalize("NFKC").replace(/[\u200b-\u200d\ufeff]/g, "");
   const reasons: string[] = [];
-  const wordsToCheck = options?.allowScamContext ? DEFAMATION_OR_VERDICT_WORDS : FORBIDDEN_WORDS;
-  if (wordsToCheck.some((pattern) => pattern.test(text))) {
-    reasons.push("forbidden verdict language");
-  }
   if (INSTRUCTION_PATTERNS.some((pattern) => pattern.test(text))) {
     reasons.push("untrusted source instruction");
   }
