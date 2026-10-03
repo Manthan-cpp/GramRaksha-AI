@@ -31,67 +31,6 @@ type FlowStep = "privacy" | "upload" | "redact" | "review" | "analyzing" | "resu
 type CashlessStep = "form" | "analyzing" | "results";
 type MediTab = "cashless" | "audit";
 
-const MEDI_SESSION_KEY = "gramraksha_medi_active_session";
-
-interface SavedMediSession {
-  step: FlowStep;
-  bill: Bill;
-  evidence: Evidence[];
-  metrics: EvidenceMetrics;
-  warnings: string[];
-  mode: "live" | "recorded";
-}
-
-function getSavedMediSession(locale: "en" | "hi" | "bn"): {
-  step: FlowStep;
-  bill: Bill | null;
-  evidence: Evidence[];
-  decision: MediDecision | null;
-  mode: "live" | "recorded";
-  metrics?: EvidenceMetrics;
-  warnings: string[];
-} {
-  if (typeof window === "undefined") {
-    return { step: "privacy", bill: null, evidence: [], decision: null, mode: "live", warnings: [] };
-  }
-  try {
-    const raw = sessionStorage.getItem(MEDI_SESSION_KEY);
-    if (!raw) {
-      return { step: "privacy", bill: null, evidence: [], decision: null, mode: "live", warnings: [] };
-    }
-    const parsed = JSON.parse(raw) as SavedMediSession;
-    if (parsed.bill && parsed.evidence) {
-      const decision = buildMediDecision(
-        parsed.bill,
-        parsed.evidence,
-        parsed.metrics || {
-          queriesPlanned: 4,
-          queriesRun: 4,
-          liveSearches: 0,
-          cacheHits: 0,
-          sourcesKept: parsed.evidence.length,
-          sourcesDropped: 0,
-          mode: parsed.mode
-        },
-        parsed.warnings || [],
-        locale
-      );
-      return {
-        step: parsed.step === "letter" ? "letter" : "results",
-        bill: parsed.bill,
-        evidence: parsed.evidence,
-        decision,
-        mode: parsed.mode,
-        metrics: parsed.metrics,
-        warnings: parsed.warnings || []
-      };
-    }
-  } catch {
-    // Session corrupted or unavailable
-  }
-  return { step: "privacy", bill: null, evidence: [], decision: null, mode: "live", warnings: [] };
-}
-
 function MediShieldContent() {
   const params = useParams<{ locale?: string }>();
   const searchParams = useSearchParams();
@@ -101,19 +40,18 @@ function MediShieldContent() {
   const [activeTab, setActiveTab] = useState<MediTab>(initialTab);
 
   // --- Bill Audit State ---
-  const [initialSession] = useState(() => getSavedMediSession(locale));
-  const [step, setStep] = useState<FlowStep>(initialSession.step);
+  const [step, setStep] = useState<FlowStep>("privacy");
   const [rawFile, setRawFile] = useState<File | null>(null);
   const [redactedUrl, setRedactedUrl] = useState<string | null>(null);
-  const [bill, setBill] = useState<Bill | null>(initialSession.bill);
-  const [evidence, setEvidence] = useState<Evidence[]>(initialSession.evidence);
-  const [decision, setDecision] = useState<MediDecision | null>(initialSession.decision);
+  const [bill, setBill] = useState<Bill | null>(null);
+  const [evidence, setEvidence] = useState<Evidence[]>([]);
+  const [decision, setDecision] = useState<MediDecision | null>(null);
   const [events, setEvents] = useState<EvidenceEvent[]>([]);
-  const [trailStatus, setTrailStatus] = useState<TrailStatus>(initialSession.decision ? "done" : "idle");
+  const [trailStatus, setTrailStatus] = useState<TrailStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string>();
-  const [mode, setMode] = useState<"live" | "recorded">(initialSession.mode);
-  const [metrics, setMetrics] = useState<EvidenceMetrics | undefined>(initialSession.metrics);
-  const [warnings, setWarnings] = useState<string[]>(initialSession.warnings);
+  const [mode, setMode] = useState<"live" | "recorded">("live");
+  const [metrics, setMetrics] = useState<EvidenceMetrics | undefined>();
+  const [warnings, setWarnings] = useState<string[]>([]);
   const [isSaved, setIsSaved] = useState(false);
 
   // --- Ayushman Cashless Shield State ---
@@ -148,31 +86,6 @@ function MediShieldContent() {
     }
     return decision;
   }, [bill, evidence, metrics, warnings, mode, locale, decision]);
-
-  // Save bill session whenever bill, evidence, or step changes
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (bill && evidence.length > 0 && (step === "results" || step === "letter")) {
-        const sessionPayload: SavedMediSession = {
-          step,
-          bill,
-          evidence,
-          metrics: metrics || {
-            queriesPlanned: 4,
-            queriesRun: 4,
-            liveSearches: 0,
-            cacheHits: 0,
-            sourcesKept: evidence.length,
-            sourcesDropped: 0,
-            mode
-          },
-          warnings,
-          mode
-        };
-        sessionStorage.setItem(MEDI_SESSION_KEY, JSON.stringify(sessionPayload));
-      }
-    }
-  }, [bill, evidence, step, metrics, warnings, mode]);
 
   // ----------------------------------------------------------------------
   // Bill Audit Handlers
@@ -250,9 +163,6 @@ function MediShieldContent() {
   };
 
   const handleStartOverAudit = () => {
-    if (typeof window !== "undefined") {
-      sessionStorage.removeItem(MEDI_SESSION_KEY);
-    }
     setStep("privacy");
     setRawFile(null);
     setRedactedUrl(null);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { AyushmanCashlessDecision } from "@/lib/medi/cashless-types";
 
 interface CashlessLetterModalProps {
@@ -18,6 +18,15 @@ export function CashlessLetterModal({
 }: CashlessLetterModalProps) {
   const [activeLang, setActiveLang] = useState<"en" | "hi" | "bn">(initialLocale);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -68,11 +77,15 @@ export function CashlessLetterModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-xs animate-fade-in">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-xs animate-fade-in"
+      onClick={onClose}
+    >
       <div
         className="bg-paper rounded-2xl shadow-2xl border border-ink/20 max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden"
         role="dialog"
         aria-modal="true"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="p-5 border-b border-ink/15 bg-paper-2 flex flex-wrap items-center justify-between gap-3">

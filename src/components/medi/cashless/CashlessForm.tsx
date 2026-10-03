@@ -10,66 +10,20 @@ interface CashlessFormProps {
   loading?: boolean;
 }
 
-interface Preset {
-  label: string;
-  badge: string;
-  data: AyushmanCashlessRequest;
+interface CashlessFormProps {
+  onSubmit: (data: AyushmanCashlessRequest) => void;
+  loading?: boolean;
 }
 
-const PRESETS: Preset[] = [
-  {
-    label: "Varanasi: Emergency C-Section (₹20,000 Advance)",
-    badge: "⚡ Recorded Live Capture",
-    data: {
-      hospital: "Apex Multispeciality Hospital",
-      city: "Varanasi",
-      state: "Uttar Pradesh",
-      procedure: "Emergency C-Section",
-      depositDemanded: 20000,
-      patientName: "Sunita Devi",
-      pmjayId: "PMJAY-UP-88421-A",
-      demandedReason: "Bed allotment security deposit and pre-auth buffer"
-    }
-  },
-  {
-    label: "Patna: Laparoscopic Surgery (₹15,000 Deposit)",
-    badge: "Bihar BSSS",
-    data: {
-      hospital: "Medipark Healthcare & Research",
-      city: "Patna",
-      state: "Bihar",
-      procedure: "Laparoscopic Appendectomy",
-      depositDemanded: 15000,
-      patientName: "Rameshwar Prasad",
-      pmjayId: "PMJAY-BR-10492-B",
-      demandedReason: "Surgical consumables advance"
-    }
-  },
-  {
-    label: "Ranchi: Orthopedic Trauma (₹25,000 Advance)",
-    badge: "Jharkhand JSAS",
-    data: {
-      hospital: "City Hospital & Trauma Center",
-      city: "Ranchi",
-      state: "Jharkhand",
-      procedure: "Orthopedic Fracture Fixation",
-      depositDemanded: 25000,
-      patientName: "Manoj Soren",
-      pmjayId: "PMJAY-JH-55219-C",
-      demandedReason: "Implant cost security deposit"
-    }
-  }
-];
-
 export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
-  const [hospital, setHospital] = useState(PRESETS[0].data.hospital);
-  const [city, setCity] = useState(PRESETS[0].data.city);
-  const [state, setState] = useState(PRESETS[0].data.state);
-  const [procedure, setProcedure] = useState(PRESETS[0].data.procedure);
-  const [depositDemanded, setDepositDemanded] = useState(PRESETS[0].data.depositDemanded);
-  const [patientName, setPatientName] = useState(PRESETS[0].data.patientName || "");
-  const [pmjayId, setPmjayId] = useState(PRESETS[0].data.pmjayId || "");
-  const [demandedReason, setDemandedReason] = useState(PRESETS[0].data.demandedReason || "");
+  const [hospital, setHospital] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [procedure, setProcedure] = useState("");
+  const [depositDemanded, setDepositDemanded] = useState<number | "">("");
+  const [patientName, setPatientName] = useState("");
+  const [pmjayId, setPmjayId] = useState("");
+  const [demandedReason, setDemandedReason] = useState("");
 
   const [mode, setModeState] = useState<"live" | "recorded">(() => getClientEvidenceMode());
 
@@ -78,20 +32,9 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
     setModeState(newMode);
   };
 
-  const handleApplyPreset = (p: Preset) => {
-    setHospital(p.data.hospital);
-    setCity(p.data.city);
-    setState(p.data.state);
-    setProcedure(p.data.procedure);
-    setDepositDemanded(p.data.depositDemanded);
-    setPatientName(p.data.patientName || "");
-    setPmjayId(p.data.pmjayId || "");
-    setDemandedReason(p.data.demandedReason || "");
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!hospital.trim() || !city.trim() || !procedure.trim() || depositDemanded <= 0) return;
+    if (!hospital.trim() || !city.trim() || !procedure.trim() || !depositDemanded || Number(depositDemanded) <= 0) return;
 
     onSubmit({
       hospital: hospital.trim(),
@@ -109,42 +52,6 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
-      {/* Test Presets */}
-      <div className="bg-paper rounded-2xl border border-nil/20 p-5 shadow-xs">
-        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">⚡</span>
-            <span className="text-xs font-bold uppercase tracking-wider text-ink">
-              Quick Test Presets (Instant Demonstration)
-            </span>
-          </div>
-          <span className="text-[11px] text-ink-soft">Click any case to fill form instantly</span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
-          {PRESETS.map((p, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => handleApplyPreset(p)}
-              className="text-left p-3.5 rounded-xl border border-ink/15 hover:border-nil bg-paper-2 hover:bg-paper transition-all group cursor-pointer"
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-nil/15 text-nil">
-                  {p.badge}
-                </span>
-                <span className="text-xs text-ink-soft group-hover:text-nil group-hover:translate-x-0.5 transition-transform font-bold">
-                  &rarr;
-                </span>
-              </div>
-              <div className="text-xs font-bold text-ink line-clamp-1">{p.label}</div>
-              <div className="text-[11px] text-terracotta font-mono font-bold mt-1">
-                Deposit: ₹{p.data.depositDemanded.toLocaleString("en-IN")}
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
 
       {/* Main Dispute Form */}
       <form onSubmit={handleSubmit} className="bg-paper rounded-2xl border border-ink/15 p-6 shadow-sm space-y-5">
@@ -221,6 +128,7 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
               onChange={(e) => setState(e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-xl border border-ink/20 bg-paper text-ink text-sm focus:outline-hidden focus:border-nil focus:ring-1 focus:ring-nil transition-colors"
             >
+              <option value="">-- Select State --</option>
               {statesList.map((s) => (
                 <option key={s} value={s}>
                   {s}

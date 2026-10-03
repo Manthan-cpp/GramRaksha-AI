@@ -121,13 +121,32 @@ export function buildAyushmanCashlessDecision(input: BuildCashlessDecisionInput)
     snippet: item.snippet
   }));
 
-  const guidanceTips = [
-    "Do not sign any 'self-pay' or 'voluntary out-of-pocket' declarations while your Ayushman Golden Card is active.",
-    "Locate the Pradhan Mantri Arogya Mitra (PMAM) desk — usually positioned at the main admission or emergency counter.",
-    "Quote PM-JAY Clause 8.2 and show this formal statutory notice to the admission desk.",
-    "Call 14555 while standing at the counter if the hospital claims the Ayushman server is down or PM-JAY beds are unavailable.",
-    "If money was already paid under duress, keep the receipt safely — under Clause 23, the hospital can be mandated to refund the deposit with interest."
-  ];
+  let guidanceTips: string[] = [];
+  if (locale === "hi") {
+    guidanceTips = [
+      "आयुष्मान गोल्डन कार्ड सक्रिय होने पर किसी भी 'स्वैच्छिक भुगतान' (Self-Pay) या नकद घोषणापत्र पर हस्ताक्षर न करें।",
+      "अस्पताल के मुख्य प्रवेश या आपातकालीन काउंटर पर स्थित 'प्रधानमंत्री आरोग्य मित्र' (PMAM) डेस्क खोजें और अपना कार्ड दें।",
+      "प्रवेश डेस्क को आयुष्मान नियम खंड 8.2 का हवाला दें और फोन में यह तैयार आधिकारिक कानूनी नोटिस दिखाएं।",
+      "यदि स्टाफ सर्वर डाउन या बेड न होने का बहाना बनाए, तो काउंटर पर खड़े होकर ही तुरंत 14555 डायल करके स्पीकर पर शिकायत दर्ज कराएं।",
+      "यदि मजबूरी में पैसे जमा करने पड़े हों, तो रसीद सुरक्षित रखें — कानूनी नियमों के तहत अस्पताल को पूरा पैसा वापस करना होगा।"
+    ];
+  } else if (locale === "bn") {
+    guidanceTips = [
+      "আয়ুষ্মান কার্ড সক্রিয় থাকা অবস্থায় কোনো 'স্বেচ্ছায় নগদ অর্থ প্রদান' (Self-Pay) ফর্মে স্বাক্ষর করবেন না।",
+      "হাসপাতালের মূল প্রবেশদ্বার বা এমার্জেন্সি কাউন্টারে থাকা 'প্রধানমন্ত্রী আরোগ্য মিত্র' (PMAM) ডেস্কে গিয়ে কার্ড জমা দিন।",
+      "বিলিং কর্মীদের আয়ুষ্মান নিয়মাবলী ধারা ৮.২ উল্লেখ করুন এবং আপনার ফোনের এই আনুষ্ঠানিক আইনি নোটিশটি প্রদর্শন করুন।",
+      "হাসপাতাল যদি সার্ভার ডাউন বা বেড না থাকার অজুহাত দেয়, তবে কাউন্টারের সামনে দাঁড়িয়ে সরাসরি ১৪৫৫৫ নম্বরে ফোন করুন।",
+      "যদি চাপের মুখে টাকা জমা দিতে বাধ্য হন, তবে রসিদ যত্ন করে রাখুন — আইনানুযায়ী হাসপাতাল সম্পূর্ণ অর্থ ফেরত দিতে বাধ্য।"
+    ];
+  } else {
+    guidanceTips = [
+      "Do not sign any 'self-pay' or 'voluntary out-of-pocket' declarations while your Ayushman Golden Card is active.",
+      "Locate the on-duty Pradhan Mantri Arogya Mitra (PMAM) desk — positioned at the main admission counter — and hand over your card.",
+      "Quote PM-JAY Clause 8.2 and show this formal statutory notice directly to the hospital admission desk.",
+      "Call 14555 on speakerphone in front of the counter if staff claims the Ayushman server is down or PM-JAY beds are unavailable.",
+      "If money was already paid under duress, keep the receipt safely — under Clause 23, the hospital can be mandated to refund the deposit."
+    ];
+  }
 
   return {
     hospital: request.hospital,

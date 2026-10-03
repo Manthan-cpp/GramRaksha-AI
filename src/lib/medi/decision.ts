@@ -229,28 +229,28 @@ export function buildMediDecision(
     actions.push({
       id: "medi-step-1",
       title: "दवाइयों और नर्सिंग चार्ट का विस्तृत बिल मांगें",
-      body: "बिल का अंतिम भुगतान करने से पहले बिलिंग सुपरवाइजर से कहें कि वे हर एक दवाई, इंजेक्शन और उपभोग्य सामान की तारीख-वार रसीद दें। मरीज अधिकार कानून के तहत यह आपका कानूनी हक है।",
+      body: "अस्पताल बिलिंग काउंटर पर कहें: 'मरीज अधिकार चार्टर के तहत हमें हर एक दवाई, इंजेक्शन और उपभोग्य सामान की ब्रांड, बैच नंबर और एमआरपी वाली विस्तृत शीट चाहिए।' अंतिम भुगतान से पहले यह रसीद लेना आपका कानूनी अधिकार है।",
       urgent: true,
       badge: "कदम 1"
     });
     actions.push({
       id: "medi-step-2",
       title: "अस्पष्ट या प्रशासनिक शुल्क हटाने का अनुरोध करें",
-      body: "‘Miscellaneous’ या ‘Admin charges’ जैसी अस्पष्ट मदों के लिए विनम्रता से कहें कि बिना लिखित ब्यौरे के यह शुल्क नहीं लिया जा सकता। अस्पताल प्रशासन से इसे माफ या संशोधित करने को कहें।",
+      body: "काउंटर पर कहें: 'मिसलेनियस (Miscellaneous) या ऐडमिन चार्ज किस सेवा के लिए लगाया गया है? बिना डॉक्टर के क्लिनिकल पर्चे के यह शुल्क नहीं लिया जा सकता, कृपया इसे बिल से हटाएं।' ",
       urgent: false,
       badge: "कदम 2"
     });
     actions.push({
       id: "medi-step-3",
-      title: "अस्पताल के रेट कार्ड और आयुष्मान योजना से मिलान करें",
-      body: "क्लिनिकल एस्टेब्लिशमेंट एक्ट के तहत हर अस्पताल को कमरों और ऑपरेशनों के तय रेट बोर्ड पर लगाने होते हैं। यदि आपके पास सरकारी योजना या बीमा है, तो प्री-ऑथराइजेशन पैकेज दर की पुष्टि करें।",
+      title: "अस्पताल के रेट कार्ड और पैकेज दर से मिलान करें",
+      body: "अस्पताल रिसेप्शन पर लगे सरकारी रेट कार्ड और अपनी योजना (CGHS / PM-JAY / बीमा) की पैकेज दरों से बिल का मिलान करें। यदि कोई चार्ज डिस्प्ले बोर्ड से अधिक है, तो उसे संशोधित करवाएं।",
       urgent: false,
       badge: "कदम 3"
     });
     actions.push({
       id: "medi-step-4",
       title: "राष्ट्रीय उपभोक्ता हेल्पलाइन (1915) पर सहायता लें",
-      body: "यदि अस्पताल विस्तृत रसीद देने से मना करे या अनुचित दबाव बनाए, तो भारत सरकार की मुफ्त राष्ट्रीय उपभोक्ता हेल्पलाइन 1915 पर कॉल करें या व्हाट्सएप 8800001915 पर शिकायत दर्ज कराएं।",
+      body: "यदि अस्पताल विस्तृत रसीद देने से मना करे या भुगतान का अनुचित दबाव बनाए, तो तुरंत कहें: 'हम राष्ट्रीय उपभोक्ता हेल्पलाइन 1915 पर शिकायत दर्ज करा रहे हैं।' मुफ्त टोल-फ्री 1915 पर कॉल करें या व्हाट्सएप 8800001915 पर शिकायत भेजें।",
       urgent: false,
       badge: "कदम 4"
     });
@@ -258,28 +258,28 @@ export function buildMediDecision(
     actions.push({
       id: "medi-step-1",
       title: "ওষুধ এবং নার্সিং চার্টের বিস্তারিত বিল দাবি করুন",
-      body: "চূড়ান্ত বিল পরিশোধের আগে বিলিং সুপারভাইজারকে বলুন প্রতিটি ওষুধ, ইনজেকশন এবং ব্যবহৃত সামগ্রীর তারিখভিত্তিক রসিদ দিতে। রোগী সুরক্ষা আইন অনুযায়ী এটি আপনার অধিকার।",
+      body: "বিলিং কাউন্টারে বলুন: 'রোগী অধিকার সনদ অনুযায়ী প্রতিটি ওষুধ, ইনজেকশন ও ব্যবহৃত সামগ্রীর ব্র্যান্ড, ব্যাচ নম্বর ও আসল মূল্যের বিশদ তালিকা দিন।' চূড়ান্ত অর্থপ্রদানের আগে এটি সংগ্রহ করা আপনার অধিকার।",
       urgent: true,
       badge: "পদক্ষেপ ১"
     });
     actions.push({
       id: "medi-step-2",
       title: "অস্পষ্ট প্রশাসনিক চার্জ বাতিলের অনুরোধ জানান",
-      body: "‘Miscellaneous’ বা ‘Admin charges’-এর মতো অস্পষ্ট চার্জের ক্ষেত্রে স্পষ্ট বিবরণ না থাকলে তা মকুব বা সংশোধন করতে হাসপাতাল কর্তৃপক্ষকে অনুরোধ করুন।",
+      body: "কাউন্টারে বলুন: 'অ্যাডমিন বা মিসলেনিয়াস চার্জ কোন চিকিৎসার জন্য নেওয়া হচ্ছে? ডাক্তারের লিখিত প্রেসক্রিপশন ছাড়া এই চার্জ নেওয়া যাবে না, দয়া করে এটি বিল থেকে বাদ দিন।' ",
       urgent: false,
       badge: "পদক্ষেপ ২"
     });
     actions.push({
       id: "medi-step-3",
       title: "হাসপাতালের নির্ধারিত রেট কার্ড ও সরকারি প্যাকেজ যাচাই করুন",
-      body: "ক্লিনিক্যাল এস্টাব্লিশমেন্ট অ্যাক্ট অনুযায়ী প্রতিটি হাসপাতালে চিকিৎসা ও শয্যার রেট কার্ড প্রদর্শন বাধ্যতামূলক। কোনো স্বাস্থ্য বীমা বা সরকারি সুবিধা থাকলে প্যাকেজ রেট নিশ্চিত করুন।",
+      body: "হাসপাতালের ডিসপ্লে বোর্ডে প্রদর্শিত রেট কার্ড ও আপনার স্বাস্থ্য প্রকল্পের প্যাকেজ দরের সাথে বিল মিলিয়ে দেখুন। প্রদর্শিত তালিকার চেয়ে অতিরিক্ত চার্জ দাবি করা হলে সংশোধন করতে বলুন।",
       urgent: false,
       badge: "পদক্ষেপ ৩"
     });
     actions.push({
       id: "medi-step-4",
       title: "জাতীয় উপভোক্তা হেল্পলাইন (1915)-এ অভিযোগ জানান",
-      body: "হাসপাতাল যদি বিশদ বিল দিতে অস্বীকার করে বা অতিরিক্ত চাপের সৃষ্টি করে, তবে সরকারি টোল-ফ্রি ১৯১৫ নম্বরে ফোন করুন অথবা হোয়াটসঅ্যাপ ৮৮০০০০১৯১৫-এ সাহায্য নিন।",
+      body: "হাসপাতাল যদি বিশদ বিল দিতে অস্বীকার করে বা অতিরিক্ত চাপের সৃষ্টি করে, তবে বলুন: 'আমরা জাতীয় উপভোক্তা হেল্পলাইন ১৯১৫-এ অভিযোগ নথিভুক্ত করছি।' টোল-ফ্রি ১৯১৫ নম্বরে কল করুন বা হোয়াটসঅ্যাপ ৮৮০০০০১৯১৫-এ সাহায্য নিন।",
       urgent: false,
       badge: "পদক্ষেপ ৪"
     });
@@ -287,28 +287,28 @@ export function buildMediDecision(
     actions.push({
       id: "medi-step-1",
       title: "Request Itemised Pharmacy & Daily Nursing Logs",
-      body: "Before settling the final invoice, ask the billing in-charge for date-wise statements showing each medicine brand, quantity, batch number, and MRP. Under patient charter regulations, full itemisation is mandatory.",
+      body: "Say to the Billing Supervisor: 'Under Patient Charter regulations, please provide the daily itemised statement showing each medicine brand, batch number, administered quantity, and MRP.' You have a legal right to this before final settlement.",
       urgent: true,
       badge: "Step 1"
     });
     actions.push({
       id: "medi-step-2",
       title: "Ask to Justify or Waive Unspecified Administrative Charges",
-      body: "Politely point out charges listed as 'Miscellaneous' or 'Admin fees'. Ask for clinical documentation justifying them, or request a revised invoice with these non-clinical fees waived.",
+      body: "Say to the Billing Desk: 'What specific clinical service does this Miscellaneous / Admin charge cover? Without documented medical necessity, non-clinical surcharges cannot be levied. Please issue a revised bill with this waived.'",
       urgent: false,
       badge: "Step 2"
     });
     actions.push({
       id: "medi-step-3",
       title: "Cross-Check with Hospital's Displayed Rate Schedule",
-      body: "Under Clinical Establishments Act rules, private hospitals must maintain a publicly accessible rate schedule for rooms, consultations, and surgical facilities. Confirm your charges match this schedule.",
+      body: "Inspect the rate schedule displayed at the hospital reception under the Clinical Establishments Act. Compare the room rent and procedure fees against your bill. Request correction if billed above the published tariff.",
       urgent: false,
       badge: "Step 3"
     });
     actions.push({
       id: "medi-step-4",
       title: "Reach Official Redressal via National Consumer Helpline (1915)",
-      body: "If the billing department refuses to supply an itemised breakdown or insists on unverified lump sums, lodge an official inquiry with the National Consumer Helpline at toll-free 1915 or WhatsApp 8800001915.",
+      body: "If the billing department refuses itemisation or insists on unverified lump sums, state clearly: 'I am logging this dispute with the National Consumer Helpline.' Immediately dial toll-free 1915 or send a complaint to WhatsApp 8800001915.",
       urgent: false,
       badge: "Step 4"
     });
