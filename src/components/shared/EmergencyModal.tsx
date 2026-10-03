@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { X, Phone, ShieldAlert, HeartPulse, Leaf, Shield, Scale, HelpCircle } from "lucide-react";
 
 interface EmergencyModalProps {
@@ -109,15 +110,28 @@ const HELPLINES: HelplineItem[] = [
 ];
 
 export function EmergencyModal({ isOpen, onClose, locale = "en" }: EmergencyModalProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/75 backdrop-blur-xs animate-fade-in">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/75 backdrop-blur-xs animate-fade-in"
+      onClick={onClose}
+    >
       <div
         className="bg-paper rounded-3xl shadow-2xl border border-ink/20 max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="emergency-dialog-title"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="p-5 sm:p-6 border-b border-ink/15 bg-paper-2 flex items-center justify-between">

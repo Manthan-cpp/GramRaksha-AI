@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 import {
   ShieldCheck,
@@ -12,8 +14,15 @@ import { EmergencyModal } from "@/components/shared/EmergencyModal";
 
 export function Footer() {
   const locale = useLocale();
+  const pathname = usePathname();
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
   const [emergencyOpen, setEmergencyOpen] = useState(false);
+
+  // Hide footer completely on the landing page
+  const isLandingPage = pathname === `/${locale}` || pathname === `/${locale}/`;
+  if (isLandingPage) {
+    return null;
+  }
 
   return (
     <>
@@ -23,11 +32,15 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Column 1: Brand & Civic Philosophy */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2.5">
-                <span className="text-2xl">🛡️</span>
-                <span className="font-display font-bold text-xl text-paper tracking-tight">
-                  GramRaksha AI
-                </span>
+              <div className="flex items-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="GramRaksha AI"
+                  width={200}
+                  height={67}
+                  unoptimized
+                  className="h-9 w-auto object-contain"
+                />
               </div>
               <p className="text-xs text-paper/70 leading-relaxed">
                 {locale === "hi"
@@ -188,8 +201,8 @@ export function Footer() {
                   className="flex items-center justify-between p-2.5 rounded-xl bg-paper/5 hover:bg-paper/10 border border-paper/10 transition-colors group"
                 >
                   <span className="text-paper/80">National Emergency</span>
-                  <span className="font-mono font-bold text-emerald-400 group-hover:scale-105 transition-transform">
-                    📞 112
+                  <span className="font-mono font-bold text-paper group-hover:scale-105 transition-transform">
+                    112
                   </span>
                 </a>
                 <a
@@ -197,8 +210,8 @@ export function Footer() {
                   className="flex items-center justify-between p-2.5 rounded-xl bg-paper/5 hover:bg-paper/10 border border-paper/10 transition-colors group"
                 >
                   <span className="text-paper/80">Ambulance Service</span>
-                  <span className="font-mono font-bold text-emerald-400 group-hover:scale-105 transition-transform">
-                    📞 108
+                  <span className="font-mono font-bold text-paper group-hover:scale-105 transition-transform">
+                    108
                   </span>
                 </a>
                 <a
@@ -206,8 +219,8 @@ export function Footer() {
                   className="flex items-center justify-between p-2.5 rounded-xl bg-paper/5 hover:bg-paper/10 border border-paper/10 transition-colors group"
                 >
                   <span className="text-paper/80">Crop Calamity (PMFBY)</span>
-                  <span className="font-mono font-bold text-amber-400 group-hover:scale-105 transition-transform">
-                    📞 14447
+                  <span className="font-mono font-bold text-paper group-hover:scale-105 transition-transform">
+                    14447
                   </span>
                 </a>
                 <a
@@ -215,8 +228,8 @@ export function Footer() {
                   className="flex items-center justify-between p-2.5 rounded-xl bg-paper/5 hover:bg-paper/10 border border-paper/10 transition-colors group"
                 >
                   <span className="text-paper/80">Ayushman Health Call</span>
-                  <span className="font-mono font-bold text-blue-400 group-hover:scale-105 transition-transform">
-                    📞 14555
+                  <span className="font-mono font-bold text-paper group-hover:scale-105 transition-transform">
+                    14555
                   </span>
                 </a>
                 <a
@@ -224,8 +237,8 @@ export function Footer() {
                   className="flex items-center justify-between p-2.5 rounded-xl bg-paper/5 hover:bg-paper/10 border border-paper/10 transition-colors group"
                 >
                   <span className="text-paper/80">Cyber Crime Helpline</span>
-                  <span className="font-mono font-bold text-rose-400 group-hover:scale-105 transition-transform">
-                    📞 1930
+                  <span className="font-mono font-bold text-paper group-hover:scale-105 transition-transform">
+                    1930
                   </span>
                 </a>
               </div>
