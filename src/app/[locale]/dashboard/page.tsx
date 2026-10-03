@@ -27,10 +27,17 @@ import {
   deletePocketCard,
   deleteAllPocketCards
 } from "@/lib/storage/pocket-cards";
+import {
+  listPashuCases,
+  deletePashuCase,
+  deleteAllPashuCases,
+  type SavedPashuCase
+} from "@/lib/storage/pashu-cases";
 import type { VillagePocketCard } from "@/lib/pocket-card/types";
-import { CreditCard } from "lucide-react";
+import { CreditCard, HeartPulse } from "lucide-react";
 import { SurakshaResults } from "@/components/suraksha/SurakshaResults";
 import { FasalResults } from "@/components/fasal/FasalResults";
+import { PashuResults } from "@/components/pashu/PashuResults";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import {
@@ -68,11 +75,13 @@ export default function DashboardPage() {
   const [surakshaCases, setSurakshaCases] = useState<SavedSurakshaCase[]>([]);
   const [fasalCases, setFasalCases] = useState<SavedFasalCase[]>([]);
   const [pocketCards, setPocketCards] = useState<VillagePocketCard[]>([]);
-  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha" | "fasal" | "card">("all");
+  const [pashuCases, setPashuCases] = useState<SavedPashuCase[]>([]);
+  const [filter, setFilter] = useState<"all" | "crop" | "medi" | "suraksha" | "fasal" | "card" | "pashu">("all");
   const [openedCrop, setOpenedCrop] = useState<SavedCropCase | null>(null);
   const [openedMedi, setOpenedMedi] = useState<SavedMediCase | null>(null);
   const [openedSuraksha, setOpenedSuraksha] = useState<SavedSurakshaCase | null>(null);
   const [openedFasal, setOpenedFasal] = useState<SavedFasalCase | null>(null);
+  const [openedPashu, setOpenedPashu] = useState<SavedPashuCase | null>(null);
   const [openedMediLetter, setOpenedMediLetter] = useState(false);
   const [openedCashlessLetter, setOpenedCashlessLetter] = useState(false);
   const [escalationCase, setEscalationCase] = useState<{
@@ -102,18 +111,20 @@ export default function DashboardPage() {
       listMediCases(),
       listSurakshaCases(),
       listFasalCases(),
-      listPocketCards()
+      listPocketCards(),
+      listPashuCases()
     ])
-      .then(([crops, medis, surakshas, fasals, cards]) => {
+      .then(([crops, medis, surakshas, fasals, cards, pashus]) => {
         if (!cancelled) {
           setCropCases(crops);
           setMediCases(medis);
           setSurakshaCases(surakshas);
           setFasalCases(fasals);
           setPocketCards(cards);
+          setPashuCases(pashus);
           const currentNow = Date.now();
           setNow(currentNow);
-          const old = [...crops, ...medis, ...surakshas, ...fasals].some(
+          const old = [...crops, ...medis, ...surakshas, ...fasals, ...pashus].some(
             (c) => currentNow - new Date(c.createdAt).getTime() > 7 * 24 * 60 * 60 * 1000
           );
           setHasOldCases(old);
@@ -216,13 +227,30 @@ export default function DashboardPage() {
     }
   };
 
+  const removePashu = async (id?: string) => {
+    if (deleting.current || !window.confirm(locale === "hi" ? "क्या आप इस सहेजे गए पशु चिकित्सा रिकॉर्ड को हटाना चाहते हैं?" : locale === "bn" ? "আপনি কি এই সংরক্ষিত পশু চিকিৎসা রেকর্ডটি মুছে ফেলতে চান?" : "Delete this saved Pashu veterinary case?")) return;
+    deleting.current = true;
+    setBusy(true);
+    setError(false);
+    try {
+      if (id) await deletePashuCase(id);
+      else await deleteAllPashuCases();
+      if (alive.current) setPashuCases((rows) => (id ? rows.filter((row) => row.id !== id) : []));
+    } catch {
+      if (alive.current) setError(true);
+    } finally {
+      deleting.current = false;
+      if (alive.current) setBusy(false);
+    }
+  };
+
   const clearAllHousehold = async () => {
     const msg =
       locale === "hi"
-        ? "क्या आप अपने डिवाइस से सभी सहेजे गए कृषि, अस्पताल बिल, सुरक्षा जांच एवं फसल बीमा रिकॉर्ड हमेशा के लिए हटाना चाहते हैं?"
+        ? "क्या आप अपने डिवाइस से सभी सहेजे गए कृषि, अस्पताल बिल, सुरक्षा जांच, फसल बीमा एवं पशु स्वास्थ्य रिकॉर्ड हमेशा के लिए हटाना चाहते हैं?"
         : locale === "bn"
-        ? "আপনি কি ডিভাইস থেকে সমস্ত সংরক্ষিত কৃষি, বিল, সাইবার নিরাপত্তা ও ফসল বিমা অডিট মুছে ফেলতে চান?"
-        : "Permanently wipe all crop advisories, hospital bill audits, scam checks, and crop insurance records from this device?";
+        ? "আপনি কি ডিভাইস থেকে সমস্ত সংরক্ষিত কৃষি, বিল, সাইবার নিরাপত্তা, ফসল বিমা ও পশু চিকিৎসা অডিট মুছে ফেলতে চান?"
+        : "Permanently wipe all crop advisories, hospital bill audits, scam checks, crop insurance, and livestock health records from this device?";
 
     if (deleting.current || !window.confirm(msg)) return;
     deleting.current = true;
@@ -234,7 +262,8 @@ export default function DashboardPage() {
         deleteAllMediCases(),
         deleteAllSurakshaCases(),
         deleteAllFasalCases(),
-        deleteAllPocketCards()
+        deleteAllPocketCards(),
+        deleteAllPashuCases()
       ]);
       if (alive.current) {
         setCropCases([]);
@@ -242,6 +271,7 @@ export default function DashboardPage() {
         setSurakshaCases([]);
         setFasalCases([]);
         setPocketCards([]);
+        setPashuCases([]);
       }
     } catch {
       if (alive.current) setError(true);
@@ -417,8 +447,29 @@ export default function DashboardPage() {
     );
   }
 
-  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0 || fasalCases.length > 0 || pocketCards.length > 0;
-  const totalCount = cropCases.length + mediCases.length + surakshaCases.length + fasalCases.length + pocketCards.length;
+  if (openedPashu) {
+    return (
+      <div className="min-h-screen bg-paper pt-8 px-4">
+        <div className="max-w-5xl mx-auto mb-4 flex justify-between items-center">
+          <Button variant="quiet" onClick={() => setOpenedPashu(null)} className="text-sm font-medium">
+            ← {locale === "hi" ? "डैशबोर्ड रिकॉर्ड पर वापस जाएं" : locale === "bn" ? "ড্যাশবোর্ডে ফিরে যান" : "Back to Household Cases"}
+          </Button>
+          <span className="text-xs text-ink-soft bg-paper-2 border border-ink-soft/20 px-3 py-1 rounded-full font-mono">
+            {formatRelativeTime(openedPashu.createdAt, now, locale)}
+          </span>
+        </div>
+        <PashuResults
+          decision={openedPashu.decision}
+          evidence={openedPashu.evidence || []}
+          onSaveCase={() => {}}
+          isSaved
+        />
+      </div>
+    );
+  }
+
+  const hasCases = cropCases.length > 0 || mediCases.length > 0 || surakshaCases.length > 0 || fasalCases.length > 0 || pocketCards.length > 0 || pashuCases.length > 0;
+  const totalCount = cropCases.length + mediCases.length + surakshaCases.length + fasalCases.length + pocketCards.length + pashuCases.length;
 
   return (
     <div className="min-h-screen bg-paper pb-24">
@@ -638,6 +689,14 @@ export default function DashboardPage() {
                   }`}
                 >
                   📇 Cards ({pocketCards.length})
+                </button>
+                <button
+                  onClick={() => setFilter("pashu")}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                    filter === "pashu" ? "bg-amber-700 text-paper" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  🐄 Pashu ({pashuCases.length})
                 </button>
               </div>
             )}
@@ -1041,6 +1100,72 @@ export default function DashboardPage() {
                             size="sm"
                             disabled={busy}
                             onClick={() => removeCard(card.id)}
+                            className="text-xs text-ink-soft hover:text-terracotta"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* PashuSahay Veterinary Cases */}
+              {(filter === "all" || filter === "pashu") && pashuCases.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-lg text-amber-900 font-semibold flex items-center gap-2">
+                      <HeartPulse className="w-4 h-4 text-amber-700" /> PashuSahay Veterinary Cases ({pashuCases.length})
+                    </h3>
+                    <Button
+                      variant="quiet"
+                      disabled={loading || busy}
+                      onClick={() => removePashu()}
+                      className="text-xs text-ink-soft hover:text-terracotta"
+                    >
+                      Clear Pashu Cases
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {pashuCases.map((item) => (
+                      <div
+                        key={item.id}
+                        className="p-5 rounded-2xl border-[1.5px] border-amber-600/30 bg-amber-50/50 flex justify-between items-center gap-4 flex-wrap hover:border-amber-600 transition-all shadow-xs"
+                      >
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-amber-700 text-white">
+                              🐄 {item.animal}
+                            </span>
+                            <span className="text-xs text-ink-soft font-mono">
+                              {formatRelativeTime(item.createdAt, now, locale)}
+                            </span>
+                            <span className="text-[11px] px-2 py-0.5 rounded bg-paper border border-ink-soft/20 text-ink-soft font-mono">
+                              {item.district}, {item.state}
+                            </span>
+                          </div>
+                          <p className="font-medium text-ink text-base">
+                            {item.decision.headline}
+                          </p>
+                          <p className="text-xs text-ink-soft line-clamp-1 max-w-xl">
+                            {item.concern} · {item.decision.doNowSteps.length} First-Aid Steps · 1962 Helpline Mapped
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={() => setOpenedPashu(item)}
+                            className="border-amber-600/40 text-amber-900 hover:bg-amber-100"
+                          >
+                            View Advice
+                          </Button>
+                          <Button
+                            variant="quiet"
+                            size="sm"
+                            disabled={busy}
+                            onClick={() => removePashu(item.id)}
                             className="text-xs text-ink-soft hover:text-terracotta"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
