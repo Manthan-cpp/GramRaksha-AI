@@ -38,6 +38,10 @@ yarn-error.log*
 # misc
 .opencode/
 scratch.txt
+AGENTS.md
+CLAUDE.md
+plan.md
+remaining_build_plan.md
 
 # vercel
 .vercel
