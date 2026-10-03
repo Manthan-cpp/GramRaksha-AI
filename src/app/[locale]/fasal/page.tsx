@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { FasalForm } from "@/components/fasal/FasalForm";
 import { FasalResults } from "@/components/fasal/FasalResults";
 import { EvidenceTrail, type TrailStatus } from "@/components/krishi/EvidenceTrail";
@@ -23,105 +24,16 @@ import { Clock, ArrowLeft, AlertTriangle } from "lucide-react";
 
 type FlowStep = "form" | "analyzing" | "results";
 
-const FASAL_SESSION_KEY = "gramraksha_fasal_active_session";
-
-interface SavedFasalSession {
-  incident: FasalIncidentInput;
-  photos: FasalPhotoEvidence[];
-  evidence: Evidence[];
-  metrics?: EvidenceMetrics;
-  warnings?: string[];
-  mode: "live" | "recorded";
-}
-
-function getSavedFasalSession(locale: "en" | "hi" | "bn"): {
-  step: FlowStep;
-  incident: FasalIncidentInput | null;
-  photos: FasalPhotoEvidence[];
-  evidence: Evidence[];
-  decision: FasalDecision | null;
-  mode: "live" | "recorded";
-  metrics?: EvidenceMetrics;
-  warnings: string[];
-} {
-  if (typeof window === "undefined") {
-    return {
-      step: "form",
-      incident: null,
-      photos: [],
-      evidence: [],
-      decision: null,
-      mode: "live",
-      warnings: []
-    };
-  }
-  try {
-    const raw = sessionStorage.getItem(FASAL_SESSION_KEY);
-    if (!raw) {
-      return {
-        step: "form",
-        incident: null,
-        photos: [],
-        evidence: [],
-        decision: null,
-        mode: "live",
-        warnings: []
-      };
-    }
-    const parsed = JSON.parse(raw) as SavedFasalSession;
-    if (parsed.incident && parsed.evidence) {
-      const decision = buildFasalDecision({
-        incident: parsed.incident,
-        photos: parsed.photos || [],
-        evidence: parsed.evidence,
-        metrics: parsed.metrics || {
-          queriesPlanned: 4,
-          queriesRun: 4,
-          liveSearches: 0,
-          cacheHits: 0,
-          sourcesKept: parsed.evidence.length,
-          sourcesDropped: 0,
-          mode: parsed.mode
-        },
-        warnings: parsed.warnings || [],
-        locale
-      });
-      return {
-        step: "results",
-        incident: parsed.incident,
-        photos: parsed.photos || [],
-        evidence: parsed.evidence,
-        decision,
-        mode: parsed.mode,
-        metrics: parsed.metrics,
-        warnings: parsed.warnings || []
-      };
-    }
-  } catch {
-    // corrupted session
-  }
-  return {
-    step: "form",
-    incident: null,
-    photos: [],
-    evidence: [],
-    decision: null,
-    mode: "live",
-    warnings: []
-  };
-}
-
 export default function FasalPage() {
   const params = useParams<{ locale?: string }>();
   const locale = (params?.locale === "hi" || params?.locale === "bn" ? params.locale : "en") as "en" | "hi" | "bn";
 
-  const saved = useMemo(() => getSavedFasalSession(locale), [locale]);
-  const [step, setStep] = useState<FlowStep>(saved.step);
-  const [, setIncident] = useState<FasalIncidentInput | null>(saved.incident);
-  const [photos, setPhotos] = useState<FasalPhotoEvidence[]>(saved.photos);
-  const [evidence, setEvidence] = useState<Evidence[]>(saved.evidence);
-  const [decision, setDecision] = useState<FasalDecision | null>(saved.decision);
-  const [mode, setMode] = useState<"live" | "recorded">(saved.mode);
+  const [step, setStep] = useState<FlowStep>("form");
+  const [, setIncident] = useState<FasalIncidentInput | null>(null);
+  const [photos, setPhotos] = useState<FasalPhotoEvidence[]>([]);
+  const [evidence, setEvidence] = useState<Evidence[]>([]);
+  const [decision, setDecision] = useState<FasalDecision | null>(null);
+  const [mode, setMode] = useState<"live" | "recorded">("live");
   const [streamEvents, setStreamEvents] = useState<EvidenceEvent[]>([]);
   const [trailStatus, setTrailStatus] = useState<TrailStatus>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -190,21 +102,6 @@ export default function FasalPage() {
       setDecision(finalDecision);
       setStep("results");
 
-      // Save to sessionStorage
-      try {
-        const sessionPayload: SavedFasalSession = {
-          incident: data.incident,
-          photos: data.photos,
-          evidence: collectedEvidence,
-          metrics: latestMetrics,
-          warnings,
-          mode: data.mode
-        };
-        sessionStorage.setItem(FASAL_SESSION_KEY, JSON.stringify(sessionPayload));
-      } catch {
-        // quota exceeded / private mode
-      }
-
       // Automatically persist to Dexie IndexedDB
       try {
         await saveFasalCase({
@@ -242,15 +139,11 @@ export default function FasalPage() {
   };
 
   const handleReset = () => {
-    try {
-      sessionStorage.removeItem(FASAL_SESSION_KEY);
-    } catch {
-      // ignore
-    }
     setStep("form");
     setDecision(null);
     setEvidence([]);
     setPhotos([]);
+    setIncident(null);
   };
 
   return (
@@ -259,11 +152,18 @@ export default function FasalPage() {
       <header className="border-b border-ink/10 bg-paper sticky top-0 z-30 px-6 py-4 backdrop-blur-sm bg-paper/90">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Link
-            href="/"
-            className="flex items-center gap-2 text-ink hover:text-moss-deep transition-colors text-sm font-medium"
+            href={`/${locale}`}
+            className="flex items-center gap-2 text-ink hover:opacity-80 transition-opacity text-sm font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>GramRaksha AI</span>
+            <Image
+              src="/images/logo.png"
+              alt="GramRaksha AI"
+              width={120}
+              height={40}
+              unoptimized
+              className="h-6 w-auto object-contain"
+            />
           </Link>
 
           <div className="flex items-center gap-2">

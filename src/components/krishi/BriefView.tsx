@@ -78,25 +78,25 @@ function decisionTone(status: CropDecision["status"]): { card: string; icon: Rea
   switch (status) {
     case "guidance":
       return {
-        card: "border-moss/40 bg-gradient-to-b from-[#F7FAF7] to-[#EEF5EE]",
+        card: "border-moss/40 bg-paper-2",
         icon: <CheckCircle2 className="w-7 h-7 text-moss" />,
         badge: "bg-moss/15 text-moss-deep border-moss/30"
       };
     case "watch":
       return {
-        card: "border-turmeric/50 bg-gradient-to-b from-[#FFFDF7] to-[#FFF9EC]",
+        card: "border-turmeric/50 bg-paper-2",
         icon: <AlertTriangle className="w-7 h-7 text-turmeric-deep" />,
         badge: "bg-turmeric/20 text-turmeric-deep border-turmeric/40"
       };
     case "unavailable":
       return {
-        card: "border-terracotta/40 bg-[#FFF8F6]",
+        card: "border-terracotta/40 bg-paper-2",
         icon: <SearchX className="w-7 h-7 text-terracotta" />,
         badge: "bg-terracotta/15 text-terracotta border-terracotta/30"
       };
     default:
       return {
-        card: "border-nil/30 bg-[#F7F9FB]",
+        card: "border-nil/30 bg-paper-2",
         icon: <Info className="w-7 h-7 text-nil" />,
         badge: "bg-nil/15 text-nil border-nil/30"
       };
@@ -599,7 +599,7 @@ export function BriefView({
                         isContact
                           ? "bg-nil/10 border-nil/30"
                           : step.sourceBacked
-                          ? "bg-[#FCFDFB] border-moss/30"
+                          ? "bg-paper border-moss/30"
                           : "bg-paper border-ink-soft/20"
                       }`}
                     >
@@ -677,7 +677,7 @@ export function BriefView({
 
           {/* National Kisan Call Centre Toll-Free Banner */}
           {brief?.kisanCallCentre && (
-            <section className="bg-gradient-to-r from-moss/15 via-moss/10 to-moss/5 border-[1.5px] border-moss/30 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <section className="bg-moss/10 border-[1.5px] border-moss/30 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-moss-deep">
                   National Agricultural Toll-Free Helpline
@@ -729,7 +729,6 @@ export function BriefView({
             <div className="flex flex-wrap gap-2.5">
               <Button
                 variant="primary"
-                className="bg-moss hover:bg-moss-deep text-paper"
                 onClick={save}
                 disabled={saving || isSaved}
               >
@@ -738,7 +737,7 @@ export function BriefView({
               </Button>
               {whatsappShareUrl(summary) && (
                 <a
-                  className="inline-flex items-center px-4 py-2 rounded-xl bg-[#25D366] text-white font-medium text-sm hover:bg-[#20ba5a] transition-colors"
+                  className="inline-flex items-center px-4 py-2 rounded-lg border-2 border-black bg-[#25D366] text-white font-bold text-sm hover:bg-[#20ba5a] transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-[2px_2px_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
                   target="_blank"
                   rel="noopener noreferrer"
                   href={whatsappShareUrl(summary)}
@@ -884,7 +883,7 @@ export function BriefView({
         <div className="space-y-8 animate-in fade-in duration-200">
           {/* National Kisan Call Centre Banner */}
           {brief?.kisanCallCentre && (
-            <section className="bg-gradient-to-r from-moss/15 via-moss/10 to-moss/5 border-[1.5px] border-moss/30 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <section className="bg-moss/10 border-[1.5px] border-moss/30 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-moss-deep">
                   Toll-Free Agricultural Helpline

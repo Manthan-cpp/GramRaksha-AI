@@ -388,7 +388,16 @@ const COPY = {
     contact: (name: string) =>
       `Visit or call ${name} for free in-person advice and bring a sample of your crop.`,
     kcc: "Call the Kisan Call Centre at 1800-180-1551: This is a free government phone number for any question about your crop, local mandi rates, or mill slips.",
-    nextGuidance: "Follow the numbered harvest steps above, and call the free Kisan Call Centre (1800-180-1551) if you need help with transport or mandi prices.",
+    nextGuidance: (stage: string, concern?: string) => {
+      const isHarvest = stage.toLowerCase().includes("harvest");
+      if (isHarvest) {
+        return "Follow the numbered harvest steps above, verify mandi MSP before dispatch, and call the free Kisan Call Centre (1800-180-1551) if you need help with transport or mandi prices.";
+      }
+      if (concern) {
+        return `Follow the field actions above: inspect spots where "${concern}" was seen, keep soil moisture balanced, and call the free Kisan Call Centre (1800-180-1551) for immediate agricultural scientist guidance.`;
+      }
+      return "Follow the step-by-step field actions above: maintain balanced moisture, weed early, and call the free Kisan Call Centre (1800-180-1551) for immediate agronomy guidance.";
+    },
     nextWatch: "Inspect the crop today; call your local Krishi Vigyan Kendra if weather or pest damage spreads.",
     nextUnavailable: "Call the Kisan Call Centre at 1800-180-1551 while the search service is unavailable.",
     partial: " Some planned searches were temporarily slow, but your key crop actions are listed below."
@@ -438,7 +447,16 @@ const COPY = {
     contact: (name: string) =>
       `मुफ्त सलाह के लिए ${name} से संपर्क करें और अपनी फसल का नमूना साथ ले जाएं।`,
     kcc: "मुफ्त किसान हेल्पलाइन 1800-180-1551 पर कॉल करें: यह सरकारी नंबर बिल्कुल मुफ्त है। फसल, मंडी भाव या पर्ची से जुड़े किसी भी सवाल के लिए तुरंत बात करें।",
-    nextGuidance: "ऊपर दिए कटाई और खेत के जरूरी कदमों का पालन करें, और किसी भी समस्या पर किसान कॉल सेंटर (1800-180-1551) पर बात करें।",
+    nextGuidance: (stage: string, concern?: string) => {
+      const isHarvest = stage.toLowerCase().includes("harvest") || stage.includes("कटाई");
+      if (isHarvest) {
+        return "ऊपर दिए कटाई और सुखाई के जरूरी कदमों का पालन करें, और मंडी भाव या पर्ची सहायता के लिए मुफ्त किसान हेल्पलाइन (1800-180-1551) पर बात करें।";
+      }
+      if (concern) {
+        return `ऊपर दिए कदमों का पालन करें: जहाँ "${concern}" दिखा है वहां पहले जांचें, खेत में जल निकासी रखें और मुफ्त किसान कॉल सेंटर (1800-180-1551) से तुरंत वैज्ञानिक सलाह लें।`;
+      }
+      return "ऊपर दिए खेत सुरक्षा के जरूरी कदमों का पालन करें: खेत में उचित नमी रखें, खरपतवार हटाएं और मुफ्त किसान कॉल सेंटर (1800-180-1551) से तुरंत सलाह लें।";
+    },
     nextWatch: "खेत की जांच करें; मौसम खराब होने या बीमारी दिखने पर नजदीकी कृषि विज्ञान केंद्र से संपर्क करें।",
     nextUnavailable: "खोज सेवा उपलब्ध न होने पर किसान कॉल सेंटर 1800-180-1551 पर कॉल करें।",
     partial: " कुछ खोजें धीमी थीं, लेकिन आपके लिए जरूरी कृषि कदम नीचे दिए गए हैं।"
@@ -488,7 +506,16 @@ const COPY = {
     contact: (name: string) =>
       `বিনামূল্যে পরামর্শের জন্য ${name}-এর সাথে যোগাযোগ করুন এবং ফসলের নমুনা সাথে রাখুন।`,
     kcc: "টোল-ফ্রি কিষান হেল্পলাইন 1800-180-1551 নম্বরে ফোন করুন: এটি একটি সম্পূর্ণ বিনামূল্যে সরকারি ফোন নম্বর। ফসল, মান্ডি দর বা যেকোনো সহায়তার জন্য সরাসরি কথা বলুন।",
-    nextGuidance: "উপরে উল্লেখিত ফসল কাটার নিয়ম মেনে চলুন এবং প্রয়োজনে বিনামূল্যে কিষান কল সেন্টারে (1800-180-1551) কথা বলুন।",
+    nextGuidance: (stage: string, concern?: string) => {
+      const isHarvest = stage.toLowerCase().includes("harvest") || stage.includes("কাটা");
+      if (isHarvest) {
+        return "উপরে উল্লেখিত ফসল কাটা ও শুকানোর নিয়ম মেনে চলুন এবং মান্ডি সহায়তার জন্য বিনামূল্যে কিষান কল সেন্টারে (1800-180-1551) যোগাযোগ করুন।";
+      }
+      if (concern) {
+        return `উপরে উল্লেখিত ধাপগুলো অনুসরণ করুন: যেখানে "${concern}" দেখা গেছে সেখানে আগে পরীক্ষা করুন এবং বিনামূল্যে কিষান কল সেন্টারে (1800-180-1551) কৃষি বিজ্ঞানীদের পরামর্শ নিন।`;
+      }
+      return "উপরে উল্লেখিত মাঠ পরিচর্যার নিয়ম মেনে চলুন: জমিতে পরিমিত রস রাখুন এবং প্রয়োজনে বিনামূল্যে কিষান কল সেন্টারে (1800-180-1551) যোগাযোগ করুন।";
+    },
     nextWatch: "আজই জমি পরীক্ষা করুন; আবহাওয়া খারাপ হলে নিকটস্থ কৃষি বিজ্ঞান কেন্দ্রের সাহায্য নিন।",
     nextUnavailable: "অনুসন্ধান পাওয়া না গেলে কিষান কল সেন্টার 1800-180-1551 নম্বরে যোগাযোগ করুন।",
     partial: " কিছু অনুসন্ধান ধীরগতির ছিল, তবে আপনার জন্য প্রধান কৃষি করণীয় নিচে তালিকাভুক্ত করা হয়েছে।"
@@ -639,15 +666,31 @@ export function buildCropDecision(
       steps.push(stepFromClaim(input, claim));
     }
 
-    // 2. Add any direct evidence-derived step from kept search snippets
-    if (steps.length < 2) {
+    // 2. If a specific farmer concern was provided, insert a dedicated practical diagnostic step
+    if (concern && concern.length > 2) {
+      const concernStepText = input.locale === "hi"
+        ? `आपकी दर्ज समस्या (“${concern}”) के लिए: सुबह के समय प्रभावित पौधों और पत्तियों की निचली सतह की जांच करें। लक्षण वाले 2-3 पत्तों को साफ पॉलीथिन में रखकर नजदीकी कृषि विज्ञान केंद्र (KVK) ले जाएं और वैज्ञानिक सलाह के बाद ही कोई उपाय करें।`
+        : input.locale === "bn"
+        ? `আপনার উদ্বেগের বিষয়ে (“${concern}”): সকালের দিকে আক্রান্ত পাতা ও গোড়া ভালো করে পরীক্ষা করুন। ২-৩টি আক্রান্ত পাতার নমুনা পরিষ্কার পলিথিনে ভরে নিকটস্থ কেকেভি (KVK)-তে দেখান এবং বিশেষজ্ঞের পরামর্শ নিয়ে ব্যবস্থা নিন।`
+        : `For your reported concern (“${concern}”): Inspect the affected leaves and root zone early in the morning. Seal 2 to 3 symptomatic leaf samples in a clean plastic bag and carry them to your nearest Krishi Vigyan Kendra (KVK) for an official diagnosis before buying any commercial chemical.`;
+
+      steps.push({
+        text: concernStepText,
+        kind: "watch",
+        evidenceIds: [],
+        sourceBacked: false
+      });
+    }
+
+    // 3. Add any direct evidence-derived step from kept search snippets
+    if (steps.length < 3) {
       const derivedStep = findEvidenceDerivedStep(brief.sources, input);
       if (derivedStep && !steps.some(s => s.evidenceIds.includes(derivedStep.evidenceIds[0]))) {
         steps.push(derivedStep);
       }
     }
 
-    // 3. Add simple, soothing practical agronomic / harvest steps
+    // 4. Add simple, soothing practical agronomic / harvest steps
     const agronomyList = getAgronomyGuidance(input);
     for (const item of agronomyList) {
       if (steps.length >= 4) break;
@@ -659,7 +702,7 @@ export function buildCropDecision(
       });
     }
 
-    // 4. Always add official local support or Kisan Call Centre as the final step
+    // 5. Always add official local support or Kisan Call Centre as the final step
     const localSupport = brief.support[0];
     if (localSupport) {
       steps.push({
@@ -694,7 +737,7 @@ export function buildCropDecision(
       : copy.unavailableSummary;
 
   const nextStep = status === "guidance"
-    ? copy.nextGuidance
+    ? copy.nextGuidance(input.stage, concern)
     : status === "watch"
       ? copy.nextWatch
       : copy.nextUnavailable;

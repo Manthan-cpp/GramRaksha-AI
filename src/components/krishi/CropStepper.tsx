@@ -206,17 +206,6 @@ export function CropStepper({ onComplete }: { onComplete: (profile: CropProfile)
                 : "Microphone active... please speak"}
             </p>
           )}
-          <div className="flex gap-2 flex-wrap">
-            {["spots", "yellow", "pests", "weather"].map(chip => (
-              <button 
-                key={chip}
-                onClick={() => setConcern(t(`chips.${chip}`))}
-                className="px-4 py-2 rounded-full border border-ink-soft/20 bg-paper text-sm hover:border-moss"
-              >
-                {t(`chips.${chip}`)}
-              </button>
-            ))}
-          </div>
         </div>
       )}
 
