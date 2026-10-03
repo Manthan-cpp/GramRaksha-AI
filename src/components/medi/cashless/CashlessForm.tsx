@@ -53,7 +53,6 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
 
-      {/* Main Dispute Form */}
       <form onSubmit={handleSubmit} className="bg-paper rounded-2xl border border-ink/15 p-6 shadow-sm space-y-5">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-ink/10">
           <div>
@@ -65,7 +64,6 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
             </p>
           </div>
 
-          {/* Mode Switcher */}
           <div className="flex items-center gap-1.5 p-1 rounded-xl bg-paper-2 border border-ink/15 text-xs font-semibold">
             <button
               type="button"
@@ -175,7 +173,6 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
           </p>
         </div>
 
-        {/* Optional Beneficiary Details for Formal Letter */}
         <div className="border-t border-ink/15 pt-4 space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-ink-soft">
@@ -225,7 +222,6 @@ export function CashlessForm({ onSubmit, loading = false }: CashlessFormProps) {
           </div>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}

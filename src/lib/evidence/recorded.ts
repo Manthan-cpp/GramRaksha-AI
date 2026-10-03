@@ -83,7 +83,6 @@ export class RecordedProvider implements EvidenceProvider {
             const parsed = JSON.parse(await readFile(path.join(this.directory, file), "utf8")) as RecordedRun;
             if (parsed.version === 1 && Array.isArray(parsed.queries)) runs.push(parsed);
           } catch {
-            // One malformed recording should not prevent other recordings from working.
           }
         }
         return runs;

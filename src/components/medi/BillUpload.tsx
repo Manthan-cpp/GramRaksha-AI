@@ -83,7 +83,6 @@ export function BillUpload({
                 const file = new File([blob], "city-care-hospital-bill.jpg", { type: "image/jpeg" });
                 onFileSelect(file);
               } catch {
-                // Fallback
               }
             }}
             className="border-nil text-nil hover:bg-nil/10 text-xs font-semibold"

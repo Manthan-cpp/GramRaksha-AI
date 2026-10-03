@@ -122,7 +122,6 @@ export function BillResults({
 
   return (
     <div className="max-w-5xl mx-auto pb-24 space-y-8">
-      {/* Top Banner & Header */}
       <div className="bg-paper-2 border-[1.5px] border-ink rounded-[20px] p-6 shadow-print relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
@@ -179,7 +178,6 @@ export function BillResults({
         </div>
       </div>
 
-      {/* Segmented Navigation Tab Bar */}
       <div className="flex border-b-[1.5px] border-ink-soft/30 gap-1 overflow-x-auto bg-paper-2 p-1.5 rounded-2xl border-[1.5px] border-ink">
         <button
           type="button"
@@ -246,10 +244,8 @@ export function BillResults({
         </button>
       </div>
 
-      {/* TAB 1: CONCLUSION & ACTION STEPS */}
       {activeTab === "conclusion" && (
         <div className="space-y-6">
-          {/* Main Conclusion Summary Card */}
           <div className="bg-paper-2 rounded-[20px] border-[1.5px] border-ink p-6 md:p-8 space-y-6 shadow-sm">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-nil/10 flex items-center justify-center text-nil shrink-0 mt-1">
@@ -265,7 +261,6 @@ export function BillResults({
               </div>
             </div>
 
-            {/* Benchmark Comparison Pill Box */}
             {decision?.benchmarkRange && (
               <div className="p-4 rounded-xl border border-moss/40 bg-moss/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
@@ -283,7 +278,6 @@ export function BillResults({
             )}
           </div>
 
-          {/* Action Steps for the Patient/Family */}
           <div className="bg-paper-2 rounded-[20px] border-[1.5px] border-ink p-6 md:p-8 space-y-5 shadow-sm">
             <div>
               <h3 className="font-display text-xl text-ink flex items-center gap-2">
@@ -322,7 +316,6 @@ export function BillResults({
             </div>
           </div>
 
-          {/* Quick Letter CTA Banner */}
           <div className="bg-nil/5 border-[1.5px] border-nil/30 rounded-[20px] p-6 text-center space-y-3">
             <h3 className="font-display text-xl text-ink">Need a formal document for the hospital?</h3>
             <p className="text-ink-soft text-sm max-w-xl mx-auto">
@@ -339,7 +332,6 @@ export function BillResults({
         </div>
       )}
 
-      {/* TAB 2: FLAGS & QUESTIONS TO ASK */}
       {activeTab === "flags" && (
         <div className="space-y-6">
           <div className="bg-paper-2 rounded-[20px] border-[1.5px] border-ink p-6 md:p-8 space-y-6 shadow-sm">
@@ -381,7 +373,6 @@ export function BillResults({
                       {flag.message}
                     </p>
 
-                    {/* Question Box */}
                     <div className="p-3.5 rounded-xl bg-nil/5 border border-nil/20 space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-xs font-bold uppercase tracking-wide text-nil">
@@ -422,7 +413,6 @@ export function BillResults({
         </div>
       )}
 
-      {/* TAB 3: VERIFIED SOURCES (SERP API) */}
       {activeTab === "sources" && (
         <div className="space-y-6">
           <div className="bg-paper-2 rounded-[20px] border-[1.5px] border-ink p-6 md:p-8 space-y-6 shadow-sm">
@@ -489,7 +479,6 @@ export function BillResults({
         </div>
       )}
 
-      {/* TAB 4: GRIEVANCE ROUTES & LEGAL AID */}
       {activeTab === "grievance" && (
         <div className="space-y-6">
           <div className="bg-paper-2 rounded-[20px] border-[1.5px] border-ink p-6 md:p-8 space-y-6 shadow-sm">
@@ -503,9 +492,7 @@ export function BillResults({
               </p>
             </div>
 
-            {/* National Helplines Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* National Consumer Helpline */}
               <div className="p-5 rounded-2xl border-[1.5px] border-nil/40 bg-nil/5 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-nil text-paper">
@@ -535,7 +522,6 @@ export function BillResults({
                 </div>
               </div>
 
-              {/* Ayushman Bharat PM-JAY */}
               <div className="p-5 rounded-2xl border-[1.5px] border-moss/40 bg-moss/5 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-moss text-paper">
@@ -558,7 +544,6 @@ export function BillResults({
               </div>
             </div>
 
-            {/* Nearby Maps Support */}
             {mapSources.length > 0 && (
               <div className="space-y-3 pt-4 border-t border-ink-soft/20">
                 <h4 className="font-display text-base text-ink font-semibold flex items-center gap-1.5">
@@ -607,7 +592,6 @@ export function BillResults({
         </div>
       )}
 
-      {/* Disclaimers & Safety Footer */}
       <div className="bg-paper-2 border border-ink-soft/25 rounded-2xl p-4 text-xs text-ink-soft leading-relaxed space-y-1">
         <p>
           <strong>Safety & Limitations:</strong> GramRaksha AI analyzes public records, government packages, and standard mathematical consistency. It does not provide legal judgments or clinical malpractice verdicts. Always verify facts with authorized consumer bodies or qualified legal advocates.

@@ -36,7 +36,6 @@ export async function streamEvidenceRun(
         const parsed = EvidenceEventSchema.safeParse(JSON.parse(data));
         if (parsed.success) onEvent(parsed.data);
       } catch {
-        // Ignore malformed frames; the server emits validated events only.
       }
     }
   };

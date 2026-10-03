@@ -9,7 +9,6 @@ const input = CropEvidenceRequestSchema.parse({
 });
 const now = new Date("2026-09-30T12:00:00Z");
 
-// Synthetic fixtures only: they are not recorded government captures.
 function source(snippet: string, overrides: Partial<Evidence> = {}): Evidence {
   return {
     id: "synthetic-market", url: "https://agmarknet.gov.in/synthetic", title: "Synthetic mandi result",

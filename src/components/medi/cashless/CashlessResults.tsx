@@ -50,7 +50,6 @@ export function CashlessResults({
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
-      {/* Top Statutory Banner */}
       <div className="bg-paper-2 rounded-2xl p-5 md:p-6 border-[1.5px] border-nil/30 shadow-xs">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="space-y-1">
@@ -90,7 +89,6 @@ export function CashlessResults({
         </div>
       </div>
 
-      {/* Rapid Action Helpline Bar */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <a
           href={`tel:${decision.helplines.nationalTollFree}`}
@@ -130,7 +128,6 @@ export function CashlessResults({
         </div>
       </div>
 
-      {/* Hospital Empanelment Status & Verification */}
       <div className="bg-paper rounded-2xl border border-ink/15 p-5 md:p-6 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
@@ -166,7 +163,6 @@ export function CashlessResults({
           <p className="font-medium">{decision.empanelmentStatement}</p>
         </div>
 
-        {/* Beneficiary Details */}
         <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
           <div className="p-3 rounded-xl bg-paper-2 border border-ink/10">
             <span className="text-ink-soft block text-[10px] uppercase font-semibold">Patient Name</span>
@@ -187,10 +183,8 @@ export function CashlessResults({
         </div>
       </div>
 
-      {/* 4-Tier Escalation Ladder */}
       <CashlessEscalationCard tiers={decision.escalationLadder} />
 
-      {/* Action Checklist for Distress Situation */}
       <div className="bg-paper rounded-2xl border border-ink/15 p-5 md:p-6 shadow-sm">
         <h3 className="font-display text-lg text-ink font-bold mb-1 flex items-center gap-2">
           <span>📋</span>
@@ -212,7 +206,6 @@ export function CashlessResults({
         </ul>
       </div>
 
-      {/* Official SerpApi Verified Evidence */}
       <div className="bg-paper rounded-2xl border border-ink/15 p-5 md:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
@@ -250,7 +243,6 @@ export function CashlessResults({
         </div>
       </div>
 
-      {/* Bottom Action Footer */}
       <div className="flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl bg-paper border border-ink/15 shadow-sm">
         <button
           type="button"

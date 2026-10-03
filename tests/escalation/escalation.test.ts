@@ -144,7 +144,6 @@ describe("KVK Agricultural Expert Referral Engine & Safety Mandate", () => {
     expect(slip).toContain("Flowering & Fruit Setting");
     expect(slip).toContain("Leaves curling upward");
     expect(slip).toContain("1800-180-1551");
-    // Verify strict zero-diagnosis safety mandate is present
     expect(slip).toContain("zero-diagnosis safety mandate");
     expect(slip).toContain("never prescribes synthetic pesticides");
   });

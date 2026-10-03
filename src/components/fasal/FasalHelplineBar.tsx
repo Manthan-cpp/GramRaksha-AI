@@ -90,7 +90,6 @@ export function FasalHelplineBar({
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        {/* National Helpline 14447 */}
         <a
           href="tel:14447"
           className="flex items-center gap-3 p-3.5 rounded-xl bg-moss-deep text-paper hover:bg-moss-deep/90 transition-all shadow-sm group"
@@ -106,7 +105,6 @@ export function FasalHelplineBar({
           </div>
         </a>
 
-        {/* Insurer Helpline */}
         <a
           href={`tel:${cleanInsurerPhone}`}
           className="flex items-center gap-3 p-3.5 rounded-xl bg-paper-2 border border-ink/15 text-ink hover:border-ink/40 transition-all group"
@@ -124,7 +122,6 @@ export function FasalHelplineBar({
           </div>
         </a>
 
-        {/* Crop Insurance App */}
         <a
           href="https://play.google.com/store/apps/details?id=in.farmguide.farmerapp"
           target="_blank"
@@ -145,7 +142,6 @@ export function FasalHelplineBar({
           </div>
         </a>
 
-        {/* WhatsApp Share */}
         <button
           onClick={handleShareWhatsApp}
           className="flex items-center gap-3 p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 hover:bg-emerald-100 transition-all text-left"

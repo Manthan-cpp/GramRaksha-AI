@@ -127,12 +127,10 @@ describe("PashuSahay Decision Engine & Locale Translation", () => {
     const decisionEn = buildPashuDecision({ request, evidence: mockEvidence, metrics: {} as any, warnings: [], locale: "en" });
     const decisionHi = buildPashuDecision({ request, evidence: mockEvidence, metrics: {} as any, warnings: [], locale: "hi" });
 
-    // Evidence and hospital links must remain 100% intact across translation
     expect(decisionHi.nearbyHospitals.length).toBe(decisionEn.nearbyHospitals.length);
     expect(decisionHi.nearbyHospitals[0].mapsUrl).toBe(decisionEn.nearbyHospitals[0].mapsUrl);
     expect(decisionHi.sourceReferences.length).toBe(decisionEn.sourceReferences.length);
 
-    // Text content must be translated
     expect(decisionHi.headline).not.toBe(decisionEn.headline);
     expect(decisionHi.summary).not.toBe(decisionEn.summary);
     expect(decisionHi.speechSummary).not.toBe(decisionEn.speechSummary);

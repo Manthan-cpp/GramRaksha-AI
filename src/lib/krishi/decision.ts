@@ -556,7 +556,6 @@ function getAgronomyGuidance(input: CropRequest): AgronomyStepTemplate[] {
     if (stageSteps && stageSteps.length) return stageSteps;
   }
 
-  // Fallback generic simple guidance
   if (input.locale === "hi") {
     if (input.stage === "Harvesting" || input.stage === "कटाई" || input.stage === "Harvest") {
       return [
@@ -615,7 +614,6 @@ function findEvidenceDerivedStep(sources: Evidence[], input: CropRequest): CropD
     const hasCrop = textLower.includes(cropLower);
     const hasDistrict = textLower.includes(districtLower);
 
-    // Look for harvesting or cultivation guidance in the search snippets
     if ((hasCrop || hasDistrict) && /\b(?:harvest|cutting|yield|moisture|dry|drying|mandi|market|price|rain|water|advisory|cultivation|ratoon|storage)\b/i.test(item.snippet)) {
       const trimmed = item.snippet.replace(/\s+/g, " ").trim();
       if (trimmed.length > 25) {
@@ -661,12 +659,10 @@ export function buildCropDecision(
       ? { text: copy.contact(localSupport.name), kind: "contact", evidenceIds: [localSupport.evidenceId], sourceBacked: true }
       : { text: copy.kcc, kind: "contact", evidenceIds: [], sourceBacked: false });
   } else {
-    // 1. First add any official advisory actions from Serp API
     for (const claim of brief.actions.slice(0, 2)) {
       steps.push(stepFromClaim(input, claim));
     }
 
-    // 2. If a specific farmer concern was provided, insert a dedicated practical diagnostic step
     if (concern && concern.length > 2) {
       const concernStepText = input.locale === "hi"
         ? `आपकी दर्ज समस्या (“${concern}”) के लिए: सुबह के समय प्रभावित पौधों और पत्तियों की निचली सतह की जांच करें। लक्षण वाले 2-3 पत्तों को साफ पॉलीथिन में रखकर नजदीकी कृषि विज्ञान केंद्र (KVK) ले जाएं और वैज्ञानिक सलाह के बाद ही कोई उपाय करें।`
@@ -682,7 +678,6 @@ export function buildCropDecision(
       });
     }
 
-    // 3. Add any direct evidence-derived step from kept search snippets
     if (steps.length < 3) {
       const derivedStep = findEvidenceDerivedStep(brief.sources, input);
       if (derivedStep && !steps.some(s => s.evidenceIds.includes(derivedStep.evidenceIds[0]))) {
@@ -690,7 +685,6 @@ export function buildCropDecision(
       }
     }
 
-    // 4. Add simple, soothing practical agronomic / harvest steps
     const agronomyList = getAgronomyGuidance(input);
     for (const item of agronomyList) {
       if (steps.length >= 4) break;
@@ -702,7 +696,6 @@ export function buildCropDecision(
       });
     }
 
-    // 5. Always add official local support or Kisan Call Centre as the final step
     const localSupport = brief.support[0];
     if (localSupport) {
       steps.push({
@@ -721,7 +714,6 @@ export function buildCropDecision(
     }
   }
 
-  // Cap to max 5 as required by CropDecisionSchema
   const finalSteps = steps.slice(0, 5);
 
   const headline = status === "guidance"

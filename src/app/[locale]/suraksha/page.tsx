@@ -99,7 +99,6 @@ export default function SurakshaPage() {
     }
   }, [locale]);
 
-  // Derive localized decision without triggering cascading state updates
   const activeDecision = useMemo(() => {
     if (decision && content && evidence.length > 0) {
       return buildSurakshaDecision(
@@ -245,7 +244,6 @@ export default function SurakshaPage() {
       });
       setIsSaved(true);
     } catch {
-      // Save error
     }
   };
 
@@ -268,7 +266,6 @@ export default function SurakshaPage() {
   return (
     <div className="min-h-screen bg-paper-2 py-8 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto space-y-6">
-        {/* Navigation Breadcrumb Bar */}
         <div className="flex items-center justify-between">
           <Link
             href={`/${locale}`}
@@ -297,7 +294,6 @@ export default function SurakshaPage() {
           </div>
         </div>
 
-        {/* View Steps */}
         {step === "form" && (
           <SurakshaForm onSubmit={handleRunAudit} isLoading={false} />
         )}

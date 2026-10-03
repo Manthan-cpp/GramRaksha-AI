@@ -73,7 +73,6 @@ export function createUsageMeter(directory: string, cap: number) {
         return parsed;
       }
     } catch {
-      // A missing or malformed usage file starts a new period safely.
     }
 
     memory = emptyRecord(month);

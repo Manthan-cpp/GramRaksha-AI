@@ -48,7 +48,6 @@ export function FasalLetterModal({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // fallback
     }
   };
 
@@ -90,7 +89,6 @@ export function FasalLetterModal({
 
   return (
     <div className="bg-paper rounded-2xl border border-ink/15 p-6 shadow-sm">
-      {/* Header and Toolbar */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-ink/10">
         <div>
           <div className="flex items-center gap-2">
@@ -112,9 +110,7 @@ export function FasalLetterModal({
           </p>
         </div>
 
-        {/* Language selector & Action buttons */}
         <div className="flex flex-wrap items-center gap-2">
-          {/* Language Toggle */}
           <div className="flex rounded-lg border border-ink/15 p-0.5 bg-paper-2 text-xs font-medium">
             <button
               onClick={() => setSelectedLang("en")}
@@ -142,7 +138,6 @@ export function FasalLetterModal({
             </button>
           </div>
 
-          {/* Copy Button */}
           <button
             onClick={handleCopy}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-ink/20 text-xs font-semibold text-ink bg-paper hover:bg-paper-2 transition-all shadow-xs"
@@ -160,7 +155,6 @@ export function FasalLetterModal({
             )}
           </button>
 
-          {/* Print Button */}
           <button
             onClick={handlePrint}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-ink/20 text-xs font-semibold text-ink bg-paper hover:bg-paper-2 transition-all shadow-xs"
@@ -169,7 +163,6 @@ export function FasalLetterModal({
             <span>Print / PDF</span>
           </button>
 
-          {/* WhatsApp Button */}
           <button
             onClick={handleWhatsApp}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-300 text-xs font-semibold text-emerald-900 bg-emerald-50 hover:bg-emerald-100 transition-all shadow-xs"
@@ -180,12 +173,10 @@ export function FasalLetterModal({
         </div>
       </div>
 
-      {/* Letter Content Display Box */}
       <div className="mt-4 p-5 rounded-xl bg-paper-2/70 border border-ink/10 font-mono text-xs sm:text-sm text-ink whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto select-all">
         {letterText}
       </div>
 
-      {/* Instructions on how to serve this letter */}
       <div className="mt-4 p-3 rounded-xl bg-ink/5 border border-ink/10 flex items-start gap-2.5 text-xs text-ink-soft">
         <ShieldCheck className="w-4 h-4 text-moss-deep shrink-0 mt-0.5" />
         <div>

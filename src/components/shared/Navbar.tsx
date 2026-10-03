@@ -37,7 +37,6 @@ export function Navbar() {
 
   const isLandingPage = pathname === `/${locale}` || pathname === `/${locale}/`;
 
-  // Fetch real-time count of locally saved cases for the badge
   useEffect(() => {
     let active = true;
     Promise.all([
@@ -75,7 +74,6 @@ export function Navbar() {
     };
   }, [pathname]);
 
-  // Close menu on Escape key
   useEffect(() => {
     if (!menuOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -85,7 +83,6 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -192,7 +189,6 @@ export function Navbar() {
               className="w-full bg-transparent backdrop-blur-none border-b border-transparent"
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
-                {/* Brand Logo (Left) */}
                 <Link
                   href={`/${locale}`}
                   className="flex items-center shrink-0 group focus:outline-hidden py-1"
@@ -212,9 +208,7 @@ export function Navbar() {
                   </div>
                 </Link>
 
-                {/* Right Header Utilities: Emergency Hotline, Language Selector & Hamburger Menu */}
                 <div className="flex items-center gap-2 sm:gap-3">
-                  {/* Quick Emergency Button */}
                   <button
                     type="button"
                     onClick={() => setEmergencyOpen(true)}
@@ -225,10 +219,8 @@ export function Navbar() {
                     <span>112 / 108</span>
                   </button>
 
-                  {/* Language Selector Dropdown */}
                   <LanguageSelector />
 
-                  {/* Hamburger Menu Button on Right Side */}
                   <button
                     type="button"
                     onClick={() => setMenuOpen(true)}
@@ -254,7 +246,6 @@ export function Navbar() {
               className="w-full bg-[#2A1B14]/65 backdrop-blur-2xl border-b-2 border-amber-600/40 shadow-2xl"
             >
               <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
-                {/* Brand Logo inside expanded bar (Desktop) */}
                 <Link
                   href={`/${locale}`}
                   onClick={() => setMenuOpen(false)}
@@ -271,7 +262,6 @@ export function Navbar() {
                   />
                 </Link>
 
-                {/* All Website Features filling up the Navbar */}
                 <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto py-1 px-1 shrink-0 flex-1 justify-start md:justify-center">
                   {navLinks.map((link) => {
                     const Icon = link.icon;
@@ -301,7 +291,6 @@ export function Navbar() {
                   })}
                 </div>
 
-                {/* Right Controls: Close Button (Language Selector is only in initial navbar) */}
                 <div className="flex items-center gap-2 shrink-0 pl-2 sm:pl-3 border-l border-white/20">
                   <button
                     type="button"
@@ -322,7 +311,6 @@ export function Navbar() {
         </AnimatePresence>
       </header>
 
-      {/* National Emergency Helplines Modal */}
       <EmergencyModal
         isOpen={emergencyOpen}
         onClose={() => setEmergencyOpen(false)}

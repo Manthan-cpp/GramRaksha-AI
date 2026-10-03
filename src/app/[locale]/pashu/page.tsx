@@ -45,9 +45,7 @@ export default function PashuPage() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
-  // Restore active report and re-translate whenever locale changes
   useEffect(() => {
-    // Stop ongoing speech on language switch
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
@@ -82,10 +80,8 @@ export default function PashuPage() {
         }
       }
     } catch {
-      // ignore
     }
 
-    // If state is already in memory when switching locale
     if (step === "results" && activeRequest && evidence.length > 0) {
       const translatedDecision = buildPashuDecision({
         request: activeRequest,
@@ -158,7 +154,6 @@ export default function PashuPage() {
       setDecision(finalDecision);
       setStep("results");
 
-      // Save active session for instant language translation without reset
       try {
         const sessionData: ActivePashuSession = {
           request,
@@ -170,7 +165,6 @@ export default function PashuPage() {
         sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
       } catch {}
 
-      // Automatically persist to Dexie IndexedDB
       try {
         await savePashuCase({
           id: crypto.randomUUID(),
@@ -197,7 +191,6 @@ export default function PashuPage() {
           }
         } catch {}
       } catch {
-        // storage disabled
       }
     } catch (err) {
       setTrailStatus("error");
@@ -239,7 +232,6 @@ export default function PashuPage() {
 
   return (
     <div className="relative w-full overflow-x-hidden min-h-screen pb-24">
-      {/* Top Banner / Breadcrumb */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
@@ -275,7 +267,6 @@ export default function PashuPage() {
         </div>
       </div>
 
-      {/* Main Flow Container */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
         {step === "form" && (
           <div className="space-y-6">

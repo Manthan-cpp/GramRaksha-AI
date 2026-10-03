@@ -65,7 +65,6 @@ export function EscalationModal({
 
   if (!isOpen) return null;
 
-  // Use real elapsed days, or simulated days if testing/demoing
   const now = Date.now();
   const realDiffDays = Math.floor(Math.max(0, now - new Date(createdAt).getTime()) / 86400000);
   const effectiveNow = simulatedDays !== null
@@ -142,7 +141,6 @@ export function EscalationModal({
         aria-modal="true"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-ink/15 bg-paper">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -170,7 +168,6 @@ export function EscalationModal({
           </button>
         </div>
 
-        {/* Tab Switcher & Demo Simulation Controls */}
         <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-3 bg-paper-2 border-b border-ink/10 text-xs">
           <div className="flex gap-1.5 bg-paper p-1 rounded-xl border border-ink/15">
             <button
@@ -191,7 +188,6 @@ export function EscalationModal({
             </button>
           </div>
 
-          {/* Quick Demo Simulator buttons to test all stages */}
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-ink-soft font-medium">Demo Simulator:</span>
             <button
@@ -237,7 +233,6 @@ export function EscalationModal({
           </div>
         </div>
 
-        {/* Modal Body */}
         <div className="p-6 overflow-y-auto space-y-6 flex-1 bg-paper">
           {activeTab === "timeline" ? (
             <div className="space-y-6">
@@ -295,7 +290,6 @@ export function EscalationModal({
                 })}
               </div>
 
-              {/* Statutory Advice Card */}
               <div className="p-4 rounded-2xl bg-paper-2 border border-ink/15 space-y-2 text-xs">
                 <div className="flex items-center gap-2 font-bold text-ink text-sm">
                   <HelpCircle className="w-4 h-4 text-nil" />
@@ -335,7 +329,6 @@ export function EscalationModal({
                 </div>
               </div>
 
-              {/* Formatted Letter Preview */}
               <div className="p-6 rounded-2xl bg-paper border-[1.5px] border-ink/20 shadow-xs font-mono text-xs leading-relaxed whitespace-pre-wrap text-ink select-text">
                 {rtiText}
               </div>
@@ -343,7 +336,6 @@ export function EscalationModal({
           )}
         </div>
 
-        {/* Footer */}
         <div className="p-4 bg-paper-2 border-t border-ink/15 flex justify-between items-center text-xs text-ink-soft">
           <span>Protected under Right to Information Act 2005 & Consumer Protection Act 2019</span>
           <Button variant="quiet" size="sm" onClick={onClose}>

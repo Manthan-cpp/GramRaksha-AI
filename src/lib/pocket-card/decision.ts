@@ -17,7 +17,6 @@ export function buildVillagePocketCard(
   const fallbackPlaces = getDistrictFallbackPlaces(request.district, request.state, request.block);
   const detectedPlaces: PocketCardPlace[] = [];
 
-  // Parse Google Maps evidence
   const mapsEvidence = evidence.filter((e) => e.engine === "google_maps" && e.maps);
 
   for (const ev of mapsEvidence) {
@@ -55,7 +54,6 @@ export function buildVillagePocketCard(
     }
   }
 
-  // Merge detected places with fallback places ensuring all essential categories are present
   const mergedPlaces: PocketCardPlace[] = [];
 
   const categoriesToEnsure: PocketCardPlaceCategory[] = ["phc", "police", "kvk", "dao", "dlsa"];
@@ -72,7 +70,6 @@ export function buildVillagePocketCard(
     }
   }
 
-  // Add optional Panchayat Pradhan contact if provided
   if (request.panchayatPradhanName && request.pradhanPhone) {
     mergedPlaces.unshift({
       id: "panchayat-pradhan",
@@ -85,7 +82,6 @@ export function buildVillagePocketCard(
     });
   }
 
-  // Collect evidence references for citations
   const evidenceReferences = evidence.slice(0, 5).map((e) => ({
     title: e.title,
     url: e.url,

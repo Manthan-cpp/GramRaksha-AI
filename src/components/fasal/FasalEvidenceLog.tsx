@@ -78,14 +78,12 @@ export function FasalEvidenceLog({
           </p>
         </div>
 
-        {/* Local Storage Privacy Guarantee */}
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-ink/5 border border-ink/10 text-xs font-mono text-ink-soft">
           <Lock className="w-3.5 h-3.5 text-moss-deep" />
           <span>{locale === "hi" ? "100% स्थानीय डिवाइस संग्रह — कोई क्लाउड अपलोड नहीं" : locale === "bn" ? "১০০% ডিভাইসে সংরক্ষিত — ক্লাউডে যায় না" : "100% On-Device — Never Uploaded to Cloud"}</span>
         </div>
       </div>
 
-      {/* Action buttons */}
       {!disabled && (
         <div className="flex flex-wrap gap-3 mb-6">
           <input
@@ -125,7 +123,6 @@ export function FasalEvidenceLog({
         </div>
       )}
 
-      {/* Photos Grid */}
       {photos.length === 0 ? (
         <div className="rounded-xl border-2 border-dashed border-ink/20 p-8 text-center bg-paper-2/40">
           <Camera className="w-10 h-10 text-ink-soft/50 mx-auto mb-2" />
@@ -147,7 +144,6 @@ export function FasalEvidenceLog({
               key={photo.id}
               className="group relative rounded-xl overflow-hidden border border-ink/15 bg-paper-2 shadow-sm"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photo.dataUrl}
                 alt={`Damage proof ${index + 1}`}
@@ -155,7 +151,6 @@ export function FasalEvidenceLog({
                 onClick={() => setSelectedPreview(photo)}
               />
 
-              {/* Timestamp overlay */}
               <div className="absolute bottom-0 inset-x-0 bg-ink/75 backdrop-blur-sm p-1.5 text-[10px] font-mono text-paper flex items-center justify-between">
                 <span className="truncate flex items-center gap-1">
                   <Clock className="w-3 h-3 text-moss" />
@@ -164,7 +159,6 @@ export function FasalEvidenceLog({
                 <span>#{index + 1}</span>
               </div>
 
-              {/* Remove button */}
               {!disabled && (
                 <button
                   type="button"
@@ -180,7 +174,6 @@ export function FasalEvidenceLog({
         </div>
       )}
 
-      {/* Enlarged Modal Preview */}
       {selectedPreview && (
         <div className="fixed inset-0 z-50 bg-ink/80 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="relative bg-paper rounded-2xl max-w-2xl w-full p-4 border border-ink/20 shadow-2xl">
@@ -193,7 +186,6 @@ export function FasalEvidenceLog({
             <div className="text-xs font-mono text-ink-soft mb-2">
               Captured: {new Date(selectedPreview.timestamp).toLocaleString()}
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={selectedPreview.dataUrl}
               alt="Enlarged evidence"

@@ -165,18 +165,15 @@ describe("Pocket Card Decision Synthesizer & Schema Compliance", () => {
       "hi"
     );
 
-    // Schema validation
     const validated = VillagePocketCardSchema.parse(card);
     expect(validated.location.village).toBe("Babura");
     expect(validated.location.district).toBe("Varanasi");
     expect(validated.panchayatContact?.name).toBe("Shyam Sundar Yadav");
 
-    // Verified place from Maps
     const phc = validated.places.find((p) => p.category === "phc");
     expect(phc?.name).toBe("CHC Pindra Community Health Centre");
     expect(phc?.badge).toContain("Verified on Google Maps");
 
-    // Fallback place for DLSA
     const dlsa = validated.places.find((p) => p.category === "dlsa");
     expect(dlsa).toBeDefined();
     expect(dlsa?.phone).toBeDefined();

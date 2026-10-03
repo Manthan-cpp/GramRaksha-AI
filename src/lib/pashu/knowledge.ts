@@ -683,6 +683,5 @@ export function findMatchingGuideline(animal: string, concern: string): Clinical
     }
   }
 
-  // Default to general care if no specific condition matched
   return CLINICAL_KNOWLEDGE_BASE[CLINICAL_KNOWLEDGE_BASE.length - 1];
 }

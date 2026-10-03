@@ -43,8 +43,6 @@ function validDate(year: number, month: number, day: number): string | null {
 }
 
 function datedField(snippet: string, now: Date): string | null {
-  // A labelled date avoids mistaking an unrelated year or bulletin date for
-  // the market observation. Numeric month/day dates are ambiguous and omitted.
   const dates = [...snippet.matchAll(/\bdate\s*[:=-]\s*(\d{4}-\d{1,2}-\d{1,2}|\d{1,2}\s+[A-Za-z]+\s+\d{4})\b/gi)];
   if (dates.length !== 1) return null;
   const raw = dates[0][1];
@@ -80,15 +78,12 @@ export function extractMarketPrice(item: Evidence, input: MarketRequest, now = n
   const marketName = names[0][1].trim();
   if (marketName.length < 2 || marketName.length > 100) return null;
 
-  // Requiring one labelled, currency-qualified price directly followed by
-  // its unit excludes unrelated arrival counts, dates and multiple rates.
   if ([...snippet.matchAll(/\b(?:modal\s+price|price|rate)\s*[:=-]/gi)].length !== 1) return null;
   if ([...snippet.matchAll(/(?:₹|\bRs\.?|\bINR\b)\s*[0-9][0-9,]*(?:\.[0-9]+)?/gi)].length !== 1) return null;
   const prices = [...snippet.matchAll(/\b(?:modal\s+price|price|rate)\s*[:=-]\s*(₹|Rs\.?|INR)\s*([1-9][0-9,]*(?:\.[0-9]{1,2})?)\s*(?:\/|per)\s*(kilograms?|kgs?|kg|quintals?|qtl|metric\s+tons?|tonnes?|tons?)\b/gi)];
   if (prices.length !== 1) return null;
   const [, currency, value, rawUnit] = prices[0];
   if (!/^\d{1,3}(?:,\d{3})*$|^\d+$/.test(value.split(".")[0])) return null;
-  // Do not equate "ton" with "tonne", or assume a price denominator.
   return { price: `${currency}${value}`, marketName, date, unit: rawUnit.toLocaleLowerCase(), source: item.url, evidenceId: item.id };
 }
 

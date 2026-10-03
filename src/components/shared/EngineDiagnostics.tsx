@@ -28,7 +28,6 @@ export function EngineDiagnostics({
   const [mode, setMode] = useState<EvidenceMode>(() => getClientEvidenceMode());
   const [metrics, setMetrics] = useState<ClientEvidenceMetrics>(() => getClientEvidenceMetrics());
 
-  // Show floating button only if requested via url parameter
   const showTrigger = searchParams.get("demo") === "1" || searchParams.get("diagnostics") === "1";
 
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalOpen;
@@ -78,7 +77,6 @@ export function EngineDiagnostics({
         </div>
 
         <div className="p-5 space-y-4 text-ink text-xs">
-          {/* Evidence Mode Switcher */}
           <div className="flex items-center justify-between pb-3 border-b border-ink/15">
             <div>
               <span className="font-bold text-ink block">Evidence Source Engine</span>
@@ -98,7 +96,6 @@ export function EngineDiagnostics({
             </select>
           </div>
 
-          {/* Metric Rows */}
           <div className="space-y-2 bg-paper p-3.5 rounded-2xl border border-ink/10 font-mono text-xs">
             <div className="flex justify-between items-center">
               <span className="text-ink-soft">Engine Status:</span>

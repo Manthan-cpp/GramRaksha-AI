@@ -75,7 +75,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Main Form Box */}
       <div className="bg-paper rounded-2xl border border-ink/15 p-6 md:p-8 shadow-sm space-y-6">
         <div>
           <h2 className="font-display text-2xl text-ink">
@@ -90,7 +89,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </p>
         </div>
 
-        {/* Calamity Type Selector */}
         <div>
           <label className="block text-xs font-mono font-bold uppercase tracking-wider text-ink-soft mb-2">
             {locale === "hi" ? "प्राकृतिक आपदा का प्रकार *" : locale === "bn" ? "দুর্যোগের ধরন *" : "Nature of Calamity *"}
@@ -127,7 +125,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </div>
         </div>
 
-        {/* Date & Time of Occurrence */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-mono font-bold uppercase tracking-wider text-ink-soft mb-1.5">
@@ -160,7 +157,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </div>
         </div>
 
-        {/* Location: State, District, Village */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-xs font-mono font-bold uppercase tracking-wider text-ink-soft mb-1.5">
@@ -216,7 +212,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </div>
         </div>
 
-        {/* Estimated Loss Extent Slider */}
         <div className="bg-paper-2/60 p-4 rounded-xl border border-ink/10">
           <div className="flex justify-between items-center mb-2">
             <label className="text-xs font-mono font-bold uppercase tracking-wider text-ink-soft">
@@ -242,7 +237,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </div>
         </div>
 
-        {/* Land & Policy Optional Particulars */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-xs font-mono font-bold uppercase tracking-wider text-ink-soft mb-1.5">
@@ -284,7 +278,6 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </div>
         </div>
 
-        {/* Farmer Name & Contact */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-mono font-bold uppercase tracking-wider text-ink-soft mb-1.5">
@@ -314,12 +307,10 @@ export function FasalForm({ onSubmit, isLoading = false }: FasalFormProps) {
           </div>
         </div>
 
-        {/* Embedded Evidence Photo Log */}
         <div className="pt-2">
           <FasalEvidenceLog photos={photos} onChange={setPhotos} disabled={isLoading} />
         </div>
 
-        {/* Bottom Mode Selector & Submit */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-ink/10">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono text-ink-soft uppercase font-semibold">Mode:</span>

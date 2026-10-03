@@ -34,7 +34,6 @@ function PocketCardContent() {
   const [error, setError] = useState<string>();
   const [saved, setSaved] = useState(false);
 
-  // Restore active card on locale change
   useEffect(() => {
     if (typeof window === "undefined") return;
     const raw = sessionStorage.getItem(ACTIVE_CARD_SESSION_KEY);
@@ -60,7 +59,6 @@ function PocketCardContent() {
     }
   }, [locale]);
 
-  // Check if opening an existing card from query param ?id=...
   useEffect(() => {
     const cardId = searchParams.get("id");
     if (cardId) {
@@ -127,7 +125,6 @@ function PocketCardContent() {
             }
           }
 
-          // Automatically cache into IndexedDB so it's instantly available offline
           savePocketCard(builtCard)
             .then(() => setSaved(true))
             .catch(() => {});
@@ -135,7 +132,6 @@ function PocketCardContent() {
           setTrailStatus("error");
           setError(event.message);
 
-          // Fallback graceful degradation: build pocket card using verified directory fallback
           const fallbackCard = buildVillagePocketCard(req, collectedEvidence, mode, locale);
           setCard(fallbackCard);
           setStep("view");
@@ -207,13 +203,11 @@ function PocketCardContent() {
       await savePocketCard(card);
       setSaved(true);
     } catch {
-      // Storage error
     }
   };
 
   return (
     <div className="min-h-screen bg-paper py-8 px-4 sm:px-6 lg:px-8">
-      {/* Header */}
       <div className="text-center mb-8 max-w-2xl mx-auto space-y-2">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nil/10 text-nil font-semibold text-xs tracking-wider uppercase">
           <span>📇 Gram Raksha Offline System</span>

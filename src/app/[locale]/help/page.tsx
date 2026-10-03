@@ -41,7 +41,6 @@ export default function HelpPage() {
       setWiped(true);
       setTimeout(() => setWiped(false), 4000);
     } catch {
-      // Ignored
     } finally {
       setWiping(false);
     }
@@ -50,7 +49,6 @@ export default function HelpPage() {
   return (
     <div className="min-h-screen bg-paper py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-12">
-        {/* Header */}
         <div className="space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nil/10 text-nil text-xs font-bold uppercase tracking-wider">
             <span>🛡️ Civic Safety, Redressal & Privacy</span>
@@ -71,7 +69,6 @@ export default function HelpPage() {
           </p>
         </div>
 
-        {/* Emergencies Directory */}
         <section className="bg-paper-2 border-[1.5px] border-ink/20 p-6 sm:p-8 rounded-3xl shadow-xs space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-terracotta text-paper flex items-center justify-center font-bold text-lg shadow-2xs">
@@ -176,9 +173,7 @@ export default function HelpPage() {
           </div>
         </section>
 
-        {/* What We Do & What We Never Do */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* What We Guarantee */}
           <div className="bg-paper-2 border border-moss/30 p-6 rounded-3xl space-y-4">
             <div className="flex items-center gap-2.5 text-moss-deep font-bold text-base">
               <ShieldCheck className="w-5 h-5 text-moss" />
@@ -200,7 +195,6 @@ export default function HelpPage() {
             </ul>
           </div>
 
-          {/* What We Strictly Never Do */}
           <div className="bg-paper-2 border border-terracotta/30 p-6 rounded-3xl space-y-4">
             <div className="flex items-center gap-2.5 text-terracotta font-bold text-base">
               <ShieldAlert className="w-5 h-5 text-terracotta" />
@@ -223,7 +217,6 @@ export default function HelpPage() {
           </div>
         </div>
 
-        {/* Data Privacy & Wiping */}
         <section className="bg-paper-2 border-[1.5px] border-ink/20 p-6 sm:p-8 rounded-3xl shadow-xs space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-nil text-paper flex items-center justify-center font-bold text-lg shadow-2xs">

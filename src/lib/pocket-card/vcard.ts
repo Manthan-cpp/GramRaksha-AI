@@ -9,7 +9,6 @@ export function generatePocketCardVCard(card: VillagePocketCard): string {
   const districtName = card.location.district || "District";
   const orgName = `GramRaksha AI - ${villageName} Emergency Card`;
 
-  // Find local places
   const phc = card.places.find((p) => p.category === "phc");
   const police = card.places.find((p) => p.category === "police");
   const dao = card.places.find((p) => p.category === "dao");

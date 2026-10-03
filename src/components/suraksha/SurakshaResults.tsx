@@ -108,7 +108,6 @@ export function SurakshaResults({
       setCopiedWarning(true);
       setTimeout(() => setCopiedWarning(false), 2500);
     } catch {
-      // Fallback
     }
   };
 
@@ -154,7 +153,6 @@ export function SurakshaResults({
 
   return (
     <div className="space-y-6">
-      {/* Top Action Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-4 shadow-[2px_2px_0_0_#1b382b]">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold uppercase tracking-wider text-ink/70">
@@ -207,7 +205,6 @@ export function SurakshaResults({
         </div>
       </div>
 
-      {/* Main Verdict Card */}
       <div className={`border-2 rounded-[24px] p-6 md:p-8 shadow-[4px_4px_0_0_#1b382b] transition-all ${bannerColor}`}>
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
@@ -252,14 +249,12 @@ export function SurakshaResults({
           {decision.summary}
         </p>
 
-        {/* Quick Official Guarantee Pill */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-paper border border-ink/20 text-xs font-bold text-forest">
           <CheckCircle className="w-4 h-4 text-forest" />
           <span>{labels.freeSchemeBadge || "Official Guarantee: Central & State Schemes are 100% Free"}</span>
         </div>
       </div>
 
-      {/* Segmented 4-Tab Navigation */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-1.5 bg-paper-2 border-[1.5px] border-ink rounded-[18px]">
         {[
           { id: "verdict" as const, label: labels.tabVerdict || "Verdict & Threats", icon: ShieldAlert },
@@ -287,7 +282,6 @@ export function SurakshaResults({
         })}
       </div>
 
-      {/* Tab 1: Verdict & Threat Analysis */}
       {activeTab === "verdict" && (
         <div className="space-y-4">
           <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-[2px_2px_0_0_#1b382b]">
@@ -356,7 +350,6 @@ export function SurakshaResults({
             )}
           </div>
 
-          {/* Spoon-Fed Immediate Action Checklist */}
           <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-sm space-y-4">
             <h4 className="text-base font-bold text-ink flex items-center gap-2">
               <span>🚨</span>
@@ -454,7 +447,6 @@ export function SurakshaResults({
             </div>
           </div>
 
-          {/* Original Analyzed Content */}
           <div className="bg-paper-2 border border-ink/20 rounded-[18px] p-5">
             <div className="text-xs font-bold uppercase tracking-wider text-ink/60 mb-2">
               Original Message Analyzed
@@ -466,10 +458,8 @@ export function SurakshaResults({
         </div>
       )}
 
-      {/* Tab 2: Verified Sources & Fact-Check */}
       {activeTab === "sources" && (
         <div className="space-y-4">
-          {/* Fact Check Card */}
           <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-[2px_2px_0_0_#1b382b]">
             <h4 className="text-base font-bold text-ink mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-forest" />
@@ -506,7 +496,6 @@ export function SurakshaResults({
             </div>
           </div>
 
-          {/* SerpApi Kept Sources List */}
           <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-[2px_2px_0_0_#1b382b]">
             <div className="flex items-center justify-between mb-4">
               <h4 className="text-base font-bold text-ink flex items-center gap-2">
@@ -573,7 +562,6 @@ export function SurakshaResults({
         </div>
       )}
 
-      {/* Tab 3: Report & Redressal Routes */}
       {activeTab === "redressal" && (
         <div className="space-y-4">
           <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-[2px_2px_0_0_#1b382b]">
@@ -643,7 +631,6 @@ export function SurakshaResults({
         </div>
       )}
 
-      {/* Tab 4: Village Warning Card (WhatsApp Ready) */}
       {activeTab === "villageCard" && (
         <div className="space-y-4">
           <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-[2px_2px_0_0_#1b382b]">

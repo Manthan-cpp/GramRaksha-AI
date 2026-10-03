@@ -43,7 +43,6 @@ export function CashlessLetterModal({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // Fallback
     }
   };
 
@@ -87,7 +86,6 @@ export function CashlessLetterModal({
         aria-modal="true"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="p-5 border-b border-ink/15 bg-paper-2 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2">
@@ -102,7 +100,6 @@ export function CashlessLetterModal({
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Language Toggle */}
             <div className="flex rounded-xl border border-ink/20 p-1 bg-paper text-xs font-semibold">
               <button
                 type="button"
@@ -144,12 +141,10 @@ export function CashlessLetterModal({
           </div>
         </div>
 
-        {/* Letter Text Preview */}
         <div className="flex-1 overflow-y-auto p-5 bg-paper text-ink font-mono text-xs md:text-sm leading-relaxed border-b border-ink/15 whitespace-pre-wrap select-text">
           {currentText}
         </div>
 
-        {/* Footer Actions */}
         <div className="p-4 bg-paper-2 flex flex-wrap items-center justify-between gap-3 border-t border-ink/10">
           <div className="text-xs text-ink-soft flex items-center gap-1.5 font-medium">
             <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />

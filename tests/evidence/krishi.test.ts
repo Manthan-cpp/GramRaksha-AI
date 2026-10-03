@@ -10,7 +10,6 @@ import { isPesticideConcern } from "../../src/lib/llm/safety";
 const input = CropEvidenceRequestSchema.parse({ module: "krishi", crop: "Rice", district: "Nadia", state: "West Bengal", stage: "Flowering" });
 const now = new Date("2026-09-30T12:00:00Z");
 
-// Deliberately synthetic safety fixtures; these are not recorded API captures.
 function source(overrides: Partial<Evidence> = {}): Evidence {
   return {
     id: "synthetic-advisory", url: "https://agri.example.gov.in/synthetic", title: "Synthetic agromet advisory",

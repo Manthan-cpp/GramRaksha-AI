@@ -27,7 +27,6 @@ export function buildFasalDecision({
   const calamityLabel = formatCalamityName(incident.calamityType, locale);
   const insurer = lookupEmpanelledInsurer(incident.state, incident.district);
 
-  // Extract DAO office or Agriculture Center from Google Maps evidence if found
   const mapsResult = evidence.find((e) => e.engine === "google_maps" && e.maps);
   const daoOffice = {
     officeName: mapsResult?.maps?.name || `Office of District Agriculture Officer (${incident.district})`,

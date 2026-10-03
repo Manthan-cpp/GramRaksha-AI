@@ -41,7 +41,6 @@ export function FasalCountdownCard({
   const [countdown, setCountdown] = useState<FasalCountdownStatus>(initialCountdown);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  // Live timer tick every 1000ms
   useEffect(() => {
     const timer = setInterval(() => {
       setCountdown(calculateFasalCountdown(incidentTime, Date.now(), locale));
@@ -98,7 +97,6 @@ export function FasalCountdownCard({
 
   return (
     <div className={`rounded-2xl border-2 p-6 md:p-8 transition-all ${bannerColor}`}>
-      {/* Header bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-paper shadow-sm border border-ink/10">
@@ -156,9 +154,7 @@ export function FasalCountdownCard({
         )}
       </div>
 
-      {/* Main Countdown Display */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6 items-center">
-        {/* Big Digit Box */}
         <div className="md:col-span-2 bg-paper/90 backdrop-blur rounded-2xl border border-ink/10 p-6 shadow-sm">
           <div className="text-xs uppercase font-mono tracking-wider text-ink-soft mb-2">
             {locale === "hi" ? "दावा दर्ज करने के लिए शेष समय" : locale === "bn" ? "দাবি নিবন্ধনের জন্য বাকি সময়" : "Time Remaining to Intimate Loss"}
@@ -208,7 +204,6 @@ export function FasalCountdownCard({
             </div>
           )}
 
-          {/* Progress Bar */}
           <div className="mt-6">
             <div className="flex justify-between text-xs font-mono text-ink-soft mb-1.5">
               <span>{locale === "hi" ? "घटना का समय" : locale === "bn" ? "দুর্যোগের সময়" : "Incident Time"} (0h)</span>
@@ -232,7 +227,6 @@ export function FasalCountdownCard({
           </div>
         </div>
 
-        {/* Incident Summary Card */}
         <div className="bg-paper/90 backdrop-blur rounded-2xl border border-ink/10 p-5 shadow-sm space-y-3.5">
           <div className="text-xs uppercase font-mono tracking-wider text-ink-soft">
             {locale === "hi" ? "आपदा एवं फसल का विवरण" : locale === "bn" ? "ক্ষয়ক্ষতির বিবরণ" : "Reported Particulars"}

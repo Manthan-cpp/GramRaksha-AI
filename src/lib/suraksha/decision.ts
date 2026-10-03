@@ -18,7 +18,6 @@ export function buildSurakshaDecision(
   const analysis = analyzeSuspiciousText(input.content);
   const patterns: SurakshaPatternMatch[] = [...analysis.patterns];
 
-  // Cross-reference SerpApi news/evidence for police scam alerts
   const newsScamEvidence = evidence.find(
     (e) =>
       e.engine === "google_news" &&
@@ -35,7 +34,6 @@ export function buildSurakshaDecision(
     });
   }
 
-  // Determine verdict & risk score
   let verdict: "danger" | "caution" | "safe" = "caution";
   let riskScore = analysis.riskScore;
 
@@ -53,11 +51,9 @@ export function buildSurakshaDecision(
   const schemeName =
     analysis.extractedScheme || input.appName || (locale === "hi" ? "सरकारी योजना" : locale === "bn" ? "সরকারি প্রকল্প" : "Government Scheme");
 
-  // Official portal identification
   const officialSource = evidence.find((e) => e.trust === "official" || e.url.includes(".gov.in") || e.url.includes(".nic.in"));
   const officialUrl = officialSource?.url || (analysis.extractedScheme ? "https://pmkisan.gov.in" : "https://sancharsaathi.gov.in");
 
-  // Play Store status
   const playEvidence = evidence.find((e) => e.engine === "google_play" || e.url.includes("play.google.com"));
   let playStoreStatus = "Untrusted sideloading risk: Not a verified Google Play Store application.";
   if (locale === "hi") {
@@ -74,7 +70,6 @@ export function buildSurakshaDecision(
       : `Untrusted sideloading risk: Sideloading .apk files outside Google Play is dangerous.`;
   }
 
-  // Content synthesis by locale
   let headline = "";
   let summary = "";
   let speechSummary = "";
@@ -118,7 +113,6 @@ export function buildSurakshaDecision(
 
     warningMessage = `🚨 *গ্রাম রক্ষা সাইবার নিরাপত্তা সতর্কতা*\n\n⚠️ *সাবধান*: "${schemeName}" সংক্রান্ত একটি সন্দেহজনক বার্তা পাওয়া গেছে।\n\n• *বিপদের লক্ষণ*: সরকার কখনই হোয়াটসঅ্যাপে অ্যাপ (.apk) ডাউনলোড করতে বলে না বা টাকা চায় না।\n• *বাস্তবতা*: সরকারি প্রকল্প সম্পূর্ণ বিনামূল্যে পাওয়া যায়।\n• *করণীয়*: কোনো লিঙ্কে ক্লিক করবেন না এবং ওটিপি দেবেন না।\n• *অভিযোগ*: চক্ষু (sancharsaathi.gov.in) অথবা ১৯৩০ নম্বরে কল করুন।\n\n- গ্রাম রক্ষা জনসচেতনতা`;
   } else {
-    // English
     if (verdict === "danger") {
       headline = "High Risk: Fraudulent Scheme / Unverified APK Detected";
       summary = `This message matches patterns reported in official public cyber advisories as fraudulent. Official welfare schemes (including ${schemeName}) never demand registration fees, request OTPs, or distribute raw .apk installer files over WhatsApp.`;
@@ -138,7 +132,6 @@ export function buildSurakshaDecision(
     warningMessage = `🚨 *GRAM RAKSHA CYBER ALERT*\n\n⚠️ *Caution*: A suspicious message regarding "${schemeName}" is circulating.\n\n• *Red Flags*: Government schemes NEVER demand advance registration fees or send .apk files on WhatsApp.\n• *Fact*: All official benefits are completely free.\n• *Action*: Do not click links or share OTPs.\n• *Report*: File a report on Chakshu (sancharsaathi.gov.in) or call 1930 immediately.\n\n- Gram Raksha Public Advisory`;
   }
 
-  // Redressal routes
   const redressalRoutes = [
     {
       name:
@@ -192,7 +185,6 @@ export function buildSurakshaDecision(
     }
   ];
 
-  // Localized UI Labels
   const labels: Record<string, string> =
     locale === "hi"
       ? {

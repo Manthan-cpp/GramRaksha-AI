@@ -120,7 +120,6 @@ export function LetterEditor({ bill, decision, onBack }: LetterEditorProps) {
 
   return (
     <div className="max-w-6xl mx-auto h-[calc(100vh-6rem)] flex flex-col pb-4">
-      {/* Top Action Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 bg-paper-2 p-3.5 rounded-2xl border-[1.5px] border-ink">
         <Button variant="quiet" size="sm" onClick={onBack} className="text-ink">
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Results
@@ -156,9 +155,7 @@ export function LetterEditor({ bill, decision, onBack }: LetterEditorProps) {
         </div>
       </div>
 
-      {/* Editor & Live A4 Split View */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 min-h-0">
-        {/* Left: Textarea Editor */}
         <div className="flex flex-col h-full bg-paper-2 rounded-[16px] border-[1.5px] border-ink overflow-hidden shadow-print">
           <div className="p-3 border-b-[1.5px] border-ink bg-paper/60 font-medium text-ink text-sm flex justify-between items-center">
             <span>Edit Letter Details</span>
@@ -172,7 +169,6 @@ export function LetterEditor({ bill, decision, onBack }: LetterEditorProps) {
           />
         </div>
 
-        {/* Right: Live A4 Printable Preview */}
         <div className="flex flex-col h-full bg-ink/5 rounded-[16px] p-4 overflow-auto items-center">
           <div
             ref={printRef}
@@ -185,7 +181,6 @@ export function LetterEditor({ bill, decision, onBack }: LetterEditorProps) {
         </div>
       </div>
 
-      {/* Print Stylesheet */}
       <style dangerouslySetInnerHTML={{
         __html: `
         @media print {

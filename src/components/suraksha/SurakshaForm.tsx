@@ -124,7 +124,6 @@ export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Source Channel Selector */}
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-ink/80 mb-2">
             {t.sourceTypeLabel}
@@ -158,7 +157,6 @@ export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
           </div>
         </div>
 
-        {/* Optional App Name input */}
         <div>
           <label htmlFor="appName" className="block text-xs font-bold uppercase tracking-wider text-ink/80 mb-1.5">
             {t.appNameLabel}
@@ -173,7 +171,6 @@ export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
           />
         </div>
 
-        {/* Suspicious Content Textarea with Voice Dictation */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <label htmlFor="content" className="block text-xs font-bold uppercase tracking-wider text-ink/80">
@@ -232,7 +229,6 @@ export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
           </div>
         </div>
 
-        {/* Submit Button */}
         <Button
           type="submit"
           disabled={!content.trim() || isLoading}

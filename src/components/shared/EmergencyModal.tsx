@@ -133,7 +133,6 @@ export function EmergencyModal({ isOpen, onClose, locale = "en" }: EmergencyModa
         aria-labelledby="emergency-dialog-title"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="p-5 sm:p-6 border-b border-ink/15 bg-paper-2 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="w-10 h-10 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center text-xl shrink-0 font-bold">
@@ -167,7 +166,6 @@ export function EmergencyModal({ isOpen, onClose, locale = "en" }: EmergencyModa
           </button>
         </div>
 
-        {/* Helplines List */}
         <div className="p-5 sm:p-6 overflow-y-auto space-y-3">
           {HELPLINES.map((h) => {
             const Icon = h.icon;
@@ -210,7 +208,6 @@ export function EmergencyModal({ isOpen, onClose, locale = "en" }: EmergencyModa
           })}
         </div>
 
-        {/* Footer */}
         <div className="p-4 border-t border-ink/15 bg-paper-2 flex flex-wrap items-center justify-between gap-3 text-xs text-ink-soft">
           <span>🛡️ Verified directly against Government of India directories.</span>
           <button

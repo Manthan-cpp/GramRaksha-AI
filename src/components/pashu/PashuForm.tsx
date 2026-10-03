@@ -46,7 +46,6 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
     setDistrict("");
   };
 
-  // Web Speech recognition for voice input
   const toggleListening = () => {
     if (typeof window === "undefined") return;
     const SpeechRecognition =
@@ -106,10 +105,8 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Main Input Card */}
       <div className="bg-white/30 backdrop-blur-md rounded-3xl border-[2px] border-ink p-6 sm:p-8 space-y-6 shadow-[6px_6px_0_rgba(62,39,35,1)]">
         
-        {/* Animal Species Selection */}
         <div>
           <label className="block text-sm font-bold text-ink mb-2.5">
             {locale === "hi" ? "1. पशु की प्रजाति चुनें:" : locale === "bn" ? "১. পশুর প্রজাতি নির্বাচন করুন:" : "1. Select Animal Species:"}
@@ -138,7 +135,6 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
           </div>
         </div>
 
-        {/* Symptoms / Guidance Required */}
         <div>
           <div className="flex items-center justify-between mb-2">
             <label className="text-sm font-bold text-ink">
@@ -173,7 +169,6 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
           />
         </div>
 
-        {/* Location & Farmer Contact */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
             <label className="block text-xs font-bold text-ink mb-1.5">
@@ -243,7 +238,6 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
           </div>
         </div>
 
-        {/* Live Search Mode & Submission Button */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs text-ink-soft">
             <ShieldCheck className="w-4 h-4 text-moss-deep shrink-0" />
@@ -257,7 +251,6 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
-            {/* Live Search Toggle */}
             <button
               type="button"
               onClick={() => setMode((m) => (m === "live" ? "recorded" : "live"))}
@@ -270,7 +263,6 @@ export function PashuForm({ onSubmit, isLoading = false }: PashuFormProps) {
               {mode === "live" ? "● Live Real-Time" : "○ Recorded Mode"}
             </button>
 
-            {/* Submit Button */}
             <Button
               type="submit"
               disabled={isLoading || !canSubmit}

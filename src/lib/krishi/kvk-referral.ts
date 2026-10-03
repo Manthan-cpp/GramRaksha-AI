@@ -99,7 +99,6 @@ export function generateKvkReferralSlip(params: KvkReferralParams): string {
 স্বাক্ষর: ___________________________   সীল: ___________________________`;
   }
 
-  // English (Default)
   return `ICAR - KRISHI VIGYAN KENDRA (KVK) EXPERT REFERRAL SLIP
 Standardized Farmer Agronomic Consultation Docket
 --------------------------------------------------------------------------------

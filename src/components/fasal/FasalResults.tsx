@@ -79,7 +79,6 @@ export function FasalResults({
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Countdown Card */}
       <FasalCountdownCard
         initialCountdown={decision.countdown}
         incidentTime={decision.incidentTime}
@@ -92,7 +91,6 @@ export function FasalResults({
         speechSummary={decision.speechSummary}
       />
 
-      {/* 2. Tactile Helplines & Actions Bar */}
       <FasalHelplineBar
         insurer={decision.insurer}
         calamityLabel={decision.calamityLabel}
@@ -104,9 +102,7 @@ export function FasalResults({
         hoursLeft={decision.countdown.hoursLeft}
       />
 
-      {/* 3. Official Entities: Insurer + District Agriculture Office */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Empanelled Insurer Card */}
         <div className="bg-paper rounded-2xl border border-ink/15 p-6 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
@@ -152,7 +148,6 @@ export function FasalResults({
           )}
         </div>
 
-        {/* District Agriculture Office (DAO) Card */}
         <div className="bg-paper rounded-2xl border border-ink/15 p-6 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
@@ -198,10 +193,8 @@ export function FasalResults({
         </div>
       </div>
 
-      {/* 4. Local Evidence Photos */}
       <FasalEvidenceLog photos={photos} onChange={() => {}} disabled={true} />
 
-      {/* 5. Formal 72-Hour Claim Notice (Letter) */}
       <FasalLetterModal
         incident={{
           calamityType: decision.calamityType,
@@ -224,7 +217,6 @@ export function FasalResults({
         photos={photos}
       />
 
-      {/* 6. Evidence Trail & Sources Cited */}
       {evidence.length > 0 && (
         <div className="bg-paper rounded-2xl border border-ink/15 p-6 shadow-sm">
           <div className="flex items-center gap-2 mb-4">
@@ -255,7 +247,6 @@ export function FasalResults({
         </div>
       )}
 
-      {/* 7. Bottom Navigation & Save to Dashboard */}
       <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-paper border border-ink/15 shadow-sm">
         <Button
           variant="secondary"

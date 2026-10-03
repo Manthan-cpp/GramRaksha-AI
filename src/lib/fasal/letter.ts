@@ -140,7 +140,6 @@ PMFBY সরকারি নির্দেশিকা অনুসারে, �
 মোবাইল: ${incident.farmerPhone || ""}`;
   }
 
-  // Default: English
   return `Date: ${currentDate}
 
 To:

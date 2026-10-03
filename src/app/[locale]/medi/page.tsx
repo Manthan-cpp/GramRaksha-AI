@@ -35,13 +35,11 @@ const ACTIVE_MEDI_SESSION_KEY = "gramraksha:active_medi_session";
 
 interface ActiveMediSession {
   tab: MediTab;
-  // Cashless
   cashlessStep?: CashlessStep;
   cashlessRequest?: AyushmanCashlessRequest;
   cashlessEvidence?: Evidence[];
   cashlessMetrics?: EvidenceMetrics;
   cashlessWarnings?: string[];
-  // Audit
   auditStep?: FlowStep;
   bill?: Bill;
   evidence?: Evidence[];
@@ -58,7 +56,6 @@ function MediShieldContent() {
   const initialTab: MediTab = searchParams.get("tab") === "audit" || searchParams.get("mode") === "audit" ? "audit" : "cashless";
   const [activeTab, setActiveTab] = useState<MediTab>(initialTab);
 
-  // --- Bill Audit State ---
   const [step, setStep] = useState<FlowStep>("privacy");
   const [rawFile, setRawFile] = useState<File | null>(null);
   const [redactedUrl, setRedactedUrl] = useState<string | null>(null);
@@ -73,7 +70,6 @@ function MediShieldContent() {
   const [warnings, setWarnings] = useState<string[]>([]);
   const [isSaved, setIsSaved] = useState(false);
 
-  // --- Ayushman Cashless Shield State ---
   const [cashlessStep, setCashlessStep] = useState<CashlessStep>("form");
   const [cashlessRequest, setCashlessRequest] = useState<AyushmanCashlessRequest | null>(null);
   const [cashlessDecision, setCashlessDecision] = useState<AyushmanCashlessDecision | null>(null);
@@ -141,7 +137,6 @@ function MediShieldContent() {
     }
   }, [locale]);
 
-  // Dynamically derive active bill decision when bill, evidence, or locale changes
   const activeDecision = useMemo(() => {
     if (bill && evidence.length > 0) {
       return buildMediDecision(
@@ -163,9 +158,6 @@ function MediShieldContent() {
     return decision;
   }, [bill, evidence, metrics, warnings, mode, locale, decision]);
 
-  // ----------------------------------------------------------------------
-  // Bill Audit Handlers
-  // ----------------------------------------------------------------------
   const handlePrivacyAccept = () => setStep("upload");
   const handleTypeManually = () => setStep("review");
 
@@ -297,13 +289,9 @@ function MediShieldContent() {
       });
       setIsSaved(true);
     } catch {
-      // Storage failure handled silently or logged
     }
   };
 
-  // ----------------------------------------------------------------------
-  // Ayushman Cashless Shield Handlers
-  // ----------------------------------------------------------------------
   const handleCashlessSubmit = (req: AyushmanCashlessRequest) => {
     const selectedMode = getClientEvidenceMode();
     setCashlessRequest(req);
@@ -431,13 +419,11 @@ function MediShieldContent() {
       });
       setCashlessSaved(true);
     } catch {
-      // Storage error handled
     }
   };
 
   return (
     <div className="min-h-screen bg-paper pt-8 pb-24 px-4 md:px-8">
-      {/* Top Header & Dual Mode Switcher */}
       <div className="text-center mb-8 max-w-2xl mx-auto">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nil/10 text-nil font-semibold text-xs tracking-wider uppercase mb-2">
           MediShield Healthcare Defense
@@ -449,7 +435,6 @@ function MediShieldContent() {
           Defending patients from illegal advance cash deposits, unapproved consumables, and inflated billing.
         </p>
 
-        {/* Dual Tab Switcher */}
         <div className="inline-flex rounded-2xl border-[1.5px] border-ink/20 p-1.5 bg-paper-2 shadow-xs text-xs md:text-sm font-bold">
           <button
             type="button"
@@ -490,9 +475,6 @@ function MediShieldContent() {
         </div>
       </div>
 
-      {/* ==================================================================== */}
-      {/* TAB 1: AYUSHMAN CASHLESS SHIELD */}
-      {/* ==================================================================== */}
       {activeTab === "cashless" && (
         <>
           {cashlessStep === "form" && (
@@ -541,9 +523,6 @@ function MediShieldContent() {
         </>
       )}
 
-      {/* ==================================================================== */}
-      {/* TAB 2: HOSPITAL BILL AUDIT */}
-      {/* ==================================================================== */}
       {activeTab === "audit" && (
         <>
           {step === "privacy" && (

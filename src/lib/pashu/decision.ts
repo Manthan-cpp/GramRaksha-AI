@@ -24,7 +24,6 @@ export function buildPashuDecision({
   const { animal, concern, state, district } = request;
   const guide = findMatchingGuideline(animal, concern);
 
-  // Extract real veterinary hospitals / dispensaries from SerpApi Google Maps evidence
   const mapsEvidences = evidence.filter((e) => e.engine === "google_maps" && e.maps);
   const nearbyHospitals: PashuHospital[] = [];
 
@@ -43,7 +42,6 @@ export function buildPashuDecision({
     }
   }
 
-  // Fallback if maps query returned 0 places
   if (nearbyHospitals.length === 0) {
     nearbyHospitals.push({
       name: `Government Veterinary Hospital & Polyclinic (${district})`,
@@ -61,7 +59,6 @@ export function buildPashuDecision({
     });
   }
 
-  // Extract source references from kept SerpApi evidence
   const sourceReferences = evidence
     .filter((e) => e.engine === "google" || e.engine === "google_news" || e.engine === "youtube")
     .slice(0, 5)
@@ -71,7 +68,6 @@ export function buildPashuDecision({
       publisher: e.publisher || "Official Veterinary Advisory"
     }));
 
-  // Fallback official sources if none in evidence
   if (sourceReferences.length === 0) {
     sourceReferences.push(
       {
@@ -92,7 +88,6 @@ export function buildPashuDecision({
     );
   }
 
-  // Build localized steps
   const doNowSteps: PashuDecisionStep[] = guide.doNowSteps.map((s, index) => ({
     id: `step-${index + 1}`,
     stepNumber: index + 1,

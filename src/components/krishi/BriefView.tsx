@@ -270,7 +270,6 @@ export function BriefView({
   const visibleVideos =
     brief?.videos.filter((video) => brief.sources.some((source) => source.id === video.evidenceId)) ?? [];
 
-  // Toggle browser text-to-speech audio voice output
   const handleToggleSpeech = () => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
     if (speaking) {
@@ -318,7 +317,6 @@ export function BriefView({
 
   return (
     <div className="max-w-5xl mx-auto pb-24 space-y-8">
-      {/* Top Banner & Header Card (Matching MediShield style) */}
       <div className="bg-paper-2 border-[1.5px] border-ink rounded-[20px] p-6 shadow-print relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
@@ -410,7 +408,6 @@ export function BriefView({
         </div>
       </div>
 
-      {/* Segmented Navigation Tab Bar */}
       <div className="flex border-b-[1.5px] border-ink-soft/30 gap-1 overflow-x-auto bg-paper-2 p-1.5 rounded-2xl border-[1.5px] border-ink">
         <button
           type="button"
@@ -477,7 +474,6 @@ export function BriefView({
         </button>
       </div>
 
-      {/* Share Drawer Card */}
       {sharing && (
         <div className="space-y-3 bg-paper-2 p-5 rounded-2xl border-[1.5px] border-ink shadow-sm animate-in fade-in duration-200">
           <div className="flex justify-between items-center">
@@ -539,10 +535,8 @@ export function BriefView({
         </div>
       )}
 
-      {/* TAB 1: CONCLUSION & ACTION STEPS */}
       {activeTab === "advice" && decision && decisionStyle && (
         <div className="space-y-8 animate-in fade-in duration-200">
-          {/* Main Hero Card */}
           <section
             aria-labelledby="krishi-conclusion"
             className={`rounded-3xl border-[2px] p-6 sm:p-8 ${decisionStyle.card} relative overflow-hidden shadow-sm`}
@@ -565,7 +559,6 @@ export function BriefView({
                   {decision.headline}
                 </h2>
 
-                {/* Plain Language Summary */}
                 <div className="text-base sm:text-lg mt-4 leading-relaxed text-ink/90 whitespace-pre-line bg-paper/70 p-5 rounded-2xl border border-ink-soft/15">
                   {decision.summary}
                 </div>
@@ -576,7 +569,6 @@ export function BriefView({
               </div>
             </div>
 
-            {/* ACTION STEPS SECTION */}
             <div className="mt-8 border-t border-ink-soft/20 pt-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-xl sm:text-2xl text-ink font-semibold flex items-center gap-2">
@@ -664,7 +656,6 @@ export function BriefView({
                 })}
               </div>
 
-              {/* Best Next Step & Coverage */}
               <div className="mt-6 bg-paper/70 rounded-2xl p-4 sm:p-5 border border-ink-soft/20 text-sm space-y-1.5">
                 <p className="text-ink">
                   <strong className="text-moss-deep font-semibold">{decision.labels.nextStep}:</strong>{" "}
@@ -675,7 +666,6 @@ export function BriefView({
             </div>
           </section>
 
-          {/* National Kisan Call Centre Toll-Free Banner */}
           {brief?.kisanCallCentre && (
             <section className="bg-moss/10 border-[1.5px] border-moss/30 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
@@ -699,7 +689,6 @@ export function BriefView({
             </section>
           )}
 
-          {/* Active News or Weather Alerts if present */}
           {visibleAlerts.length > 0 && (
             <section className="mt-6">
               <h2 className="flex items-center gap-2 font-display text-xl text-ink mb-3 font-semibold">
@@ -710,7 +699,6 @@ export function BriefView({
             </section>
           )}
 
-          {/* Official Advisory Actions from Serp API if present */}
           {visibleActions.length > 0 && (
             <section className="mt-6">
               <h2 className="flex items-center gap-2 font-display text-xl text-ink mb-3 font-semibold">
@@ -721,7 +709,6 @@ export function BriefView({
             </section>
           )}
 
-          {/* Quick Action Footer Buttons */}
           <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-ink-soft/20 bg-paper-2 p-5 rounded-2xl border-[1.5px] border-ink">
             <div className="text-xs text-ink-soft">
               <span className="font-semibold text-ink">Household Protection:</span> This advisory can be saved locally on your device or printed for your village cooperative.
@@ -750,10 +737,8 @@ export function BriefView({
         </div>
       )}
 
-      {/* TAB 2: MANDI PRICES & MARKET TRENDS */}
       {activeTab === "market" && (
         <div className="space-y-8 animate-in fade-in duration-200">
-          {/* Market Prices */}
           {visibleMarket.length > 0 ? (
             <section>
               <div className="flex items-center justify-between mb-4">
@@ -805,7 +790,6 @@ export function BriefView({
             </div>
           )}
 
-          {/* Google Trends Search Interest Signal */}
           {visibleTrend ? (
             <section>
               <h2 className="flex items-center gap-2 font-display text-2xl text-ink mb-4 font-semibold">
@@ -826,7 +810,6 @@ export function BriefView({
                   </div>
                 </div>
 
-                {/* Visual Progress Bar */}
                 <div className="w-full bg-paper rounded-full h-3 border border-ink-soft/20 overflow-hidden">
                   <div
                     className="bg-moss h-full rounded-full transition-all duration-500"
@@ -847,7 +830,6 @@ export function BriefView({
         </div>
       )}
 
-      {/* TAB 3: VERIFIED SOURCES (SERP API) */}
       {activeTab === "sources" && (
         <div className="space-y-6 animate-in fade-in duration-200">
           <div className="bg-paper-2 border-[1.5px] border-ink rounded-2xl p-6 shadow-xs">
@@ -878,10 +860,8 @@ export function BriefView({
         </div>
       )}
 
-      {/* TAB 4: KVKS & GOVERNMENT SCHEMES */}
       {activeTab === "support" && (
         <div className="space-y-8 animate-in fade-in duration-200">
-          {/* National Kisan Call Centre Banner */}
           {brief?.kisanCallCentre && (
             <section className="bg-moss/10 border-[1.5px] border-moss/30 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
@@ -905,7 +885,6 @@ export function BriefView({
             </section>
           )}
 
-          {/* Local KVK / Support Offices */}
           {visibleSupport.length > 0 && (
             <section>
               <h2 className="flex items-center gap-2 font-display text-2xl text-ink mb-4 font-semibold">
@@ -967,7 +946,6 @@ export function BriefView({
             </section>
           )}
 
-          {/* Government Schemes */}
           {visibleSchemes.length > 0 && (
             <section>
               <h2 className="flex items-center gap-2 font-display text-2xl text-ink mb-4 font-semibold">
@@ -1001,7 +979,6 @@ export function BriefView({
             </section>
           )}
 
-          {/* Advisory Videos */}
           {visibleVideos.length > 0 && (
             <section>
               <h2 className="flex items-center gap-2 font-display text-2xl text-ink mb-4 font-semibold">
@@ -1039,7 +1016,6 @@ export function BriefView({
         </div>
       )}
 
-      {/* Global Safety Disclaimers */}
       <div className="bg-paper-2 border-[1.5px] border-ink-soft/30 rounded-2xl p-6 text-xs sm:text-sm text-ink-soft space-y-2">
         <strong className="text-ink font-semibold flex items-center gap-1.5">
           <AlertTriangle className="w-4 h-4 text-turmeric-deep" /> {t("disclaimer")}
@@ -1054,7 +1030,6 @@ export function BriefView({
         </p>
       </div>
 
-      {/* Official KVK Expert Referral Modal */}
       <KvkReferralModal
         isOpen={kvkReferralOpen}
         onClose={() => setKvkReferralOpen(false)}

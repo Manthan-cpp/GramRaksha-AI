@@ -16,7 +16,6 @@ export function whatsappShareUrl(text: string): string | undefined {
   url.searchParams.set("text", text);
   return safeWebUrl(url.toString());
 }
-// Context deliberately has no concern field. Only cited claims enter sharing.
 export function sourcedSummary(brief: CropBrief, heading: string, sourceLabel: string) {
   const lines = [heading];
   for (const claim of [...brief.alerts.map(a => a.claim), ...brief.actions]) {
@@ -52,8 +51,6 @@ export async function exportSummaryImage(text: string, locale: string) {
   const variable = locale === "hi" ? "--font-devanagari" : locale === "bn" ? "--font-bengali" : "--font-body";
   const rootStyle = getComputedStyle(document.documentElement);
   const configuredFamily = rootStyle.getPropertyValue(variable).trim();
-  // Next/font puts the actual family on the locale layout's <html> class.
-  // Fall back to the rendered body family if the variable is unavailable.
   const renderedFamily = getComputedStyle(document.body).fontFamily.trim();
   const family = configuredFamily && !configuredFamily.includes("var(") ? configuredFamily : renderedFamily;
   if (!family) throw new Error("Font unavailable");

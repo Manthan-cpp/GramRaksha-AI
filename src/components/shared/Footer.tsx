@@ -18,7 +18,6 @@ export function Footer() {
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
   const [emergencyOpen, setEmergencyOpen] = useState(false);
 
-  // Hide footer completely on the landing page
   const isLandingPage = pathname === `/${locale}` || pathname === `/${locale}/`;
   if (isLandingPage) {
     return null;
@@ -28,9 +27,7 @@ export function Footer() {
     <>
       <footer className="bg-ink text-paper border-t border-ink-soft/30 pt-16 pb-12 px-4 sm:px-6 lg:px-8 mt-auto">
         <div className="max-w-7xl mx-auto space-y-12">
-          {/* Top 4-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {/* Column 1: Brand & Civic Philosophy */}
             <div className="space-y-4">
               <div className="flex items-center">
                 <Image
@@ -60,7 +57,6 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Civic Services & Tools */}
             <div className="space-y-3">
               <h4 className="font-display font-bold text-sm text-paper uppercase tracking-wider">
                 {locale === "hi" ? "नागरिक सुरक्षा सेवाएं" : locale === "bn" ? "নাগরিক পরিষেবা" : "Civic Services"}
@@ -111,7 +107,6 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 3: Statutory Frameworks & Government Links */}
             <div className="space-y-3">
               <h4 className="font-display font-bold text-sm text-paper uppercase tracking-wider">
                 {locale === "hi" ? "संवैधानिक एवं आधिकारिक नियम" : locale === "bn" ? "সরকারি বিধি ও নির্দেশিকা" : "Statutory Frameworks"}
@@ -180,7 +175,6 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 4: 24x7 Emergency Lifelines */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="font-display font-bold text-sm text-paper uppercase tracking-wider">
@@ -245,7 +239,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Bottom Bar: Public Interest Disclaimer & System Status */}
           <div className="pt-8 border-t border-paper/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-paper/60">
             <div className="text-center md:text-left space-y-1">
               <p>
@@ -257,7 +250,6 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
-              {/* Evidence Engine Diagnostics Trigger */}
               <button
                 type="button"
                 onClick={() => setDiagnosticsOpen(true)}
@@ -272,13 +264,11 @@ export function Footer() {
         </div>
       </footer>
 
-      {/* Diagnostics Modal */}
       <EngineDiagnostics
         isOpen={diagnosticsOpen}
         onClose={() => setDiagnosticsOpen(false)}
       />
 
-      {/* Emergency Modal */}
       <EmergencyModal
         isOpen={emergencyOpen}
         onClose={() => setEmergencyOpen(false)}

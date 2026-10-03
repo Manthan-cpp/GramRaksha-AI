@@ -102,7 +102,6 @@ export function CinematicIntro() {
           ))}
         </g>
 
-        {/* The white border */}
         <motion.rect
           fill="none"
           stroke="white"

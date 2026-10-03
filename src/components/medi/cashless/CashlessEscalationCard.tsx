@@ -49,7 +49,6 @@ export function CashlessEscalationCard({ tiers }: CashlessEscalationCardProps) {
               key={t.tier}
               className="relative pl-10 group transition-all"
             >
-              {/* Timeline circle */}
               <div className="absolute left-2 top-2 -translate-x-1/2 w-5 h-5 rounded-full bg-paper border-2 border-nil text-nil text-[10px] font-bold flex items-center justify-center shadow-xs">
                 {t.tier}
               </div>

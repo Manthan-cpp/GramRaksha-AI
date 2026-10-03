@@ -14,7 +14,6 @@ export default function HomeTabPage() {
   const [activeScenario, setActiveScenario] = useState<number>(0);
 
   useEffect(() => {
-    // Reset overflow and scroll to top smoothly when page mounts
     document.body.style.overflow = "";
     window.scrollTo(0, 0);
   }, []);
@@ -138,11 +137,9 @@ export default function HomeTabPage() {
 
   return (
     <div className="relative w-full overflow-x-hidden pb-20">
-      {/* Hero Section with Generous Side Indentation */}
       <section className="relative pt-12 md:pt-16 pb-12 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto space-y-6">
 
-          {/* Main Title */}
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -167,7 +164,6 @@ export default function HomeTabPage() {
             )}
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,7 +177,6 @@ export default function HomeTabPage() {
               : "One unified public-interest platform. Statutory crop calamity intimations (72h), Ayushman cashless admission shield (Clause 8.2), cyber scam audits, and verified KVK agriculture intel."}
           </motion.p>
 
-          {/* Hotlines Ticker Strip */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -227,9 +222,7 @@ export default function HomeTabPage() {
           </motion.div>
         </div>
 
-        {/* 5 Core Pillars Grid - Clean 3+2 Layout with Generous Breathing Room */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
-          {/* Card 1: KrishiSahay */}
           <Link
             href={`/${locale}/krishi`}
             className="group p-6 rounded-3xl bg-white/20 backdrop-blur-md border-[2px] border-ink transition-all shadow-[6px_6px_0_rgba(62,39,35,1)] hover:shadow-[2px_2px_0_rgba(62,39,35,1)] hover:translate-x-[4px] hover:translate-y-[4px] flex flex-col justify-between"
@@ -262,7 +255,6 @@ export default function HomeTabPage() {
             </div>
           </Link>
 
-          {/* Card 2: MediShield & Ayushman */}
           <Link
             href={`/${locale}/medi`}
             className="group p-6 rounded-3xl bg-white/20 backdrop-blur-md border-[2px] border-ink transition-all shadow-[6px_6px_0_rgba(62,39,35,1)] hover:shadow-[2px_2px_0_rgba(62,39,35,1)] hover:translate-x-[4px] hover:translate-y-[4px] flex flex-col justify-between"
@@ -295,7 +287,6 @@ export default function HomeTabPage() {
             </div>
           </Link>
 
-          {/* Card 3: Suraksha Check */}
           <Link
             href={`/${locale}/suraksha`}
             className="group p-6 rounded-3xl bg-white/20 backdrop-blur-md border-[2px] border-ink transition-all shadow-[6px_6px_0_rgba(62,39,35,1)] hover:shadow-[2px_2px_0_rgba(62,39,35,1)] hover:translate-x-[4px] hover:translate-y-[4px] flex flex-col justify-between"
@@ -328,7 +319,6 @@ export default function HomeTabPage() {
             </div>
           </Link>
 
-          {/* Card 4: Fasal Bima 72h */}
           <Link
             href={`/${locale}/fasal`}
             className="group p-6 rounded-3xl bg-white/20 backdrop-blur-md border-[2px] border-ink transition-all shadow-[6px_6px_0_rgba(62,39,35,1)] hover:shadow-[2px_2px_0_rgba(62,39,35,1)] hover:translate-x-[4px] hover:translate-y-[4px] flex flex-col justify-between"
@@ -361,7 +351,6 @@ export default function HomeTabPage() {
             </div>
           </Link>
 
-          {/* Card 5: Emergency Pocket Card */}
           <Link
             href={`/${locale}/card`}
             className="group p-6 rounded-3xl bg-white/20 backdrop-blur-md border-[2px] border-ink transition-all shadow-[6px_6px_0_rgba(62,39,35,1)] hover:shadow-[2px_2px_0_rgba(62,39,35,1)] hover:translate-x-[4px] hover:translate-y-[4px] flex flex-col justify-between"
@@ -394,7 +383,6 @@ export default function HomeTabPage() {
             </div>
           </Link>
 
-          {/* Card 6: PashuSahay */}
           <Link
             href={`/${locale}/pashu`}
             className="group p-6 rounded-3xl bg-white/20 backdrop-blur-md border-[2px] border-ink transition-all shadow-[6px_6px_0_rgba(62,39,35,1)] hover:shadow-[2px_2px_0_rgba(62,39,35,1)] hover:translate-x-[4px] hover:translate-y-[4px] flex flex-col justify-between"
@@ -429,7 +417,6 @@ export default function HomeTabPage() {
         </div>
       </section>
 
-      {/* Interactive Scenario Showcase with Generous Indentation */}
       <section className="py-12 md:py-16 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto">
         <div className="bg-paper-2 rounded-3xl border border-ink/15 p-6 sm:p-10 shadow-sm space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-ink/10 pb-6">
@@ -454,7 +441,6 @@ export default function HomeTabPage() {
             </p>
           </div>
 
-          {/* Scenario Tabs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {scenarios.map((s, idx) => (
               <button
@@ -475,7 +461,6 @@ export default function HomeTabPage() {
             ))}
           </div>
 
-          {/* Active Scenario Detailed Breakdown */}
           {(() => {
             const cur = scenarios[activeScenario];
             return (
@@ -520,7 +505,6 @@ export default function HomeTabPage() {
         </div>
       </section>
 
-      {/* How it Works: Multi-Engine Pipeline with Generous Indentation */}
       <section className="py-12 md:py-16 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-moss-deep">
@@ -589,7 +573,6 @@ export default function HomeTabPage() {
         </div>
       </section>
 
-      {/* Comparison: Ordinary Web Search vs GramRaksha AI with Generous Indentation */}
       <section className="py-12 md:py-16 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto">
         <div className="bg-paper-2 rounded-3xl border border-ink/15 p-6 sm:p-10 shadow-sm space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -602,7 +585,6 @@ export default function HomeTabPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Generic Search */}
             <div className="p-6 rounded-2xl bg-paper border border-terracotta/20 space-y-4">
               <div className="flex items-center gap-2 text-terracotta font-bold text-sm">
                 <XCircle className="w-5 h-5 shrink-0" />
@@ -628,7 +610,6 @@ export default function HomeTabPage() {
               </ul>
             </div>
 
-            {/* GramRaksha AI */}
             <div className="p-6 rounded-2xl bg-paper border border-moss/30 space-y-4">
               <div className="flex items-center gap-2 text-moss-deep font-bold text-sm">
                 <CheckCircle2 className="w-5 h-5 shrink-0 text-moss" />
@@ -657,7 +638,6 @@ export default function HomeTabPage() {
         </div>
       </section>
 
-      {/* Emergency Modal */}
       <EmergencyModal
         isOpen={emergencyModalOpen}
         onClose={() => setEmergencyModalOpen(false)}

@@ -94,7 +94,6 @@ export function buildMediDecision(
   const mathDiff = items.length > 0 ? Math.round(bill.total - itemsSum) : 0;
   const labels = LOCALIZED_LABELS[locale] || LOCALIZED_LABELS.en;
 
-  // 1. Math Check (totalMismatch)
   if (items.length > 0 && Math.abs(mathDiff) > 5) {
     if (locale === "hi") {
       flags.push({
@@ -120,7 +119,6 @@ export function buildMediDecision(
     }
   }
 
-  // 2. Vague Charges Check
   const vagueRegex = /misc|miscellaneous|admin|administration|service charge|handling|sanitation|hospitality|bio-waste|sundry|general expense|other charges/i;
   for (const item of items) {
     if (vagueRegex.test(item.label) || item.category === "misc") {
@@ -152,7 +150,6 @@ export function buildMediDecision(
     }
   }
 
-  // 3. Consumables & Disposables Check
   const consumableRegex = /consumable|disposable|gloves|ppe|syringe|cotton|mask|sanitizer|gauze/i;
   for (const item of items) {
     if ((consumableRegex.test(item.label) || item.category === "consumables") && item.amount >= 5000) {
@@ -184,7 +181,6 @@ export function buildMediDecision(
     }
   }
 
-  // 4. Pharmacy Itemisation Check
   const pharmacyRegex = /pharmacy|medicine|medication|drug|injections/i;
   for (const item of items) {
     if ((pharmacyRegex.test(item.label) || item.category === "pharmacy") && item.amount >= 10000 && (!item.qty || item.qty === 1)) {
@@ -216,14 +212,12 @@ export function buildMediDecision(
     }
   }
 
-  // Benchmark Analysis
   const benchmark = findBenchmark(bill.procedure);
   let benchmarkRangeText: string | undefined;
   if (benchmark) {
     benchmarkRangeText = `₹${benchmark.min.toLocaleString("en-IN")} to ₹${benchmark.max.toLocaleString("en-IN")}`;
   }
 
-  // Action Steps
   const actions: MediDecisionStep[] = [];
   if (locale === "hi") {
     actions.push({
@@ -314,7 +308,6 @@ export function buildMediDecision(
     });
   }
 
-  // Summary Construction
   let headline = "";
   let summary = "";
   let speechSummary = "";

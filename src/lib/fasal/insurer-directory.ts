@@ -78,7 +78,6 @@ export const KNOWN_INSURERS: Record<string, EmpanelledInsurer> = {
   }
 };
 
-// State-level primary empanelled insurer directory under PMFBY cluster allocation
 const STATE_INSURER_MAP: Record<string, string> = {
   Maharashtra: "aic",
   "West Bengal": "aic", // Bangla Shasya Bima / AIC

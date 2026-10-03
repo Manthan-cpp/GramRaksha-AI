@@ -2,7 +2,6 @@ import Dexie, { type Table } from "dexie";
 import { z } from "zod";
 import { CropBriefSchema, CropEvidenceRequestSchema } from "@/lib/schemas";
 
-// Separate typed store: no health payloads, concerns or uploaded images.
 export const SavedCropCaseSchema = z.object({
   id: z.string().uuid(), module: z.literal("krishi"), version: z.literal(1),
   createdAt: z.string().datetime(), locale: z.enum(["en", "hi", "bn"]),

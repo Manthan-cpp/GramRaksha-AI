@@ -41,7 +41,6 @@ function contains(text: string, value: string): boolean {
 }
 
 function recent(item: Evidence, now: Date): boolean {
-  // Relative or ambiguous dates are not sufficient evidence of freshness.
   if (!item.publishedAt || !/^\d{4}-\d{2}-\d{2}T/.test(item.publishedAt)) return false;
   const age = now.getTime() - Date.parse(item.publishedAt);
   return Number.isFinite(age) && age >= 0 && age <= 30 * 86_400_000;
@@ -69,16 +68,12 @@ export function buildCropBrief(input: CropRequest, retainedEvidence: Evidence[],
     const districtMatch = contains(item.snippet, input.district);
     const official = item.trust === "official" && isOfficialUrl(item.url);
 
-    // Only explicitly local, current official advisory excerpts are promoted
-    // into personalized actions. Treatment wording is allowed here because it
-    // remains a direct, cited recommendation rather than generated advice.
     if (official && item.engine === "google" && cropMatch && districtMatch &&
         contains(item.snippet, input.stage) && /\b(?:advisory|agromet)\b/i.test(content) && recent(item, now) &&
         /\b(?:monitor|inspect|observe|check|apply|use|treat|mix|administer|spray|control|remove|avoid)\b/i.test(item.snippet)) {
       actions.push(quote(item));
     }
 
-    // News excerpts report context, never a severity assessment or diagnosis.
     if (item.engine === "google_news" && cropMatch && districtMatch && recent(item, now) &&
         /\b(?:rain|rainfall|flood\w*|drought|heat\w*|storm|weather|pest|warning|alert)\b/i.test(item.snippet)) {
       alerts.push({ freshness: item.publishedAt!, claim: quote(item) });

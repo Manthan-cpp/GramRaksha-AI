@@ -39,7 +39,6 @@ export function PocketCardPrint({ card }: PocketCardPrintProps) {
         }
       `}</style>
 
-      {/* Print Instructions (Hidden on paper print) */}
       <div className="mb-4 p-3 bg-neutral-100 rounded-xl border border-neutral-300 print:hidden text-xs text-neutral-700 flex items-center justify-between">
         <div>
           <span className="font-bold">🖨️ Pocket Wallet Card (Standard ID Size: 85mm × 54mm)</span>
@@ -56,11 +55,8 @@ export function PocketCardPrint({ card }: PocketCardPrintProps) {
         </button>
       </div>
 
-      {/* Dual Sided Foldable Card Container */}
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center max-w-2xl mx-auto">
-        {/* CARD FRONT (85mm x 54mm) */}
         <div className="w-[85.6mm] h-[54mm] border-2 border-dashed border-neutral-800 rounded-xl p-3 bg-white flex flex-col justify-between shadow-xs box-border overflow-hidden">
-          {/* Header */}
           <div className="border-b border-neutral-300 pb-1.5 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <span className="text-base">🛡️</span>
@@ -81,7 +77,6 @@ export function PocketCardPrint({ card }: PocketCardPrintProps) {
             </div>
           </div>
 
-          {/* 8 Lifelines Grid */}
           <div className="grid grid-cols-2 gap-x-2 gap-y-1 my-auto text-[9.5px]">
             <div className="flex justify-between items-center bg-neutral-50 px-1.5 py-0.5 rounded border border-neutral-200">
               <span className="font-medium">🚨 Emergency</span>
@@ -113,22 +108,18 @@ export function PocketCardPrint({ card }: PocketCardPrintProps) {
             </div>
           </div>
 
-          {/* Footer Note */}
           <div className="border-t border-neutral-200 pt-1 text-[7.5px] text-neutral-500 flex justify-between">
             <span>Govt. 24x7 Toll-Free</span>
             <span>CARD FRONT &bull; FOLD HERE &rarr;</span>
           </div>
         </div>
 
-        {/* CARD BACK (85mm x 54mm) */}
         <div className="w-[85.6mm] h-[54mm] border-2 border-dashed border-neutral-800 rounded-xl p-3 bg-white flex flex-col justify-between shadow-xs box-border overflow-hidden">
-          {/* Back Header */}
           <div className="border-b border-neutral-300 pb-1 flex justify-between items-center text-[9px] font-bold">
             <span>LOCAL VERIFIED SUPPORT</span>
             <span className="text-neutral-500 font-normal text-[8px]">{card.location.district} ({card.location.state})</span>
           </div>
 
-          {/* Local Verified Contacts */}
           <div className="space-y-1 my-auto text-[8.5px]">
             {phc && (
               <div className="flex justify-between items-center">
@@ -168,7 +159,6 @@ export function PocketCardPrint({ card }: PocketCardPrintProps) {
             )}
           </div>
 
-          {/* Back Footer */}
           <div className="border-t border-neutral-200 pt-1 text-[7px] text-neutral-500 flex justify-between items-center">
             <span>CARD BACK &bull; Keep inside wallet or laminate</span>
             <span className="font-mono font-bold">gramraksha.gov.in</span>

@@ -143,7 +143,6 @@ export default function FasalPage() {
       setDecision(finalDecision);
       setStep("results");
 
-      // Cache active session in sessionStorage to support seamless language switching
       if (typeof window !== "undefined") {
         try {
           sessionStorage.setItem(
@@ -162,7 +161,6 @@ export default function FasalPage() {
         }
       }
 
-      // Automatically persist to Dexie IndexedDB
       try {
         await saveFasalCase({
           id: crypto.randomUUID(),
@@ -182,7 +180,6 @@ export default function FasalPage() {
       }
     } catch (err) {
       console.error("Evidence run failed:", err);
-      // Fallback decision with local rule computation so farmer is never left without guidance
       const fallbackDecision = buildFasalDecision({
         incident: data.incident,
         photos: data.photos,
@@ -232,7 +229,6 @@ export default function FasalPage() {
 
   return (
     <div className="min-h-screen bg-paper pb-20">
-      {/* Top Navbar */}
       <header className="border-b border-ink/10 bg-paper sticky top-0 z-30 px-6 py-4 backdrop-blur-sm bg-paper/90">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Link
@@ -268,7 +264,6 @@ export default function FasalPage() {
         </div>
       </header>
 
-      {/* Main Content Area */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-8">
         {step === "form" && (
           <div className="space-y-6">

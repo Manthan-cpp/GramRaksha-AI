@@ -474,7 +474,6 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-paper pb-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 space-y-10">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-paper-2 p-6 rounded-3xl border border-ink/15 shadow-xs">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink/10 text-ink text-xs font-bold uppercase tracking-wider mb-2">
@@ -505,7 +504,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Real-time Case Statistics Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           <div className="p-3.5 rounded-2xl bg-paper-2 border border-ink/15 text-center">
             <div className="text-[11px] font-bold text-ink-soft uppercase tracking-wider">Total Vault Records</div>
@@ -533,7 +531,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Protection Module Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           <div className="bg-moss/10 border-[1.5px] border-moss/30 rounded-[20px] p-6 relative overflow-hidden group shadow-sm">
             <div className="absolute -right-4 -bottom-4 opacity-10">
@@ -627,7 +624,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Case Timeline Section */}
         <section className="space-y-6">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b-[1.5px] border-ink-soft/20 pb-4">
             <div>
@@ -639,7 +635,6 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            {/* Filter Pills */}
             {hasCases && (
               <div className="flex flex-wrap gap-1.5 bg-paper-2 p-1 rounded-xl border border-ink-soft/20 text-xs">
                 <button
@@ -702,7 +697,6 @@ export default function DashboardPage() {
             )}
           </div>
 
-          {/* Freshness Advisory & 1-Click Refresh Banner */}
           {hasOldCases && (
             <div className="p-5 rounded-2xl border-[1.5px] border-turmeric/50 bg-turmeric/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs shadow-xs">
               <div className="flex items-start gap-3">
@@ -736,7 +730,6 @@ export default function DashboardPage() {
             </div>
           ) : hasCases ? (
             <div className="space-y-6">
-              {/* MediShield Cases */}
               {(filter === "all" || filter === "medi") && mediCases.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -815,7 +808,6 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              {/* Krishi Cases */}
               {(filter === "all" || filter === "crop") && cropCases.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -870,7 +862,6 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              {/* Suraksha Cases */}
               {(filter === "all" || filter === "suraksha") && surakshaCases.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -948,7 +939,6 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              {/* Fasal 72-Hour Kit Cases */}
               {(filter === "all" || filter === "fasal") && fasalCases.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -1044,7 +1034,6 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              {/* Pocket Card Cases */}
               {(filter === "all" || filter === "card") && pocketCards.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -1111,7 +1100,6 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              {/* PashuSahay Veterinary Cases */}
               {(filter === "all" || filter === "pashu") && pashuCases.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -1189,7 +1177,6 @@ export default function DashboardPage() {
         </section>
       </div>
 
-      {/* Statutory Escalation & Section 6(1) RTI Modal */}
       {escalationCase && (
         <EscalationModal
           isOpen={Boolean(escalationCase)}

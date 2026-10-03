@@ -100,7 +100,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
 
   return (
     <div className="max-w-6xl mx-auto space-y-8 pb-16">
-      {/* Top Header & Demo Presets */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-paper-2 p-6 rounded-[16px] border-[1.5px] border-ink shadow-sm">
         <div>
           <div className="flex items-center gap-2">
@@ -116,7 +115,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
           </p>
         </div>
 
-        {/* Demo Bill Selector */}
         <div className="flex flex-wrap items-center gap-2 bg-nil/5 p-3 rounded-xl border border-nil/20">
           <div className="flex items-center gap-1.5 text-nil font-medium text-xs">
             <Sparkles className="w-4 h-4" /> Try Demo Scenario:
@@ -137,7 +135,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Image or Manual Guidance (4 cols) */}
         <div className="lg:col-span-4 flex flex-col space-y-4">
           <div className="bg-paper-2 border-[1.5px] border-ink rounded-[16px] shadow-print flex flex-col overflow-hidden">
             <div className="p-3.5 border-b-[1.5px] border-ink bg-paper/70 flex justify-between items-center">
@@ -173,7 +170,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
             </div>
           </div>
 
-          {/* Privacy Note Reminder */}
           <div className="p-4 rounded-xl border border-moss/30 bg-moss/5 text-xs text-ink-soft space-y-1">
             <p className="font-semibold text-moss">🔒 Zero Health Data Leakage</p>
             <p>
@@ -182,9 +178,7 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
           </div>
         </div>
 
-        {/* Right Column: Editable Details & Line-Items (8 cols) */}
         <div className="lg:col-span-8 flex flex-col space-y-6">
-          {/* Hospital, City, Procedure Header Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-paper-2 p-5 rounded-[16px] border-[1.5px] border-ink">
             <div>
               <label className="block text-xs font-semibold text-ink-soft uppercase tracking-wider mb-1.5">
@@ -247,7 +241,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
             </div>
           </div>
 
-          {/* Line Items Table */}
           <div className="bg-paper-2 rounded-[16px] border-[1.5px] border-ink p-5 space-y-4">
             <div className="flex justify-between items-center pb-3 border-b border-ink-soft/20">
               <div>
@@ -315,7 +308,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
               ))}
             </div>
 
-            {/* Total Reconciliation Bar */}
             <div className="pt-4 border-t border-ink-soft/20 flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2">
                 <label className="text-xs font-semibold text-ink-soft uppercase tracking-wider">
@@ -333,7 +325,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
                 </div>
               </div>
 
-              {/* Math Check Badge */}
               <div className="flex items-center gap-2">
                 {items.length > 0 && Math.abs(mathDiff) <= 5 ? (
                   <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-moss/10 border border-moss/30 text-moss text-xs font-medium">
@@ -352,7 +343,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
             </div>
           </div>
 
-          {/* Confirmation Checkbox */}
           <div className="p-4 bg-paper-2 rounded-xl border-[1.5px] border-ink-soft/20">
             <label className="flex items-start gap-3 cursor-pointer group">
               <input
@@ -367,7 +357,6 @@ export function ExtractionReview({ imageUrl, initialBill, onConfirm, onBack }: E
             </label>
           </div>
 
-          {/* Action Button */}
           <Button
             variant="primary"
             className="w-full bg-nil hover:bg-nil/90 text-lg py-6 shadow-print"

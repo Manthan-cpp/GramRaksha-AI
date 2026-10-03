@@ -80,7 +80,6 @@ export function calculateEscalationTimeline(createdAt: string, now: number = Dat
       ];
     }
 
-    // Default: Hospital Bill & Ayushman Cashless disputes
     return [
       {
         day: 0,
@@ -254,7 +253,6 @@ ${params.targetCity}, ${params.targetState}
 ২. ₹১০ টাকার আবেদন ফি রসিদ।`;
   }
 
-  // English (Default)
   return `FORM OF APPLICATION UNDER SECTION 6(1) OF THE RIGHT TO INFORMATION ACT, 2005
 
 Date: ${todayFormatted}

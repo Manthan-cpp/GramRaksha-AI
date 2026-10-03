@@ -36,7 +36,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
   let extractedApk: string | undefined;
   let extractedUrl: string | undefined;
 
-  // Extract scheme name if mentioned
   for (const item of SCHEME_KEYWORDS) {
     if (lower.includes(item.key)) {
       extractedScheme = item.name;
@@ -44,7 +43,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     }
   }
 
-  // 1. APK file download check (Critical)
   const apkMatch = normalized.match(/[\w\-.]+\.apk\b/i) ||
     normalized.match(/\b(?:download|install|claim)\b.{0,40}\b(?:apk|app|file)\b/i) ||
     (lower.includes(".apk") ? [".apk"] : null);
@@ -60,7 +58,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     });
   }
 
-  // 2. Extract URLs and check for fake government domains
   const urlMatches = normalized.match(/https?:\/\/[^\s/$.?#].[^\s]*/gi) ||
     normalized.match(/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?/gi);
 
@@ -70,11 +67,9 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     extractedUrl = urlMatches[0];
     const candidateUrl = extractedUrl.toLowerCase();
 
-    // Check if it's genuinely official (.gov.in or .nic.in)
     if (candidateUrl.includes(".gov.in") || candidateUrl.includes(".nic.in")) {
       isOfficialDomain = true;
     } else {
-      // Check for suspicious TLDs or deceptive subdomains pretending to be government
       const suspiciousTlds = [".online", ".site", ".top", ".xyz", ".club", ".info", ".click", ".vip", ".in.net", ".org.in", ".co.in"];
       const containsScheme = SCHEME_KEYWORDS.some((s) => candidateUrl.includes(s.key));
       const hasSuspiciousTld = suspiciousTlds.some((tld) => candidateUrl.includes(tld));
@@ -100,7 +95,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     }
   }
 
-  // 3. Upfront Fee or Registration Charge Request (Critical)
   const feePattern = /(?:fee|charge|rs\.?|inr|₹|रुपये|টাকা)\s*[:=]?\s*[\d,]+/i;
   const paymentTrigger = /\b(?:pay|deposit|transfer|registration fee|processing fee|शुल्क|पंजीकरण शुल्क|টাকা দিন)\b/i;
 
@@ -115,7 +109,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     });
   }
 
-  // 4. False Urgency & Panic Threats (Warning)
   const urgencyPattern = /\b(?:immediately|urgent|within \d+ hours?|before midnight|tonight|9:30 pm|last date|disconnection|बिजली कट|बंद हो जाएगा|তাড়াতাড়ি|আজকের মধ্যে)\b/i;
   if (urgencyPattern.test(normalized)) {
     const urgencyMatch = normalized.match(urgencyPattern);
@@ -128,7 +121,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     });
   }
 
-  // 5. OTP / Banking Credential Requests (Critical)
   const otpPattern = /\b(?:otp|one time password|atm pin|cvv|net banking|password|ओटीपी|পিন)\b/i;
   const credentialAction = /\b(?:share|send|enter|verify|बताएं|शेयर करें)\b/i;
 
@@ -142,7 +134,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     });
   }
 
-  // 6. Viral Forwarding Cascade (Warning)
   const viralPattern = /\b(?:forward to \d+|share with \d+|10 लोगों को भेजें|গ্রুপে পাঠান)\b/i;
   if (viralPattern.test(normalized)) {
     patterns.push({
@@ -154,7 +145,6 @@ export function analyzeSuspiciousText(text: string): PatternAnalysisResult {
     });
   }
 
-  // Check if verified official resource
   if (isOfficialDomain && patterns.length === 0) {
     patterns.push({
       id: "official_gov_portal",

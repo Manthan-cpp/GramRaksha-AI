@@ -107,7 +107,6 @@ export function KvkReferralModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="bg-paper-2 border-[1.5px] border-ink rounded-3xl w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
-        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-ink/15 bg-paper">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -136,7 +135,6 @@ export function KvkReferralModal({
           </button>
         </div>
 
-        {/* Form to enter Farmer name / phone */}
         <div className="px-6 py-4 bg-paper-2 border-b border-ink/10 flex flex-wrap items-center gap-4 text-xs">
           <div className="flex-1 min-w-[200px]">
             <label className="block text-[11px] font-bold text-ink-soft uppercase mb-1">
@@ -164,7 +162,6 @@ export function KvkReferralModal({
           </div>
         </div>
 
-        {/* Action Strip */}
         <div className="px-6 py-3 bg-paper flex flex-wrap justify-between items-center gap-3 border-b border-ink/10 text-xs">
           <div className="flex items-center gap-2 text-moss-deep font-medium">
             <Stethoscope className="w-4 h-4 text-moss" />
@@ -190,14 +187,12 @@ export function KvkReferralModal({
           </div>
         </div>
 
-        {/* Slip Preview */}
         <div className="p-6 overflow-y-auto space-y-4 flex-1 bg-paper">
           <div className="p-6 rounded-2xl bg-paper-2 border-[1.5px] border-ink/20 font-mono text-xs leading-relaxed whitespace-pre-wrap text-ink select-text shadow-xs">
             {slipText}
           </div>
         </div>
 
-        {/* Footer */}
         <div className="p-4 bg-paper-2 border-t border-ink/15 flex justify-between items-center text-xs text-ink-soft">
           <span>Official Agronomic Intake · ICAR-KVK Safety Standard</span>
           <Button variant="quiet" size="sm" onClick={onClose}>

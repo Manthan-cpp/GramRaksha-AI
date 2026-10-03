@@ -52,13 +52,11 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // Fallback
     }
   };
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-      {/* Top Banner */}
       <div className="bg-paper-2 rounded-3xl p-6 sm:p-8 border-[1.5px] border-nil/30 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1.5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nil text-paper text-xs font-bold uppercase tracking-wider">
@@ -77,7 +75,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
           </div>
         </div>
 
-        {/* Rapid Actions */}
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             type="button"
@@ -115,7 +112,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       </div>
 
-      {/* Print View Sheet (If toggled) */}
       {showPrintLayout && (
         <div className="bg-paper-2 p-6 rounded-3xl border border-ink/20 shadow-sm animate-fade-in space-y-4">
           <div className="flex justify-between items-center">
@@ -132,7 +128,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       )}
 
-      {/* Spoon-Fed Action Instructions */}
       <div className="bg-paper rounded-2xl border border-ink/15 p-5 md:p-6 shadow-sm space-y-3">
         <h3 className="font-display text-base md:text-lg text-ink font-bold flex items-center gap-2">
           <span>📋</span>
@@ -171,7 +166,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       </div>
 
-      {/* Interactive Wallet Card Preview */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -181,7 +175,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
             </h3>
           </div>
 
-          {/* Flip Side Toggle */}
           <div className="flex rounded-xl border border-ink/20 p-1 bg-paper-2 text-xs font-semibold">
             <button
               type="button"
@@ -208,10 +201,8 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
           </div>
         </div>
 
-        {/* 3D Realistic Wallet Card Render */}
         <div className="flex justify-center">
           <div className="w-full max-w-md aspect-[1.586/1] rounded-3xl border-2 border-ink bg-paper p-5 sm:p-6 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all">
-            {/* Subtle background security pattern */}
             <div className="absolute -right-8 -bottom-8 opacity-5 pointer-events-none">
               <span className="text-9xl">🛡️</span>
             </div>
@@ -243,7 +234,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
                   </div>
                 </div>
 
-                {/* 24x7 Lifelines 2-Column Grid */}
                 <div className="grid grid-cols-2 gap-2 my-auto text-xs py-1">
                   <div className="p-1.5 rounded-lg bg-paper-2 border border-ink/10 flex justify-between items-center">
                     <span className="text-[11px] font-bold text-ink">🚨 Emergency</span>
@@ -368,7 +358,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       </div>
 
-      {/* Comprehensive Verified Directory Cards */}
       <div className="bg-paper rounded-3xl border border-ink/15 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink/10 pb-4">
           <div>
@@ -433,7 +422,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       </div>
 
-      {/* WhatsApp & Copy Share Toolbar */}
       <div className="bg-paper-2 rounded-3xl border border-ink/15 p-6 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h4 className="font-display font-bold text-sm text-ink">Share Emergency Directory</h4>
@@ -462,7 +450,6 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       </div>
 
-      {/* Bottom Start New / Reset */}
       <div className="flex justify-between items-center pt-2">
         <button
           type="button"

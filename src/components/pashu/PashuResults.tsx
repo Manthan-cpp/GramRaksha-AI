@@ -38,7 +38,6 @@ export function PashuResults({
   const locale = useLocale() as "en" | "hi" | "bn";
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  // Web Speech API text-to-speech for beginner or illiterate farmers
   const handleToggleSpeech = () => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       alert("Text-to-speech is not supported on this browser.");
@@ -62,7 +61,6 @@ export function PashuResults({
     window.speechSynthesis.speak(utterance);
   };
 
-  // WhatsApp Share text
   const handleShareWhatsApp = () => {
     const text = `🚨 *${decision.headline}* (${decision.animal})\n\n` +
       `📋 *तुरंत क्या करें (कदम दर कदम):*\n` +
@@ -85,7 +83,6 @@ export function PashuResults({
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      {/* Top Banner: Condition Identified + Audio Spoon-feeding Button */}
       <div className={`p-6 sm:p-8 rounded-3xl border-[2px] border-ink ${statusBg} shadow-[6px_6px_0_rgba(62,39,35,1)] relative overflow-hidden backdrop-blur-md`}>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-2">
@@ -107,9 +104,7 @@ export function PashuResults({
             </p>
           </div>
 
-          {/* Audio Spoken Spoon-feeding & Ambulance 1-Tap */}
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0 w-full md:w-auto">
-            {/* Audio Button */}
             <button
               type="button"
               onClick={handleToggleSpeech}
@@ -123,7 +118,6 @@ export function PashuResults({
               <span>{isSpeaking ? (locale === "hi" ? "बोलना रोकें" : "Stop Voice") : (locale === "hi" ? "सलाह सुनें (आवाज़ में)" : locale === "bn" ? "পরামর্শ শুনুন" : "Listen to Advice")}</span>
             </button>
 
-            {/* 1962 MVU Dial Button */}
             <a
               href="tel:1962"
               className="flex-1 sm:flex-none px-4 py-3 rounded-2xl font-bold text-xs bg-red-600 hover:bg-red-700 text-white border-[2px] border-ink shadow-[3px_3px_0_rgba(62,39,35,1)] hover:shadow-[1px_1px_0_rgba(62,39,35,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2"
@@ -135,7 +129,6 @@ export function PashuResults({
         </div>
       </div>
 
-      {/* SECTION 1: WHAT TO DO RIGHT NOW (SPOON-FED STEPS) */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl bg-moss text-paper flex items-center justify-center font-bold text-sm shadow-xs">
@@ -193,7 +186,6 @@ export function PashuResults({
         </div>
       </div>
 
-      {/* SECTION 2: WHAT NEVER TO DO (CRITICAL SAFETY WARNINGS) */}
       <div className="p-6 rounded-3xl bg-red-500/10 backdrop-blur-md border-[2px] border-red-700 shadow-[6px_6px_0_rgba(185,28,28,1)] space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-2xl bg-red-600 text-white flex items-center justify-center shadow-xs">
@@ -225,7 +217,6 @@ export function PashuResults({
         </div>
       </div>
 
-      {/* SECTION 3: NEARBY GOVERNMENT VETERINARY HOSPITALS (SERPAPI GOOGLE MAPS) */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl bg-nil text-paper flex items-center justify-center font-bold text-sm shadow-xs">
@@ -298,7 +289,6 @@ export function PashuResults({
         </div>
       </div>
 
-      {/* SECTION 4: DIET & NUTRITION TIPS */}
       {decision.dietAndCareTips.length > 0 && (
         <div className="p-5 rounded-3xl bg-white/30 backdrop-blur-md border-[2px] border-ink shadow-[4px_4px_0_rgba(62,39,35,1)] space-y-3">
           <div className="flex items-center gap-2">
@@ -318,7 +308,6 @@ export function PashuResults({
         </div>
       )}
 
-      {/* SECTION 5: SOURCE LINKS & EVIDENCE */}
       <div className="p-5 rounded-3xl bg-white/30 backdrop-blur-md border-[2px] border-ink shadow-[4px_4px_0_rgba(62,39,35,1)] space-y-3">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-moss-deep" />
@@ -353,7 +342,6 @@ export function PashuResults({
         </div>
       </div>
 
-      {/* ACTION BAR: WHATSAPP SHARE & SAVE CASE */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
         <button
           type="button"

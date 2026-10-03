@@ -48,7 +48,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
   return (
     <div className="max-w-3xl mx-auto space-y-6">
 
-      {/* Main Form */}
       <form onSubmit={handleSubmit} className="bg-paper rounded-3xl border border-ink/15 p-6 sm:p-8 shadow-sm space-y-5">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-ink/10">
           <div>
@@ -60,7 +59,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
             </p>
           </div>
 
-          {/* Mode Switcher */}
           <div className="flex items-center gap-1.5 p-1 rounded-xl bg-paper-2 border border-ink/15 text-xs font-semibold">
             <button
               type="button"
@@ -83,7 +81,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
           </div>
         </div>
 
-        {/* State & District */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
@@ -114,7 +111,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
           </div>
         </div>
 
-        {/* Block & Village */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
@@ -158,7 +154,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
           </div>
         </div>
 
-        {/* Optional Panchayat Pradhan Contact */}
         <div className="p-4 rounded-2xl bg-paper-2 border border-ink/10 space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-ink-soft">
@@ -195,7 +190,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
           </div>
         </div>
 
-        {/* Submit Action */}
         <button
           type="submit"
           disabled={loading}

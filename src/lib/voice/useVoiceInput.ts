@@ -16,7 +16,6 @@ interface UseVoiceInputResult {
   error: string | null;
 }
 
-// Browser SpeechRecognition interface typing
 interface ISpeechRecognitionEvent {
   resultIndex: number;
   results: {
@@ -79,7 +78,6 @@ export function useVoiceInput({ locale, onTranscript }: UseVoiceInputOptions): U
       try {
         recognitionRef.current.stop();
       } catch {
-        // ignore if already stopped
       }
     }
     setIsListening(false);
@@ -148,7 +146,6 @@ export function useVoiceInput({ locale, onTranscript }: UseVoiceInputOptions): U
         try {
           recognitionRef.current.abort();
         } catch {
-          // ignore cleanup abort
         }
       }
     };

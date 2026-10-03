@@ -54,7 +54,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
     const state = cleanQueryPart(input.state);
     const district = cleanQueryPart(input.district);
     const stage = cleanQueryPart(input.stage);
-    // Do not send chemical requests or source-style instructions to the provider.
     const concern = cleanQueryPart(input.concern && isSearchableConcern(input.concern) ? input.concern : "crop pest weather");
 
     addQuery(
@@ -291,7 +290,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
     const district = cleanQueryPart(input.district);
     const block = cleanQueryPart(input.block);
 
-    // 1. Google Maps: Nearest PHC / CHC / Hospital
     addQuery({
       engine: "google_maps",
       query: `Primary Health Centre PHC Community Health Centre CHC hospital ${block} ${district}`,
@@ -305,7 +303,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: false
     });
 
-    // 2. Google Maps: Police Station / Thana
     addQuery({
       engine: "google_maps",
       query: `Police Station Thana police post ${block} ${district}`,
@@ -319,7 +316,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: false
     });
 
-    // 3. Google Search: Krishi Vigyan Kendra (KVK) & DAO
     addQuery({
       engine: "google",
       query: `Krishi Vigyan Kendra KVK ${quoted(district)} contact address phone (site:icar.org.in OR site:gov.in OR site:nic.in)`,
@@ -328,7 +324,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: true
     });
 
-    // 4. Google Search: District Legal Services Authority (DLSA)
     addQuery({
       engine: "google",
       query: `District Legal Services Authority DLSA ${quoted(district)} free legal aid contact (site:gov.in OR site:nic.in)`,
@@ -342,7 +337,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
     const state = cleanQueryPart(input.state);
     const district = cleanQueryPart(input.district);
 
-    // 1. Official IVRI / ICAR / NDDB / DAHD Clinical Advisory
     addQuery({
       engine: "google",
       query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} treatment advisory first aid (site:ivri.nic.in OR site:nddb.coop OR site:icar.gov.in OR site:dahd.nic.in OR site:gov.in OR site:icar.org.in)`,
@@ -351,7 +345,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: true
     });
 
-    // 2. Animal Husbandry Precautions and Symptoms
     addQuery({
       engine: "google",
       query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} animal symptoms precautions remedies care (site:gov.in OR site:nic.in OR site:icar.org.in OR site:ivri.nic.in OR site:nddb.coop)`,
@@ -360,7 +353,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: true
     });
 
-    // 3. Google Maps: Nearby Government Veterinary Hospital / Dispensary
     addQuery({
       engine: "google_maps",
       query: `Government Veterinary Hospital Pashu Chikitsalaya dispensary ${district}`,
@@ -374,7 +366,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: false
     });
 
-    // 4. Google Search: 1962 Mobile Veterinary Unit Ambulance
     addQuery({
       engine: "google",
       query: `1962 "Mobile Veterinary Unit" ambulance ${cleanQueryPart(district)} ${cleanQueryPart(state)} (site:gov.in OR site:nic.in)`,
@@ -383,7 +374,6 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       requireOfficial: true
     });
 
-    // 5. YouTube: Practical audiovisual veterinary demonstration
     addQuery({
       engine: "youtube",
       query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} ilaj kisan advisory veterinary ICAR`,
