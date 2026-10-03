@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { SurakshaForm } from "@/components/suraksha/SurakshaForm";
@@ -21,6 +21,18 @@ import { ShieldAlert, ArrowLeft, HelpCircle } from "lucide-react";
 
 type FlowStep = "form" | "analyzing" | "results";
 
+const ACTIVE_SURAKSHA_SESSION_KEY = "gramraksha:active_suraksha_session";
+
+interface ActiveSurakshaSession {
+  content: string;
+  sourceType: "whatsapp" | "sms" | "link" | "apk" | "other";
+  appName?: string;
+  evidence: Evidence[];
+  metrics?: EvidenceMetrics;
+  warnings: string[];
+  mode: "live" | "recorded";
+}
+
 export default function SurakshaPage() {
   const params = useParams<{ locale?: string }>();
   const locale: "en" | "hi" | "bn" =
@@ -39,6 +51,53 @@ export default function SurakshaPage() {
   const [metrics, setMetrics] = useState<EvidenceMetrics | undefined>(undefined);
   const [warnings, setWarnings] = useState<string[]>([]);
   const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = sessionStorage.getItem(ACTIVE_SURAKSHA_SESSION_KEY);
+    if (!raw) return;
+    try {
+      const parsed: ActiveSurakshaSession = JSON.parse(raw);
+      if (parsed?.content && parsed?.evidence) {
+        setContent(parsed.content);
+        setSourceType(parsed.sourceType || "whatsapp");
+        setAppName(parsed.appName);
+        setEvidence(parsed.evidence);
+        setMetrics(parsed.metrics);
+        setWarnings(parsed.warnings || []);
+        setMode(parsed.mode || "live");
+        const nextDecision = buildSurakshaDecision(
+          {
+            module: "suraksha",
+            locale,
+            content: parsed.content,
+            sourceType: parsed.sourceType || "whatsapp",
+            appName: parsed.appName,
+            mode: parsed.mode || "live"
+          },
+          parsed.evidence,
+          parsed.metrics || {
+            queriesPlanned: 4,
+            queriesRun: 4,
+            liveSearches: 0,
+            cacheHits: 0,
+            sourcesKept: parsed.evidence.length,
+            sourcesDropped: 0,
+            mode: parsed.mode || "live"
+          },
+          parsed.warnings || [],
+          locale
+        );
+        setDecision(nextDecision);
+        setStep("results");
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    } catch (e) {
+      console.error("Failed to restore active suraksha session:", e);
+    }
+  }, [locale]);
 
   // Derive localized decision without triggering cascading state updates
   const activeDecision = useMemo(() => {
@@ -142,6 +201,25 @@ export default function SurakshaPage() {
       setDecision(latestDecision);
       setTrailStatus("done");
       setStep("results");
+
+      if (typeof window !== "undefined") {
+        try {
+          sessionStorage.setItem(
+            ACTIVE_SURAKSHA_SESSION_KEY,
+            JSON.stringify({
+              content: data.content,
+              sourceType: data.sourceType,
+              appName: data.appName,
+              evidence: latestEvidence,
+              metrics: latestMetrics,
+              warnings: latestWarnings,
+              mode: data.mode
+            })
+          );
+        } catch (e) {
+          console.error("Failed to cache suraksha session:", e);
+        }
+      }
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "Evidence search failed.");
       setTrailStatus("error");
@@ -172,6 +250,12 @@ export default function SurakshaPage() {
   };
 
   const handleStartOver = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(ACTIVE_SURAKSHA_SESSION_KEY);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
     setStep("form");
     setContent("");
     setDecision(null);

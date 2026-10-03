@@ -12,6 +12,15 @@ import { savePocketCard, getPocketCard } from "@/lib/storage/pocket-cards";
 import type { Evidence, EvidenceEvent } from "@/lib/schemas";
 import { EvidenceTrail, type TrailStatus } from "@/components/krishi/EvidenceTrail";
 
+const ACTIVE_CARD_SESSION_KEY = "gramraksha:active_card_session";
+
+interface ActiveCardSession {
+  request: VillagePocketCardRequest;
+  evidence: Evidence[];
+  card: VillagePocketCard;
+  mode: "live" | "recorded";
+}
+
 function PocketCardContent() {
   const params = useParams<{ locale?: string }>();
   const searchParams = useSearchParams();
@@ -24,6 +33,32 @@ function PocketCardContent() {
   const [events, setEvents] = useState<EvidenceEvent[]>([]);
   const [error, setError] = useState<string>();
   const [saved, setSaved] = useState(false);
+
+  // Restore active card on locale change
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = sessionStorage.getItem(ACTIVE_CARD_SESSION_KEY);
+    if (!raw) return;
+    try {
+      const parsed: ActiveCardSession = JSON.parse(raw);
+      if (parsed?.request && parsed?.card) {
+        const nextCard = buildVillagePocketCard(
+          parsed.request,
+          parsed.evidence || [],
+          parsed.mode || "live",
+          locale
+        );
+        setCard(nextCard);
+        setStep("view");
+        setSaved(true);
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    } catch (e) {
+      console.error("Failed to restore active card session:", e);
+    }
+  }, [locale]);
 
   // Check if opening an existing card from query param ?id=...
   useEffect(() => {
@@ -76,6 +111,22 @@ function PocketCardContent() {
           setCard(builtCard);
           setStep("view");
 
+          if (typeof window !== "undefined") {
+            try {
+              sessionStorage.setItem(
+                ACTIVE_CARD_SESSION_KEY,
+                JSON.stringify({
+                  request: req,
+                  evidence: collectedEvidence,
+                  card: builtCard,
+                  mode
+                })
+              );
+            } catch (e) {
+              console.error("Failed to cache card session:", e);
+            }
+          }
+
           // Automatically cache into IndexedDB so it's instantly available offline
           savePocketCard(builtCard)
             .then(() => setSaved(true))
@@ -88,6 +139,23 @@ function PocketCardContent() {
           const fallbackCard = buildVillagePocketCard(req, collectedEvidence, mode, locale);
           setCard(fallbackCard);
           setStep("view");
+
+          if (typeof window !== "undefined") {
+            try {
+              sessionStorage.setItem(
+                ACTIVE_CARD_SESSION_KEY,
+                JSON.stringify({
+                  request: req,
+                  evidence: collectedEvidence,
+                  card: fallbackCard,
+                  mode
+                })
+              );
+            } catch (e) {
+              console.error("Failed to cache fallback card session:", e);
+            }
+          }
+
           savePocketCard(fallbackCard)
             .then(() => setSaved(true))
             .catch(() => {});
@@ -99,10 +167,32 @@ function PocketCardContent() {
       const fallbackCard = buildVillagePocketCard(req, collectedEvidence, mode, locale);
       setCard(fallbackCard);
       setStep("view");
+
+      if (typeof window !== "undefined") {
+        try {
+          sessionStorage.setItem(
+            ACTIVE_CARD_SESSION_KEY,
+            JSON.stringify({
+              request: req,
+              evidence: collectedEvidence,
+              card: fallbackCard,
+              mode
+            })
+          );
+        } catch (e) {
+          console.error("Failed to cache catch card session:", e);
+        }
+      }
     });
   };
 
   const handleReset = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(ACTIVE_CARD_SESSION_KEY);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
     setStep("form");
     setCard(null);
     setTrailStatus("idle");

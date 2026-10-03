@@ -12,8 +12,8 @@ interface DecisionOptions {
   incident: FasalIncidentInput;
   photos?: FasalPhotoEvidence[];
   evidence: Evidence[];
-  metrics: EvidenceMetrics;
-  warnings: string[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
   locale?: "en" | "hi" | "bn";
 }
 

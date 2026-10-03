@@ -31,6 +31,25 @@ type FlowStep = "privacy" | "upload" | "redact" | "review" | "analyzing" | "resu
 type CashlessStep = "form" | "analyzing" | "results";
 type MediTab = "cashless" | "audit";
 
+const ACTIVE_MEDI_SESSION_KEY = "gramraksha:active_medi_session";
+
+interface ActiveMediSession {
+  tab: MediTab;
+  // Cashless
+  cashlessStep?: CashlessStep;
+  cashlessRequest?: AyushmanCashlessRequest;
+  cashlessEvidence?: Evidence[];
+  cashlessMetrics?: EvidenceMetrics;
+  cashlessWarnings?: string[];
+  // Audit
+  auditStep?: FlowStep;
+  bill?: Bill;
+  evidence?: Evidence[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
+  mode?: "live" | "recorded";
+}
+
 function MediShieldContent() {
   const params = useParams<{ locale?: string }>();
   const searchParams = useSearchParams();
@@ -64,6 +83,63 @@ function MediShieldContent() {
   const [cashlessError, setCashlessError] = useState<string>();
   const [cashlessSaved, setCashlessSaved] = useState(false);
   const [isLetterModalOpen, setIsLetterModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = sessionStorage.getItem(ACTIVE_MEDI_SESSION_KEY);
+    if (!raw) return;
+    try {
+      const parsed: ActiveMediSession = JSON.parse(raw);
+      if (parsed?.tab === "cashless" && parsed?.cashlessRequest && parsed?.cashlessEvidence) {
+        setActiveTab("cashless");
+        setCashlessRequest(parsed.cashlessRequest);
+        setCashlessEvidence(parsed.cashlessEvidence);
+        setMode(parsed.mode || "live");
+        setWarnings(parsed.cashlessWarnings || []);
+        const nextCashlessDecision = buildAyushmanCashlessDecision({
+          request: parsed.cashlessRequest,
+          evidence: parsed.cashlessEvidence,
+          metrics: parsed.cashlessMetrics,
+          warnings: parsed.cashlessWarnings,
+          locale
+        });
+        setCashlessDecision(nextCashlessDecision);
+        setCashlessStep("results");
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      } else if (parsed?.tab === "audit" && parsed?.bill && parsed?.evidence) {
+        setActiveTab("audit");
+        setBill(parsed.bill);
+        setEvidence(parsed.evidence);
+        setMetrics(parsed.metrics);
+        setWarnings(parsed.warnings || []);
+        setMode(parsed.mode || "live");
+        const nextDecision = buildMediDecision(
+          parsed.bill,
+          parsed.evidence,
+          parsed.metrics || {
+            queriesPlanned: 4,
+            queriesRun: 4,
+            liveSearches: 0,
+            cacheHits: 0,
+            sourcesKept: parsed.evidence.length,
+            sourcesDropped: 0,
+            mode: parsed.mode || "live"
+          },
+          parsed.warnings || [],
+          locale
+        );
+        setDecision(nextDecision);
+        setStep("results");
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    } catch (e) {
+      console.error("Failed to restore active medi session:", e);
+    }
+  }, [locale]);
 
   // Dynamically derive active bill decision when bill, evidence, or locale changes
   const activeDecision = useMemo(() => {
@@ -151,6 +227,25 @@ function MediShieldContent() {
             locale
           );
           setDecision(computedDecision);
+
+          if (typeof window !== "undefined") {
+            try {
+              sessionStorage.setItem(
+                ACTIVE_MEDI_SESSION_KEY,
+                JSON.stringify({
+                  tab: "audit",
+                  auditStep: "results",
+                  bill: confirmedBill,
+                  evidence: collectedEvidence,
+                  metrics: event.metrics,
+                  warnings: collectedWarnings,
+                  mode: selectedMode
+                })
+              );
+            } catch (e) {
+              console.error("Failed to cache medi audit session:", e);
+            }
+          }
         } else if (event.type === "error") {
           setTrailStatus("error");
           setErrorMessage(event.message);
@@ -163,6 +258,12 @@ function MediShieldContent() {
   };
 
   const handleStartOverAudit = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(ACTIVE_MEDI_SESSION_KEY);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
     setStep("privacy");
     setRawFile(null);
     setRedactedUrl(null);
@@ -258,6 +359,25 @@ function MediShieldContent() {
             });
 
           setCashlessDecision(computed);
+
+          if (typeof window !== "undefined") {
+            try {
+              sessionStorage.setItem(
+                ACTIVE_MEDI_SESSION_KEY,
+                JSON.stringify({
+                  tab: "cashless",
+                  cashlessStep: "results",
+                  cashlessRequest: req,
+                  cashlessEvidence: collectedEvidence,
+                  cashlessMetrics: event.metrics,
+                  cashlessWarnings: collectedWarnings,
+                  mode: selectedMode
+                })
+              );
+            } catch (e) {
+              console.error("Failed to cache medi cashless session:", e);
+            }
+          }
         } else if (event.type === "error") {
           setCashlessTrailStatus("error");
           setCashlessError(event.message);
@@ -270,6 +390,12 @@ function MediShieldContent() {
   };
 
   const handleStartOverCashless = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(ACTIVE_MEDI_SESSION_KEY);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
     setCashlessStep("form");
     setCashlessRequest(null);
     setCashlessDecision(null);

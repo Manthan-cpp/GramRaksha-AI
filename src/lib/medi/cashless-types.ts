@@ -73,7 +73,7 @@ export type AyushmanCashlessDecision = z.infer<typeof AyushmanCashlessDecisionSc
 export interface BuildCashlessDecisionInput {
   request: AyushmanCashlessRequest;
   evidence: Evidence[];
-  metrics: EvidenceMetrics;
-  warnings: string[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
   locale?: "en" | "hi" | "bn";
 }

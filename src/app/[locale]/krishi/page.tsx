@@ -8,8 +8,20 @@ import { EvidenceTrail, type TrailStatus } from "@/components/krishi/EvidenceTra
 import { BriefView } from "@/components/krishi/BriefView";
 import { streamCropEvidence } from "@/components/krishi/stream";
 import { addClientEvidenceMetrics, getClientEvidenceMode } from "@/lib/evidence/client-state";
-import { CropBriefSchema, type CropBrief, type EvidenceEvent } from "@/lib/schemas";
+import { CropBriefSchema, type CropBrief, type Evidence, type EvidenceEvent, type EvidenceMetrics } from "@/lib/schemas";
+import { buildCropBrief } from "@/lib/krishi/brief";
 import { Button } from "@/components/ui/button";
+
+const ACTIVE_KRISHI_SESSION_KEY = "gramraksha:active_krishi_session";
+
+interface ActiveKrishiSession {
+  context: CropProfile;
+  brief: CropBrief;
+  evidence?: Evidence[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
+  mode: "live" | "recorded";
+}
 
 export default function KrishiPage() {
   const t = useTranslations("Krishi");
@@ -27,8 +39,48 @@ export default function KrishiPage() {
   const [brief, setBrief] = useState<CropBrief | null>(null);
   const [warnings, setWarnings] = useState<string[]>([]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = sessionStorage.getItem(ACTIVE_KRISHI_SESSION_KEY);
+    if (!raw) return;
+    try {
+      const parsed: ActiveKrishiSession = JSON.parse(raw);
+      if (parsed?.context && parsed?.brief) {
+        setContext(parsed.context);
+        setMode(parsed.mode || "live");
+        setWarnings(parsed.warnings || []);
+        const refreshed = buildCropBrief(
+          {
+            module: "krishi",
+            locale,
+            mode: parsed.mode || "live",
+            crop: parsed.context.crop,
+            state: parsed.context.state,
+            district: parsed.context.district,
+            stage: parsed.context.stage,
+            concern: parsed.context.concern
+          },
+          parsed.evidence || []
+        );
+        setBrief(refreshed);
+        setPhase("brief");
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    } catch (e) {
+      console.error("Failed to restore active krishi session:", e);
+    }
+  }, [locale]);
+
   const handleReset = () => {
     active.current?.abort();
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(ACTIVE_KRISHI_SESSION_KEY);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
     setPhase("stepper");
     setContext(null);
     setBrief(null);
@@ -68,10 +120,29 @@ export default function KrishiPage() {
         setEvents((current) => [...current, event]);
         if (event.type === "done") {
           const parsed = CropBriefSchema.safeParse("cropBrief" in event ? event.cropBrief : null);
-          setBrief(parsed.success ? parsed.data : null);
+          const builtBrief = parsed.success ? parsed.data : null;
+          setBrief(builtBrief);
           setWarnings(parsed.success ? event.warnings : [...event.warnings, t("incomplete")]);
           setTrailStatus("done");
           addClientEvidenceMetrics(event.metrics);
+
+          if (typeof window !== "undefined" && builtBrief) {
+            try {
+              sessionStorage.setItem(
+                ACTIVE_KRISHI_SESSION_KEY,
+                JSON.stringify({
+                  context: profile,
+                  brief: builtBrief,
+                  evidence: event.evidence || [],
+                  metrics: event.metrics,
+                  warnings: event.warnings || [],
+                  mode: selectedMode
+                })
+              );
+            } catch (e) {
+              console.error("Failed to cache krishi session:", e);
+            }
+          }
         } else if (event.type === "error") {
           setTrailStatus("error");
           setErrorMessage(event.message);

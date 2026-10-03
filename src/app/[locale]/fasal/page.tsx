@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,6 +24,17 @@ import { Clock, ArrowLeft, AlertTriangle } from "lucide-react";
 
 type FlowStep = "form" | "analyzing" | "results";
 
+const ACTIVE_FASAL_SESSION_KEY = "gramraksha:active_fasal_session";
+
+interface ActiveFasalSession {
+  incident: FasalIncidentInput;
+  photos: FasalPhotoEvidence[];
+  evidence: Evidence[];
+  metrics?: EvidenceMetrics;
+  warnings?: string[];
+  mode?: "live" | "recorded";
+}
+
 export default function FasalPage() {
   const params = useParams<{ locale?: string }>();
   const locale = (params?.locale === "hi" || params?.locale === "bn" ? params.locale : "en") as "en" | "hi" | "bn";
@@ -37,6 +48,36 @@ export default function FasalPage() {
   const [streamEvents, setStreamEvents] = useState<EvidenceEvent[]>([]);
   const [trailStatus, setTrailStatus] = useState<TrailStatus>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = sessionStorage.getItem(ACTIVE_FASAL_SESSION_KEY);
+    if (!raw) return;
+    try {
+      const parsed: ActiveFasalSession = JSON.parse(raw);
+      if (parsed?.incident) {
+        setIncident(parsed.incident);
+        setPhotos(parsed.photos || []);
+        setEvidence(parsed.evidence || []);
+        setMode(parsed.mode || "live");
+        const nextDecision = buildFasalDecision({
+          incident: parsed.incident,
+          photos: parsed.photos || [],
+          evidence: parsed.evidence || [],
+          metrics: parsed.metrics,
+          warnings: parsed.warnings,
+          locale
+        });
+        setDecision(nextDecision);
+        setStep("results");
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    } catch (e) {
+      console.error("Failed to restore active fasal session:", e);
+    }
+  }, [locale]);
 
   const handleStartAnalysis = async (data: {
     incident: FasalIncidentInput;
@@ -102,6 +143,25 @@ export default function FasalPage() {
       setDecision(finalDecision);
       setStep("results");
 
+      // Cache active session in sessionStorage to support seamless language switching
+      if (typeof window !== "undefined") {
+        try {
+          sessionStorage.setItem(
+            ACTIVE_FASAL_SESSION_KEY,
+            JSON.stringify({
+              incident: data.incident,
+              photos: data.photos,
+              evidence: collectedEvidence,
+              metrics: latestMetrics,
+              warnings,
+              mode: data.mode
+            })
+          );
+        } catch (e) {
+          console.error("Failed to cache fasal session:", e);
+        }
+      }
+
       // Automatically persist to Dexie IndexedDB
       try {
         await saveFasalCase({
@@ -135,10 +195,34 @@ export default function FasalPage() {
       setDecision(fallbackDecision);
       setTrailStatus("done");
       setStep("results");
+
+      if (typeof window !== "undefined") {
+        try {
+          sessionStorage.setItem(
+            ACTIVE_FASAL_SESSION_KEY,
+            JSON.stringify({
+              incident: data.incident,
+              photos: data.photos,
+              evidence: collectedEvidence,
+              metrics: latestMetrics,
+              warnings: ["Search offline; showing statutory PMFBY rules and helpline directory."],
+              mode: data.mode
+            })
+          );
+        } catch (e) {
+          console.error("Failed to cache fallback fasal session:", e);
+        }
+      }
     }
   };
 
   const handleReset = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(ACTIVE_FASAL_SESSION_KEY);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
     setStep("form");
     setDecision(null);
     setEvidence([]);
