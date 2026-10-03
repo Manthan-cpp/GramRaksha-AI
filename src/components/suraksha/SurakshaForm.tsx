@@ -28,38 +28,6 @@ interface SurakshaFormProps {
   isLoading?: boolean;
 }
 
-const PRESETS = [
-  {
-    label: "Fake PM Kisan APK",
-    labelHi: "फर्जी पीएम किसान APK",
-    labelBn: "ভুয়া পিএম কিষাণ APK",
-    sourceType: "whatsapp" as const,
-    appName: "PM Kisan Yojana APK",
-    text: "PM Kisan 17th Installment ₹2000 bonus approved. Download PMKisan.apk immediately to update e-KYC and pay ₹250 registration fee."
-  },
-  {
-    label: "Electricity Cutoff Threat",
-    labelHi: "बिजली कटने की धमकी",
-    labelBn: "বিদ্যুৎ সংযোগ কাটার হুমকি",
-    sourceType: "sms" as const,
-    text: "Dear consumer, your electricity power will be disconnected tonight at 9:30 PM due to unpaid bill. Immediately contact power officer on 9876543210 and pay ₹499."
-  },
-  {
-    label: "Tractor Subsidy 80%",
-    labelHi: "80% ट्रैक्टर सब्सिडी झांसा",
-    labelBn: "৮০% ট্র্যাক্টর ভর্তুকি ফাঁদ",
-    sourceType: "link" as const,
-    text: "Pradhan Mantri Kisan Tractor Yojana 2026: Get 80% subsidy on all tractors. Limited slots! Deposit ₹1200 processing fee on http://pm-tractor-subsidy.online before midnight."
-  },
-  {
-    label: "Authentic Official Portal",
-    labelHi: "सत्यापित सरकारी पोर्टल",
-    labelBn: "খাঁটি সরকারি পোর্টাল",
-    sourceType: "link" as const,
-    text: "Please verify your PM-Kisan Samman Nidhi installment status directly on the official portal at https://pmkisan.gov.in without paying any fee."
-  }
-];
-
 export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
   const locale = useLocale();
   const [content, setContent] = useState("");
@@ -83,13 +51,6 @@ export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
       appName: appName.trim() || undefined,
       mode
     });
-  };
-
-  const loadPreset = (preset: (typeof PRESETS)[number]) => {
-    setContent(preset.text);
-    setSourceType(preset.sourceType);
-    if (preset.appName) setAppName(preset.appName);
-    else setAppName("");
   };
 
   const t = {
@@ -160,31 +121,6 @@ export function SurakshaForm({ onSubmit, isLoading }: SurakshaFormProps) {
         <p className="text-ink/70 text-sm md:text-base leading-relaxed">
           {t.subtitle}
         </p>
-      </div>
-
-      {/* Quick Test Presets */}
-      <div className="mb-6 bg-paper-2/70 border border-ink/15 rounded-[16px] p-4">
-        <div className="flex items-center gap-2 mb-2.5 text-xs font-bold uppercase tracking-wider text-ink/70">
-          <Zap className="w-3.5 h-3.5 text-ochre" />
-          {t.presetsTitle}
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          {PRESETS.map((preset, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => loadPreset(preset)}
-              className="text-left p-2.5 rounded-[12px] bg-paper-1 border border-ink/20 hover:border-forest hover:bg-forest/5 text-xs font-medium text-ink transition-all group"
-            >
-              <div className="font-bold text-forest group-hover:text-forest-dark line-clamp-1">
-                {locale === "hi" ? preset.labelHi : locale === "bn" ? preset.labelBn : preset.label}
-              </div>
-              <div className="text-[11px] text-ink/60 line-clamp-1 mt-0.5">
-                {preset.text}
-              </div>
-            </button>
-          ))}
-        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">

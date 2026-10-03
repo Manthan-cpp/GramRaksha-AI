@@ -214,7 +214,7 @@ export function SurakshaResults({
             <span className={`px-3.5 py-1 rounded-full text-xs font-black tracking-wider uppercase shadow-sm ${badgeColor}`}>
               {verdictLabel}
             </span>
-            <div className="flex items-center gap-1.5 text-xs font-bold text-ink/80 bg-white/80 px-3 py-1 rounded-full border border-ink/15">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-ink/80 bg-paper px-3 py-1 rounded-full border border-ink/15">
               <span>{labels.riskScore || "Risk Score"}:</span>
               <span className={`font-black ${isDanger ? "text-red-700" : isSafe ? "text-emerald-700" : "text-amber-700"}`}>
                 {decision.riskScore}%
@@ -228,7 +228,7 @@ export function SurakshaResults({
               variant="secondary"
               size="sm"
               onClick={handleToggleSpeech}
-              className="rounded-full text-xs font-bold border-ink/30 bg-white/90 hover:bg-white text-ink gap-2 shadow-sm"
+              className="rounded-full text-xs font-bold border-ink/30 bg-paper hover:bg-white text-ink gap-2 shadow-sm"
             >
               {isPlaying ? (
                 <>
@@ -253,7 +253,7 @@ export function SurakshaResults({
         </p>
 
         {/* Quick Official Guarantee Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-ink/20 text-xs font-bold text-forest">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-paper border border-ink/20 text-xs font-bold text-forest">
           <CheckCircle className="w-4 h-4 text-forest" />
           <span>{labels.freeSchemeBadge || "Official Guarantee: Central & State Schemes are 100% Free"}</span>
         </div>
@@ -345,7 +345,7 @@ export function SurakshaResults({
                         {pattern.description}
                       </p>
                       {pattern.matchedText && (
-                        <div className="text-[11px] font-mono bg-white/80 p-2 rounded-[8px] border border-ink/15 text-ink/80">
+                        <div className="text-[11px] font-mono bg-paper p-2 rounded-[8px] border border-ink/15 text-ink/80">
                           Matched: <span className="font-bold text-red-700">{pattern.matchedText}</span>
                         </div>
                       )}
@@ -354,6 +354,104 @@ export function SurakshaResults({
                 })}
               </div>
             )}
+          </div>
+
+          {/* Spoon-Fed Immediate Action Checklist */}
+          <div className="bg-paper-1 border-[1.5px] border-ink rounded-[20px] p-6 shadow-sm space-y-4">
+            <h4 className="text-base font-bold text-ink flex items-center gap-2">
+              <span>🚨</span>
+              <span>
+                {locale === "hi"
+                  ? "अब आपको क्या करना चाहिए (तत्काल जरूरी कदम)"
+                  : locale === "bn"
+                  ? "এখন আপনার কী করা উচিত (তাত্ক্ষণিক প্রয়োজনীয় পদক্ষেপ)"
+                  : "Immediate Action Checklist (What to do Right Now)"}
+              </span>
+            </h4>
+            
+            <div className="space-y-3 text-xs md:text-sm">
+              <div className="p-3.5 rounded-xl bg-red-50/80 border border-red-200 flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+                <div>
+                  <div className="font-bold text-red-950">
+                    {locale === "hi" ? "लिंक पर क्लिक न करें, कोई ऐप न डालें और ओटीपी न दें" : locale === "bn" ? "কোনো লিঙ্কে ক্লিক করবেন না এবং ওটিপি দেবেন না" : "Do Not Click Links, Install .APK, or Share OTP"}
+                  </div>
+                  <p className="text-red-900/80 text-xs mt-0.5 leading-relaxed">
+                    {locale === "hi" 
+                      ? "सरकारी योजनाएं पूरी तरह निःशुल्क होती हैं। यदि आपने पहले से कोई .apk डाउनलोड कर ली है, तो फोन की Settings > Apps में जाकर उसे तुरंत 'Uninstall' करें।" 
+                      : locale === "bn"
+                      ? "সরকারি প্রকল্প সম্পূর্ণ বিনামূল্যে পাওয়া যায়। যদি কোনো .apk ফাইল ডাউনলোড করে থাকেন, তবে ফোন সেটিংস থেকে অবিলম্বে তা আনইনস্টল করুন।"
+                      : "Official schemes are 100% free. If an .apk was already downloaded, immediately go to Settings > Apps on your phone and Uninstall it."}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-paper-2 border border-ink/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-ink text-paper flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+                  <div>
+                    <div className="font-bold text-ink">
+                      {locale === "hi" ? "यदि खाते से पैसे कट गए हैं: 1930 पर तुरंत कॉल करें" : locale === "bn" ? "টাকা কেটে নেওয়া হলে: তৎক্ষণাৎ ১৯৩০ নম্বরে কল করুন" : "If Money Was Debited: Dial 1930 Within Golden Hour"}
+                    </div>
+                    <p className="text-ink-soft text-xs mt-0.5">
+                      {locale === "hi" ? "पुलिस व बैंक फ्रॉड डेस्क तुरंत जालसाज के खाते को फ्रीज कर सकते हैं।" : locale === "bn" ? "পুলিশ ও ব্যাংক ফ্রড সেল জালিয়াতদের অ্যাকাউন্ট দ্রুত ফ্রিজ করতে পারে।" : "Authorities can instantly freeze the fraudster's mule account before funds leave."}
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="tel:1930"
+                  className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shrink-0 inline-flex items-center gap-1.5 shadow-xs"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>{locale === "hi" ? "1930 डायल करें" : locale === "bn" ? "১৯৩০ ডায়াল করুন" : "Dial 1930"}</span>
+                </a>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-paper-2 border border-ink/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-ink text-paper flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+                  <div>
+                    <div className="font-bold text-ink">
+                      {locale === "hi" ? "संदिग्ध नंबर की रिपोर्ट चक्षु (संचार साथी) पर करें" : locale === "bn" ? "সন্দেহজনক নম্বর চক্ষু (সঞ্চার সাথী) পোর্টালে রিপোর্ট করুন" : "Report Fraud Number on DoT Chakshu Portal"}
+                    </div>
+                    <p className="text-ink-soft text-xs mt-0.5">
+                      {locale === "hi" ? "दूरसंचार विभाग इस फर्जी सिम और व्हाट्सएप अकाउंट को पूरे देश में ब्लॉक करेगा।" : locale === "bn" ? "টেলিকম বিভাগ এই জাল সিম নম্বর সারা দেশে ব্লক করবে।" : "Department of Telecom will deactivate the fraudulent SIM nationwide."}
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="https://sancharsaathi.gov.in/sfc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-xl bg-forest hover:bg-forest-dark text-paper font-bold text-xs shrink-0 inline-flex items-center gap-1.5 shadow-xs"
+                >
+                  <span>{locale === "hi" ? "चक्षु खोलें" : locale === "bn" ? "চক্ষু খুলুন" : "Open Chakshu"}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-paper-2 border border-ink/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-ink text-paper flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
+                  <div>
+                    <div className="font-bold text-ink">
+                      {locale === "hi" ? "गांव के व्हाट्सएप ग्रुप पर चेतावनी साझा करें" : locale === "bn" ? "গ্রামের হোয়াটসঅ্যাপ গ্রুপে সতর্কতা শেয়ার করুন" : "Warn Your Village & Family WhatsApp Group"}
+                    </div>
+                    <p className="text-ink-soft text-xs mt-0.5">
+                      {locale === "hi" ? "यह संदेश गांव के बुजुर्गों और किसानों को ठगी से बचाएगा।" : locale === "bn" ? "এই বার্তা গ্রামের কৃষক ও প্রবীণদের প্রতারণা থেকে রক্ষা করবে।" : "Prevents other villagers and elders from falling victim to this forward."}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  className="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shrink-0 inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
+                >
+                  <Share2 className="w-3.5 h-3.5" />
+                  <span>{locale === "hi" ? "व्हाट्सएप साझा करें" : locale === "bn" ? "শেয়ার করুন" : "Share Alert"}</span>
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Original Analyzed Content */}

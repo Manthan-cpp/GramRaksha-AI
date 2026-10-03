@@ -132,6 +132,45 @@ export function PocketCardView({ card, onReset, onSave, saved = false }: PocketC
         </div>
       )}
 
+      {/* Spoon-Fed Action Instructions */}
+      <div className="bg-paper rounded-2xl border border-ink/15 p-5 md:p-6 shadow-sm space-y-3">
+        <h3 className="font-display text-base md:text-lg text-ink font-bold flex items-center gap-2">
+          <span>📋</span>
+          <span>How to Use Your Offline Village Pocket Card</span>
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div className="p-3.5 rounded-xl bg-paper-2 border border-ink/10 space-y-1">
+            <div className="font-bold text-ink flex items-center gap-1.5">
+              <span className="w-5 h-5 rounded-full bg-nil text-paper flex items-center justify-center text-[10px] font-bold">1</span>
+              <span>Print or Slip into Wallet</span>
+            </div>
+            <p className="text-ink-soft leading-relaxed">
+              Click <strong>"Print Wallet Card"</strong> to print the standard card size. Cut along the border and slip it inside your phone case or pocket.
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-paper-2 border border-ink/10 space-y-1">
+            <div className="font-bold text-ink flex items-center gap-1.5">
+              <span className="w-5 h-5 rounded-full bg-nil text-paper flex items-center justify-center text-[10px] font-bold">2</span>
+              <span>1-Tap Phonebook Sync</span>
+            </div>
+            <p className="text-ink-soft leading-relaxed">
+              Click <strong>"Download .vcf"</strong> to instantly import all local emergency numbers (PHC, Police Thana, KVK, DAO) into your phone contacts without typing.
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-paper-2 border border-ink/10 space-y-1">
+            <div className="font-bold text-ink flex items-center gap-1.5">
+              <span className="w-5 h-5 rounded-full bg-nil text-paper flex items-center justify-center text-[10px] font-bold">3</span>
+              <span>Works with 0% Internet</span>
+            </div>
+            <p className="text-ink-soft leading-relaxed">
+              Cached locally in your browser memory. Access all emergency contacts anytime during rural power cuts or with zero cellular tower signal.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Interactive Wallet Card Preview */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">

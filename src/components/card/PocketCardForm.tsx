@@ -9,91 +9,25 @@ interface PocketCardFormProps {
   loading?: boolean;
 }
 
-interface Preset {
-  label: string;
-  badge: string;
-  data: VillagePocketCardRequest;
+interface PocketCardFormProps {
+  onSubmit: (request: VillagePocketCardRequest) => void;
+  loading?: boolean;
 }
 
-const PRESETS: Preset[] = [
-  {
-    label: "Varanasi (UP) — Babura (Pindra Block)",
-    badge: "⚡ Recorded Live Capture",
-    data: {
-      state: "Uttar Pradesh",
-      district: "Varanasi",
-      block: "Pindra",
-      village: "Babura",
-      pinCode: "221206",
-      panchayatPradhanName: "Shri Ramakant Patel",
-      pradhanPhone: "9839123456"
-    }
-  },
-  {
-    label: "Bharatpur (RJ) — Kumher (Mustard Belt)",
-    badge: "Rajasthan Calamity Hub",
-    data: {
-      state: "Rajasthan",
-      district: "Bharatpur",
-      block: "Kumher",
-      village: "Kumher Rural",
-      pinCode: "321201",
-      panchayatPradhanName: "Smt. Sharda Devi",
-      pradhanPhone: "9414234567"
-    }
-  },
-  {
-    label: "Bardhaman (WB) — Kalna (Paddy Zone)",
-    badge: "West Bengal Agri",
-    data: {
-      state: "West Bengal",
-      district: "Purba Bardhaman",
-      block: "Kalna",
-      village: "Dhatrigram",
-      pinCode: "713405",
-      panchayatPradhanName: "Shri Subhasish Ghosh",
-      pradhanPhone: "9732123456"
-    }
-  },
-  {
-    label: "Patna (BR) — Bihta Block",
-    badge: "Bihar Agri Hub",
-    data: {
-      state: "Bihar",
-      district: "Patna",
-      block: "Bihta",
-      village: "Katesar",
-      pinCode: "801103",
-      panchayatPradhanName: "Shri Dharmendra Yadav",
-      pradhanPhone: "9934123456"
-    }
-  }
-];
-
 export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProps) {
-  const [state, setState] = useState(PRESETS[0].data.state);
-  const [district, setDistrict] = useState(PRESETS[0].data.district);
-  const [block, setBlock] = useState(PRESETS[0].data.block);
-  const [village, setVillage] = useState(PRESETS[0].data.village);
-  const [pinCode, setPinCode] = useState(PRESETS[0].data.pinCode || "");
-  const [pradhanName, setPradhanName] = useState(PRESETS[0].data.panchayatPradhanName || "");
-  const [pradhanPhone, setPradhanPhone] = useState(PRESETS[0].data.pradhanPhone || "");
+  const [state, setState] = useState("");
+  const [district, setDistrict] = useState("");
+  const [block, setBlock] = useState("");
+  const [village, setVillage] = useState("");
+  const [pinCode, setPinCode] = useState("");
+  const [pradhanName, setPradhanName] = useState("");
+  const [pradhanPhone, setPradhanPhone] = useState("");
 
   const [mode, setModeState] = useState<"live" | "recorded">(() => getClientEvidenceMode());
 
   const handleModeChange = (newMode: "live" | "recorded") => {
     setClientEvidenceMode(newMode);
     setModeState(newMode);
-  };
-
-  const handleApplyPreset = (p: Preset) => {
-    setState(p.data.state);
-    setDistrict(p.data.district);
-    setBlock(p.data.block);
-    setVillage(p.data.village);
-    setPinCode(p.data.pinCode || "");
-    setPradhanName(p.data.panchayatPradhanName || "");
-    setPradhanPhone(p.data.pradhanPhone || "");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -113,42 +47,6 @@ export function PocketCardForm({ onSubmit, loading = false }: PocketCardFormProp
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
-      {/* Quick Test Presets */}
-      <div className="bg-paper-2 rounded-3xl border border-nil/20 p-5 shadow-xs">
-        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">⚡</span>
-            <span className="text-xs font-bold uppercase tracking-wider text-ink">
-              Quick Test Presets (Instant Demonstration)
-            </span>
-          </div>
-          <span className="text-[11px] text-ink-soft">Click any preset to pre-fill village location</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-          {PRESETS.map((p, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => handleApplyPreset(p)}
-              className="text-left p-3 rounded-2xl border border-ink/15 hover:border-nil bg-paper hover:bg-paper-2 transition-all group cursor-pointer shadow-2xs"
-            >
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-nil/15 text-nil truncate max-w-[120px]">
-                  {p.badge}
-                </span>
-                <span className="text-xs text-ink-soft group-hover:text-nil group-hover:translate-x-0.5 transition-transform font-bold">
-                  &rarr;
-                </span>
-              </div>
-              <div className="text-xs font-bold text-ink line-clamp-1">{p.label}</div>
-              <div className="text-[10px] text-ink-soft truncate mt-0.5">
-                {p.data.village}, {p.data.district}
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
 
       {/* Main Form */}
       <form onSubmit={handleSubmit} className="bg-paper rounded-3xl border border-ink/15 p-6 sm:p-8 shadow-sm space-y-5">
