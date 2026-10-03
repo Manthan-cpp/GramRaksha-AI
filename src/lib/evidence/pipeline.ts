@@ -26,6 +26,7 @@ import { buildAyushmanCashlessDecision } from "@/lib/medi/cashless-decision";
 import { buildSurakshaDecision } from "@/lib/suraksha/decision";
 import { buildFasalDecision } from "@/lib/fasal/decision";
 import { buildVillagePocketCard } from "@/lib/pocket-card/decision";
+import { buildPashuDecision } from "@/lib/pashu/decision";
 
 export type EvidenceEventSink = (event: EvidenceEvent) => void | Promise<void>;
 
@@ -293,6 +294,16 @@ export async function runEvidencePipeline(
         input.locale
       )
     : undefined;
+  const pashuInput = input.module === "pashu" ? input : undefined;
+  const pashuDecision = pashuInput
+    ? buildPashuDecision({
+        request: pashuInput,
+        evidence,
+        metrics,
+        warnings,
+        locale: input.locale
+      })
+    : undefined;
   if (
     evidence.length === 0 &&
     warnings.length > 0 &&
@@ -321,7 +332,8 @@ export async function runEvidencePipeline(
     surakshaDecision,
     fasalDecision,
     cashlessDecision,
-    pocketCard
+    pocketCard,
+    pashuDecision
   });
   await emit({
     type: "done",

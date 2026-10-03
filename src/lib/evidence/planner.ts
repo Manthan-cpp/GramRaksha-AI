@@ -336,6 +336,61 @@ export function planEvidence(input: EvidenceRunRequest, maxQueries: number = 6):
       purpose: "District Legal Services Authority free legal aid desk",
       requireOfficial: true
     });
+  } else if (input.module === "pashu") {
+    const animal = cleanQueryPart(input.animal);
+    const concern = cleanQueryPart(input.concern);
+    const state = cleanQueryPart(input.state);
+    const district = cleanQueryPart(input.district);
+
+    // 1. Official IVRI / ICAR / NDDB / DAHD Clinical Advisory
+    addQuery({
+      engine: "google",
+      query: `${quoted(animal)} ${quoted(concern)} treatment advisory first aid (site:ivri.nic.in OR site:nddb.coop OR site:icar.gov.in OR site:dahd.nic.in OR site:gov.in)`,
+      parameters: common,
+      purpose: "Official ICAR/IVRI veterinary clinical advisory and first-aid",
+      requireOfficial: true
+    });
+
+    // 2. Animal Husbandry Precautions and Symptoms
+    addQuery({
+      engine: "google",
+      query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} animal symptoms precautions remedies care (site:gov.in OR site:nic.in OR site:icar.org.in)`,
+      parameters: common,
+      purpose: "Veterinary health precautions and husbandry guidelines",
+      requireOfficial: true
+    });
+
+    // 3. Google Maps: Nearby Government Veterinary Hospital / Dispensary
+    addQuery({
+      engine: "google_maps",
+      query: `Government Veterinary Hospital Pashu Chikitsalaya dispensary ${district}`,
+      parameters: {
+        ...common,
+        location: `${district}, ${state}, India`,
+        type: "search",
+        z: "11"
+      },
+      purpose: "Nearby Government Veterinary Hospitals and Dispensaries",
+      requireOfficial: false
+    });
+
+    // 4. Google Search: 1962 Mobile Veterinary Unit Ambulance
+    addQuery({
+      engine: "google",
+      query: `1962 "Mobile Veterinary Unit" ambulance ${quoted(district)} ${quoted(state)} (site:gov.in OR site:nic.in)`,
+      parameters: common,
+      purpose: "District Mobile Veterinary Unit (1962) dispatch and animal helpline",
+      requireOfficial: true
+    });
+
+    // 5. YouTube: Practical audiovisual veterinary demonstration
+    addQuery({
+      engine: "youtube",
+      query: `${cleanQueryPart(animal)} ${cleanQueryPart(concern)} ilaj kisan advisory veterinary ICAR`,
+      parameters: common,
+      purpose: "Practical audiovisual veterinary demonstration for farmers",
+      requireOfficial: false
+    });
   }
 
   return queries.slice(0, Number.isFinite(maxQueries) ? Math.max(0, Math.floor(maxQueries)) : 0);

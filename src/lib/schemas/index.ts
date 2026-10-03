@@ -130,12 +130,24 @@ export const PocketCardEvidenceRequestSchema = EvidenceRequestBaseSchema.extend(
 }).strict();
 export type PocketCardEvidenceRequest = z.infer<typeof PocketCardEvidenceRequestSchema>;
 
+export const PashuEvidenceRequestSchema = EvidenceRequestBaseSchema.extend({
+  module: z.literal("pashu"),
+  animal: z.string().trim().min(1).max(80),
+  concern: z.string().trim().min(1).max(300),
+  state: z.string().trim().min(1).max(100),
+  district: z.string().trim().min(1).max(100),
+  farmerName: z.string().trim().max(100).optional(),
+  farmerPhone: z.string().trim().max(30).optional()
+}).strict();
+export type PashuEvidenceRequest = z.infer<typeof PashuEvidenceRequestSchema>;
+
 export const EvidenceRunRequestSchema = z.discriminatedUnion("module", [
   CropEvidenceRequestSchema,
   BillEvidenceRequestSchema,
   SurakshaEvidenceRequestSchema,
   FasalEvidenceRequestSchema,
-  PocketCardEvidenceRequestSchema
+  PocketCardEvidenceRequestSchema,
+  PashuEvidenceRequestSchema
 ]);
 export type EvidenceRunRequest = z.infer<typeof EvidenceRunRequestSchema>;
 
@@ -327,7 +339,8 @@ export const EvidenceEventSchema = z.discriminatedUnion("type", [
     surakshaDecision: z.lazy(() => SurakshaDecisionSchema).optional(),
     cashlessDecision: z.lazy(() => AyushmanCashlessDecisionSchema).optional(),
     fasalDecision: z.lazy(() => FasalDecisionSchema).optional(),
-    pocketCard: z.lazy(() => VillagePocketCardSchema).optional()
+    pocketCard: z.lazy(() => VillagePocketCardSchema).optional(),
+    pashuDecision: z.lazy(() => PashuDecisionSchema).optional()
   }),
   EvidenceEventBaseSchema.extend({
     type: z.literal("error"),
@@ -481,6 +494,54 @@ export const FasalDecisionSchema = z.object({
 });
 export type FasalDecision = z.infer<typeof FasalDecisionSchema>;
 
+export const PashuDecisionStepSchema = z.object({
+  id: z.string(),
+  stepNumber: z.number(),
+  title: z.string(),
+  instruction: z.string(),
+  explanation: z.string(),
+  isEmergency: z.boolean().default(false),
+  badge: z.string().optional()
+});
+export type PashuDecisionStep = z.infer<typeof PashuDecisionStepSchema>;
+
+export const PashuHospitalSchema = z.object({
+  name: z.string(),
+  address: z.string(),
+  phone: z.string().optional(),
+  mapsUrl: z.string(),
+  evidenceId: z.string().optional(),
+  isGovernment: z.boolean().default(true)
+});
+export type PashuHospital = z.infer<typeof PashuHospitalSchema>;
+
+export const PashuDecisionSchema = z.object({
+  status: z.enum(["emergency", "critical", "moderate", "routine_care"]),
+  animal: z.string(),
+  concern: z.string(),
+  detectedCondition: z.string(),
+  headline: z.string(),
+  summary: z.string(),
+  speechSummary: z.string(),
+  ambulanceHelpline: z.object({
+    number: z.string().default("1962"),
+    name: z.string().default("National Mobile Veterinary Unit (MVU) / Pashu Sanjeevani"),
+    kisanNumber: z.string().default("1800-180-1551"),
+    instructions: z.string()
+  }),
+  doNowSteps: z.array(PashuDecisionStepSchema),
+  neverDoWarnings: z.array(z.string()),
+  nearbyHospitals: z.array(PashuHospitalSchema),
+  sourceReferences: z.array(z.object({
+    title: z.string(),
+    url: z.string(),
+    publisher: z.string()
+  })),
+  dietAndCareTips: z.array(z.string()),
+  labels: z.record(z.string(), z.string()).default({})
+});
+export type PashuDecision = z.infer<typeof PashuDecisionSchema>;
+
 export const EvidenceRunResultSchema = z.object({
   mode: EvidenceModeSchema,
   evidence: z.array(EvidenceSchema),
@@ -492,7 +553,8 @@ export const EvidenceRunResultSchema = z.object({
   surakshaDecision: SurakshaDecisionSchema.optional(),
   fasalDecision: FasalDecisionSchema.optional(),
   cashlessDecision: AyushmanCashlessDecisionSchema.optional(),
-  pocketCard: VillagePocketCardSchema.optional()
+  pocketCard: VillagePocketCardSchema.optional(),
+  pashuDecision: PashuDecisionSchema.optional()
 });
 export type EvidenceRunResult = z.infer<typeof EvidenceRunResultSchema>;
 
@@ -519,7 +581,7 @@ export type Bill = z.infer<typeof BillSchema>;
 
 export const CaseSchema = z.object({
   id: z.string(),
-  module: z.enum(["krishi", "medi", "suraksha", "fasal", "pocket_card"]),
+  module: z.enum(["krishi", "medi", "suraksha", "fasal", "pocket_card", "pashu"]),
   createdAt: z.string(),
   payload: z.any(),
   locale: z.string()
