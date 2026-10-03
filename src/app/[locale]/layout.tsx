@@ -7,6 +7,7 @@ import { locales } from "@/i18n/request";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { OfflineBanner } from "@/components/shared/OfflineBanner";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "../globals.css";
 
 const fraunces = Fraunces({
@@ -64,14 +65,24 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${fraunces.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable} ${hindSiliguri.variable} ${notoSansDevanagari.variable}`}>
-      <body className="antialiased font-body bg-paper text-ink selection:bg-moss/20 selection:text-ink min-h-screen flex flex-col">
+      <body 
+        className="antialiased font-body text-ink selection:bg-moss/20 selection:text-ink min-h-screen flex flex-col relative"
+        style={{
+          backgroundImage: "url('/images/mud-wall-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed"
+        }}
+      >
         <NextIntlClientProvider messages={messages}>
-          <OfflineBanner />
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <SmoothScrollProvider>
+            <OfflineBanner />
+            <Navbar />
+            <main className="flex-1 w-full">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
     </html>

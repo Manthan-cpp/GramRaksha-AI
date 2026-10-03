@@ -29,26 +29,60 @@
 
 @layer base {
   :root {
-    --color-paper: #F5EFE3;
-    --color-paper-2: #EDE4D3;
-    --color-ink: #1B2A22;
-    --color-ink-soft: #46574C;
+    --color-paper: #FFFFFF;
+    --color-paper-2: #FFFDF7;
+    --color-ink: #3E2723;
+    --color-ink-soft: #5D4037;
     
-    --color-moss: #2F5D3A;
-    --color-moss-deep: #1F3D28;
+    --color-moss: #E0A526;
+    --color-moss-deep: #B7791F;
     --color-turmeric: #E0A526;
     
-    --color-nil: #2C3E7B;
-    --color-terracotta: #C4552D;
-    --color-earth: #2C3E7B;
-    --color-earth-dark: #1E2B58;
-    --color-crimson: #B3341F;
-    --color-gold: #E0A526;
+    --color-nil: #8D6E63;
+    --color-terracotta: #D84315;
+    --color-earth: #795548;
+    --color-earth-dark: #4E342E;
+    --color-crimson: #D84315;
+    --color-gold: #F5B041;
     
-    --color-status-ok: #3E7D4F;
-    --color-status-watch: #B7791F;
-    --color-status-alert: #B3341F;
-    --color-status-info: #2C3E7B;
+    --color-status-ok: #F5B041;
+    --color-status-watch: #D84315;
+    --color-status-alert: #B7791F;
+    --color-status-info: #8D6E63;
+  }
+
+  html, body {
+    max-width: 100vw;
+  }
+
+  /* Universal Scrollbar Hide (maintain full scrollability without right scrollbar) */
+  html, body, * {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+  }
+
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
+  }
+
+  /* Lenis smooth scroll */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 
   body {
@@ -62,6 +96,51 @@
 
 @layer utilities {
   .shadow-print {
-    box-shadow: 0 3px 0 rgba(27, 42, 34, 0.15);
+    box-shadow: 4px 4px 0 var(--color-ink);
+  }
+  
+  /* Hard offset brutalist shadow for content cards without overriding semantic border colors */
+  .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: 4px 4px 0 var(--color-ink);
+  }
+  
+  article, .brutalist-card {
+    box-shadow: 4px 4px 0 var(--color-ink);
+    border: 2px solid var(--color-ink);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Global brutalist hover effect for interactive cards */
+  a.brutalist-card:hover, button.brutalist-card:hover, .hover-brutalist:hover {
+    box-shadow: 2px 2px 0 var(--color-ink);
+    transform: translate(2px, 2px);
+  }
+
+  /* Glassmorphism for content cards over the mud wall background */
+  .bg-paper {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+  .bg-paper-2 {
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  /* Modals & Dialogs: Solid warm paper for 100% text contrast and readability over dark overlay */
+  [role="dialog"], [role="dialog"] .bg-paper, [role="dialog"] .bg-paper-2 {
+    background-color: #FFFDF7 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Print Styles: Pure crisp white for document and letter printing */
+  @media print {
+    body, [role="dialog"], .bg-paper, .bg-paper-2 {
+      background-color: #FFFFFF !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
   }
 }

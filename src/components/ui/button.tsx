@@ -12,14 +12,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center rounded-2xl font-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center rounded-lg font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50",
           {
-            "bg-moss text-paper hover:bg-moss-deep": variant === "primary",
-            "bg-paper-2 border-[1.5px] border-ink text-ink hover:bg-paper shadow-print": variant === "secondary",
-            "bg-transparent text-ink hover:bg-paper-2": variant === "quiet",
+            "bg-yellow-400 text-black border-2 border-black hover:bg-yellow-500 shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-[2px_2px_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]": variant === "primary",
+            "bg-white text-black border-2 border-black hover:bg-gray-100 shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-[2px_2px_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]": variant === "secondary",
+            "bg-transparent text-ink border-2 border-transparent hover:bg-ink/10 hover:text-ink": variant === "quiet",
             "h-12 px-6 py-2 text-base": size === "default",
             "h-14 px-8 py-4 text-lg": size === "big",
-            "h-9 px-3.5 py-1.5 text-xs rounded-xl": size === "sm",
+            "h-9 px-4 py-1.5 text-xs": size === "sm",
           },
           className
         )}
