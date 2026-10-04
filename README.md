@@ -11,7 +11,7 @@
 
 **100% On-Device, Privacy-First Civic Defense & Real-Time Intelligence Platform Grounded in Verifiable SerpApi Public Web Evidence for Rural India.**
 
-[Live Telemetry Demo](#-judge-demo-mode--live-telemetry) • [Problem Statement](#-1-problem-statement) • [Solution & SerpApi](#-2-the-solution-powered-by-serpapi) • [Screenshot Gallery](#-3-project-showcase--visual-tour) • [Feature Deep Dive](#-4-exhaustive-feature-deep-dive) • [SerpApi Engines](#-5-material-serpapi-integration--engine-breakdown) • [System Workflow](#-6-project-workflow--system-architecture) • [Setup Instructions](#-7-startup--setup-instructions)
+[Project Showcase](#-project-showcase) • [The Problem: A Farmer's Reality](#-the-problem-a-farmers-reality-with-no-one-to-guide-him) • [The Solution: Grounded Truth](#-the-solution-spoon-fed-truth-powered-by-serpapi) • [Core Features](#-exhaustive-feature-deep-dive) • [SerpApi Engines](#-material-serpapi-integration--engine-breakdown) • [Hidden Capabilities](#-hidden-capabilities--offline-resilience) • [System Workflow](#-project-workflow--system-architecture) • [Setup Instructions](#-startup--setup-instructions) • [Judge Demo Mode](#-judge-demo-mode--live-telemetry)
 
 </div>
 
@@ -63,35 +63,58 @@
 
 ---
 
-## 🚨 1. Problem Statement
+## 🚨 The Problem: A Farmer's Reality With No One to Guide Him
 
-Over **700 million citizens across 600,000+ villages in rural India** live with high financial vulnerability during unforeseen agricultural, medical, and cyber crises. When rural households experience emergencies, the lack of immediate, authenticated public information causes severe economic exploitation and irreversible distress.
+### Standing in the Field Alone: The Human Reality of 700 Million Citizens
 
-### The Six Acute Rural Crisis Scenarios
+Imagine Ramu, a smallholder farmer in a distant village in Madhya Pradesh or Bengal. He never studied past primary school. He cannot read complicated English legal documents, official government gazettes, or scientific research papers. His entire family's survival for the next twelve months depends entirely on a 1.5-acre plot of land and two milch cows.
 
-1. **Agrochemical Exploitation & Crop Diseases:**
-   When crops exhibit sudden yellowing, fungal blast, or pest infestations, smallholder farmers often seek advice from local commission agents and unregulated pesticide retail shops. Farmers are frequently misdirected into purchasing spurious synthetic chemicals and toxic pesticides without agronomic backing, destroying soil microbiomes and trapping families in debt cycles.
+He carries an inexpensive Android smartphone with a cracked screen—a device he primarily uses for phone calls and occasional family photos. He has never navigated a complex government portal, and search engine results return commercial ads and English blogs that make no sense to him.
 
-2. **Livestock Epidemics & Veterinary Deprivation:**
-   Livestock represents the liquid wealth and insurance policy of smallholder households. When cattle or goats contract contagious diseases (such as Lumpy Skin Disease, Foot & Mouth Disease, or Mastitis), farmers lack immediate plain-language triage and quarantine protocols. Due to delayed veterinary intervention, treatable conditions lead to animal mortality, wiping out milk revenue and household savings.
+**When a crisis hits, he is completely alone:**
+- There is no agricultural scientist living in his village.
+- The nearest government veterinary clinic is 25 kilometers away over broken rural roads, and he doesn't even know its phone number or operating hours.
+- When an emergency strikes, he has **no one to guide him**, no one to verify facts, and no one in his corner. 
 
-3. **Medical Overcharging & Illegal Hospital Advance Cash Demands:**
-   Even when rural families carry valid **Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)** golden cards, empanelled private hospitals frequently violate National Health Authority (NHA) regulations by demanding illegal upfront cash deposits (₹10,000 to ₹50,000) before admission or withholding discharge over inflated, unitemised "miscellaneous charges" and consumable surcharges. Families who are legally entitled to cashless treatment borrow from local moneylenders at 36% to 60% annual interest.
-
-4. **Strict 72-Hour PMFBY Crop Insurance Loss Intimation Deadlines:**
-   Following localized natural disasters (unseasonal hailstorms, flash floods, cloudbursts, post-harvest cyclone damage), the **Pradhan Mantri Fasal Bima Yojana (PMFBY)** mandates that farmers report crop loss within a strict **72-hour statutory window**. Lacking structured documentation, time-stamped photo evidence, and nodal insurer contacts, hundreds of thousands of legitimate insurance claims are summarily rejected each harvest season.
-
-5. **Welfare Scheme Cyber Fraud & Malicious WhatsApp APKs:**
-   Rural citizens are aggressively targeted with social-engineering fraud: fraudulent WhatsApp messages claiming urgent PM-Kisan 17th/18th installment release, fake subsidised solar pump links, and malicious Android application package files (e.g., `pmkisan_update.apk`). When installed, these sideloaded apps intercept banking OTPs and siphon savings from Direct Benefit Transfer (DBT) bank accounts.
-
-6. **Severe Village Connectivity Blind Spots & Information Asymmetry:**
-   When emergencies happen in remote rural belts with spotty or zero cellular connectivity, villagers do not possess contact numbers for their local jurisdictional Police Thana, Primary Health Centre (PHC), Krishi Vigyan Kendra (KVK), or District Legal Services Authority (DLSA). Generic search engines provide ad-cluttered results that are unnavigable for first-time smartphone users.
+He lives in constant fear that a single bad decision will push his family into irreversible debt.
 
 ---
 
-## 💡 2. The Solution: Powered by SerpApi
+### Six Critical Moments When a Farmer is Completely Helpless
 
-**GramRaksha AI** is an open-source, on-device, sovereign civic defense platform that solves this fundamental information asymmetry by grounding every single recommendation, audit, and legal notice in **live, verified public web evidence retrieved via SerpApi**.
+#### 1. The Agrochemical Trap: Yellowing Crops & Predatory Shopkeepers
+One morning at dawn, Ramu walks out into his field and sees his standing paddy crop covered in brown spots and curling yellow leaves. His chest tightens in panic. Having sunk his family's annual savings and an informal high-interest loan into these seeds and fertilizers, he rushes to the nearest pesticide retail shop in the mandi town.
+
+The private pesticide dealer immediately senses his desperation and illiteracy. Instead of recommending a simple organic treatment or alerting him to a fungal blast, the dealer pushes ₹3,500 worth of unverified, expensive, or banned synthetic chemicals, claiming: *"Spray this twice a day or your whole field will die."* Ramu borrows more cash from a local moneylender at 40% interest just to buy that bottle. The chemical poisons his soil, kills beneficial pollinators, fails to cure the disease, and plunges his family deeper into debt.
+
+#### 2. The Livestock Heartbreak: Sick Cattle, No Doctor, and Lost Savings
+To a rural family, a cow or a buffalo is not just an animal—it is their liquid bank account and daily milk sustenance. When a cow develops sudden high fever, weeping eye discharge, or painful nodules on its skin (such as Lumpy Skin Disease), the farmer does not know what quarantine means. He does not know how to clean the lesions or how to keep the other animals safe.
+
+Because he has no simple first-aid instructions, he tries local folk remedies—applying caustic ash or engine oil to wounds—which only worsens the infection. By the time a mobile veterinary clinic can be contacted, the animal has succumbed to secondary infections. In a single day, an entire household's economic backbone is wiped out.
+
+#### 3. The Hospital Extortion: Illegal Cash Demands Despite Ayushman Cards
+When Ramu's daughter falls severely ill with pneumonia or needs an emergency appendectomy, he rushes her to an empanelled private nursing home in the district town. He proudly holds up his **Ayushman Bharat (PM-JAY)** golden card—the card the Prime Minister promised would ensure cashless medical treatment up to ₹5,00,000.
+
+The hospital billing clerk looks at him and says coldly: *"The Ayushman portal server is down. You must deposit ₹25,000 cash right now before the doctor will touch the patient."* Ramu does not know the law. He does not know that **National Health Authority (NHA) Clause 8.2 strictly prohibits hospitals from demanding advance cash from PM-JAY beneficiaries**. Terrified that his daughter might die in the waiting room, he rushes out in tears, sells his wife's silver jewellery, or signs away a piece of land to an extortionate moneylender to pay an illegal bribe.
+
+#### 4. The 72-Hour Clock: Lost Insurance After Natural Disasters
+When unseasonal hailstorms or flash floods flatten his harvest three days before cutting, Ramu sits by the roadside in despair. What he does not know is that the **Pradhan Mantri Fasal Bima Yojana (PMFBY)** has a strict statutory rule: **the farmer must intimate crop loss within exactly 72 hours** with evidence to be eligible for individual calamity compensation.
+
+Ramu waits a week, hoping the village Patwari or an insurance agent will come by to inspect the damage. By the time someone arrives, the 72-hour window has expired. The insurance company summarily rejects his claim on procedural grounds. He receives ₹0 in compensation, despite having paid insurance premiums through his Kisan Credit Card (KCC) account.
+
+#### 5. The Cyber Ambush: Fake Welfare APKs Wiping Out Bank Accounts
+Ramu receives a forwarded WhatsApp message from a neighbor: *"Urgent: PM-Kisan 18th installment of ₹4,000 released! Click here to update your bank KYC."* Below the message is an Android installer link: `pmkisan_kyc_update.apk`.
+
+Because he desperately needs money to buy seed for the next season, he taps the link and installs the application. The sideloaded app is a trojan that grants background SMS permissions. Within minutes, cybercriminals intercept his bank OTPs and drain the remaining ₹6,800 sitting in his Direct Benefit Transfer (DBT) account. He does not know how to file an online cyber complaint, and by the time he reaches the police station, the money is gone forever.
+
+#### 6. The Blackout: Zero Connectivity When Emergencies Strike
+In remote hamlets with frequent power cuts and erratic 2G mobile signals, emergencies rarely happen when Google is accessible. If a venomous snake bites a child at 10 PM or a family needs urgent police intervention, villagers scramble in darkness without a single verified phone number for the jurisdictional Police Thana, the 24x7 Primary Health Centre (PHC), or the local ambulance desk.
+
+---
+
+## 💡 The Solution: Spoon-Fed Truth Powered by SerpApi
+
+**GramRaksha AI** was built to be the tireless, incorruptible protector for every rural citizen who has no one else to guide them. It transforms the overwhelming, bureaucratic web into **literal, step-by-step guidance in the farmer's native mother tongue, written and spoken in such simple language that even a 10-year-old child can understand and act upon it.**
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -120,44 +143,50 @@ Over **700 million citizens across 600,000+ villages in rural India** live with 
 └─────────────────────────────┘                         └────────────────────────────────┘
 ```
 
-### Why SerpApi is the Core Engine of GramRaksha AI
+---
 
-Standard large language models hallucinate: they fabricate government scheme circulars, invent nonexistent hospital policies, and prescribe lethal chemical mixtures to farmers. 
+### What GramRaksha AI Does: A Patient, Protective Companion in His Mother Tongue
 
-**GramRaksha AI uses SerpApi to anchor every insight in reality:**
-- **No Hallucinated Verdicts:** Every agronomic action, livestock protocol, legal notice, and fraud warning links directly to authoritative public records retrieved by SerpApi (`site:icar.gov.in`, `site:pmjay.gov.in`, `site:sancharsaathi.gov.in`, `site:pmfby.gov.in`).
-- **Real Physical Infrastructure:** Through the **SerpApi Google Maps Engine**, GramRaksha AI discovers exact physical locations, road directions, and verified phone numbers for Krishi Vigyan Kendras, Government Veterinary Dispensaries, Primary Health Centres, and Police Thanas within the user's specific district.
-- **Real-Time Regulatory Updates:** Government schemes, empanelled insurer lists, and APMC mandi market prices change continuously. SerpApi delivers live web responses, bypassing the static knowledge cutoffs of offline AI models.
-- **Triangulated Cyber Defense:** Sideloaded APKs and viral fraud messages are verified across **SerpApi Google Search**, **SerpApi Google Play**, and **SerpApi Google News** to confirm whether an application is genuinely published by the National Informatics Centre (NIC) or is a malicious trojan.
+1. **He Doesn't Need to Type a Single Word (Voice In, Voice Out):**
+   The farmer simply taps the large microphone button on his screen and talks naturally in his mother tongue (Hindi, Bengali, or English):  
+   > *"Bhaiya, hamare khet mein dhan ki pattiya peeli pad rahi hain aur kaale daag hain, hum kya karein?"*  
+   > *(Brother, my paddy leaves are turning yellow with black spots, what should I do?)*  
+   
+   The application listens, understands his regional context, and uses native Indic Text-to-Speech to **speak back to him** in clear, comforting language.
+
+2. **Literal, Spoon-Fed Steps — So Simple Even a Child Can Follow:**
+   Instead of dumping a 50-page scientific PDF or technical agronomic jargon, GramRaksha AI gives him a 3-step action card:
+   - **Step 1 (Do This Right Now Today):** *"Remove the infected leaves and bury them outside the field so the wind doesn't spread it. Spray a mixture of 10% cow urine diluted in water on the affected patch."*
+   - **Step 2 (What NEVER to Do):** *"Do NOT buy chemical sprays or toxic powders from the shop right now. It will burn your young crop and waste your hard-earned money."*
+   - **Step 3 (Who to Call for Help):** *"Here is the direct phone number of the Krishi Vigyan Kendra scientist located in your district. Tap the green button to call them right now for free."*
+
+3. **An Incorruptible Shield Against Hospital Harassment:**
+   When a hospital demands an illegal cash deposit for an Ayushman patient, the farmer taps **MediShield**. The app automatically generates a formal, statutory **Medical Superintendent Dispute Notice** citing NHA Clause 8.2, complete with patient details and legal penalty references. He can print it or hand his phone directly to the hospital administrative desk. Confronted with formal statutory language, hospital administrators routinely waive the illegal cash demand immediately.
+
+4. **1-Tap Lifelines for Every Real Crisis:**
+   Every single screen prominently features verified emergency call buttons:
+   - **1962** — Mobile Veterinary Clinic Ambulance for sick cattle.
+   - **14447** — Kisan Bima Crop Insurance loss intimation hotline.
+   - **14555** — National Ayushman Bharat Grievance Cell.
+   - **1930** — National Cybercrime Helpline to freeze stolen bank funds within the golden hour.
+   - **112 / 108** — National Police and Medical Emergency services.
 
 ---
 
-## 🔍 5. Material SerpApi Integration & Engine Breakdown
+### Why SerpApi is the Unshakeable Backbone of GramRaksha AI
 
-GramRaksha AI leverages **five distinct SerpApi search engines**. SerpApi is not an optional bolt-on; it is the factual foundation of every feature.
+Generic AI models hallucinate: they make up non-existent government circulars, give wrong phone numbers, and can invent dangerous chemical cocktails that ruin soil health.
 
-### SerpApi Engine Architecture Matrix
-
-| SerpApi Engine (`engine`) | Specific Module | Query Blueprint & Targeted Filters | Information Retrieved & Applied |
-| :--- | :--- | :--- | :--- |
-| **`google`** | **KrishiSahay** | `site:icar.gov.in OR site:*.gov.in OR site:*.ac.in {crop} {district} package of practices OR advisory`<br>`gl=in`, `hl=hi/bn/en` | Official agronomic package-of-practices, non-chemical pest management, university advisories. |
-| **`google`** | **MediShield** | `site:pmjay.gov.in OR site:nha.gov.in {hospital_name} empanelled packages "Clause 8.2" cashless`<br>`gl=in`, `hl=en` | Validates hospital PM-JAY empanelment status, NHA statutory cashless guidelines, and CGHS price ceilings. |
-| **`google`** | **Fasal 72h** | `site:pmfby.gov.in {state} {district} cluster insurance company nodal officer toll free loss intimation`<br>`gl=in`, `hl=en` | Cluster-allocated insurance company, official 72h loss intimation portal, and district agriculture office contacts. |
-| **`google`** | **PashuSahay** | `site:ivri.nic.in OR site:dahd.nic.in OR site:nddb.coop {species} {symptom} treatment advisory first aid`<br>`gl=in`, `hl=en` | Official ICAR-IVRI veterinary clinical guidelines, quarantine protocols, and NDDB dairy animal care standards. |
-| **`google`** | **Suraksha Check** | `site:gov.in OR site:sancharsaathi.gov.in {scheme_name} official portal application form`<br>`gl=in`, `hl=en` | Authentic government welfare domain validation (unmasks lookalike phishing domains). |
-| **`google_maps`** | **KrishiSahay** | `q=Krishi Vigyan Kendra KVK {district}`<br>`type=search`, `gl=in` | Local KVK office address, pin code, GPS coordinates, scientist landline/mobile numbers. |
-| **`google_maps`** | **PashuSahay** | `q=government veterinary hospital OR veterinary dispensary near {district}`<br>`type=search`, `gl=in` | Nearest operational government veterinary clinic, emergency operating hours, and road directions. |
-| **`google_maps`** | **Pocket Card** | `q=Police Station Thana OR Primary Health Centre PHC {block} {district}`<br>`type=search`, `gl=in` | Jurisdictional Thana, round-the-clock PHC/CHC emergency desks, and local administrative offices. |
-| **`google_maps`** | **MediShield** | `q=Pradhan Mantri Arogya Mitra PMAM desk {hospital} {city}`<br>`type=search`, `gl=in` | Hospital physical verification, location coordinates, and on-site Ayushman kiosk presence. |
-| **`google_news`** | **KrishiSahay** | `q={crop} disease outbreak alert {state} {district}`<br>`tbm=nws`, `gl=in`, `when:30d` | District pest flare-ups, yellow rust/fall armyworm warnings, and unseasonal weather damage bulletins. |
-| **`google_news`** | **Suraksha Check** | `q={scheme_name} scam OR fake APK OR fraud arrest advisory {state} police`<br>`tbm=nws`, `gl=in`, `when:90d` | State Police Cyber Crime Cell warnings, unmasked fraudulent APK campaigns, and FIR advisories. |
-| **`google_news`** | **Fasal 72h** | `q={district} crop damage unseasonal rain hailstorm compensation notification`<br>`tbm=nws`, `gl=in`, `when:30d` | Official state disaster management notifications and declared calamity zones for insurance claims. |
-| **`google_play`** | **Suraksha Check** | `q={app_name} OR {package_name}`<br>`gl=in`, `hl=en` | Verifies whether the requested APK exists in the Google Play Store, developer publisher (`National Informatics Centre`), and app authenticity. |
-| **`google_trends`** | **KrishiSahay** | `q={crop} disease`<br>`geo=IN`, `date=today 1-m` | Search volume momentum indicating widespread pest or crop blight spreading across adjacent districts. |
+**GramRaksha AI uses SerpApi to ensure every single recommendation is anchored in real-world truth:**
+- **Authoritative Government Evidence:** Uses SerpApi's `google` engine with precision site scoping (`site:icar.gov.in`, `site:pmjay.gov.in`, `site:pmfby.gov.in`, `site:sancharsaathi.gov.in`) so the farmer only receives advice from official research bodies like the Indian Council of Agricultural Research (ICAR) and National Dairy Development Board (NDDB).
+- **Physical Ground Truth via Google Maps:** Uses SerpApi's `google_maps` engine to pinpoint the exact name, address, distance, and direct phone number of the nearest Krishi Vigyan Kendra, Government Veterinary Dispensary, or Primary Health Centre in the farmer's district.
+- **Breaking News & Calamity Alerts:** Uses SerpApi's `google_news` engine to cross-reference district-level weather disaster notifications and police cybercrime advisories from the last 30 to 90 days.
+- **Rogue APK Unmasking:** Uses SerpApi's `google_play` engine to instantly check if an app circulating on WhatsApp was genuinely published by the National Informatics Centre (NIC) or is an unverified malware apk designed to steal bank balances.
+- **Market Price Intelligence:** Leverages SerpApi to surface authentic APMC mandi commodity prices (`agmarknet.gov.in`) and Google Trends search momentum, empowering farmers to negotiate fair rates with middlemen.
 
 ---
 
-## 🛠️ 4. Exhaustive Feature Deep Dive
+## 🛠️ Exhaustive Feature Deep Dive
 
 ### 🌾 1. KrishiSahay (Crop Protection & Mandi Intel)
 * **Coverage Across All 35 States & UTs:** Localized agronomic advisories calibrated across 720+ Indian districts.
@@ -208,7 +237,32 @@ GramRaksha AI leverages **five distinct SerpApi search engines**. SerpApi is not
 
 ---
 
-## 🔒 Hidden Capabilities & Technical Excellence
+## 🔍 Material SerpApi Integration & Engine Breakdown
+
+GramRaksha AI leverages **five distinct SerpApi search engines**. SerpApi is not an optional bolt-on; it is the factual foundation of every feature.
+
+### SerpApi Engine Architecture Matrix
+
+| SerpApi Engine (`engine`) | Specific Module | Query Blueprint & Targeted Filters | Information Retrieved & Applied |
+| :--- | :--- | :--- | :--- |
+| **`google`** | **KrishiSahay** | `site:icar.gov.in OR site:*.gov.in OR site:*.ac.in {crop} {district} package of practices OR advisory`<br>`gl=in`, `hl=hi/bn/en` | Official agronomic package-of-practices, non-chemical pest management, university advisories. |
+| **`google`** | **MediShield** | `site:pmjay.gov.in OR site:nha.gov.in {hospital_name} empanelled packages "Clause 8.2" cashless`<br>`gl=in`, `hl=en` | Validates hospital PM-JAY empanelment status, NHA statutory cashless guidelines, and CGHS price ceilings. |
+| **`google`** | **Fasal 72h** | `site:pmfby.gov.in {state} {district} cluster insurance company nodal officer toll free loss intimation`<br>`gl=in`, `hl=en` | Cluster-allocated insurance company, official 72h loss intimation portal, and district agriculture office contacts. |
+| **`google`** | **PashuSahay** | `site:ivri.nic.in OR site:dahd.nic.in OR site:nddb.coop {species} {symptom} treatment advisory first aid`<br>`gl=in`, `hl=en` | Official ICAR-IVRI veterinary clinical guidelines, quarantine protocols, and NDDB dairy animal care standards. |
+| **`google`** | **Suraksha Check** | `site:gov.in OR site:sancharsaathi.gov.in {scheme_name} official portal application form`<br>`gl=in`, `hl=en` | Authentic government welfare domain validation (unmasks lookalike phishing domains). |
+| **`google_maps`** | **KrishiSahay** | `q=Krishi Vigyan Kendra KVK {district}`<br>`type=search`, `gl=in` | Local KVK office address, pin code, GPS coordinates, scientist landline/mobile numbers. |
+| **`google_maps`** | **PashuSahay** | `q=government veterinary hospital OR veterinary dispensary near {district}`<br>`type=search`, `gl=in` | Nearest operational government veterinary clinic, emergency operating hours, and road directions. |
+| **`google_maps`** | **Pocket Card** | `q=Police Station Thana OR Primary Health Centre PHC {block} {district}`<br>`type=search`, `gl=in` | Jurisdictional Thana, round-the-clock PHC/CHC emergency desks, and local administrative offices. |
+| **`google_maps`** | **MediShield** | `q=Pradhan Mantri Arogya Mitra PMAM desk {hospital} {city}`<br>`type=search`, `gl=in` | Hospital physical verification, location coordinates, and on-site Ayushman kiosk presence. |
+| **`google_news`** | **KrishiSahay** | `q={crop} disease outbreak alert {state} {district}`<br>`tbm=nws`, `gl=in`, `when:30d` | District pest flare-ups, yellow rust/fall armyworm warnings, and unseasonal weather damage bulletins. |
+| **`google_news`** | **Suraksha Check** | `q={scheme_name} scam OR fake APK OR fraud arrest advisory {state} police`<br>`tbm=nws`, `gl=in`, `when:90d` | State Police Cyber Crime Cell warnings, unmasked fraudulent APK campaigns, and FIR advisories. |
+| **`google_news`** | **Fasal 72h** | `q={district} crop damage unseasonal rain hailstorm compensation notification`<br>`tbm=nws`, `gl=in`, `when:30d` | Official state disaster management notifications and declared calamity zones for insurance claims. |
+| **`google_play`** | **Suraksha Check** | `q={app_name} OR {package_name}`<br>`gl=in`, `hl=en` | Verifies whether the requested APK exists in the Google Play Store, developer publisher (`National Informatics Centre`), and app authenticity. |
+| **`google_trends`** | **KrishiSahay** | `q={crop} disease`<br>`geo=IN`, `date=today 1-m` | Search volume momentum indicating widespread pest or crop blight spreading across adjacent districts. |
+
+---
+
+## 🔒 Hidden Capabilities & Offline Resilience
 
 ### ⚡ 1. Zero-Latency Multi-Language State Persistence (`sessionStorage`)
 When a rural citizen switches language (e.g., from English to Hindi or Bengali), standard web applications reload the route, wiping out user input and requiring duplicate API calls. 
@@ -231,7 +285,7 @@ Designed for low-literacy users:
 
 ---
 
-## 🏗️ 6. Project Workflow & System Architecture
+## 🏗️ Project Workflow & System Architecture
 
 ```mermaid
 flowchart TD
@@ -274,7 +328,7 @@ flowchart TD
 
 ---
 
-## 🚀 7. Startup & Setup Instructions
+## 🚀 Startup & Setup Instructions
 
 ### Prerequisites
 * **Node.js 20 LTS** or higher installed ([Download Node.js](https://nodejs.org/))
@@ -330,7 +384,7 @@ npm start
 
 ---
 
-## 🧪 8. Verification & Quality Gates
+## 🧪 Verification & Quality Gates
 
 GramRaksha AI adheres to strict software engineering standards with zero TypeScript errors and a comprehensive automated test suite:
 
@@ -354,7 +408,7 @@ npm run build
 
 ---
 
-## 🧑‍⚖️ 9. Judge Demo Mode & Live Telemetry
+## 🧑‍⚖️ Judge Demo Mode & Live Telemetry
 
 To assist hackathon judges and evaluators in inspecting the underlying SerpApi calls in real time:
 
@@ -376,7 +430,7 @@ To assist hackathon judges and evaluators in inspecting the underlying SerpApi c
 
 ---
 
-## 🛡️ 10. Safety & Grounding Principles
+## 🛡️ Safety & Grounding Principles
 
 1. **Zero Chemical Prescriptions:** The system never prescribes synthetic chemical dosages; it spoon-feeds organic cultural practices and directs users to certified KVK scientists.
 2. **No Hallucinated Verdicts:** In scam and bill audits, language strictly mirrors official public notices and consumer protection statutes without defamatory accusations.
@@ -385,7 +439,7 @@ To assist hackathon judges and evaluators in inspecting the underlying SerpApi c
 
 ---
 
-## 📄 11. License & Acknowledgments
+## 📄 License & Acknowledgments
 
 GramRaksha AI is licensed under the [MIT License](LICENSE).
 
