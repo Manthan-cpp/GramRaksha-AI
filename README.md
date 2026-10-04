@@ -11,7 +11,7 @@
 
 **100% On-Device, Privacy-First Civic Defense & Real-Time Intelligence Platform Grounded in Verifiable SerpApi Public Web Evidence for Rural India.**
 
-[Project Showcase](#-project-showcase) • [The Problem: A Farmer's Reality](#-the-problem-a-farmers-reality-with-no-one-to-guide-him) • [The Solution: Grounded Truth](#-the-solution-spoon-fed-truth-powered-by-serpapi) • [Core Features](#-exhaustive-feature-deep-dive) • [SerpApi Engines](#-material-serpapi-integration--engine-breakdown) • [Hidden Capabilities](#-hidden-capabilities--offline-resilience) • [System Workflow](#-project-workflow--system-architecture) • [Setup Instructions](#-startup--setup-instructions) • [Judge Demo Mode](#-judge-demo-mode--live-telemetry)
+[Project Showcase](#-project-showcase) • [The Problem: A Farmer's Reality](#-the-problem-a-farmers-reality-with-no-one-to-guide-him) • [The Solution: Grounded Truth](#-the-solution-spoon-fed-truth-powered-by-serpapi) • [Target Users](#-target-users--beneficiaries) • [Core Features](#-exhaustive-feature-deep-dive) • [SerpApi Engines](#-material-serpapi-integration--engine-breakdown) • [Hidden Capabilities](#-hidden-capabilities--offline-resilience) • [System Workflow](#-project-workflow--system-architecture) • [Setup Instructions](#-startup--setup-instructions) • [Judge Demo Mode](#-judge-demo-mode--live-telemetry)
 
 </div>
 
@@ -183,6 +183,22 @@ Generic AI models hallucinate: they make up non-existent government circulars, g
 - **Breaking News & Calamity Alerts:** Uses SerpApi's `google_news` engine to cross-reference district-level weather disaster notifications and police cybercrime advisories from the last 30 to 90 days.
 - **Rogue APK Unmasking:** Uses SerpApi's `google_play` engine to instantly check if an app circulating on WhatsApp was genuinely published by the National Informatics Centre (NIC) or is an unverified malware apk designed to steal bank balances.
 - **Market Price Intelligence:** Leverages SerpApi to surface authentic APMC mandi commodity prices (`agmarknet.gov.in`) and Google Trends search momentum, empowering farmers to negotiate fair rates with middlemen.
+
+---
+
+## 👥 Target Users & Beneficiaries
+
+GramRaksha AI is engineered to protect and empower vulnerable communities across rural and semi-urban India who face acute information asymmetry and lack institutional guidance:
+
+| User Persona | Typical Profile & Core Pain Points | How GramRaksha AI Empowers Them |
+| :--- | :--- | :--- |
+| **🌾 Smallholder & Marginal Farmers** | Operates 0.5 to 2 acres of land; semi-literate or illiterate; speaks regional dialects (Hindi, Bengali, etc.); lacks direct access to agricultural scientists; routinely exploited by private pesticide dealers. | Voice-dictated crop triage in their native mother tongue; step-by-step non-chemical treatment; live APMC mandi prices; direct 1-tap call to district KVK scientists (**1551**). |
+| **🐄 Rural Livestock & Dairy Keepers** | Rural families whose liquid wealth and daily livelihood depend on cattle, buffaloes, goats, or poultry; vulnerable to sudden epidemics (Lumpy Skin Disease, Mastitis). | Plain-language first-aid and quarantine protocols that even a child can follow; what NEVER to do warnings; 1-tap dialer for **1962** Mobile Veterinary Clinics and nearest government animal dispensaries via Google Maps. |
+| **🏥 Ayushman Bharat (PM-JAY) Beneficiaries** | Impoverished patients and families holding golden cards who face illegal upfront cash demands or inflated, unitemised private hospital discharge bills. | Deterministic line-item arithmetic audit; benchmarking against CGHS rate ceilings; instant auto-generation of formal statutory **NHA Clause 8.2 Dispute Notices** to challenge hospital administration on the spot. |
+| **⏱️ Calamity-Hit Farmers (PMFBY Insured)** | Farmers suffering crop loss from localized hailstorms, flash floods, or unseasonal rains facing the strict, unforgiving statutory 72-hour intimation deadline. | Real-time countdown timer; geotagged/timestamped photo evidence logging; formal loss intimation packet generator ready for DAO and cluster insurer submission; 1-tap **14447** Kisan Bima hotline. |
+| **🛡️ First-Time Smartphone & Internet Users** | Rural citizens frequently targeted by deceptive WhatsApp forwards, fake welfare APKs (`pmkisan_update.apk`), electricity cutoff threats, and upfront fee scams. | Multi-engine threat triangulation via SerpApi Google Play & Google News to unmask rogue APKs; direct 1-tap reporting via **Chakshu (Sanchar Saathi)** and the **1930** Cybercrime Helpline; shareable village warning cards. |
+| **🏛️ Panchayat Pradhans & Village Youth Volunteers** | Village Sarpanches, Gram Rozgar Sahayaks, and local youth who act as civic first-responders for elderly and illiterate neighbors. | Generates printable CR80 wallet-sized emergency cards; exportable vCard (.vcf) village directories; WhatsApp-ready advisory broadcasts to protect entire village clusters. |
+| **💻 Common Service Centre (CSC) Operators & VLEs** | Village Level Entrepreneurs running rural digital service kiosks who assist hundreds of citizens with government scheme paperwork. | Serves as an unshakeable, verified reference tool to cross-examine hospital bills, verify official scheme domains (`site:gov.in`), and prepare dispute documentation with zero hallucinations. |
 
 ---
 
