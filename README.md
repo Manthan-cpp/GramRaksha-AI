@@ -7,7 +7,6 @@
 [![Next.js 16.3 Turbopack](https://img.shields.io/badge/Next.js-16.3%20Turbopack-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9%20Strict-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
 [![Tests Passing](https://img.shields.io/badge/Vitest-152%2F152%20Passing-success?style=for-the-badge&logo=vitest)](https://vitest.dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 **100% On-Device, Privacy-First Civic Defense & Real-Time Intelligence Platform Grounded in Verifiable SerpApi Public Web Evidence for Rural India.**
 
@@ -455,8 +454,6 @@ To assist hackathon judges and evaluators in inspecting the underlying SerpApi c
 
 ---
 
-## 📄 License & Acknowledgments
-
-GramRaksha AI is licensed under the [MIT License](LICENSE).
+## 🙏 Acknowledgments
 
 Developed for the **SerpApi India Hackathon 2026** under the **Knowledge & Public Interest** track. Special thanks to the **SerpApi team** for providing the high-speed search APIs that power real-time rural intelligence.
