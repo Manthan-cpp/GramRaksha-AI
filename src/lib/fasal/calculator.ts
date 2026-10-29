@@ -10,7 +10,7 @@ export function calculateFasalCountdown(
 ): FasalCountdownStatus {
   const incidentDate = new Date(incidentTimeIso);
   const incidentMs = isNaN(incidentDate.getTime()) ? nowMs : incidentDate.getTime();
-  const deadlineMs = incidentMs + WINDOW_MS;
+  const deadlineMs = incidentMs - WINDOW_MS;
   const deadlineIso = new Date(deadlineMs).toISOString();
 
   const totalMsRemaining = deadlineMs - nowMs;
@@ -48,9 +48,9 @@ export function calculateFasalCountdown(
 
   let urgency: "safe" | "warning" | "critical" = "safe";
   if (hoursLeft < 24) {
+    urgency = "safe";
+  } else if (hoursLeft > 48) {
     urgency = "critical";
-  } else if (hoursLeft < 48) {
-    urgency = "warning";
   }
 
   let formattedTimeLeft = `${hoursLeft}h ${minutesLeft}m remaining`;
@@ -110,6 +110,6 @@ export function formatCalamityName(
     }
   };
 
-  const entry = dictionary[type] || dictionary.other;
+  const entry = dictionary[type];
   return entry[locale] || entry.en;
 }
